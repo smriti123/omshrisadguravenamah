@@ -1,9 +1,29 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import photo1 from "@/assets/gallery/photo-1.jpg";
+import photo2 from "@/assets/gallery/photo-2.jpg";
+import photo3 from "@/assets/gallery/photo-3.jpg";
+import photo4 from "@/assets/gallery/photo-4.jpg";
+import photo5 from "@/assets/gallery/photo-5.jpg";
+import photo6 from "@/assets/gallery/photo-6.jpg";
+import photo7 from "@/assets/gallery/photo-7.jpg";
+import photo8 from "@/assets/gallery/photo-8.jpg";
+import photo9 from "@/assets/gallery/photo-9.jpg";
+import photo10 from "@/assets/gallery/photo-10.jpg";
+import photo11 from "@/assets/gallery/photo-11.jpg";
 
 const galleryPhotos = [
   { id: 1, src: photo1, caption: "Gurudev with devotees" },
+  { id: 2, src: photo2, caption: "Gurudev delivering discourse" },
+  { id: 3, src: photo3, caption: "Gurudev - a divine portrait" },
+  { id: 4, src: photo4, caption: "Gurudev in the Himalayas" },
+  { id: 5, src: photo5, caption: "Gurudev smiling" },
+  { id: 6, src: photo6, caption: "Gurudev in contemplation" },
+  { id: 7, src: photo7, caption: "Gurudev radiating joy" },
+  { id: 8, src: photo8, caption: "Gurudev with garland" },
+  { id: 9, src: photo9, caption: "Gurudev in meditation" },
+  { id: 10, src: photo10, caption: "Gurudev in the mountains" },
+  { id: 11, src: photo11, caption: "Gurudev at sunset" },
 ];
 
 const PhotoGallery = () => {
