@@ -35,7 +35,7 @@ const PhotoGallery = () => {
           subtitle="Cherished moments captured in the divine presence of Gurudev"
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
           {galleryPhotos.map((photo, i) => (
             <motion.div
               key={photo.id}
@@ -43,10 +43,10 @@ const PhotoGallery = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-card border border-gold/20 shadow-gold cursor-pointer"
+              className="group relative rounded-xl overflow-hidden bg-card border border-gold/20 shadow-gold cursor-pointer break-inside-avoid"
             >
-              <img src={photo.src} alt={photo.caption} className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-warm-brown/70 z-10" />
+              <img src={photo.src} alt={photo.caption} className="w-full h-auto block" />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-warm-brown/70 z-10 opacity-0 group-hover:opacity-100 transition-opacity" />
               <p className="absolute bottom-4 left-4 right-4 text-cream font-body text-sm z-20 opacity-0 group-hover:opacity-100 transition-opacity">
                 {photo.caption}
               </p>
