@@ -1,13 +1,9 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
+import photo1 from "@/assets/gallery/photo-1.jpg";
 
-const placeholderPhotos = [
-  { id: 1, caption: "Gurudev in meditation" },
-  { id: 2, caption: "Blessing devotees" },
-  { id: 3, caption: "Satsang gathering" },
-  { id: 4, caption: "Morning prayers" },
-  { id: 5, caption: "With disciples" },
-  { id: 6, caption: "At the ashram" },
+const galleryPhotos = [
+  { id: 1, src: photo1, caption: "Gurudev with devotees" },
 ];
 
 const PhotoGallery = () => {
