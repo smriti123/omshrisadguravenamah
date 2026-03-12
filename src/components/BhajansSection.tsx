@@ -3,7 +3,7 @@ import { Music, ExternalLink } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 
 const bhajans = [
-  { title: "Om Namah Shivaya", youtubeUrl: "#" },
+  { title: "श्री कृष्ण गोविन्द हरे मुरारे", youtubeUrl: "https://www.youtube.com/watch?v=JCFpv5ueKPE&list=PLPZZ4rJCboBXg6K2w_2v6_0kqlcYhmjVO&index=4" },
   { title: "Hare Krishna Mahamantra", youtubeUrl: "#" },
   { title: "Guru Vandana", youtubeUrl: "#" },
   { title: "Raghupati Raghav Raja Ram", youtubeUrl: "#" },
