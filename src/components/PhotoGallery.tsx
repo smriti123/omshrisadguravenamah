@@ -1,4 +1,6 @@
-import { motion } from "framer-motion";
+import { useState, useCallback, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import photo1 from "@/assets/gallery/photo-1.jpg";
 import photo2 from "@/assets/gallery/photo-2.jpg";
@@ -23,30 +25,48 @@ import photo20 from "@/assets/gallery/photo-20.jpg";
 import photo21 from "@/assets/gallery/photo-21.jpg";
 
 const galleryPhotos = [
-  { id: 1, src: photo1, caption: "Gurudev with devotees" },
-  { id: 2, src: photo2, caption: "Gurudev delivering discourse" },
-  { id: 3, src: photo3, caption: "Gurudev - a divine portrait" },
-  { id: 4, src: photo4, caption: "Gurudev in the Himalayas" },
-  { id: 5, src: photo5, caption: "Gurudev smiling" },
-  { id: 6, src: photo6, caption: "Gurudev in contemplation" },
-  { id: 7, src: photo7, caption: "Gurudev radiating joy" },
-  { id: 8, src: photo8, caption: "Gurudev with garland" },
-  { id: 9, src: photo9, caption: "Gurudev in meditation" },
-  { id: 10, src: photo10, caption: "Gurudev in the mountains" },
-  { id: 11, src: photo11, caption: "Gurudev at sunset" },
-  { id: 12, src: photo12, caption: "ॐ संत प्रियाय नमः" },
-  { id: 13, src: photo13, caption: "ॐ तीर्थ स्वरूपाय नमः" },
-  { id: 14, src: photo14, caption: "Gurudev - divine smile" },
-  { id: 15, src: photo15, caption: "Gurudev in bliss" },
-  { id: 16, src: photo16, caption: "Gurudev at sacred ceremony" },
-  { id: 17, src: photo17, caption: "Gurudev with saints" },
-  { id: 18, src: photo18, caption: "Gurudev - radiant presence" },
-  { id: 19, src: photo19, caption: "ॐ धेनु प्रियाय नमः" },
-  { id: 20, src: photo20, caption: "Gurudev delivering pravachan" },
-  { id: 21, src: photo21, caption: "Gurudev's sacred lotus feet" },
+  photo1, photo2, photo3, photo4, photo5, photo6, photo7,
+  photo8, photo9, photo10, photo11, photo12, photo13, photo14,
+  photo15, photo16, photo17, photo18, photo19, photo20, photo21,
 ];
 
 const PhotoGallery = () => {
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const navigate = useCallback((dir: number) => {
+    setDirection(dir);
+    setCurrent((prev) => (prev + dir + galleryPhotos.length) % galleryPhotos.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => navigate(1), 5000);
+    return () => clearInterval(timer);
+  }, [navigate]);
+
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") navigate(-1);
+      if (e.key === "ArrowRight") navigate(1);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [navigate]);
+
+  const variants = {
+    enter: (dir: number) => ({ x: dir > 0 ? 300 : -300, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir: number) => ({ x: dir > 0 ? -300 : 300, opacity: 0 }),
+  };
+
+  // Show 5 thumbnail dots around current
+  const totalDots = Math.min(galleryPhotos.length, 7);
+  const halfDots = Math.floor(totalDots / 2);
+  const dotIndices = Array.from({ length: totalDots }, (_, i) => {
+    const idx = current - halfDots + i;
+    return ((idx % galleryPhotos.length) + galleryPhotos.length) % galleryPhotos.length;
+  });
+
   return (
     <section id="gallery" className="py-20 bg-gradient-spiritual">
       <div className="container mx-auto px-4">
@@ -55,23 +75,62 @@ const PhotoGallery = () => {
           subtitle="Cherished moments captured in the divine presence of Gurudev"
         />
 
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
-          {galleryPhotos.map((photo, i) => (
-            <motion.div
-              key={photo.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative rounded-xl overflow-hidden bg-card border border-gold/20 shadow-gold cursor-pointer break-inside-avoid"
+        <div className="relative max-w-4xl mx-auto">
+          {/* Main image */}
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-card border border-gold/20 shadow-gold">
+            <AnimatePresence custom={direction} mode="wait">
+              <motion.img
+                key={current}
+                src={galleryPhotos[current]}
+                alt={`Photo ${current + 1}`}
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="absolute inset-0 w-full h-full object-contain bg-card"
+              />
+            </AnimatePresence>
+
+            {/* Arrows */}
+            <button
+              onClick={() => navigate(-1)}
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm border border-gold/20 flex items-center justify-center text-foreground hover:bg-background transition-colors"
+              aria-label="Previous photo"
             >
-              <img src={photo.src} alt={photo.caption} className="w-full h-auto block" />
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-warm-brown/70 z-10 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <p className="absolute bottom-4 left-4 right-4 text-cream font-body text-sm z-20 opacity-0 group-hover:opacity-100 transition-opacity">
-                {photo.caption}
-              </p>
-            </motion.div>
-          ))}
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              onClick={() => navigate(1)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm border border-gold/20 flex items-center justify-center text-foreground hover:bg-background transition-colors"
+              aria-label="Next photo"
+            >
+              <ChevronRight size={20} />
+            </button>
+
+            {/* Counter */}
+            <div className="absolute top-3 right-3 z-20 px-3 py-1 rounded-full bg-background/80 backdrop-blur-sm text-foreground font-body text-xs border border-gold/20">
+              {current + 1} / {galleryPhotos.length}
+            </div>
+          </div>
+
+          {/* Thumbnail strip */}
+          <div className="flex justify-center gap-2 mt-6 flex-wrap">
+            {galleryPhotos.map((photo, i) => (
+              <button
+                key={i}
+                onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
+                className={`w-14 h-14 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${
+                  i === current
+                    ? "border-primary shadow-gold scale-110"
+                    : "border-gold/20 opacity-60 hover:opacity-100"
+                }`}
+              >
+                <img src={photo} alt="" className="w-full h-full object-cover" />
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </section>
