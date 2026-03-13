@@ -1,4 +1,6 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 
 const quotes = [
@@ -20,7 +22,13 @@ const quotes = [
   },
 ];
 
+const ITEMS_PER_PAGE = 4;
+
 const QuotesSection = () => {
+  const [page, setPage] = useState(0);
+  const totalPages = Math.ceil(quotes.length / ITEMS_PER_PAGE);
+  const currentQuotes = quotes.slice(page * ITEMS_PER_PAGE, (page + 1) * ITEMS_PER_PAGE);
+
   return (
     <section id="quotes" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -29,26 +37,69 @@ const QuotesSection = () => {
           subtitle="Timeless teachings that illuminate the path of dharma"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {quotes.map((q, i) => (
-            <motion.blockquote
-              key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative p-8 rounded-xl bg-card border border-gold/20 shadow-gold"
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={page}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -30 }}
+            transition={{ duration: 0.3 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+          >
+            {currentQuotes.map((q, i) => (
+              <motion.blockquote
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="relative p-8 rounded-xl bg-card border border-gold/20 shadow-gold"
+              >
+                <span className="absolute top-4 left-6 text-gold/30 text-5xl font-display">"</span>
+                <p className="font-body text-foreground text-lg italic leading-relaxed mb-4 relative z-10">
+                  {q.text}
+                </p>
+                <cite className="font-body text-sm text-muted-foreground not-italic">
+                  — {q.context}
+                </cite>
+              </motion.blockquote>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center gap-4 mt-10">
+            <button
+              onClick={() => setPage((p) => Math.max(0, p - 1))}
+              disabled={page === 0}
+              className="p-2 rounded-full border border-gold/20 text-muted-foreground hover:text-foreground hover:border-gold/40 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
             >
-              <span className="absolute top-4 left-6 text-gold/30 text-5xl font-display">"</span>
-              <p className="font-body text-foreground text-lg italic leading-relaxed mb-4 relative z-10">
-                {q.text}
-              </p>
-              <cite className="font-body text-sm text-muted-foreground not-italic">
-                — {q.context}
-              </cite>
-            </motion.blockquote>
-          ))}
-        </div>
+              <ChevronLeft size={20} />
+            </button>
+            <div className="flex gap-2">
+              {Array.from({ length: totalPages }, (_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setPage(i)}
+                  className={`w-8 h-8 rounded-full text-sm font-body font-medium transition-all ${
+                    page === i
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-card border border-gold/20 text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {i + 1}
+                </button>
+              ))}
+            </div>
+            <button
+              onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
+              disabled={page === totalPages - 1}
+              className="p-2 rounded-full border border-gold/20 text-muted-foreground hover:text-foreground hover:border-gold/40 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
