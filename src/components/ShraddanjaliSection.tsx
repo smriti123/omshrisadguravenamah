@@ -42,7 +42,47 @@ const tributes = [
   {
     name: "Devotee",
     message:
-      `I attended the session by Swamiji, on Kathopnishad at Jaipur. First day out of curiosity, as I always found the subject difficult to comprehend. Next day onwards I decided to attend all the sessions instead of going to the university. Needless to say, how absorbing it was. I also joined the Bhiksha organised in his honour, to get more blessings and hear more from him. Initiated discussions on economy, defence and various facets of life. He was erudite and had clear understanding on every aspect, just amazing. Now I think, it was preordained that I had the divine blessings and privilege to have known him, it was God sent opportunity. University I keep going, but nothing could have compensated the amount of his blessed love, I gained. Feel fortunate. God and pujya gudev bless his soul.`,
+       `I attended the session by Swamiji, on Kathopnishad at Jaipur. First day out of curiosity, as I always found the subject difficult to comprehend. Next day onwards I decided to attend all the sessions instead of going to the university. Needless to say, how absorbing it was. I also joined the Bhiksha organised in his honour, to get more blessings and hear more from him. Initiated discussions on economy, defence and various facets of life. He was erudite and had clear understanding on every aspect, just amazing. Now I think, it was preordained that I had the divine blessings and privilege to have known him, it was God sent opportunity. University I keep going, but nothing could have compensated the amount of his blessed love, I gained. Feel fortunate. God and pujya gudev bless his soul.`,
+  },
+  {
+    name: "Devotee",
+    message:
+      `Pujya Swamiji was a very staunch devotee of Pujya Gurudev. Whenever Pujya Gurudev comes to Siddhabari, it is Swami Subodhanandaji who will push the wheel chair. Swamiji was doing that with so much of devotion and pride. His teachings are extremely impactful and authentic. Swamiji loved Upanishads and Bhashya. We will miss Swamiji a lot. At the same time we are to do lot of Sadhana to achieve a bit of what Was so natural to Swami Subodhanandaji. Pujya Swamiji has inspired so many young people to take Brahmachari and Sannyasa Deeksha. Mammoth contribution to the Rishi culture. We pray for His blessings.`,
+  },
+  {
+    name: "Devotee",
+    message:
+      `Poojya Swamiji was an ocean of knowledge and his deep knowledge of the scriptures was unparalleled. Many seekers and Swamis and Brahmacharins were trained and guided by Swamiji. His shastra-charcha will be missed a lot. Sidhbari will not be the same again. We will miss Swamiji whenever we go there. He was very loving and always enquired about our well-being and sadhana whenever we met him at Sidhbari. Its a deep loss to Chinmaya Mission and to Sanatana Dharma. Pranam to Poojya Swamiji.`,
+  },
+  {
+    name: "Devotee",
+    message:
+      `Poojya Swami ji was Divinity, Wisdom, Philosophy and Bliss personified. His every word and action was a teaching towards perfection. His dedication and commitment for the subject was unparalleled and worth inspiring. He revealed and lived Advait Darshan/Philosophy. His Himaliyan dedication for Pujya Gurudev, for scriptures, for Motherland, for Hindi and Sanskrit language, Right pronunciation of words and verses, His in-depth knowledge of each word and its etymology, His knowledge of grammar, His Communication skills, His oratory, His unique smile, His facial expressions, gestures and physical movements while delivering discourses, His interaction with seekers, His inspiring style of reflections on Vedantic principles, His tolerance for imperfections and weaknesses of others, His oceanic knowledge of almost all subjects, His in depth analysis of various political, economic, agricultural, defense, sports and other issues, His Hospitality, His Cleanliness, His Self Confidence, His open challenges on Vedantic Declarations were worth INSPIRING. He was a pilgrimage in himself and his visits to various centers were festivals and blessings for seekers. One very unique characteristic of His personality was giving attention and Love to everybody who came to him in a style that everyone realized he/she is paid extra care by Poojy Swami Ji. You made Sidhbari a home for many seekers. You transformed thousands of lives and families and your recorded teachings will still transform millions in time to come but your physical presence will be missed painfully. You were like a Pillar of Light in oceanic waves of ups and downs of lives for us. You were MOST-EXTRA-ORDINARY. You were BRAHMAN in physical form.`,
+  },
+  {
+    name: "Devotee",
+    message:
+      `Hari 🕉 ब्रह्मलीन प पूज्य गुरुदेव सान्निध्य प्राप्त करके आपने गुरुदेवकी अप्रतिम सेवा की एवं गुरु निष्ठाका श्रेष्ठ उदाहरण हमें मिला। गुरुदेव के प्रेमपात्र प्रिय शिष्य बने।हम सबको प्रेम देनेवाले, हमारे परम प्रिय विनम्र स्वामीजी आप भले हमें छोड़कर चले गए पर हमारे हृदयसेआपको कोई नहीं निकाल सकता।आत्मज्योतिरूप आप परमात्मारूप ज्योतिसे एकाकार हो गये।मेरा आपको कृतज्ञतापूर्वक सादर सप्रेम शत-शत नमन।एवं प्रार्थना-मेरे मनमें श्रद्धादीपको प्रज्वलित रखना, मनमंदिरमें अंधकार न रहें, ज्ञानप्रकाश देते रहना,ऐसा कृपा-आशीर्वाद मुझ पर बरसाते रहना ।.... वंदन बारंबार नमस्कारम् ।ॐ॥`,
+  },
+  {
+    name: "Devotee",
+    message:
+      `Swamiji's mahasamadhi brings to an end an era resplendent with Vishudh Vedant Vichar Vimarsh. His abiding interest and knowledge of Vedant was iconic. He virtually and visibly reveled in Vedant. Although a Vedantic scholar, he was equally and easily erudite on a wide array of subjects including history and political science. He always loved and encouraged spiritual discussions and like a true teacher always answered all questions both meaningful as well as the mundane. His soft, gentle voice was mesmerizing even though the purity of his language was not always easy to grasp. But he would patiently and skillfully ensure that we all eventually understood. His keen intellect and photographic memory was a joy to behold. He encouraged us to retain our learning in the mind rather than on paper or phone. Before Swamiji, Manas and Bhagwat to us all were stories or Katha. His insightful and subtle exposition revealed the Vedantic principles embedded in these Grantham. The vast yawning void left by him is unlikely to be filled and we will always miss his physical presence. Swamiji you only taught us that this world is timeless and life will go on. True Swamiji but it will not be the same without you. My shat shat pranam to this Vedantic Vibhooti whose divine presence itself was a benevolent blessing. May we continue to be blessed and guided by him. Om shanti, shanti, shanti.`,
+  },
+  {
+    name: "Devotee",
+    message:
+      `Hari Om! my respectful shradhanjlis to Swamiji! Subodhanandji's talks on Bhagwat, Geeta & Ramayana are excellence! The real essence of Ramayana, I understood when I heard his Ramayana Gnyana Yagna Saptah in Dahisar Mumbai about 15 years or so back! The meaning of words Rama, Sita, Hanumanji etc from vedantic definitions! Otherwise I knew Ramayana as an Epic Story like majority of people & was scarcely attending these Yagnas! Swamiji's sonorous voice was taking us on the flight of spirituality! We miss his physical presence! He was always cheerful & receptive to the devotees & their queries till late in the night! He never showed his sufferings due to health problem he had! Pray Parmeshwara to bestow Chir Shanti to his Aatma! Om Shanti Shant Shantihi!`,
+  },
+  {
+    name: "Devotee",
+    message:
+      `भौतिक शरीर से विलीन हुये ऋषिवर, पर ह्रदय के पास हो हो हमारे मध्य ही आत्म रूप से, गर कहीं भी पास हो।। पथ जो आपने किया चयन, हम भी पथिक है यही आस है हर कर्म की प्रेरणा हैं आप, हर विचार के विश्वास हो।। 🙏🙏🙏🌹🌹🌹🙏🙏🙏 हे गुरु भ्रात अलविदा कह रहे हैं सजल नयन प्रणाम! नमन! वन्दन! सब तुम्हे है अर्पण🙏🙏🙏🙏🌹🌹🌹`,
+  },
+  {
+    name: "Devotee",
+    message:
+      `अद्वितीय वक्ता, अत्यंत श्रेष्ठ एवम मीठा व्यक्तित्व, उच्च कोटि के विद्वान। यह रिक्तता भरना बहुत मुश्किल है। जीवन कितना क्षणभंगुर है। माँ गीता ने अपने लाडले को अपने पास बुला लिया।उन्हें उनकी हमसे ज्यादा जरूरत होगी। एक विद्यार्थी की भावभीनी भावांजलि। हे कृष्ण!`,
   },
 ];
 
