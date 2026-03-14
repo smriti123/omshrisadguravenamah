@@ -86,7 +86,7 @@ const tributes = [
   },
 ];
 
-const ITEMS_PER_PAGE = 1;
+const ITEMS_PER_PAGE = 2;
 
 const ShraddanjaliSection = () => {
   const [page, setPage] = useState(0);
