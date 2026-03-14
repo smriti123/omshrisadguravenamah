@@ -7,22 +7,42 @@ const tributes = [
   {
     name: "Devotee",
     message:
-      "Gurudev's grace transformed my life. His words are not mere teachings—they are living experiences that continue to guide me every day.",
+      `विवेकबुद्धियुक्त्या हि ज्ञातमात्मानमद्वयम् । ब्रह्मातिरिक्तं बाधेन विमुक्तश्च विमुच्यते ।। "यतो वाचो निवर्तन्ते । अप्राप्य मनसा सह।" It is difficult to describe Pujya Swamiji, his greatness, his love for scriptures and above all his depth to analyze any topic whether it was Vedanta, Dharma Shashtra, Politics or Social issues. Swamiji could open any word and speak for long without any diversion. Swamiji's Mahasamadhi is a great loss for many sadhakas and serious students of Vedanta. Always indebted to him for all his teachings and love that he showered on me. I learnt a lot from Pujya Swamiji in particular Shankara Bhasya study/ teaching and also Ramayana interpretations etc. Many many Pranams to Pujya Swamiji.`,
   },
   {
     name: "Devotee",
     message:
-      "In Gurudev's presence, all worries dissolved. His compassion knew no bounds, and his love was unconditional.",
+      `मेरे आचार्यजी ऐकधारा में ज्ञानी थे भक्त थे योगी थे महान साधु थे।वेदांत के सही जानकार थे।उपनिषद् हो रामायण हो या भागवत हो सब शास्त्रों के मर्म को सही समझाने वाले थे।शिव जी के परम भक्त थे।आदि गुरु शंकराचार्य जी, गोस्वामी तुलसीदास जी गुरुदेव, गुरूजी के प्रति असीम प्रेम और श्रद्धा थी।हामारा कोर्स के समय एक बार मैडिटेशन क्लास लिऐ थे एक क्लास काफी था।जिसमे सब आध्यात्मिक शक्ति जाग्रत हो सकता है स्वरूपवास्थान हो सकता है।बोलते थे साधु बनो कुछ बनो या ना।किसि का बात किसीको नहि बताते थे। बहुत सारे प्रतिभा के धनी थे। उनके अचानत चले जाने से बहुत कष्ट हुआ किन्तु वह और ब्यापक हो गए ।हमारे अंदर आगए । मेरे बाबा , माँ , गुरु है . उनका मागदर्शन अंदर से मिलता रहे। यही भगवान से पार्थना है।`,
   },
   {
     name: "Devotee",
     message:
-      "Every moment spent at Gurudev's feet was a blessing. His teachings are the foundation upon which our spiritual lives are built.",
+      `अनगणित आँखों में मैंने स्वामी जी के प्रति अथाह भक्ति देखी है। और स्वामी जी! आपकी आँखों का गाम्भीर्य भी देखा है; आपकी परखनहारी खोजी दृष्टि को निरखा है। सिद्धबाड़ी की तपोभूमि में - गुरुदेव और गुरुदेव के अनन्य शिष्य रूप प्रखर सूर्य बन उभरे हैं आप। आपकी द्रिक दृष्टि रूप किरणों में, हम गुरुकुलवासी शिष्यों-साधकों की मलिनता रूपी दोष धुल-धुल जाते रहे; हमें पवित्रता, ऊर्ध्वमुखता की ओर उन्मुख करते हुए। आपका स्नेह स्निग्ध वात्सल्य अद्भुत विस्मय कर देने वाली गम्भीर गुंजायमान वाणी का कर्षण हम शिष्यों को ही नहीं वरन शिविर में आये साधकों को; ज्ञान यज्ञ में उपस्थित श्रोताओं को मंत्र मुग्ध करता रहा। केवल इतना ही नहीं - आपका विद्युत-चुम्बकीय वाक-बल उस ज्ञान का ; उस सत्य का सदैव दिग्दर्शक बन उभरा- जिसकी शिष्यों को, निरंतर अभिलाषा अभीप्सा रहती है। हिमाचल की मनमोहक भूमि को गुरुदेव ने चिन्हित किया; वीर हनुमान की रक्षा में सुपुर्द कर दिया; राम-राज्य रूप वातावरण को सम्पुष्ट किया। और सुबोधानन्द स्वामी जी आपने उसे तीर्थ बना दिया। स्वामी जी! आपके वहां रहने से केवल सिद्धबाड़ी ही तीर्थ नहीं बना; बल्कि हम साधकों के हृदय जिसमें आप विराजमान हैं वह भी तीर्थरूप हो गया है। नम हृदय से इस बाल बुद्धि से आपको स्वामी जी भावभीनी श्रद्धांजलि हमारा नमन! हरि ओम`,
   },
   {
     name: "Devotee",
     message:
-      "Gurudev showed us that divinity resides within every soul. His vision of universal love continues to inspire generations.",
+      `In Pain or in Joy...let the smile never leave you is what you would say... Met you as a 14 year old and you became my guiding light, who introduced me to our rich heritage, encouraging to question and know, loved unconditionally, cared for, taught, guided, protected, disciplined, showed how to lead, be independent and fearless while valuing interdependence....how to get up everytime you fall..and how to strive to becoming without forgetting your being.... Forever grateful for your unconditional love, grace and guidance 🙏.. Losing you has been hardest thing to face in years and getting through the sense of loss would not be easy either...!! I know I would be now watched over....as they say the Farther I go the Nearer I shall be ..... Forever Yours .. Forever at your feet 🙏 Om!!`,
+  },
+  {
+    name: "Devotee",
+    message:
+      `So a nice Sunday morning became a day of gloom. Before I could step out for a walk came this phone call - a bolt from the blue. The news was so shocking that it took a while to absorb. Pujya swamiji most revered Guruji was for us and our family a mentor, a guide, a philosophic companion and most of all his ashirwad and blessings on the youngsters can never be forgotten. We are in bereavement and will be unable to forget his ever smiling face and small one liners to keep us riveted. Each moment since then I reminisce about the countless hours he has spent at our home and his private conversations and pravachans full of profound wisdom and knowledge. He blessed us to inaugurate our the then new Unit in 2008 which has immensely prospered due to his divine blessings. We at Kanpur where he spent his formative years and one of the cities he was particularly fond off will find it difficult to plan a year without his two annual Pravachans and Gyan Yagyas. A ritual which took a break only due to the Covid pandemic. There was one planned just after the 22 March Lockdown and our scheduled "bhikhsha" on the 25th was never to be. Pujya Swamiji will forever live in our hearts and will continue to bless us from his heavenly abode. A great loss to all of us. Om shanti Om shanti Om shanti 🙏🙏🙏🙏`,
+  },
+  {
+    name: "Devotee",
+    message:
+      `Heartfelt tribute to pujaya Guruji Swami Subodhanandaji. He was an admirable orator. His clarity and deep understanding of Ramayana and Vedanta really inspired me to study Vedanta at Sidhwadi. His teachings have helped me a lot to go deeper in Sadhna. I am very thankful to him. He will always be alive in our hearts in the form of his teachings. My sashtang pranams at his lotus feet.`,
+  },
+  {
+    name: "Devotee",
+    message:
+      `I was one of the lucky ones who was blessed by Swamiji's presence since I was 3 years old. I would go with my parents to attend Swamiji's lectures. Although at that age I did not understand much but I was mesmerized by his speech and his charismatic personality. Swamiji would always greet me with a huge smile on his face. He was always full of life and being in his presence felt like being around the purest form of positivity. As an adult when I started listening to his lectures, I felt truly guided. Any time I was looking for answers, I would listen to one of his lectures and it would feel like somehow magically he had read my mind and provided me with the answers that I was seeking. Swamiji, you will be dearly missed. Many pranams at your lotus feet and may you continue to guide us and shower us with your grace from beyond. Hari om`,
+  },
+  {
+    name: "Devotee",
+    message:
+      `I attended the session by Swamiji, on Kathopnishad at Jaipur. First day out of curiosity, as I always found the subject difficult to comprehend. Next day onwards I decided to attend all the sessions instead of going to the university. Needless to say, how absorbing it was. I also joined the Bhiksha organised in his honour, to get more blessings and hear more from him. Initiated discussions on economy, defence and various facets of life. He was erudite and had clear understanding on every aspect, just amazing. Now I think, it was preordained that I had the divine blessings and privilege to have known him, it was God sent opportunity. University I keep going, but nothing could have compensated the amount of his blessed love, I gained. Feel fortunate. God and pujya gudev bless his soul.`,
   },
 ];
 
