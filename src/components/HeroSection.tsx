@@ -23,9 +23,9 @@ const HeroSection = () => {
         className="relative z-10 text-center px-4 max-w-3xl">
         
         <p className="font-body text-gold-light text-lg tracking-widest uppercase mb-4">
-          ॐ श्री गुरुवे नमः
+
         </p>
-        <h1 className="font-display text-5xl md:text-7xl font-bold text-cream mb-6 leading-tight">ॐ श्री गुरुवे नमः
+        <h1 className="font-display text-5xl md:text-7xl font-bold text-cream mb-6 leading-tight">ॐ श्री सदगुरुवे नमः
 
         </h1>
         <p className="font-body text-cream/80 text-lg md:text-xl max-w-xl mx-auto mb-8">
