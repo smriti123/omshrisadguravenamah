@@ -19,6 +19,7 @@ const Index = () => {
       <YouTubeTalksSection />
       <SansmaraniyaKshanSection />
       <BhajansSection />
+      <Stuti />
       <Footer />
     </div>
   );
