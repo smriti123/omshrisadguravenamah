@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 
 const tributes = [
@@ -122,6 +122,52 @@ const tributes = [
 ];
 
 const ITEMS_PER_PAGE = 2;
+const MAX_LENGTH = 400;
+
+const TributeCard = ({ tribute, index }: { tribute: { name: string; message: string }; index: number }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const shouldTruncate = tribute.message.length > MAX_LENGTH;
+  const displayText = isExpanded || !shouldTruncate ? tribute.message : tribute.message.slice(0, MAX_LENGTH) + "...";
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
+      className="p-6 rounded-xl bg-background border border-gold/20"
+    >
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-display text-lg">
+          🙏
+        </div>
+        <span className="font-display text-lg text-foreground font-semibold">
+          {tribute.name}
+        </span>
+      </div>
+      <p className="font-body text-muted-foreground leading-relaxed italic">
+        "{displayText}"
+      </p>
+      {shouldTruncate && (
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="mt-3 flex items-center gap-1 text-sm font-body text-primary hover:text-primary/80 transition-colors"
+        >
+          {isExpanded ? (
+            <>
+              <span>Show less</span>
+              <ChevronUp size={16} />
+            </>
+          ) : (
+            <>
+              <span>Read more</span>
+              <ChevronDown size={16} />
+            </>
+          )}
+        </button>
+      )}
+    </motion.div>
+  );
+};
 
 const ShraddanjaliSection = () => {
   const [page, setPage] = useState(0);
@@ -146,25 +192,7 @@ const ShraddanjaliSection = () => {
             className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto"
           >
             {current.map((t, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="p-6 rounded-xl bg-background border border-gold/20"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-display text-lg">
-                    🙏
-                  </div>
-                  <span className="font-display text-lg text-foreground font-semibold">
-                    {t.name}
-                  </span>
-                </div>
-                <p className="font-body text-muted-foreground leading-relaxed italic">
-                  "{t.message}"
-                </p>
-              </motion.div>
+              <TributeCard key={i} tribute={t} index={i} />
             ))}
           </motion.div>
         </AnimatePresence>
