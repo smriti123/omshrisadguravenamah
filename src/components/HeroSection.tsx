@@ -28,23 +28,23 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mx-auto mb-6 w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-gold/40 shadow-gold"
-        >
+          className="mx-auto mb-6 w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-gold/40 shadow-gold">
+          
           <img
             src={swamijiPhoto}
             alt="Pujya Swami Subodhanandaji"
-            className="w-full h-full object-cover"
-          />
+            className="w-full h-full object-cover" />
+          
         </motion.div>
 
         <p className="font-body text-gold-light text-lg tracking-widest uppercase mb-4">
 
         </p>
-        <h1 className="font-display text-5xl md:text-7xl font-bold text-cream mb-6 leading-tight">ॐ श्री सदगुरुवे नमः
+        <h1 className="font-display text-5xl md:text-7xl font-bold text-cream mb-6 leading-tight">ॐ श्री सद्गुरवे नमः
 
         </h1>
         <p className="font-body text-cream/80 text-lg md:text-xl max-w-xl mx-auto mb-8">
-          A humble tribute to our beloved Gurudev — his wisdom, grace, and eternal blessings illuminate our path.
+
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <a
