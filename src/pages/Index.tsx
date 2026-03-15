@@ -5,6 +5,7 @@ import QuotesSection from "@/components/QuotesSection";
 import ShraddanjaliSection from "@/components/ShraddanjaliSection";
 import YouTubeTalksSection from "@/components/YouTubeTalksSection";
 import BhajansSection from "@/components/BhajansSection";
+import SansmaraniyaKshanSection from "@/components/SansmaraniyaKshanSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -16,6 +17,7 @@ const Index = () => {
       <QuotesSection />
       <ShraddanjaliSection />
       <YouTubeTalksSection />
+      <SansmaraniyaKshanSection />
       <BhajansSection />
       <Footer />
     </div>
