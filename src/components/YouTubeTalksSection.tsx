@@ -8,6 +8,7 @@ const categories = [
   "Ramayana",
   "Bhagwat Geeta",
   "Bhagwatam",
+  "Upanishads",
 ] as const;
 
 type Category = (typeof categories)[number];
@@ -292,6 +293,57 @@ const talks: Talk[] = [
     title: "Chatushloki Bhagvat 1/8",
     youtubeUrl: "https://www.youtube.com/watch?v=yuGspLlfVwk&list=PLgy41qSqQO401vfu2xr-Eivj2-R5F8Fw0",
     category: "Bhagwatam",
+  },
+
+  // === UPANISHADS ===
+  {
+    title: "Tatvabodh",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO426wzp--r6EQDfSTCPIchdb",
+    category: "Upanishads",
+  },
+  {
+    title: "Ishavasya Upanishad",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO40vBgL5I0XuI2dFWsxaVyVo",
+    category: "Upanishads",
+  },
+  {
+    title: "Kenopanishad",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO40El-u-QRJOUhk_uLh0m4Gp",
+    category: "Upanishads",
+  },
+  {
+    title: "Mandukya Upanishad",
+    year: "2018",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO40gur90e6vavfxEmB4jBk9e",
+    category: "Upanishads",
+  },
+  {
+    title: "Mandukya Upanishad Camp",
+    year: "2019",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO42qqisL3cW6qlyhPQovSB3W",
+    category: "Upanishads",
+  },
+  {
+    title: "Drig Drishya Vivek Pravachan",
+    year: "2005",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO43M4ZmsOrin3-LzyMbtLyuc",
+    category: "Upanishads",
+  },
+  {
+    title: "Kathopanishad",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO41xxLmdaadmK5BXAoyiwZMn",
+    category: "Upanishads",
+  },
+  {
+    title: "Chandogya Upanishad Class",
+    year: "2009",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO43fIwg5daF726SVzjiG-s9Z",
+    category: "Upanishads",
+  },
+  {
+    title: "Prashnopanishad",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO43d3QXIjCtiVgEZfC5Fw5fz",
+    category: "Upanishads",
   },
 ];
 
