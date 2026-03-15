@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
+import swamijiPhoto from "@/assets/swamiji-photo.jpg";
 
 const HeroSection = () => {
   return (
@@ -22,6 +23,20 @@ const HeroSection = () => {
         transition={{ duration: 1, ease: "easeOut" }}
         className="relative z-10 text-center px-4 max-w-3xl">
         
+        {/* Swamiji Photo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mx-auto mb-6 w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-gold/40 shadow-gold"
+        >
+          <img
+            src={swamijiPhoto}
+            alt="Pujya Swami Subodhanandaji"
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+
         <p className="font-body text-gold-light text-lg tracking-widest uppercase mb-4">
 
         </p>
