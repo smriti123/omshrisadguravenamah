@@ -188,11 +188,11 @@ const TributeCard = ({ tribute, index }: { tribute: { name: string; message: str
             {tribute.name}
           </span>
         </div>
-        <div className="rounded-lg overflow-hidden border border-gold/10">
+        <div className="rounded-lg overflow-hidden border border-gold/10 max-h-[400px] overflow-y-auto">
           <img
             src={tributeImage}
             alt="Tribute from Swami Adhyatmananda"
-            className="w-full h-auto"
+            className="w-full h-auto object-contain"
           />
         </div>
       </motion.div>
