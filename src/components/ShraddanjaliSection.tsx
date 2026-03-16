@@ -218,7 +218,7 @@ const TributeCard = ({ tribute, index }: { tribute: { name: string; message: str
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
-      className="p-6 rounded-xl bg-background border border-gold/20"
+      className="p-8 rounded-xl bg-background border border-gold/20 max-w-3xl mx-auto"
     >
       <div className="flex items-center gap-3 mb-4">
         <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-display text-lg">
