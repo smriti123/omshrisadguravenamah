@@ -164,7 +164,7 @@ Swami Adhyatmananda
   },
 ];
 
-const ITEMS_PER_PAGE = 2;
+const ITEMS_PER_PAGE = 1;
 const MAX_LENGTH = 400;
 
 const TributeCard = ({ tribute, index }: { tribute: { name: string; message: string; isImage?: boolean }; index: number }) => {
@@ -178,7 +178,7 @@ const TributeCard = ({ tribute, index }: { tribute: { name: string; message: str
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: index * 0.08 }}
-        className="p-6 rounded-xl bg-background border border-gold/20"
+        className="p-8 rounded-xl bg-background border border-gold/20 max-w-3xl mx-auto"
       >
         <div className="flex items-center gap-3 mb-4">
           <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-display text-lg">
@@ -188,13 +188,27 @@ const TributeCard = ({ tribute, index }: { tribute: { name: string; message: str
             {tribute.name}
           </span>
         </div>
-        <div className="rounded-lg overflow-hidden border border-gold/10 max-h-[400px] overflow-y-auto">
-          <img
-            src={tributeImage}
-            alt="Tribute from Swami Adhyatmananda"
-            className="w-full h-auto object-contain"
-          />
-        </div>
+        <p className="font-body text-muted-foreground leading-relaxed italic whitespace-pre-line text-base">
+          "{displayText}"
+        </p>
+        {shouldTruncate && (
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="mt-3 flex items-center gap-1 text-sm font-body text-primary hover:text-primary/80 transition-colors"
+          >
+            {isExpanded ? (
+              <>
+                <span>Show less</span>
+                <ChevronUp size={16} />
+              </>
+            ) : (
+              <>
+                <span>Read more</span>
+                <ChevronDown size={16} />
+              </>
+            )}
+          </button>
+        )}
       </motion.div>
     );
   }
@@ -204,7 +218,7 @@ const TributeCard = ({ tribute, index }: { tribute: { name: string; message: str
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
-      className="p-6 rounded-xl bg-background border border-gold/20"
+      className="p-8 rounded-xl bg-background border border-gold/20 max-w-3xl mx-auto"
     >
       <div className="flex items-center gap-3 mb-4">
         <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-display text-lg">
