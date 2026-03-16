@@ -164,7 +164,7 @@ Swami Adhyatmananda
   },
 ];
 
-const ITEMS_PER_PAGE = 2;
+const ITEMS_PER_PAGE = 1;
 const MAX_LENGTH = 400;
 
 const TributeCard = ({ tribute, index }: { tribute: { name: string; message: string; isImage?: boolean }; index: number }) => {
