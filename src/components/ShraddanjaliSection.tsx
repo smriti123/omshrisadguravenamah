@@ -8,6 +8,7 @@ const tributes = [
   {
     name: "Swami Adhyatmananda",
     message: `To,
+
 Most Worshipful and Revered Srimat Swami Swaroopanandaji Maharaj,
 President, Chinmaya Mission,
 Hari Om, Pranams, Om Namo Narayanaya, Loving Adorations.
@@ -43,10 +44,11 @@ Swami Adhyatmananda
 नमो नमः हे अध्यात्म स्वरूपवर ।
 शिवानंद आश्रम
 अमदावाद
-२९-९-२०२० रात्री : ९.३०`,  
+२९-९-२०२० रात्री : ९.३०`,
+    isImage: true,
   },
   {
-    name: "Swamiji",
+    name: "Devotee",
     message:
       `विवेकबुद्धियुक्त्या हि ज्ञातमात्मानमद्वयम् । ब्रह्मातिरिक्तं बाधेन विमुक्तश्च विमुच्यते ।। "यतो वाचो निवर्तन्ते । अप्राप्य मनसा सह।" It is difficult to describe Pujya Swamiji, his greatness, his love for scriptures and above all his depth to analyze any topic whether it was Vedanta, Dharma Shashtra, Politics or Social issues. Swamiji could open any word and speak for long without any diversion. Swamiji's Mahasamadhi is a great loss for many sadhakas and serious students of Vedanta. Always indebted to him for all his teachings and love that he showered on me. I learnt a lot from Pujya Swamiji in particular Shankara Bhasya study/ teaching and also Ramayana interpretations etc. Many many Pranams to Pujya Swamiji.`,
   },
@@ -176,7 +178,7 @@ const TributeCard = ({ tribute, index }: { tribute: { name: string; message: str
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: index * 0.08 }}
-        className="p-6 rounded-xl bg-background border border-gold/20 md:col-span-2"
+        className="p-6 rounded-xl bg-background border border-gold/20"
       >
         <div className="flex items-center gap-3 mb-4">
           <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-display text-lg">
@@ -186,11 +188,11 @@ const TributeCard = ({ tribute, index }: { tribute: { name: string; message: str
             {tribute.name}
           </span>
         </div>
-        <div className="rounded-lg overflow-hidden border border-gold/10">
+        <div className="rounded-lg overflow-hidden border border-gold/10 max-h-[400px] overflow-y-auto">
           <img
             src={tributeImage}
             alt="Tribute from Swami Adhyatmananda"
-            className="w-full h-auto"
+            className="w-full h-auto object-contain"
           />
         </div>
       </motion.div>
