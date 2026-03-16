@@ -2,8 +2,51 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp } from "lucide-react";
 import SectionHeading from "./SectionHeading";
+import tributeImage from "@/assets/IMG-20210508-WA0006.jpg";
 
 const tributes = [
+  {
+    name: "Swami Adhyatmananda",
+    message: `To,
+
+Most Worshipful and Revered Srimat Swami Swaroopanandaji Maharaj,
+President, Chinmaya Mission,
+Hari Om, Pranams, Om Namo Narayanaya, Loving Adorations.
+
+The news of sad demise of most worshipful and Rev. H. H. Sri Swami Subodhanandaji Maharaj is really shocking.
+
+It's a big loss not only to our mission but in general entire Sadhu Samaj as well as Hindi Knowing Mumukshu and lovers of Vedant learning.
+
+Sivananda Ashram, Ahmedabad was privileged to have Rev. Swamiji Maharaj's holy visit for a number of times on different occasions. Even this year March 06th to March 10th, some 30 devotees including myself had Satsang at Tapovan Ashram, Siddhbari.
+
+We were very good friends, kept on seeing each other and sharing stage at Ahmedabad, Jalandhar, Chandigarh, etc...Even he used to say 'we are first nephews'. It's an unrepairable loss.
+
+Rev. Swami Subodhanandaji Maharaj was a Divine Soul who merged in Divinity. He was Ajatshatru. A Monk with all compassion, Purity, love and knowledge of Vedant, Bhagawat, Ramayana from the depth. His each Satsang was illuminating and Soul elevating.
+
+Lots of Prayers for his departed soul, May his soul abide in Supreme blessedness, and Everlasting Peace. Om Shantih. Shantih. Shantih.
+
+With Ocean deep regards. Profound love and lots of Prayers.
+
+In the Service of Sri Gurudev, Sevak,
+Swami Adhyatmananda
+
+श्री यशो और कीर्ति के धनी,
+स्वाध्याय प्रिय परम प्रेमास्पदपुणि ।
+चित्तशांती मृदुभाषी प्रसन्न वदन
+सुजन सुफल सुमनोहर मूर्ति ।
+बोधसत्व के सार गर्भ रूप
+ध्यात्रा अखण्ड ज्ञान गंगा को ।
+नंदित आनंदित हृदय कमल सदा
+दम सम तितिक्षा उपरति के ध्याता ।
+नमो नमः हे चिन्मय हिरक ।
+नमो नमः हे ज्ञान विभूषण ।
+नमो नमः हे प्रिय गुरुवर ।
+नमो नमः हे अध्यात्म स्वरूपवर ।
+शिवानंद आश्रम
+अमदावाद
+२९-९-२०२० रात्री : ९.३०`,
+    isImage: true,
+  },
   {
     name: "Devotee",
     message:
@@ -124,10 +167,37 @@ const tributes = [
 const ITEMS_PER_PAGE = 2;
 const MAX_LENGTH = 400;
 
-const TributeCard = ({ tribute, index }: { tribute: { name: string; message: string }; index: number }) => {
+const TributeCard = ({ tribute, index }: { tribute: { name: string; message: string; isImage?: boolean }; index: number }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const shouldTruncate = tribute.message.length > MAX_LENGTH;
   const displayText = isExpanded || !shouldTruncate ? tribute.message : tribute.message.slice(0, MAX_LENGTH) + "...";
+
+  if (tribute.isImage) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: index * 0.08 }}
+        className="p-6 rounded-xl bg-background border border-gold/20 md:col-span-2"
+      >
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-display text-lg">
+            🙏
+          </div>
+          <span className="font-display text-lg text-foreground font-semibold">
+            {tribute.name}
+          </span>
+        </div>
+        <div className="rounded-lg overflow-hidden border border-gold/10">
+          <img
+            src={tributeImage}
+            alt="Tribute from Swami Adhyatmananda"
+            className="w-full h-auto"
+          />
+        </div>
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div
@@ -144,7 +214,7 @@ const TributeCard = ({ tribute, index }: { tribute: { name: string; message: str
           {tribute.name}
         </span>
       </div>
-      <p className="font-body text-muted-foreground leading-relaxed italic">
+      <p className="font-body text-muted-foreground leading-relaxed italic whitespace-pre-line">
         "{displayText}"
       </p>
       {shouldTruncate && (

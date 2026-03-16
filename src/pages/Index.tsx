@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import PhotoGallery from "@/components/PhotoGallery";
 import QuotesSection from "@/components/QuotesSection";
 import ShraddanjaliSection from "@/components/ShraddanjaliSection";
+import StutiSection from "@/components/StutiSection";
 import YouTubeTalksSection from "@/components/YouTubeTalksSection";
 import BhajansSection from "@/components/BhajansSection";
 import SansmaraniyaKshanSection from "@/components/SansmaraniyaKshanSection";
@@ -16,9 +17,10 @@ const Index = () => {
       <PhotoGallery />
       <QuotesSection />
       <ShraddanjaliSection />
+      <StutiSection />
       <YouTubeTalksSection />
       <SansmaraniyaKshanSection />
-      <BhajansSection />      
+      <BhajansSection />
       <Footer />
     </div>
   );
