@@ -8,6 +8,7 @@ const tributes = [
   {
     name: "Swami Adhyatmananda",
     message: `To,
+
 Most Worshipful and Revered Srimat Swami Swaroopanandaji Maharaj,
 President, Chinmaya Mission,
 Hari Om, Pranams, Om Namo Narayanaya, Loving Adorations.
