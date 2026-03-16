@@ -8,7 +8,6 @@ const tributes = [
   {
     name: "Swami Adhyatmananda",
     message: `To,
-
 Most Worshipful and Revered Srimat Swami Swaroopanandaji Maharaj,
 President, Chinmaya Mission,
 Hari Om, Pranams, Om Namo Narayanaya, Loving Adorations.
@@ -44,11 +43,10 @@ Swami Adhyatmananda
 नमो नमः हे अध्यात्म स्वरूपवर ।
 शिवानंद आश्रम
 अमदावाद
-२९-९-२०२० रात्री : ९.३०`,
-    isImage: true,
+२९-९-२०२० रात्री : ९.३०`,  
   },
   {
-    name: "Devotee",
+    name: "Swamiji",
     message:
       `विवेकबुद्धियुक्त्या हि ज्ञातमात्मानमद्वयम् । ब्रह्मातिरिक्तं बाधेन विमुक्तश्च विमुच्यते ।। "यतो वाचो निवर्तन्ते । अप्राप्य मनसा सह।" It is difficult to describe Pujya Swamiji, his greatness, his love for scriptures and above all his depth to analyze any topic whether it was Vedanta, Dharma Shashtra, Politics or Social issues. Swamiji could open any word and speak for long without any diversion. Swamiji's Mahasamadhi is a great loss for many sadhakas and serious students of Vedanta. Always indebted to him for all his teachings and love that he showered on me. I learnt a lot from Pujya Swamiji in particular Shankara Bhasya study/ teaching and also Ramayana interpretations etc. Many many Pranams to Pujya Swamiji.`,
   },
