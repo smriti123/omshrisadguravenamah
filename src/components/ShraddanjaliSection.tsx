@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp } from "lucide-react";
 import SectionHeading from "./SectionHeading";
-import scannedLetter from "@/assets/IMG-20210508-WA0006.jpg";
+import scannedLetter from "@/assets/Screenshot 2026-03-17 184231.jpg";
 
 const tributes = [
   {
