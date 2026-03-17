@@ -7,6 +7,7 @@ const navLinks = [
   { label: "Gallery", href: "#gallery" },
   { label: "Quotes", href: "#quotes" },
   { label: "Shraddanjali", href: "#shraddanjali" },
+  { label: "Attributes", href: "#attributes" },
   { label: "Stuti", href: "#stuti" },
   { label: "Talks", href: "#talks" },
   { label: "Bhajans", href: "#bhajans" },

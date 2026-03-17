@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import PhotoGallery from "@/components/PhotoGallery";
 import QuotesSection from "@/components/QuotesSection";
 import ShraddanjaliSection from "@/components/ShraddanjaliSection";
+import GurudevAttributesSection from "@/components/GurudevAttributesSection";
 import StutiSection from "@/components/StutiSection";
 import YouTubeTalksSection from "@/components/YouTubeTalksSection";
 import BhajansSection from "@/components/BhajansSection";
@@ -17,6 +18,7 @@ const Index = () => {
       <PhotoGallery />
       <QuotesSection />
       <ShraddanjaliSection />
+      <GurudevAttributesSection />
       <StutiSection />
       <YouTubeTalksSection />
       <SansmaraniyaKshanSection />
