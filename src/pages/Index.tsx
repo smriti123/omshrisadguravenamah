@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import PhotoGallery from "@/components/PhotoGallery";
 import QuotesSection from "@/components/QuotesSection";
-import ShraddanjaliSection from "@/components/ShraddanjaliSection";
+import ShraddanjaliSection from "@/components/ShraddanjaliSection2";
 import GurudevAttributesSection from "@/components/GurudevAttributesSection";
 import StutiSection from "@/components/StutiSection";
 import YouTubeTalksSection from "@/components/YouTubeTalksSection";
