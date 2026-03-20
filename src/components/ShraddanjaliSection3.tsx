@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Languages, X, Loader2 } from "lucide-react";
 import SectionHeading from "./SectionHeading";
-import scannedLetter from "@/assets/Swamiji.jpg";
+import scannedLetter from "@/assets/Swamiji";
 
 const tributes = [
   { name: "Swami Adhyatmananda", message: "", isScannedLetter: true },
