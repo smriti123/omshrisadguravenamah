@@ -1,10 +1,17 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Languages, X } from "lucide-react";
 import SectionHeading from "./SectionHeading";
-import scannedLetter from "@/assets/Screenshot 2026-03-17 184231.jpg";
+import scannedLetter from "@/assets/Swamiji.jpg.jpg";
 
-const tributes = [
+type Tribute = {
+  name: string;
+  message: string;
+  translation?: string;
+  isScannedLetter?: boolean;
+};
+
+const tributes: Tribute[] = [
   {
     name: "Swami Adhyatmananda",
     message: "",
@@ -12,177 +19,254 @@ const tributes = [
   },
   {
     name: "Devotee",
-    message: `विवेकबुद्धियुक्त्या हि ज्ञातमात्मानमद्वयम् । ब्रह्मातिरिक्तं बाधेन विमुक्तश्च विमुच्यते ।। "यतो वाचो निवर्तन्ते । अप्राप्य मनसा सह।" It is difficult to describe Pujya Swamiji, his greatness, his love for scriptures and above all his depth to analyze any topic whether it was Vedanta, Dharma Shashtra, Politics or Social issues. Swamiji could open any word and speak for long without any diversion. Swamiji's Mahasamadhi is a great loss for many sadhakas and serious students of Vedanta. Always indebted to him for all his teachings and love that he showered on me. I learnt a lot from Pujya Swamiji in particular Shankara Bhasya study/ teaching and also Ramayana interpretations etc. Many many Pranams to Pujya Swamiji.`,
+    message: `विवेकबुद्धियुक्त्या हि ज्ञातमात्मानमद्वयम् । ब्रह्मातिरिक्तं बाधेन विमुक्तश्च विमुच्यते ।। "यतो वाचो निवर्तन्ते । अप्राप्य मनसा सह।" पूज्य स्वामीजी का वर्णन करना अत्यंत कठिन है — उनकी महानता, शास्त्रों के प्रति उनका प्रेम, और किसी भी विषय — चाहे वेदांत हो, धर्मशास्त्र हो, राजनीति हो या सामाजिक मुद्दे — उनका विश्लेषण करने की गहराई अतुलनीय थी। स्वामीजी किसी भी शब्द को खोलकर बिना विषयांतर हुए घंटों बोल सकते थे। उनकी महासमाधि अनेक साधकों और वेदांत के गंभीर विद्यार्थियों के लिए अपूरणीय क्षति है। उनकी शिक्षाओं और मुझ पर बरसाए गए उनके स्नेह के लिए मैं सदा ऋणी रहूँगा। पूज्य स्वामीजी से मैंने विशेष रूप से शंकर भाष्य का अध्ययन-अध्यापन और रामायण की व्याख्याएँ सीखीं। पूज्य स्वामीजी को कोटि-कोटि प्रणाम।`,
+    translation: `"By discrimination one knows the non-dual Self; by negation of what is superimposed on Brahman, one is liberated." "From where words turn back, along with the mind, unable to reach." It is difficult to describe Pujya Swamiji — his greatness, his love for scriptures, and above all his depth in analysing any topic, whether Vedanta, Dharma Shastra, politics or social issues. Swamiji could take any word and speak on it at length without any diversion. His Mahasamadhi is a great loss for many seekers and serious students of Vedanta. I am forever indebted to him for all his teachings and the love he showered on me. I learnt a great deal from Pujya Swamiji, particularly Shankara Bhashya study and teaching, and Ramayana interpretations. Many many pranams to Pujya Swamiji.`,
   },
   {
     name: "Devotee",
-    message: `अनगणित आँखों में मैंने स्वामी जी के प्रति अथाह भक्ति देखी है। और स्वामी जी! आपकी आँखों का गाम्भीर्य भी देखा है; आपकी परखनहारी खोजी दृष्टि को निरखा है। सिद्धबाड़ी की तपोभूमि में - गुरुदेव और गुरुदेव के अनन्य शिष्य रूप प्रखर सूर्य बन उभरे हैं आप। आपकी द्रिक दृष्टि रूप किरणों में, हम गुरुकुलवासी शिष्यों-साधकों की मलिनता रूपी दोष धुल-धुल जाते रहे; हमें पवित्रता, ऊर्ध्वमुखता की ओर उन्मुख करते हुए। आपका स्नेह स्निग्ध वात्सल्य अद्भुत विस्मय कर देने वाली गम्भीर गुंजायमान वाणी का कर्षण हम शिष्यों को ही नहीं वरन शिविर में आये साधकों को; ज्ञान यज्ञ में उपस्थित श्रोताओं को मंत्र मुग्ध करता रहा। केवल इतना ही नहीं - आपका विद्युत-चुम्बकीय वाक-बल उस ज्ञान का ; उस सत्य का सदैव दिग्दर्शक बन उभरा- जिसकी शिष्यों को, निरंतर अभिलाषा अभीप्सा रहती है। हिमाचल की मनमोहक भूमि को गुरुदेव ने चिन्हित किया; वीर हनुमान की रक्षा में सुपुर्द कर दिया; राम-राज्य रूप वातावरण को सम्पुष्ट किया। और सुबोधानन्द स्वामी जी आपने उसे तीर्थ बना दिया। स्वामी जी! आपके वहां रहने से केवल सिद्धबाड़ी ही तीर्थ नहीं बना; बल्कि हम साधकों के हृदय जिसमें आप विराजमान हैं वह भी तीर्थरूप हो गया है। नम हृदय से इस बाल बुद्धि से आपको स्वामी जी भावभीनी श्रद्धांजलि हमारा नमन! हरि ओम`,
+    message: `अनगणित आँखों में मैंने स्वामीजी के प्रति अथाह भक्ति देखी है। और स्वामीजी! आपकी आँखों का गाम्भीर्य भी देखा है; आपकी परखनहारी, खोजी दृष्टि को निरखा है। सिद्धबाड़ी की तपोभूमि में — गुरुदेव के अनन्य शिष्य रूप में प्रखर सूर्य बनकर उभरे हैं आप। आपकी ज्ञानदृष्टि की किरणों में हम गुरुकुलवासी शिष्यों-साधकों की मलिनता धुलती रही; हमें पवित्रता और ऊर्ध्वमुखता की ओर उन्मुख करते हुए। आपका स्नेहसिक्त वात्सल्य और गम्भीर, गुंजायमान वाणी का आकर्षण — हम शिष्यों को ही नहीं, शिविर में आए साधकों को और ज्ञानयज्ञ में उपस्थित श्रोताओं को भी मंत्रमुग्ध करता रहा। आपका विद्युत-चुम्बकीय वाक्-बल उस ज्ञान का, उस सत्य का सदैव दिग्दर्शक बना — जिसकी शिष्यों को निरंतर अभीप्सा रहती है। हिमाचल की मनमोहक भूमि को गुरुदेव ने चिन्हित किया; वीर हनुमान की रक्षा में सौंपा; राम-राज्य जैसा वातावरण सम्पुष्ट किया। और स्वामी सुबोधानंदजी, आपने उसे तीर्थ बना दिया! आपके वहाँ रहने से केवल सिद्धबाड़ी ही नहीं, बल्कि हम साधकों के हृदय भी — जिनमें आप विराजमान हैं — तीर्थरूप हो गए हैं। नत हृदय से आपको भावभीनी श्रद्धांजलि और नमन! हरि ॐ`,
+    translation: `In countless eyes I have seen immeasurable devotion towards Swamiji. And Swamiji — I have also witnessed the depth of your gaze, your perceptive and searching eyes. In the sacred land of Sidhbari, you have risen as a brilliant sun — the incomparable disciple of Gurudev. In the rays of your enlightened vision, the impurities of us Gurukulvasi disciples and seekers kept washing away, turning us towards purity and spiritual upliftment. Your tender, loving affection and the pull of your deep, resonant voice enchanted not just us disciples, but also the seekers who attended the camps and the listeners gathered at the Jnana Yagnas. Your electro-magnetic power of speech was always the guiding light of that knowledge, that truth — for which disciples always yearn. Gurudev identified the enchanting land of Himachal, entrusted it to the protection of brave Hanuman, and nurtured a Ram-Rajya-like atmosphere. And Swami Subodhanandaji, you made it a place of pilgrimage! Through your presence there, not only Sidhbari but also the hearts of us seekers — in which you reside — have become sacred pilgrimage sites. With a bowed heart, our heartfelt tribute and salutation! Hari Om`,
   },
   {
     name: "Devotee",
-    message: `मेरे आचार्यजी ऐकधारा में ज्ञानी थे भक्त थे योगी थे महान साधु थे।वेदांत के सही जानकार थे।उपनिषद् हो रामायण हो या भागवत हो सब शास्त्रों के मर्म को सही समझाने वाले थे।शिव जी के परम भक्त थे।आदि गुरु शंकराचार्य जी, गोस्वामी तुलसीदास जी गुरुदेव, गुरूजी के प्रति असीम प्रेम और श्रद्धा थी।हामारा कोर्स के समय एक बार मैडिटेशन क्लास लिऐ थे एक क्लास काफी था।जिसमे सब आध्यात्मिक शक्ति जाग्रत हो सकता है स्वरूपवास्थान हो सकता है।बोलते थे साधु बनो कुछ बनो या ना।किसि का बात किसीको नहि बताते थे। बहुत सारे प्रतिभा के धनी थे। उनके अचानत चले जाने से बहुत कष्ट हुआ किन्तु वह और ब्यापक हो गए ।हमारे अंदर आगए । मेरे बाबा , माँ , गुरु है . उनका मागदर्शन अंदर से मिलता रहे। यही भगवान से पार्थना है।`,
+    message: `मेरे आचार्यजी एक साथ ज्ञानी, भक्त, योगी और महान साधु थे। वे वेदांत के सच्चे ज्ञाता थे। उपनिषद् हो, रामायण हो या भागवत — सभी शास्त्रों के मर्म को सही रूप में समझाने में वे सिद्धहस्त थे। शिवजी के परम भक्त थे। आदि गुरु शंकराचार्यजी, गोस्वामी तुलसीदासजी और गुरुदेव के प्रति उनके हृदय में असीम प्रेम और श्रद्धा थी। हमारे कोर्स के समय उन्होंने एक बार ध्यान की कक्षा ली — बस एक ही कक्षा पर्याप्त थी, जिसमें सारी आध्यात्मिक शक्ति जाग्रत हो सकती है, स्वरूप में स्थिति हो सकती है। वे कहते थे — साधु बनो, कुछ बनो या न बनो। किसी की बात किसी को नहीं बताते थे। अनेक प्रतिभाओं के धनी थे। उनके अचानक चले जाने से बहुत कष्ट हुआ, किन्तु वे और व्यापक हो गए — हमारे अंदर आ गए। वे मेरे बाबा, माँ और गुरु हैं। उनका मार्गदर्शन अंदर से मिलता रहे — यही भगवान से प्रार्थना है।`,
+    translation: `My Acharyaji was simultaneously a Jnani, a Bhakta, a Yogi and a great Sadhu. He had true knowledge of Vedanta. Whether Upanishads, Ramayana or Bhagavat — he was adept at explaining the essence of all scriptures correctly. He was a supreme devotee of Lord Shiva. He had immense love and reverence for Adi Guru Shankaracharya, Goswami Tulsidas and Gurudev. During our course he once conducted a meditation class — just that one class was sufficient for all spiritual energy to awaken and for one to be established in one's true nature. He would say — become a Sadhu, become something or become nothing. He never revealed anyone's secrets. He was endowed with countless talents. His sudden departure caused great grief, yet he has become more pervasive — he has entered within us. He is my grandfather, my mother, my Guru. May his guidance continue to come from within — this is my prayer to God.`,
   },
   {
     name: "Devotee",
-    message: `Today, one of the most prominent torch bearers of Pujya Gurudev Swami Chinmayananda ji has merged back into that self-effulgent flame! My mind is afresh with memories of Swamiji's numerous visits to our house over years; until I last met him in 2019 in Mumbai during his Bhiksha at my aunt's home. Swamiji's nectarine words are still ringing in my ears, and my eyes are still searching for that ever-smiling face with a glowing forehead that shone brilliantly through the three long strokes of Bhasma! Pujya Swami Subodhanandaji was not just yet another sadhu... He was a walking talking smiling embodiment of God, wrapped with unique nuances that enchanted countless devotees to throng around him like bees to a Lotus flower! In His passing, the spiritual world has definitely lost an anchor; and personally our family has lost a Mahatma from whom we've drawn endless love, affection, blessings and guidance over the past 30+ years... From our childhood days when we would run helter-skelter in Sidhbari ashram during Pujya Gurudev's camps, we grew up seeing Swami Subodhananda ji as the loving guardian who paid minutest attention to the caretaking of Gurudev's beloved ashram. Those days when Ramayan was a superhit TV series, we would sit glued to the TV while pressing Swamiji's Feet and watching the episodes while Pujya Gurudev retired to His room. Swamiji would go into unfathomable depths of these glorious characters from our scriptures, and we would listen to him with rapt attention and awe! During the day, He would be always around Gurudev, on his toes, alert, sharp, vigilant and forever thinking ahead, knowing what to do before he is told. Years passed and as we grew up, we learned so much more about Swamiji's unflinching love for India, for her glory, and for her well-being. Swamiji's discussions on politics were never gossip like us, rather he would always try to understand and analyze the political situation in light of some spiritual principle or fundamental from the Shastras! Every discussion with Him would leave us enriched and blessed, and yearning for more! In His flawless, rich and soul-stirring Hindi, switching from the highest standpoint of Advaita Vedanta to the subtlest emotion & bhaav in Bhakti shastras like Ramcharitmaanas or Bhagavatam; Swamiji would carry the audience to such Himalayan heights, that after his lectures concluded people would prefer to remain silent & contemplate within for quite some time. Now that silence will stay forever.... The passing away of a Mahatma or Sannyasi is never mourned... rather it is celebrated; for it marks the end of their prarabdha with the physical body's limitations; and liberates them completely to unite with that Supreme One in whom they continuously reveled until they lived! As the eyes remained moist throughout the day, overwhelmed with shock and sadness, I have consoled myself to accept that when the spark merges back in the flame, it only shines brighter... Offering our heartfelt pranams & shraddhanjali at the Lotus Feet of Pujya Swami Subodhanandaji! Om Shantih!`,
+    message: `Today, one of the most prominent torch-bearers of Pujya Gurudev Swami Chinmayananda ji has merged back into that self-effulgent flame! My mind is afresh with memories of Swamiji's numerous visits to our house over the years; until I last met him in 2019 in Mumbai during his Bhiksha at my aunt's home. Swamiji's nectarine words are still ringing in my ears, and my eyes are still searching for that ever-smiling face with a glowing forehead that shone brilliantly through the three long strokes of Bhasma! Pujya Swami Subodhanandaji was not just yet another Sadhu — He was a walking, talking, smiling embodiment of God, wrapped with unique nuances that enchanted countless devotees to throng around him like bees to a lotus flower! In His passing, the spiritual world has definitely lost an anchor; and personally, our family has lost a Mahatma from whom we have drawn endless love, affection, blessings and guidance over the past 30+ years. Offering our heartfelt pranams and Shraddhanjali at the Lotus Feet of Pujya Swami Subodhanandaji! Om Shantih!`,
+    translation: `आज, पूज्य गुरुदेव स्वामी चिन्मयानंदजी के सबसे प्रमुख दीप-वाहकों में से एक उस स्वयंप्रकाशित ज्योति में विलीन हो गए! मेरा मन वर्षों से स्वामीजी की हमारे घर पर हुई अनेक यात्राओं की स्मृतियों से तरोताज़ा है; अंतिम बार उनसे 2019 में मुंबई में मेरी मौसी के यहाँ भिक्षा के दौरान मिला था। स्वामीजी के अमृत-समान वचन अभी भी मेरे कानों में गूँज रहे हैं, और मेरी आँखें अभी भी उस सदा मुस्कुराते चेहरे को खोज रही हैं — जो भस्म की तीन लंबी रेखाओं से प्रकाशित होता था! पूज्य स्वामी सुबोधानंदजी केवल एक साधु नहीं थे — वे ईश्वर के साक्षात, हँसते-मुस्कुराते, चलते-फिरते स्वरूप थे, जिनकी अनूठी विशेषताओं ने असंख्य भक्तों को कमल के फूल पर मधुमक्खियों की तरह उनके चारों ओर खींचा! उनके जाने से आध्यात्मिक जगत ने एक आधार-स्तम्भ खो दिया है; और व्यक्तिगत रूप से हमारे परिवार ने एक ऐसे महात्मा को खो दिया जिनसे हमने 30+ वर्षों तक अनंत प्रेम, स्नेह, आशीर्वाद और मार्गदर्शन पाया। पूज्य स्वामी सुबोधानंदजी के चरण-कमलों में हार्दिक प्रणाम और श्रद्धांजलि! ॐ शांतिः!`,
   },
   {
     name: "Devotee",
-    message: `Prostrations at the lotus feet of our most revered Brahmaleen His Holiness Swami Subodanandji...he is not with us physically but he remains in our hearts ever n paves us the way ..how to lead spiritual..divine life amidst all people. We are among most fortunate devotees who have had opportunity to listen to him personally. We feel his presence always every moment. His ever smiling face, measured tone, extremely soft spoken, never ever hurting ..a wonderful tolerant of We devotees ..he lived the life very much..what he had been preaching throughout his life. An ocean of knowledge ..humanity personified ...we were one among thousands who had learnt many things under his tutelage with a thrust to remain grounded always !! An orator par excellence..he had wonderful ears for Hindustani classical music n so for Carnatic Music too !! His Oratory in Hindi n English with pauses had tremendous depth. I can say with my limited experience such Saints are born once in life time..n he was given to us by GOD as a special Gift. His loss for all devotees of Chinmaya Mission is immeasurable!! Those who have had opportunity to listen to him personally can only comprehend what they lost personally!! Our sashtang Prostrations to our most loving n adored inimitable Guru of Gurus who churned out innumerable Brahmacharees n Swamijees of Chinmaya Mission. With utmost respect I can hasten to add Swami Subodanandji was favourite of H.H. Brahmaleen SWAMI CHINMAYANANDJEE.. I am one among those fortunate living devotees who had seen Swami Subodanandji doing exemplarily the final rituals of Pujya Gurudev when HIS mortal was brought n made to rest in Sidhbari, Himachal Pradesh from San Diego, USA after HE left us on 3rd August 1993 amidst presence of all stalwart Swamijees ..you name it of Chinmaya Mission in absolutely an immaculate send off to Pujya Gurudev!! Honestly, for me n many other devotees ..Sidhbari cannot be thought off without H.H. Swami Subodanandji. Our prostrations to HIM`,
+    message: `Prostrations at the lotus feet of our most revered Brahmaleen His Holiness Swami Subodhanandaji. He is not with us physically, but he remains in our hearts forever and shows us the way — how to lead a spiritual and divine life amidst all people. We are among the most fortunate devotees who had the opportunity to listen to him personally. We feel his presence every moment. His ever-smiling face, measured tone, extremely soft-spoken manner, never hurting anyone — a wonderful, tolerant guide for all of us devotees. He lived exactly what he preached throughout his life. An ocean of knowledge, humanity personified — we were among thousands who learnt so much under his guidance, always striving to remain grounded. An orator par excellence — he had a wonderful ear for Hindustani classical music as well as Carnatic music. His loss for all devotees of Chinmaya Mission is immeasurable. Our Sashtang Prostrations to Him.`,
+    translation: `ब्रह्मलीन परम पूज्य स्वामी सुबोधानंदजी के चरण-कमलों में साष्टांग प्रणाम। वे शारीरिक रूप से हमारे बीच नहीं हैं, किन्तु वे हमारे हृदयों में सदा विराजमान हैं और हमें मार्ग दिखाते हैं — लोगों के बीच रहते हुए आध्यात्मिक और दिव्य जीवन कैसे जिएँ। हम उन सौभाग्यशाली भक्तों में हैं जिन्हें उन्हें व्यक्तिगत रूप से सुनने का अवसर मिला। हम हर पल उनकी उपस्थिति अनुभव करते हैं। उनका सदा मुस्कुराता चेहरा, मापा हुआ स्वर, अत्यंत मृदुभाषी स्वभाव, कभी किसी को न कष्ट देना — हम भक्तों के लिए एक अद्भुत, सहिष्णु मार्गदर्शक। उन्होंने जीवनभर जो उपदेश दिया, वही जिया। ज्ञान के सागर, मानवता की मूर्ति — हम उन हज़ारों में थे जिन्होंने उनके मार्गदर्शन में बहुत कुछ सीखा। उत्कृष्ट वक्ता — हिंदुस्तानी शास्त्रीय संगीत और कर्नाटक संगीत दोनों में उनकी अभिरुचि अद्भुत थी। चिन्मय मिशन के सभी भक्तों के लिए उनकी क्षति अपूरणीय है। उन्हें साष्टांग प्रणाम।`,
   },
   {
     name: "Devotee",
-    message: `In Pain or in Joy...let the smile never leave you is what you would say... Met you as a 14 year old and you became my guiding light, who introduced me to our rich heritage, encouraging to question and know, loved unconditionally, cared for, taught, guided, protected, disciplined, showed how to lead, be independent and fearless while valuing interdependence....how to get up everytime you fall..and how to strive to becoming without forgetting your being.... Forever grateful for your unconditional love, grace and guidance 🙏.. Losing you has been hardest thing to face in years and getting through the sense of loss would not be easy either...!! I know I would be now watched over....as they say the Farther I go the Nearer I shall be ..... Forever Yours .. Forever at your feet 🙏 Om!!`,
+    message: `In pain or in joy — "let the smile never leave you" is what you would always say. Met you as a 14-year-old and you became my guiding light — introducing me to our rich heritage, encouraging me to question and to know, loving unconditionally, caring, teaching, guiding, protecting, disciplining, showing how to lead, be independent and fearless while valuing interdependence — how to get up every time you fall, and how to strive towards becoming without forgetting your being. Forever grateful for your unconditional love, grace and guidance. Losing you has been the hardest thing to face in years, and getting through this sense of loss will not be easy. I know I will be watched over now. As they say — the farther I go, the nearer I shall be. Forever yours. Forever at your feet. Om!!`,
+    translation: `दर्द में हो या खुशी में — "मुस्कान कभी न जाने देना" — यही आप सदा कहते थे। 14 साल की उम्र में आपसे मिली और आप मेरे पथ-प्रदर्शक बन गए — जिन्होंने हमारी समृद्ध विरासत से परिचित कराया, प्रश्न करने और जानने के लिए प्रेरित किया, बिना शर्त प्रेम किया, देखभाल की, सिखाया, मार्गदर्शन किया, रक्षा की, अनुशासित किया, नेतृत्व करना सिखाया — परस्परावलम्बन को महत्त्व देते हुए स्वतंत्र और निर्भीक रहना सिखाया — हर बार गिरने के बाद उठना सिखाया, और यह सिखाया कि अपने 'होने' को न भूलते हुए 'बनने' की ओर अग्रसर कैसे हों। आपके निःस्वार्थ प्रेम, कृपा और मार्गदर्शन के लिए सदा आभारी हूँ। आपका जाना इन वर्षों में सबसे कठिन सत्य है, और इस वियोग से उबरना आसान नहीं होगा। मुझे विश्वास है कि अब आप मुझ पर दृष्टि रखेंगे। जैसा कहते हैं — जितनी दूर जाऊँगी, उतनी ही निकट आऊँगी। सदा आपकी। सदा आपके चरणों में। ॐ!!`,
   },
   {
     name: "Devotee",
-    message: `So a nice Sunday morning became a day of gloom. Before I could step out for a walk came this phone call - a bolt from the blue. The news was so shocking that it took a while to absorb. Pujya swamiji most revered Guruji was for us and our family a mentor, a guide, a philosophic companion and most of all his ashirwad and blessings on the youngsters can never be forgotten. We are in bereavement and will be unable to forget his ever smiling face and small one liners to keep us riveted. Each moment since then I reminisce about the countless hours he has spent at our home and his private conversations and pravachans full of profound wisdom and knowledge. He blessed us to inaugurate our the then new Unit in 2008 which has immensely prospered due to his divine blessings. We at Kanpur where he spent his formative years and one of the cities he was particularly fond off will find it difficult to plan a year without his two annual Pravachans and Gyan Yagyas. A ritual which took a break only due to the Covid pandemic. There was one planned just after the 22 March Lockdown and our scheduled "bhikhsha" on the 25th was never to be. Pujya Swamiji will forever live in our hearts and will continue to bless us from his heavenly abode. A great loss to all of us. Om shanti Om shanti Om shanti 🙏🙏🙏🙏`,
+    message: `A pleasant Sunday morning suddenly became a day of deep gloom. Before I could step out for a walk, the phone rang — a bolt from the blue. The news was so shocking that it took a while to absorb. Pujya Swamiji was for us and our family a mentor, a guide, a philosophic companion — and most of all, his blessings on the younger generation can never be forgotten. We are in bereavement and will never forget his ever-smiling face and his memorable one-liners that kept us riveted. Every moment since, I reminisce about the countless hours he spent at our home, his private conversations and discourses full of profound wisdom and knowledge. He blessed us when we inaugurated our then-new Chinmaya centre in 2008, which has since prospered immensely through his divine blessings. At Kanpur, where he spent his formative years and which was a city he was particularly fond of, it will be difficult to plan a year without his two annual discourses and Jnana Yagnas — a tradition that paused only due to the Covid pandemic. Pujya Swamiji will forever live in our hearts. Om Shanti Om Shanti Om Shanti. 🙏`,
+    translation: `एक सुहाना रविवार का प्रभात अचानक गहरे शोक का दिन बन गया। टहलने निकलने से पहले ही फ़ोन आया — एक अप्रत्याशित आघात। यह समाचार इतना स्तब्ध करने वाला था कि उसे स्वीकार करने में समय लगा। पूज्य स्वामीजी हमारे और हमारे परिवार के लिए एक मार्गदर्शक, एक दार्शनिक साथी थे — और सबसे बढ़कर, युवा पीढ़ी पर उनका आशीर्वाद अविस्मरणीय है। हम शोकाकुल हैं और उनका सदा मुस्कुराता चेहरा और उनकी प्रेरणादायी सूक्तियाँ कभी नहीं भूल सकते। उन्होंने 2008 में हमारे नए केंद्र के उद्घाटन पर आशीर्वाद दिया था, जो उनके दिव्य आशीर्वाद से अत्यंत समृद्ध हुआ है। कानपुर में — जो उनकी प्रिय नगरी थी — उनके वार्षिक प्रवचनों और ज्ञान यज्ञों के बिना वर्ष की कल्पना कठिन होगी। पूज्य स्वामीजी सदा हमारे हृदय में जीवित रहेंगे। ॐ शांति ॐ शांति ॐ शांति। 🙏`,
   },
   {
     name: "Devotee",
-    message: `Heartfelt tribute to pujaya Guruji Swami Subodhanandaji. He was an admirable orator. His clarity and deep understanding of Ramayana and Vedanta really inspired me to study Vedanta at Sidhwadi. His teachings have helped me a lot to go deeper in Sadhna. I am very thankful to him. He will always be alive in our hearts in the form of his teachings. My sashtang pranams at his lotus feet.`,
+    message: `Heartfelt tribute to Pujya Guruji Swami Subodhanandaji. He was an admirable orator. His clarity and deep understanding of the Ramayana and Vedanta truly inspired me to study Vedanta at Sidhbari. His teachings have helped me immensely in going deeper into Sadhana. I am very grateful to him. He will always be alive in our hearts through his teachings. My Sashtang Pranams at his lotus feet.`,
+    translation: `पूज्य गुरुजी स्वामी सुबोधानंदजी को भावभीनी श्रद्धांजलि। वे एक अद्भुत वक्ता थे। रामायण और वेदांत की उनकी स्पष्टता और गहरी समझ ने मुझे सिद्धबाड़ी में वेदांत का अध्ययन करने के लिए प्रेरित किया। उनकी शिक्षाओं ने मुझे साधना में और गहरे जाने में बहुत सहायता की है। मैं उनका अत्यंत आभारी हूँ। वे सदा उनकी शिक्षाओं के रूप में हमारे हृदयों में जीवित रहेंगे। उनके चरण-कमलों में साष्टांग प्रणाम।`,
   },
   {
     name: "Devotee",
-    message: `I was one of the lucky ones who was blessed by Swamiji's presence since I was 3 years old. I would go with my parents to attend Swamiji's lectures. Although at that age I did not understand much but I was mesmerized by his speech and his charismatic personality. Swamiji would always greet me with a huge smile on his face. He was always full of life and being in his presence felt like being around the purest form of positivity. As an adult when I started listening to his lectures, I felt truly guided. Any time I was looking for answers, I would listen to one of his lectures and it would feel like somehow magically he had read my mind and provided me with the answers that I was seeking. Swamiji, you will be dearly missed. Many pranams at your lotus feet and may you continue to guide us and shower us with your grace from beyond. Hari om`,
+    message: `I was among the fortunate ones blessed by Swamiji's presence since I was 3 years old. I would go with my parents to attend his lectures. Although at that young age I did not understand much, I was mesmerised by his speech and his charismatic personality. Swamiji would always greet me with a warm smile. He was always full of life, and being in his presence felt like being near the purest form of positivity. As an adult, when I began listening to his lectures more deeply, I felt truly guided. Whenever I was looking for answers, I would listen to one of his discourses — and it would feel as though, magically, he had read my mind and provided exactly the answers I was seeking. Swamiji, you will be dearly missed. Many pranams at your lotus feet. May you continue to guide us and shower us with your grace. Hari Om.`,
+    translation: `मैं उन सौभाग्यशाली लोगों में से एक था जिन पर स्वामीजी की उपस्थिति का आशीर्वाद 3 वर्ष की आयु से रहा। मैं अपने माता-पिता के साथ उनके प्रवचनों में जाता था। हालाँकि उस छोटी उम्र में मैं अधिक नहीं समझ पाता था, उनके भाषण और उनके आकर्षक व्यक्तित्व ने मुझे मंत्रमुग्ध कर दिया था। स्वामीजी सदा मुझे गर्मजोशी से मुस्कुराकर स्वागत करते थे। वे सदा जीवन से भरपूर थे और उनके सान्निध्य में रहना सकारात्मकता के शुद्धतम रूप के पास होने जैसा था। जब मैं बड़ा हुआ और उनके प्रवचनों को गहराई से सुनने लगा, तो मुझे सच्चा मार्गदर्शन मिला। जब भी मैं उत्तरों की तलाश में होता, उनका कोई प्रवचन सुनता — और ऐसा लगता जैसे उन्होंने जादू से मेरे मन को पढ़ लिया हो और ठीक वही उत्तर दे दिया जो मैं खोज रहा था। स्वामीजी, आपकी बहुत कमी खलेगी। आपके चरण-कमलों में अनेक प्रणाम। आप हमें मार्गदर्शन देते रहें और कृपा बरसाते रहें। हरि ॐ।`,
   },
   {
     name: "Devotee",
-    message: `I attended the session by Swamiji, on Kathopnishad at Jaipur. First day out of curiosity, as I always found the subject difficult to comprehend. Next day onwards I decided to attend all the sessions instead of going to the university. Needless to say, how absorbing it was. I also joined the Bhiksha organised in his honour, to get more blessings and hear more from him. Initiated discussions on economy, defence and various facets of life. He was erudite and had clear understanding on every aspect, just amazing. Now I think, it was preordained that I had the divine blessings and privilege to have known him, it was God sent opportunity. University I keep going, but nothing could have compensated the amount of his blessed love, I gained. Feel fortunate. God and pujya gudev bless his soul.`,
+    message: `I attended Swamiji's sessions on the Kathopanishad at Jaipur — the first day out of curiosity, as I had always found the subject difficult to comprehend. From the very next day I decided to attend all the sessions instead of going to university. Needless to say, the experience was deeply absorbing. I also joined the Bhiksha organised in his honour, to receive more blessings and hear more from him. He initiated discussions on economics, defence and various facets of life. He was erudite and had clear understanding on every aspect — truly amazing. Looking back, I feel it was preordained that I had the divine privilege to have known him — a God-sent opportunity. The university I kept visiting, but nothing could have compensated for the measure of his blessed love that I received. I feel most fortunate. May God and Pujya Gurudev bless his soul.`,
+    translation: `मैंने जयपुर में स्वामीजी के कठोपनिषद् पर सत्र में भाग लिया — पहले दिन जिज्ञासावश, क्योंकि मुझे यह विषय सदा कठिन लगता था। अगले दिन से ही मैंने विश्वविद्यालय जाने के बजाय सभी सत्रों में भाग लेने का निर्णय कर लिया। कहना न होगा, अनुभव अत्यंत गहन और रोमांचक था। उनके सम्मान में आयोजित भिक्षा में भी सम्मिलित हुआ — अधिक आशीर्वाद पाने और उनसे और सुनने के लिए। उन्होंने अर्थव्यवस्था, रक्षा और जीवन के अनेक पहलुओं पर चर्चा आरम्भ की। वे विद्वान थे और हर विषय पर स्पष्ट समझ रखते थे — सच में अद्भुत। पीछे मुड़कर देखता हूँ तो लगता है, यह पूर्वनिर्धारित था कि मुझे उन्हें जानने का दिव्य सौभाग्य मिला — ईश्वर की भेजी हुई एक अनुपम भेंट। विश्वविद्यालय तो जाता रहा, किन्तु उनके आशीर्वाद-युक्त प्रेम की जो प्राप्ति हुई, उसकी भरपाई किसी से न होती। मैं अपने आप को अत्यंत भाग्यशाली मानता हूँ। ईश्वर और पूज्य गुरुदेव उनकी आत्मा को आशीर्वाद दें।`,
   },
   {
     name: "Devotee",
-    message: `Pujya Swamiji was a very staunch devotee of Pujya Gurudev. Whenever Pujya Gurudev comes to Siddhabari, it is Swami Subodhanandaji who will push the wheel chair. Swamiji was doing that with so much of devotion and pride. His teachings are extremely impactful and authentic. Swamiji loved Upanishads and Bhashya. We will miss Swamiji a lot. At the same time we are to do lot of Sadhana to achieve a bit of what Was so natural to Swami Subodhanandaji. Pujya Swamiji has inspired so many young people to take Brahmachari and Sannyasa Deeksha. Mammoth contribution to the Rishi culture. We pray for His blessings.`,
+    message: `Pujya Swamiji was a most devoted disciple of Pujya Gurudev. Whenever Pujya Gurudev came to Sidhbari, it was Swami Subodhanandaji who would push his wheelchair — doing so with such devotion and pride. His teachings were extremely impactful and authentic. Swamiji loved the Upanishads and Bhashyas deeply. We will miss him greatly. At the same time, we must do much Sadhana to imbibe even a fraction of what came so naturally to Swami Subodhanandaji. Pujya Swamiji inspired countless young people to take Brahmachari and Sannyas Deeksha — a mammoth contribution to Rishi culture. We pray for his continued blessings.`,
+    translation: `पूज्य स्वामीजी, पूज्य गुरुदेव के परम समर्पित शिष्य थे। जब भी पूज्य गुरुदेव सिद्धबाड़ी आते, स्वामी सुबोधानंदजी ही उनकी व्हीलचेयर धकेलते — और यह कार्य वे अत्यंत भक्ति और गर्व से करते थे। उनकी शिक्षाएँ अत्यंत प्रभावशाली और प्रामाणिक थीं। स्वामीजी उपनिषदों और भाष्यों से गहरा प्रेम रखते थे। उनकी बहुत कमी रहेगी। साथ ही हमें बहुत साधना करनी होगी कि स्वामी सुबोधानंदजी के लिए जो स्वाभाविक था, उसका एक अंश भी हम आत्मसात कर सकें। पूज्य स्वामीजी ने अनगिनत युवाओं को ब्रह्मचारी और संन्यास दीक्षा लेने के लिए प्रेरित किया — ऋषि संस्कृति में यह एक विशाल योगदान है। हम उनके निरंतर आशीर्वाद की प्रार्थना करते हैं।`,
   },
   {
     name: "Devotee",
-    message: `Hari Om. Swamiji was a great disciple and devotee of Param Pujya Gurudev. Whenever there's camp at Sidhabari he would enquire with the campers, how comfortable they're and any help required. His sanyasa deeksha was from Tamaraipakkam temple and he had great love for Chennai. Whenever we go to Sidhabari we used to take our Lord Sarweswara prasadam to him. He kept the Sidhabari ashram well maintained and Gurudev's Mahasamadhi stal very sacred. He has reached Gurudev's paadam. Our Pranams and Prostrations to him. 🙏🙏`,
+    message: `Hari Om. Swamiji was a great disciple and devotee of Param Pujya Gurudev. Whenever there was a camp at Sidhbari, he would always enquire after the campers — whether they were comfortable, whether any help was needed. His Sannyas Deeksha was from Tamaraipakkam temple and he had great love for Chennai. Whenever we went to Sidhbari, we used to bring Prasad of our Lord Sarveswara for him. He kept the Sidhbari Ashram beautifully maintained and Gurudev's Mahasamadhi Sthal most sacred. He has now reached Gurudev's feet. Our Pranams and Prostrations to him. 🙏🙏`,
+    translation: `हरि ॐ। स्वामीजी परम पूज्य गुरुदेव के महान शिष्य और भक्त थे। सिद्धबाड़ी में जब भी शिविर होता, वे शिविरार्थियों का हाल-चाल पूछते — कि वे आरामदायक हैं या नहीं, कोई सहायता चाहिए। उनकी संन्यास दीक्षा तमिलनाडु के तमराईपक्कम मंदिर से हुई थी और चेन्नई के प्रति उनका गहरा प्रेम था। जब भी हम सिद्धबाड़ी जाते, हमारे आराध्य सर्वेश्वर का प्रसाद उनके लिए ले जाते। उन्होंने सिद्धबाड़ी आश्रम को सुंदर रूप से संभाला और गुरुदेव के महासमाधि स्थल को अत्यंत पवित्र बनाए रखा। वे अब गुरुदेव के चरणों में पहुँच गए हैं। उन्हें हमारा प्रणाम और साष्टांग नमस्कार। 🙏🙏`,
   },
   {
     name: "Devotee",
-    message: `Poojya Swamiji was an ocean of knowledge and his deep knowledge of the scriptures was unparalleled. Many seekers and Swamis and Brahmacharins were trained and guided by Swamiji. His shastra-charcha will be missed a lot. Sidhbari will not be the same again. We will miss Swamiji whenever we go there. He was very loving and always enquired about our well-being and sadhana whenever we met him at Sidhbari. Its a deep loss to Chinmaya Mission and to Sanatana Dharma. Pranam to Poojya Swamiji.`,
+    message: `Pujya Swamiji was an ocean of knowledge, and his deep understanding of the scriptures was unparalleled. Many seekers, Swamis and Brahmacharins were trained and guided by him. His Shastra-charcha will be greatly missed. Sidhbari will never be the same again. He was most loving and always enquired about our well-being and Sadhana whenever we met him there. It is a deep loss for Chinmaya Mission and for Sanatana Dharma. Pranam to Pujya Swamiji.`,
+    translation: `पूज्य स्वामीजी ज्ञान के सागर थे और शास्त्रों की उनकी गहरी समझ अतुलनीय थी। अनेक साधकों, स्वामियों और ब्रह्मचारियों को उनके मार्गदर्शन में प्रशिक्षित किया गया। उनकी शास्त्र-चर्चा की बहुत कमी खलेगी। सिद्धबाड़ी अब पहले जैसी नहीं रहेगी। वे अत्यंत स्नेहशील थे और जब भी हम वहाँ मिलते, वे हमारे स्वास्थ्य और साधना के बारे में पूछते। यह चिन्मय मिशन और सनातन धर्म दोनों के लिए गहरी क्षति है। पूज्य स्वामीजी को प्रणाम।`,
   },
   {
     name: "Devotee",
-    message: `Thousand Salutations at the lotus Feet of our Beloved Swamiji🙏🙏. We have known Swamiji since 1993 and visited number of His camps in Sidhbari and hosted Him number of times at our humble abode in Vadodara. It was always a pleasure and delight to listen to Swamiji and be in His Divine presence. Our mind is flooded with so many memories that we have of Him. It is going to be very difficult for us to not have Him in our lives physically, The void will be there as long as we are alive. His voice was like a soothing balm and His discourses had so much depth of knowledge and He was so full of devotion. He was satchitananda swarup Shivoham. 🙏 Ashrupoorna Shradhanjali and Naman🙏 Rama Kamlesh and Family🙏`,
+    message: `A thousand salutations at the lotus feet of our Beloved Swamiji 🙏🙏. We have known Swamiji since 1993, visited many of his camps at Sidhbari, and had the honour of hosting him at our humble home in Vadodara on several occasions. It was always a pleasure and a delight to listen to Swamiji and to be in his divine presence. Our mind is flooded with so many cherished memories of him. It will be very difficult to live without him physically — the void will remain as long as we are alive. His voice was like a soothing balm, and his discourses had immense depth of knowledge; he was so full of devotion. He was Satchitananda Swarup — Shivoham. 🙏 Ashrupoorna Shraddhanjali and Naman 🙏 — Rama, Kamlesh and Family.`,
+    translation: `हमारे प्रिय स्वामीजी के चरण-कमलों में सहस्र वंदन 🙏🙏। हम 1993 से स्वामीजी को जानते हैं, सिद्धबाड़ी में उनके अनेक शिविरों में भाग लिया है, और वडोदरा में हमारे साधारण घर पर कई बार उनकी अगवानी करने का सौभाग्य मिला। स्वामीजी को सुनना और उनके दिव्य सान्निध्य में रहना सदा आनंददायक अनुभव था। उनकी अनेक प्रिय स्मृतियाँ मन में उमड़ रही हैं। उनके बिना शारीरिक जीवन जीना अत्यंत कठिन होगा — यह रिक्तता जीवन भर रहेगी। उनकी वाणी एक शीतल मरहम की तरह थी और उनके प्रवचनों में ज्ञान की अगाध गहराई थी; वे भक्ति से परिपूर्ण थे। वे सच्चिदानंद स्वरूप थे — शिवोऽहम्। 🙏 अश्रुपूर्ण श्रद्धांजलि और नमन 🙏 — राम, कमलेश एवं परिवार।`,
   },
   {
     name: "Devotee",
-    message: `Param Pujya Shri Swami Ji Maharaj ke Shricharno mein koti koti Pranam karta hoo. I have no words to say how deeply saddened I am after hearing the news of Pujya Swami Ji... He was the crown of Chinmaya Mission.... Main apne Mahaan Swami Ji ko punah punah Pranam karta hoon.....saath hi mera samast parivar koti koti koti Pranam karta hai His teachings and his Aashirwad always remain with us forever.. Jai Gurudev Hari Om`,
+    message: `Param Pujya Swami Ji Maharaj ke Shri-Charno mein koti-koti Pranam. I have no words to express how deeply saddened I am after hearing the news of Pujya Swamiji's Mahasamadhi. He was the crown jewel of Chinmaya Mission. Main apne Mahaan Swamiji ko punah punah Pranam karta hoon — saath hi mera samast parivar bhi koti-koti Pranam karta hai. His teachings and his Aashirwad will always remain with us. Jai Gurudev. Hari Om.`,
+    translation: `परम पूज्य स्वामीजी महाराज के श्रीचरणों में कोटि-कोटि प्रणाम। पूज्य स्वामीजी की महासमाधि का समाचार सुनकर मैं कितना दुखी हूँ, यह शब्दों में कहना संभव नहीं। वे चिन्मय मिशन के मुकुटमणि थे। मैं अपने महान स्वामीजी को बार-बार प्रणाम करता हूँ — साथ ही मेरा समस्त परिवार भी कोटि-कोटि प्रणाम करता है। उनकी शिक्षाएँ और उनका आशीर्वाद सदा हमारे साथ रहेंगे। जय गुरुदेव। हरि ॐ।`,
   },
   {
     name: "Devotee",
-    message: `Poojya Swami ji was Divinity, Wisdom, Philosophy and Bliss personified. His every word and action was a teaching towards perfection. His dedication and commitment for the subject was unparalleled and worth inspiring. He revealed and lived Advait Darshan/Philosophy. His Himaliyan dedication for Pujya Gurudev, for scriptures, for Motherland, for Hindi and Sanskrit language, Right pronunciation of words and verses, His in-depth knowledge of each word and its etymology, His knowledge of grammar, His Communication skills, His oratory, His unique smile, His facial expressions, gestures and physical movements while delivering discourses, His interaction with seekers, His inspiring style of reflections on Vedantic principles, His tolerance for imperfections and weaknesses of others, His oceanic knowledge of almost all subjects, His in depth analysis of various political, economic, agricultural, defense, sports and other issues, His Hospitality, His Cleanliness, His Self Confidence, His open challenges on Vedantic Declarations were worth INSPIRING. He was a pilgrimage in himself and his visits to various centers were festivals and blessings for seekers. One very unique characteristic of His personality was giving attention and Love to everybody who came to him in a style that everyone realized he/she is paid extra care by Poojy Swami Ji. You made Sidhbari a home for many seekers. You transformed thousands of lives and families and your recorded teachings will still transform millions in time to come but your physical presence will be missed painfully. You were like a Pillar of Light in oceanic waves of ups and downs of lives for us. You were MOST-EXTRA-ORDINARY. You were BRAHMAN in physical form.`,
+    message: `Pujya Swamiji was Divinity, Wisdom, Philosophy and Bliss personified. His every word and action was a teaching towards perfection. His dedication and commitment to the subject were unparalleled and truly inspiring. He revealed and lived Advaita Darshana. His Himalayan dedication to Pujya Gurudev, to the scriptures, to the Motherland, to the Hindi and Sanskrit languages, his in-depth knowledge of every word and its etymology, his grammar, his communication skills, his oratory, his unique smile, his facial expressions and gestures during discourse, his interaction with seekers, his reflection on Vedantic principles, his tolerance for imperfections, his oceanic knowledge of almost all subjects, his hospitality, his cleanliness, his self-confidence — all were deeply inspiring. He was a pilgrimage in himself, and his visits to various centres were festivals of blessings for all seekers. You were most extraordinary. You were Brahman in physical form.`,
+    translation: `पूज्य स्वामीजी दिव्यता, प्रज्ञा, दर्शन और आनंद की साक्षात मूर्ति थे। उनका हर वचन और हर कृत्य पूर्णता की ओर एक शिक्षा था। विषय के प्रति उनकी निष्ठा और समर्पण अतुलनीय और प्रेरणादायक था। उन्होंने अद्वैत दर्शन को जीया और प्रकट किया। पूज्य गुरुदेव के प्रति, शास्त्रों के प्रति, मातृभूमि के प्रति, हिंदी और संस्कृत भाषाओं के प्रति उनकी हिमालयी निष्ठा; प्रत्येक शब्द और उसकी व्युत्पत्ति का गहन ज्ञान; व्याकरण; संचार कौशल; वक्तृत्व; उनकी अनूठी मुस्कान; प्रवचन के दौरान भाव-भंगिमाएँ; साधकों के साथ संवाद; वेदांतिक सिद्धांतों पर उनके मनन; दूसरों की कमज़ोरियों के प्रति सहिष्णुता; लगभग सभी विषयों का सागर-गहन ज्ञान; आतिथ्य; स्वच्छता; आत्मविश्वास — सब कुछ अत्यंत प्रेरणादायक था। वे स्वयं एक तीर्थस्थान थे और विभिन्न केंद्रों पर उनकी यात्राएँ सभी साधकों के लिए उत्सव और आशीर्वाद का अवसर थीं। आप सबसे असाधारण थे। आप ब्रह्म के भौतिक स्वरूप थे।`,
   },
   {
     name: "Devotee",
-    message: `Hari OM! I feel so blessed that I had the privilege to know you, learn from you, serve you and love you. Your teachings, love and memories will always be with me. You will always have a special place in my heart. Please accept my pranaam and Hari OM. With lots of love and regards,`,
+    message: `Hari Om! I feel so blessed to have had the privilege of knowing you, learning from you, serving you and loving you. Your teachings, your love and your memories will always be with me. You will forever have a special place in my heart. Please accept my Pranam. Hari Om. With lots of love and regards.`,
+    translation: `हरि ॐ! मैं अपने आप को धन्य समझता हूँ कि आपको जानने, आपसे सीखने, आपकी सेवा करने और आपसे प्रेम करने का सौभाग्य मिला। आपकी शिक्षाएँ, आपका प्रेम और आपकी स्मृतियाँ सदा मेरे साथ रहेंगी। आप मेरे हृदय में सदा एक विशेष स्थान रखते हैं। कृपया मेरा प्रणाम स्वीकार करें। हरि ॐ। बहुत सारे प्रेम और सादर।`,
   },
   {
     name: "Devotee",
-    message: `Pujaya Swami ji spent 39 years at the lotus feet of Gurudev at SIDHBARI and being one of his most loved disciple, seems was in a hurry to join Gurudev after completing his assignment extremely well here among all of us. An epitome of spiritual knowledge, Swami ji drilled the vedantic teachings in very simple Methods. He is still with us with his available discourses. It is a joy to take feed from him everyday & live through the peaceful journey of life. Our Shat Shat Naman 🙏🙏🙏🙏`,
+    message: `Pujya Swamiji spent 39 years at the lotus feet of Gurudev at Sidhbari and, being one of his most beloved disciples, he seemed to be in a hurry to rejoin Gurudev, having completed his mission here so wonderfully well. An epitome of spiritual knowledge, Swamiji transmitted the Vedantic teachings through the simplest of methods. He is still with us through his available discourses. It is a joy to draw sustenance from him every day and to walk through life's journey in peace. Our Shat Shat Naman. 🙏🙏🙏🙏`,
+    translation: `पूज्य स्वामीजी ने सिद्धबाड़ी में गुरुदेव के चरणों में 39 वर्ष बिताए और, उनके सबसे प्रिय शिष्यों में से एक होने के नाते, वे यहाँ अपना कार्य भली-भाँति पूर्ण करके गुरुदेव के पास लौटने की जल्दी में थे। आध्यात्मिक ज्ञान के एक आदर्श रूप, स्वामीजी ने वेदांतिक शिक्षाओं को अत्यंत सरल विधियों से प्रदान किया। वे अभी भी अपने उपलब्ध प्रवचनों के माध्यम से हमारे साथ हैं। प्रतिदिन उनसे पोषण ग्रहण करना और जीवन की यात्रा शांति से तय करना एक आनंद है। हमारा शत-शत नमन। 🙏🙏🙏🙏`,
   },
   {
     name: "Devotee",
-    message: `Hari 🕉 ब्रह्मलीन प पूज्य गुरुदेव सान्निध्य प्राप्त करके आपने गुरुदेवकी अप्रतिम सेवा की एवं गुरु निष्ठाका श्रेष्ठ उदाहरण हमें मिला। गुरुदेव के प्रेमपात्र प्रिय शिष्य बने।हम सबको प्रेम देनेवाले, हमारे परम प्रिय विनम्र स्वामीजी आप भले हमें छोड़कर चले गए पर हमारे हृदयसेआपको कोई नहीं निकाल सकता।आत्मज्योतिरूप आप परमात्मारूप ज्योतिसे एकाकार हो गये।मेरा आपको कृतज्ञतापूर्वक सादर सप्रेम शत-शत नमन।एवं प्रार्थना-मेरे मनमें श्रद्धादीपको प्रज्वलित रखना, मनमंदिरमें अंधकार न रहें, ज्ञानप्रकाश देते रहना,ऐसा कृपा-आशीर्वाद मुझ पर बरसाते रहना ।.... वंदन बारंबार नमस्कारम् ।ॐ॥`,
+    message: `हरि ॐ। ब्रह्मलीन पूज्य स्वामीजी, गुरुदेव का सान्निध्य प्राप्त करके आपने उनकी अप्रतिम सेवा की और गुरु-निष्ठा का श्रेष्ठ उदाहरण हमारे सामने रखा। गुरुदेव के प्रेमपात्र प्रिय शिष्य बने। हम सभी को प्रेम देने वाले, हमारे परम प्रिय विनम्र स्वामीजी — आप भले हमें छोड़कर गए, किन्तु हमारे हृदय से आपको कोई नहीं निकाल सकता। आत्मज्योति-स्वरूप आप, परमात्म-ज्योति में एकाकार हो गए। आपको कृतज्ञतापूर्वक सादर सप्रेम शत-शत नमन। और प्रार्थना — मेरे मन में श्रद्धा-दीप प्रज्वलित रखना, मन-मंदिर में अंधकार न रहे, ज्ञान का प्रकाश देते रहना — ऐसी कृपा और आशीर्वाद बरसाते रहना। वंदन बारम्बार, नमस्कारम्। ॐ॥`,
+    translation: `Hari Om. Brahmaleen Pujya Swamiji — in the shelter of Gurudev's presence, you served him incomparably and set before us the finest example of Guru-nishtha (devotion to the Guru). You became Gurudev's most beloved disciple. You, who showered love on all of us — our most dear and humble Swamiji — though you have left us, no one can remove you from our hearts. You, who are the very light of the Self, have merged into the Supreme Light of the Paramatman. With gratitude, respect and love, our hundredfold salutations to you. And our prayer — keep the lamp of reverence burning in my mind; may no darkness remain in the temple of my heart; may you continue to shed the light of knowledge — bless us with such grace always. Salutations again and again, Namaskarams. Om.`,
   },
   {
     name: "Devotee",
-    message: `Swamiji's mahasamadhi brings to an end an era resplendent with Vishudh Vedant Vichar Vimarsh. His abiding interest and knowledge of Vedant was iconic. He virtually and visibly reveled in Vedant. Although a Vedantic scholar, he was equally and easily erudite on a wide array of subjects including history and political science. He always loved and encouraged spiritual discussions and like a true teacher always answered all questions both meaningful as well as the mundane. His soft, gentle voice was mesmerizing even though the purity of his language was not always easy to grasp. But he would patiently and skillfully ensure that we all eventually understood. His keen intellect and photographic memory was a joy to behold. He encouraged us to retain our learning in the mind rather than on paper or phone. Before Swamiji, Manas and Bhagwat to us all were stories or Katha. His insightful and subtle exposition revealed the Vedantic principles embedded in these Grantham. The vast yawning void left by him is unlikely to be filled and we will always miss his physical presence. Swamiji you only taught us that this world is timeless and life will go on. True Swamiji but it will not be the same without you. My shat shat pranam to this Vedantic Vibhooti whose divine presence itself was a benevolent blessing. May we continue to be blessed and guided by him. Om shanti, shanti, shanti.`,
+    message: `Swamiji's Mahasamadhi brings to an end an era resplendent with pure Vedantic reflection and discourse. His deep interest in and knowledge of Vedanta was iconic. He virtually and visibly revelled in Vedanta. Although a Vedantic scholar, he was equally and easily erudite across a wide array of subjects, including history and political science. He always loved and encouraged spiritual discussions, and like a true teacher, always answered every question — meaningful or mundane. His soft, gentle voice was mesmerising, even if the purity of his language was not always easy to grasp. But he would patiently and skilfully ensure that we all eventually understood. His keen intellect and photographic memory were a joy to behold. He encouraged us to retain our learning in the mind rather than in notes. Before Swamiji, the Manas and the Bhagavat were to most of us merely stories. His insightful and subtle exposition revealed the Vedantic principles embedded in these great works. My Shat Shat Pranam to this Vedantic Vibhuti. May we continue to be blessed and guided by him. Om Shanti, Shanti, Shanti.`,
+    translation: `स्वामीजी की महासमाधि शुद्ध वेदांत-विचार-विमर्श से जगमगाते एक युग के अंत का प्रतीक है। वेदांत के प्रति उनकी गहरी रुचि और ज्ञान अद्वितीय था। वे वेदांत में प्रत्यक्ष और दृश्यमान रूप से आनंदमग्न रहते थे। यद्यपि वे वेदांत के विद्वान थे, किन्तु इतिहास और राजनीति विज्ञान सहित अनेक विषयों पर वे समान रूप से और सहजता से पारंगत थे। वे सदा आध्यात्मिक चर्चाओं को प्रोत्साहित करते और एक सच्चे गुरु की भाँति हर प्रश्न का उत्तर देते — चाहे वह गहन हो या साधारण। उनकी कोमल, मृदु वाणी मनमोहक थी। उनकी भाषा की शुद्धता को पकड़ पाना सदा सरल न होता, किन्तु वे धैर्यपूर्वक यह सुनिश्चित करते कि हम सब अंततः समझ सकें। उनकी तीक्ष्ण बुद्धि और फोटोग्राफिक स्मृति देखकर आनंद आता था। वे हमें नोट्स की बजाय मन में ज्ञान संजोने के लिए प्रेरित करते। स्वामीजी से पहले मानस और भागवत हम अधिकांश लोगों के लिए केवल कथाएँ थीं। उनकी सूक्ष्म और अंतर्दृष्टिपूर्ण व्याख्या ने इन महान ग्रंथों में निहित वेदांतिक सिद्धांतों को प्रकट किया। इस वेदांत-विभूति को मेरा शत-शत प्रणाम। ॐ शांति, शांति, शांति।`,
   },
   {
     name: "Devotee",
-    message: `Hari Om! my respectful shradhanjlis to Swamiji! Subodhanandji's talks on Bhagwat, Geeta & Ramayana are excellence! The real essence of Ramayana, I understood when I heard his Ramayana Gnyana Yagna Saptah in Dahisar Mumbai about 15 years or so back! The meaning of words Rama, Sita, Hanumanji etc from vedantic definitions! Otherwise I knew Ramayana as an Epic Story like majority of people & was scarcely attending these Yagnas! Swamiji's sonorous voice was taking us on the flight of spirituality! We miss his physical presence! He was always cheerful & receptive to the devotees & their queries till late in the night! He never showed his sufferings due to health problem he had! Pray Parmeshwara to bestow Chir Shanti to his Aatma! Om Shanti Shant Shantihi!`,
+    message: `Hari Om! My respectful Shraddhanjali to Swamiji. Swami Subodhanandaji's talks on the Bhagavat, the Gita and the Ramayana were truly excellent. The real essence of the Ramayana — I first understood it when I heard his Ramayana Jnana Yagna Saptah in Dahisar, Mumbai, about 15 years ago. The meaning of names such as Rama, Sita and Hanumanji from a Vedantic perspective — I had not encountered this before. Until then, like most people, I knew the Ramayana only as an epic story and scarcely attended such Yagnas. Swamiji's sonorous voice used to lift us onto the flight of spirituality. We deeply miss his physical presence. He was always cheerful and receptive to devotees and their queries, often until late into the night. He never allowed his health issues to show. May Parmeshwara bestow Chir Shanti upon his Atma. Om Shanti Shant Shantihi!`,
+    translation: `हरि ॐ! स्वामीजी को मेरी श्रद्धापूर्ण श्रद्धांजलि। स्वामी सुबोधानंदजी के भागवत, गीता और रामायण पर प्रवचन सच्चे अर्थों में उत्कृष्ट थे। रामायण का वास्तविक सार — मैंने पहली बार लगभग 15 वर्ष पूर्व दहीसर, मुंबई में उनके रामायण ज्ञान यज्ञ सप्ताह में सुना। राम, सीता और हनुमानजी जैसे नामों का वेदांतिक दृष्टिकोण से अर्थ — यह मुझे पहले कहीं नहीं मिला था। उससे पहले, अधिकांश लोगों की तरह, मैं रामायण को केवल एक महाकाव्य-कथा के रूप में जानता था और ऐसे यज्ञों में शायद ही जाता था। स्वामीजी की गूँजती वाणी हमें अध्यात्म की उड़ान पर ले जाती थी। उनकी शारीरिक उपस्थिति की बहुत कमी खलती है। वे सदा प्रसन्न रहते और भक्तों तथा उनके प्रश्नों के प्रति देर रात तक ग्रहणशील रहते। उन्होंने कभी अपनी स्वास्थ्य समस्याओं को प्रकट नहीं होने दिया। परमेश्वर उनकी आत्मा को चिर शांति प्रदान करें। ॐ शांति शांति शांतिः!`,
   },
   {
     name: "Devotee",
-    message: `भौतिक शरीर से विलीन हुये ऋषिवर, पर ह्रदय के पास हो हो हमारे मध्य ही आत्म रूप से, गर कहीं भी पास हो।। पथ जो आपने किया चयन, हम भी पथिक है यही आस है हर कर्म की प्रेरणा हैं आप, हर विचार के विश्वास हो।। 🙏🙏🙏🌹🌹🌹🙏🙏🙏 हे गुरु भ्रात अलविदा कह रहे हैं सजल नयन प्रणाम! नमन! वन्दन! सब तुम्हे है अर्पण🙏🙏🙏🙏🌹🌹🌹`,
+    message: `भौतिक शरीर से विलीन हुए ऋषिवर,
+पर हृदय के पास हो — हमारे मध्य ही आत्म-रूप से,
+गर कहीं भी हो पास।।
+
+पथ जो आपने किया चयन,
+हम भी पथिक हैं — यही आस है।
+हर कर्म की प्रेरणा हैं आप,
+हर विचार के विश्वास हो।।
+
+🙏🌹🙏
+
+हे गुरु-भ्रात, अलविदा कह रहे हैं सजल नयन —
+प्रणाम! नमन! वंदन! सब तुम्हें है अर्पण। 🙏🌹`,
+    translation: `O Sage, you have departed from the physical form,
+Yet you are near the heart — present among us as the Self,
+Wherever you may be.
+
+The path that you have chosen,
+We too are wayfarers — this is our hope.
+You are the inspiration behind every action,
+The faith behind every thought.
+
+🙏🌹🙏
+
+O Guru-brother, with tear-filled eyes we bid farewell —
+Pranam! Naman! Vandan! All is offered unto you. 🙏🌹`,
   },
   {
     name: "Devotee",
-    message: `अद्वितीय वक्ता, अत्यंत श्रेष्ठ एवम मीठा व्यक्तित्व, उच्च कोटि के विद्वान। यह रिक्तता भरना बहुत मुश्किल है। जीवन कितना क्षणभंगुर है। माँ गीता ने अपने लाडले को अपने पास बुला लिया।उन्हें उनकी हमसे ज्यादा जरूरत होगी। एक विद्यार्थी की भावभीनी भावांजलि। हे कृष्ण!`,
+    message: `अद्वितीय वक्ता, अत्यंत श्रेष्ठ एवं मधुर व्यक्तित्व, उच्च कोटि के विद्वान — यह रिक्तता भर पाना बहुत कठिन है। जीवन कितना क्षणभंगुर है! माँ गीता ने अपने लाडले को अपने पास बुला लिया — उन्हें हमसे अधिक आवश्यकता होगी। एक विद्यार्थी की भावभीनी भावांजलि। हे कृष्ण!`,
+    translation: `An unparalleled orator, an extremely noble and gentle personality, a scholar of the highest order — filling this void will be very difficult. How fleeting life is! Mother Gita has called her beloved to herself — she must have needed him more than we did. A heartfelt tribute from a student. O Krishna!`,
   },
   {
     name: "Devotee",
-    message: `अनगणित आँखों में मैंने स्वामी जी के प्रति अथाह भक्ति देखी है। और स्वामी जी! आपकी आँखों का गाम्भीर्य भी देखा है; आपकी परखनहारी खोजी दृष्टि को निरखा है। सिद्धबाड़ी की तपोभूमि में - गुरुदेव और गुरुदेव के अनन्य शिष्य रूप प्रखर सूर्य बन उभरे हैं आप। आपकी द्रिक दृष्टि रूप किरणों में, हम गुरुकुलवासी शिष्यों-साधकों की मलिनता रूपी दोष धुल-धुल जाते रहे; हमें पवित्रता, ऊर्ध्वमुखता की ओर उन्मुख करते हुए। आपका स्नेह स्निग्ध वात्सल्य अद्भुत विस्मय कर देने वाली गम्भीर गुंजायमान वाणी का कर्षण हम शिष्यों को ही नहीं वरन शिविर में आये साधकों को; ज्ञान यज्ञ में उपस्थित श्रोताओं को मंत्र मुग्ध करता रहा। केवल इतना ही नहीं - आपका विद्युत-चुम्बकीय वाक-बल उस ज्ञान का ; उस सत्य का सदैव दिग्दर्शक बन उभरा- जिसकी शिष्यों को, निरंतर अभिलाषा अभीप्सा रहती है। हिमाचल की मनमोहक भूमि को गुरुदेव ने चिन्हित किया; वीर हनुमान की रक्षा में सुपुर्द कर दिया; राम-राज्य रूप वातावरण को सम्पुष्ट किया। और सुबोधानन्द स्वामी जी आपने उसे तीर्थ बना दिया। स्वामी जी! आपके वहां रहने से केवल सिद्धबाड़ी ही तीर्थ नहीं बना; बल्कि हम साधकों के हृदय जिसमें आप विराजमान हैं वह भी तीर्थरूप हो गया है। नम हृदय से इस बाल बुद्धि से आपको स्वामी जी भावभीनी श्रद्धांजलि हमारा नमन! हरि ओम`,
+    message: `अनगणित आँखों में मैंने स्वामीजी के प्रति अथाह भक्ति देखी है। और स्वामीजी! आपकी आँखों का गाम्भीर्य भी देखा है; आपकी परखनहारी, खोजी दृष्टि को निरखा है। सिद्धबाड़ी की तपोभूमि में — गुरुदेव के अनन्य शिष्य रूप में प्रखर सूर्य बनकर उभरे हैं आप। आपकी ज्ञान-दृष्टि की किरणों में हम गुरुकुलवासी शिष्यों-साधकों की मलिनता धुलती रही; हमें पवित्रता और ऊर्ध्वमुखता की ओर उन्मुख करते हुए। नत हृदय से, इस बाल-बुद्धि की ओर से, आपको भावभीनी श्रद्धांजलि और नमन! हरि ॐ`,
+    translation: `In countless eyes I have seen immeasurable devotion towards Swamiji. And Swamiji — I have also witnessed the depth of your gaze; I have observed your perceptive and searching eyes. In the sacred land of Sidhbari, you have risen as a radiant sun — the incomparable disciple of Gurudev. In the rays of your enlightened vision, the impurities of us Gurukulvasi disciples and seekers kept washing away, turning us towards purity and spiritual elevation. With a bowed heart, from this simple intellect, heartfelt tribute and salutation to you! Hari Om.`,
   },
 ];
 
-const ITEMS_PER_PAGE = 2;
-const MAX_LENGTH = 300;
+const CHARS_PER_LINE = 80;
+const LINE_LIMIT = 12;
+const CHAR_LIMIT = CHARS_PER_LINE * LINE_LIMIT;
 
-const TributeCard = ({ tribute, index }: { tribute: { name: string; message: string; isScannedLetter?: boolean }; index: number }) => {
+const TributeCard = ({ tribute }: { tribute: Tribute }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const shouldTruncate = tribute.message.length > MAX_LENGTH;
-  const displayText = isExpanded || !shouldTruncate
+  const [showTranslation, setShowTranslation] = useState(false);
+
+  const needsTruncation = tribute.message.length > CHAR_LIMIT;
+  const displayText = isExpanded || !needsTruncation
     ? tribute.message
-    : tribute.message.slice(0, MAX_LENGTH) + "…";
+    : tribute.message.slice(0, CHAR_LIMIT) + "…";
+
+  const isHindi = (tribute.message.match(/[\u0900-\u097F]/g) || []).length > tribute.message.length * 0.2;
+  const translateLabel = isHindi ? "Translate to English" : "हिंदी में अनुवाद";
+  const translationHeader = isHindi ? "English translation" : "हिंदी अनुवाद";
 
   if (tribute.isScannedLetter) {
     return (
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: index * 0.08 }}
-        className="p-4 rounded-xl bg-background border border-gold/20"
-      >
-        <div className="flex items-center gap-3 mb-3">
-          <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-sm">
-            🙏
-          </div>
-          <span className="font-display text-base text-foreground font-semibold">
-            {tribute.name}
-          </span>
+      <div className="p-5 rounded-xl bg-background border border-gold/20 max-w-2xl mx-auto">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-sm">🙏</div>
+          <span className="font-display text-base font-semibold text-foreground">{tribute.name}</span>
         </div>
         <div className="rounded-lg overflow-hidden border border-gold/10">
-          <img
-            src={scannedLetter}
-            alt="Letter from Swami Adhyatmananda"
-            className="w-full h-auto object-contain"
-          />
+          <img src={scannedLetter} alt="Letter from Swami Adhyatmananda" className="w-full h-auto object-contain" />
         </div>
-      </motion.div>
+      </div>
     );
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
-      className="p-4 rounded-xl bg-background border border-gold/20"
-    >
-      <div className="flex items-center gap-3 mb-3">
-        <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-sm">
-          🙏
+    <div className="max-w-2xl mx-auto">
+      <div className="p-5 rounded-xl bg-background border border-gold/20">
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-sm flex-shrink-0">🙏</div>
+          <span className="font-display text-base font-semibold text-foreground">{tribute.name}</span>
         </div>
-        <span className="font-display text-base text-foreground font-semibold">
-          {tribute.name}
-        </span>
+
+        {tribute.translation && (
+          <button
+            onClick={() => setShowTranslation(!showTranslation)}
+            className={`inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full border transition-all mb-4 ${
+              showTranslation
+                ? "bg-primary/10 border-primary/40 text-primary"
+                : "border-gold/30 text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/5"
+            }`}
+          >
+            <Languages size={13} />
+            <span>{showTranslation ? "Hide translation" : translateLabel}</span>
+          </button>
+        )}
+
+        <hr className="border-gold/10 mb-4" />
+
+        <p className="font-body text-sm text-muted-foreground leading-relaxed italic whitespace-pre-line">
+          "{displayText}"
+        </p>
+
+        {needsTruncation && (
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="mt-3 inline-flex items-center gap-1 text-xs text-primary hover:text-primary/80 transition-colors"
+          >
+            {isExpanded
+              ? <><span>Show less</span><ChevronUp size={13} /></>
+              : <><span>Read more</span><ChevronDown size={13} /></>}
+          </button>
+        )}
       </div>
-      <p className="font-body text-sm text-muted-foreground leading-relaxed italic whitespace-pre-line">
-        "{displayText}"
-      </p>
-      {shouldTruncate && (
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="mt-2 flex items-center gap-1 text-xs font-body text-primary hover:text-primary/80 transition-colors"
-        >
-          {isExpanded ? (
-            <><span>Show less</span><ChevronUp size={14} /></>
-          ) : (
-            <><span>Read more</span><ChevronDown size={14} /></>
-          )}
-        </button>
-      )}
-    </motion.div>
+
+      <AnimatePresence>
+        {showTranslation && tribute.translation && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="mt-3 p-5 rounded-xl border border-primary/20 bg-primary/5">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2 text-xs font-medium text-primary">
+                  <Languages size={13} />
+                  <span>{translationHeader}</span>
+                </div>
+                <button onClick={() => setShowTranslation(false)} className="text-muted-foreground hover:text-foreground transition-colors">
+                  <X size={14} />
+                </button>
+              </div>
+              <p className="font-body text-sm text-muted-foreground leading-relaxed italic whitespace-pre-line">
+                "{tribute.translation}"
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
 
 const ShraddanjaliSection = () => {
   const [page, setPage] = useState(0);
-  const totalPages = Math.ceil(tributes.length / ITEMS_PER_PAGE);
-  const current = tributes.slice(page * ITEMS_PER_PAGE, (page + 1) * ITEMS_PER_PAGE);
+  const total = tributes.length;
 
   return (
     <section id="shraddanjali" className="py-20 bg-gradient-spiritual">
@@ -199,52 +283,47 @@ const ShraddanjaliSection = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -30 }}
             transition={{ duration: 0.3 }}
-            className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4"
           >
-            {current.map((t, i) => (
-              <TributeCard key={i} tribute={t} index={i} />
-            ))}
+            <TributeCard tribute={tributes[page]} />
           </motion.div>
         </AnimatePresence>
 
-        {totalPages > 1 && (
-          <div className="flex items-center justify-center gap-3 mt-8">
-            <button
-              onClick={() => setPage((p) => Math.max(0, p - 1))}
-              disabled={page === 0}
-              className="p-2 rounded-full border border-gold/20 text-muted-foreground hover:text-foreground hover:border-gold/40 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-            >
-              <ChevronLeft size={18} />
-            </button>
+        <div className="flex items-center justify-center gap-2 mt-8 flex-wrap">
+          <button
+            onClick={() => setPage((p) => Math.max(0, p - 1))}
+            disabled={page === 0}
+            className="p-2 rounded-full border border-gold/20 text-muted-foreground hover:text-foreground hover:border-gold/40 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+          >
+            <ChevronLeft size={18} />
+          </button>
 
-            <div className="flex gap-1.5 flex-wrap justify-center">
-              {Array.from({ length: totalPages }, (_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setPage(i)}
-                  className={`w-7 h-7 rounded-full text-xs font-body font-medium transition-all ${
-                    page === i
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-card border border-gold/20 text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {i + 1}
-                </button>
-              ))}
-            </div>
-
-            <button
-              onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
-              disabled={page === totalPages - 1}
-              className="p-2 rounded-full border border-gold/20 text-muted-foreground hover:text-foreground hover:border-gold/40 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-            >
-              <ChevronRight size={18} />
-            </button>
+          <div className="flex gap-1.5 flex-wrap justify-center">
+            {Array.from({ length: total }, (_, i) => (
+              <button
+                key={i}
+                onClick={() => setPage(i)}
+                className={`w-7 h-7 rounded-full text-xs font-medium transition-all ${
+                  page === i
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-card border border-gold/20 text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {i + 1}
+              </button>
+            ))}
           </div>
-        )}
+
+          <button
+            onClick={() => setPage((p) => Math.min(total - 1, p + 1))}
+            disabled={page === total - 1}
+            className="p-2 rounded-full border border-gold/20 text-muted-foreground hover:text-foreground hover:border-gold/40 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+          >
+            <ChevronRight size={18} />
+          </button>
+        </div>
 
         <p className="text-center text-xs text-muted-foreground mt-3">
-          {page * ITEMS_PER_PAGE + 1}–{Math.min((page + 1) * ITEMS_PER_PAGE, tributes.length)} of {tributes.length} tributes
+          {page + 1} of {total} tributes
         </p>
       </div>
     </section>
