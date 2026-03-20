@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import heroPortrait   from "@/assets/hero/hero-portrait.jpg";
-import heroHimalaya  from "@/assets/hero/hero-himalaya.jpg";
-import heroFeet      from "@/assets/hero/hero-feet.jpg";
-import heroShiva     from "@/assets/hero/hero-shiva.jpg";
-import heroSignature from "@/assets/hero/hero-signature.jpg";
+import heroPortrait   from "@/assets/pic1.jpg";
+import heroHimalaya  from "@/assets/pic2.jpg";
+import heroFeet      from "@/assets/pic3.jpg";
+import heroShiva     from "@/assets/pic4.jpg";
+import heroSignature from "@/assets/pic5.jpg";
 
 const HeroSection = () => {
   return (
