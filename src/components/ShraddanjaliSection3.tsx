@@ -7,7 +7,7 @@ import scannedLetter from "@/assets/Swamiji.jpg.jpg";
 const tributes = [
   { name: "Swami Adhyatmananda", message: "", isScannedLetter: true },
  {
-    name: "Devotee",
+    name: "Swamiji",
     message: `विवेकबुद्धियुक्त्या हि ज्ञातमात्मानमद्वयम् । ब्रह्मातिरिक्तं बाधेन विमुक्तश्च विमुच्यते ।। "यतो वाचो निवर्तन्ते । अप्राप्य मनसा सह।" It is difficult to describe Pujya Swamiji, his greatness, his love for scriptures and above all his depth to analyze any topic whether it was Vedanta, Dharma Shashtra, Politics or Social issues. Swamiji could open any word and speak for long without any diversion. Swamiji’s Mahasamadhi is a great loss for many sadhakas and serious students of Vedanta. Always indebted to him for all his teachings and love that he showered on me. I learnt a lot from Pujya Swamiji in particular Shankara Bhasya study/ teaching and also Ramayana interpretations etc. Many many Pranams to Pujya Swamiji.`,
     translation: `"पूज्य स्वामीजी का वर्णन करना अत्यंत कठिन है — उनकी महानता, शास्त्रों के प्रति उनका प्रेम, और किसी भी विषय — चाहे वेदांत हो, धर्मशास्त्र हो, राजनीति हो या सामाजिक मुद्दे — उनका विश्लेषण करने की गहराई अतुलनीय थी। स्वामीजी किसी भी शब्द को खोलकर बिना विषयांतर हुए घंटों बोल सकते थे। उनकी महासमाधि अनेक साधकों और वेदांत के गंभीर विद्यार्थियों के लिए अपूरणीय क्षति है। उनकी शिक्षाओं और मुझ पर बरसाए गए उनके स्नेह के लिए मैं सदा ऋणी रहूँगा। पूज्य स्वामीजी से मैंने विशेष रूप से शंकर भाष्य का अध्ययन-अध्यापन और रामायण की व्याख्याएँ सीखीं। पूज्य स्वामीजी को कोटि-कोटि प्रणाम।.`,
   },
