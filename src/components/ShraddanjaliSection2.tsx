@@ -13,7 +13,7 @@ type Tribute = {
 
 const tributes: Tribute[] = [
   {
-    name: "Swami Adhyatmananda",
+    name: "Brahamleen Swami Adhyatmanandaji",
     message: "",
     isScannedLetter: true,
   },
@@ -182,13 +182,15 @@ const TributeCard = ({ tribute }: { tribute: Tribute }) => {
 
   if (tribute.isScannedLetter) {
     return (
-      <div className="p-5 rounded-xl bg-background border border-gold/20 max-w-2xl mx-auto">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-sm">🙏</div>
+      <div className="max-w-2xl mx-auto rounded-2xl bg-background border border-gold/25 overflow-hidden">
+        <div className="flex items-center gap-3 px-6 py-4 border-b border-gold/15">
+          <div className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center text-primary text-base flex-shrink-0">🙏</div>
           <span className="font-display text-base font-semibold text-foreground">{tribute.name}</span>
         </div>
-        <div className="rounded-lg overflow-hidden border border-gold/10">
-          <img src={scannedLetter} alt="Letter from Swami Adhyatmananda" className="w-full h-auto object-contain" />
+        <div className="p-6">
+          <div className="rounded-xl overflow-hidden border border-gold/15">
+            <img src={scannedLetter} alt="Letter from Swami Adhyatmananda" className="w-full h-auto object-contain" />
+          </div>
         </div>
       </div>
     );
@@ -196,42 +198,44 @@ const TributeCard = ({ tribute }: { tribute: Tribute }) => {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="p-5 rounded-xl bg-background border border-gold/20">
-        <div className="flex items-center gap-3 mb-3">
-          <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-sm flex-shrink-0">🙏</div>
-          <span className="font-display text-base font-semibold text-foreground">{tribute.name}</span>
+      <div className="rounded-2xl bg-background border border-gold/25 overflow-hidden">
+        <div className="h-1 w-full bg-gradient-to-r from-amber-700/60 via-amber-400/80 to-amber-700/60" />
+        <div className="flex items-center justify-between px-6 pt-5 pb-4">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center text-primary text-base flex-shrink-0">🙏</div>
+            <span className="font-display text-base font-semibold text-foreground">{tribute.name}</span>
+          </div>
+          {tribute.translation && (
+            <button
+              onClick={() => setShowTranslation(!showTranslation)}
+              className={`inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full border transition-all flex-shrink-0 ml-3 ${
+                showTranslation
+                  ? "bg-primary/10 border-primary/40 text-primary"
+                  : "border-gold/30 text-muted-foreground hover:text-primary hover:border-primary/40 hover:bg-primary/5"
+              }`}
+            >
+              <Languages size={12} />
+              <span>{showTranslation ? "Hide" : translateLabel}</span>
+              <span className="opacity-50">· AI</span>
+            </button>
+          )}
         </div>
-
-        {tribute.translation && (
-          <button
-            onClick={() => setShowTranslation(!showTranslation)}
-            className={`inline-flex items-center gap-2 text-xs px-4 py-2 rounded-full border transition-all mb-4 ${
-              showTranslation
-                ? "bg-primary/10 border-primary/40 text-primary"
-                : "border-gold/30 text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/5"
-            }`}
-          >
-            <Languages size={13} />
-            <span>{showTranslation ? "Hide translation" : translateLabel}</span>
-          </button>
-        )}
-
-        <hr className="border-gold/10 mb-4" />
-
-        <p className="font-body text-sm text-muted-foreground leading-relaxed italic whitespace-pre-line">
-          "{displayText}"
-        </p>
-
-        {needsTruncation && (
-          <button
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="mt-3 inline-flex items-center gap-1 text-xs text-primary hover:text-primary/80 transition-colors"
-          >
-            {isExpanded
-              ? <><span>Show less</span><ChevronUp size={13} /></>
-              : <><span>Read more</span><ChevronDown size={13} /></>}
-          </button>
-        )}
+        <div className="mx-6 border-t border-gold/10 mb-5" />
+        <div className="px-6 pb-6">
+          <p className="font-body text-[15px] text-foreground/80 leading-8 whitespace-pre-line">
+            "{displayText}"
+          </p>
+          {needsTruncation && (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="mt-4 inline-flex items-center gap-1 text-xs text-primary hover:text-primary/80 transition-colors font-medium"
+            >
+              {isExpanded
+                ? <><span>Show less</span><ChevronUp size={13} /></>
+                : <><span>Read more</span><ChevronDown size={13} /></>}
+            </button>
+          )}
+        </div>
       </div>
 
       <AnimatePresence>
@@ -243,25 +247,30 @@ const TributeCard = ({ tribute }: { tribute: Tribute }) => {
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <div className="mt-3 p-5 rounded-xl border border-primary/20 bg-primary/5">
-              <div className="flex items-center justify-between mb-3">
+            <div className="mt-3 rounded-2xl border border-primary/20 bg-primary/5 overflow-hidden">
+              <div className="h-0.5 w-full bg-gradient-to-r from-primary/20 via-primary/50 to-primary/20" />
+              <div className="px-6 pt-4 pb-2 flex items-center justify-between">
                 <div className="flex items-center gap-2 text-xs font-medium text-primary">
-                  <Languages size={13} />
+                  <Languages size={12} />
                   <span>{translationHeader}</span>
+                  <span className="text-[10px] opacity-55 border border-primary/25 rounded px-1.5 py-0.5">AI · may contain errors</span>
                 </div>
-                <button onClick={() => setShowTranslation(false)} className="text-muted-foreground hover:text-foreground transition-colors">
+                <button onClick={() => setShowTranslation(false)} className="text-muted-foreground hover:text-foreground transition-colors ml-2 flex-shrink-0">
                   <X size={14} />
                 </button>
               </div>
-              <p className="font-body text-sm text-muted-foreground leading-relaxed italic whitespace-pre-line">
-                "{tribute.translation}"
-              </p>
+              <div className="px-6 pb-6 pt-3 border-t border-primary/10 mt-2">
+                <p className="font-body text-[15px] text-foreground/75 leading-8 whitespace-pre-line">
+                  "{tribute.translation}"
+                </p>
+              </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </div>
   );
+};
 };
 
 const ShraddanjaliSection = () => {
