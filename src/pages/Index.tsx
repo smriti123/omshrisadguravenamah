@@ -17,8 +17,7 @@ const Index = () => {
       <HeroSection />
       <PhotoGallery />
       <QuotesSection />
-      <ShraddanjaliSection />
-      <GurudevAttributesSection />
+      <ShraddanjaliSection />      
       <StutiSection />
       <YouTubeTalksSection />
       <SansmaraniyaKshanSection />
