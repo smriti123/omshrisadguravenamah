@@ -19,11 +19,7 @@ import q9 from "@/assets/q9.jpg";
 // label = short preview text shown on hover in calendar
 // ─────────────────────────────────────────────────────────
 const quotes: { day: number; img: string; label: string }[] = [
-  { day: 1,  img: q1, label: "परिस्थिति और दृष्टि" },
-  { day: 2,  img: q2, label: "दृश्य जगत और ब्रह्म" },
-  { day: 3,  img: q3, label: "व्यवहार और धर्मशास्त्र" },
-  { day: 4,  img: q4, label: "भक्ति की साधना" },
-  { day: 5,  img: q5, label: "आकार और निराकार" },
+  
   { day: 6,  img: q6, label: "राम विमुख और संपत्ति" },
   { day: 7,  img: q7, label: "महापुरुष का संग" },
   { day: 8,  img: q8, label: "निर्विकल्पः" },
