@@ -7,15 +7,15 @@ import { motion } from "framer-motion";
 // Name them q1.jpg, q2.jpg ... q9.jpg (and so on)
 // Each image already has the quote text + Swamiji's photo
 // ─────────────────────────────────────────────────────────
-import q1 from "@/assets/quotes/q1.jpg";
-import q2 from "@/assets/quotes/q2.jpg";
-import q3 from "@/assets/quotes/q3.jpg";
-import q4 from "@/assets/quotes/q4.jpg";
-import q5 from "@/assets/quotes/q5.jpg";
-import q6 from "@/assets/quotes/q6.jpg";
-import q7 from "@/assets/quotes/q7.jpg";
-import q8 from "@/assets/quotes/q8.jpg";
-import q9 from "@/assets/quotes/q9.jpg";
+import q1 from "@/assets/q1.jpg";
+import q2 from "@/assets/q2.jpg";
+import q3 from "@/assets/q3.jpg";
+import q4 from "@/assets/q4.jpg";
+import q5 from "@/assets/q5.jpg";
+import q6 from "@/assets/q6.jpg";
+import q7 from "@/assets/q7.jpg";
+import q8 from "@/assets/q8.jpg";
+import q9 from "@/assets/q9.jpg";
 // Add more as you get them:
 // import q10 from "@/assets/quotes/q10.jpg";
 
