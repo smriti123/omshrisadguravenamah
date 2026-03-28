@@ -24,36 +24,39 @@ import p20 from "@/assets/gallery/photo-20.jpg";
 import p21 from "@/assets/gallery/photo-21.jpg";
 
 // ─────────────────────────────────────────────────────────
-// EASY TO CUSTOMISE:
-//   vintage: true  → sepia tint (old/B&W photos)
-//   vintage: false → natural color (modern photos)
-//   label          → shown in lightbox caption
+// When you add more photos (up to 60), just add imports above
+// and new entries below in the photos array.
+//
+// vintage: true  → sepia tint (old / B&W photos)
+// vintage: false → natural color (modern photos)
+// label          → caption shown in lightbox
 // ─────────────────────────────────────────────────────────
 type Photo = { src: string; label: string; vintage: boolean };
 
 const photos: Photo[] = [
-  { src: p1,  label: "Photo 1",  vintage: true  },
-  { src: p2,  label: "Photo 2",  vintage: true  },
-  { src: p3,  label: "Photo 3",  vintage: true  },
-  { src: p4,  label: "Photo 4",  vintage: true  },
-  { src: p5,  label: "Photo 5",  vintage: true  },
-  { src: p6,  label: "Photo 6",  vintage: true  },
-  { src: p7,  label: "Photo 7",  vintage: true  },
-  { src: p8,  label: "Photo 8",  vintage: true  },
-  { src: p9,  label: "Photo 9",  vintage: true  },
-  { src: p10, label: "Photo 10", vintage: true  },
-  // ↓ Change vintage: true → false for any modern photo
-  { src: p11, label: "Photo 11", vintage: false },
-  { src: p12, label: "Photo 12", vintage: false },
-  { src: p13, label: "Photo 13", vintage: false },
-  { src: p14, label: "Photo 14", vintage: false },
-  { src: p15, label: "Photo 15", vintage: false },
-  { src: p16, label: "Photo 16", vintage: false },
-  { src: p17, label: "Photo 17", vintage: false },
-  { src: p18, label: "Photo 18", vintage: false },
-  { src: p19, label: "Photo 19", vintage: false },
-  { src: p20, label: "Photo 20", vintage: false },
-  { src: p21, label: "Photo 21", vintage: false },
+  { src: p1,  label: "Early days",        vintage: true  },
+  { src: p2,  label: "Discourse",         vintage: true  },
+  { src: p3,  label: "Young Swamiji",     vintage: true  },
+  { src: p4,  label: "Himalayan years",   vintage: true  },
+  { src: p5,  label: "Meditation",        vintage: true  },
+  { src: p6,  label: "Satsang",           vintage: true  },
+  { src: p7,  label: "Ashram life",       vintage: true  },
+  { src: p8,  label: "With Guru",         vintage: true  },
+  { src: p9,  label: "Nature walk",       vintage: true  },
+  { src: p10, label: "Himalaya",          vintage: true  },
+  { src: p11, label: "Puja ceremony",     vintage: false },
+  { src: p12, label: "With disciples",    vintage: false },
+  { src: p13, label: "Shiva puja",        vintage: false },
+  { src: p14, label: "Lotus feet",        vintage: false },
+  { src: p15, label: "Blessings",         vintage: false },
+  { src: p16, label: "Pravachan",         vintage: false },
+  { src: p17, label: "Devotees",          vintage: false },
+  { src: p18, label: "Sacred moment",     vintage: false },
+  { src: p19, label: "Gurudev",           vintage: false },
+  { src: p20, label: "Divine presence",   vintage: false },
+  { src: p21, label: "Jai Gurudev",       vintage: false },
+  // ── Add more photos here as you upload them ──
+  // { src: p22, label: "Photo name", vintage: false },
 ];
 
 const vintagePhotos = photos.filter((p) => p.vintage);
@@ -81,13 +84,13 @@ const Lightbox = ({
   );
 
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
+    const onKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft")  prev();
       if (e.key === "ArrowRight") next();
       if (e.key === "Escape")     onClose();
     };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, [prev, next, onClose]);
 
   const photo = photos[idx];
@@ -97,19 +100,20 @@ const Lightbox = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/92"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center"
+      style={{ background: "rgba(30, 10, 0, 0.95)" }}
       onClick={onClose}
     >
-      {/* Close button */}
+      {/* Close */}
       <button
-        className="absolute top-5 right-6 text-white/50 hover:text-white text-4xl leading-none transition-colors"
+        className="absolute top-5 right-6 text-amber-200/50 hover:text-amber-100 text-4xl leading-none transition-colors"
         onClick={onClose}
         aria-label="Close"
       >
         ×
       </button>
 
-      {/* Main image */}
+      {/* Image */}
       <div
         className="relative w-full max-w-2xl px-4"
         onClick={(e) => e.stopPropagation()}
@@ -119,10 +123,10 @@ const Lightbox = ({
             key={idx}
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.97 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="rounded-xl overflow-hidden shadow-2xl"
-            style={{ maxHeight: "62vh" }}
+            className="rounded-xl overflow-hidden shadow-2xl border border-amber-800/30"
+            style={{ maxHeight: "60vh" }}
           >
             <img
               src={photo.src}
@@ -139,30 +143,28 @@ const Lightbox = ({
 
         {/* Caption */}
         <div className="mt-3 text-center">
-          <p className="text-white/75 text-sm tracking-widest">
+          <p className="text-amber-200/80 text-sm tracking-widest">
             {photo.label}
             {photo.vintage && (
-              <span className="ml-2 text-amber-500/70 text-xs uppercase">
-                · vintage
-              </span>
+              <span className="ml-2 text-amber-600/70 text-xs">· vintage</span>
             )}
           </p>
-          <p className="text-white/30 text-xs mt-1">
+          <p className="text-amber-700/50 text-xs mt-1">
             {idx + 1} / {photos.length}
           </p>
         </div>
 
-        {/* Nav arrows */}
-        <div className="flex justify-between mt-5">
+        {/* Arrows */}
+        <div className="flex justify-between mt-4">
           <button
             onClick={prev}
-            className="px-6 py-2 rounded-lg border border-white/20 text-white/60 hover:text-white hover:border-white/50 text-sm transition-all"
+            className="px-6 py-2 rounded-lg border border-amber-800/40 text-amber-300/60 hover:text-amber-200 hover:border-amber-700/60 text-sm transition-all"
           >
             ← Prev
           </button>
           <button
             onClick={next}
-            className="px-6 py-2 rounded-lg border border-white/20 text-white/60 hover:text-white hover:border-white/50 text-sm transition-all"
+            className="px-6 py-2 rounded-lg border border-amber-800/40 text-amber-300/60 hover:text-amber-200 hover:border-amber-700/60 text-sm transition-all"
           >
             Next →
           </button>
@@ -181,7 +183,7 @@ const Lightbox = ({
             className={`flex-shrink-0 w-11 h-11 rounded overflow-hidden border-2 transition-all duration-200 ${
               i === idx
                 ? "border-amber-400 scale-110"
-                : "border-white/15 opacity-45 hover:opacity-75"
+                : "border-amber-900/40 opacity-40 hover:opacity-75"
             }`}
           >
             <img
@@ -207,23 +209,24 @@ const PhotoGrid = ({
   allPhotos: Photo[];
   onOpen: (index: number) => void;
 }) => (
-  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 md:gap-3">
     {items.map((photo) => {
-      const globalIndex = allPhotos.indexOf(photo);
+      const gi = allPhotos.indexOf(photo);
       return (
         <motion.div
-          key={globalIndex}
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          key={gi}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: (globalIndex % 4) * 0.05 }}
-          className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group"
-          onClick={() => onOpen(globalIndex)}
+          transition={{ duration: 0.35, delay: (gi % 5) * 0.04 }}
+          className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group shadow-md"
+          onClick={() => onOpen(gi)}
+          style={{ boxShadow: "0 2px 12px rgba(100,50,0,0.18)" }}
         >
           <img
             src={photo.src}
             alt={photo.label}
-            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-108"
             style={
               photo.vintage
                 ? { filter: "sepia(55%) contrast(1.05) brightness(0.93)" }
@@ -231,8 +234,8 @@ const PhotoGrid = ({
             }
           />
           {/* Hover overlay */}
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors duration-300 flex items-end justify-center">
-            <span className="text-white text-xs pb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wider">
+          <div className="absolute inset-0 bg-amber-900/0 group-hover:bg-amber-900/30 transition-colors duration-300 flex items-end justify-center">
+            <span className="text-amber-100 text-xs pb-2 px-1 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 tracking-wide drop-shadow">
               {photo.label}
             </span>
           </div>
@@ -244,12 +247,15 @@ const PhotoGrid = ({
 
 // ── Era Divider ───────────────────────────────────────────
 const EraDivider = ({ label }: { label: string }) => (
-  <div className="flex items-center gap-4 mb-7">
-    <div className="flex-1 h-px bg-amber-900/40" />
-    <span className="text-amber-600/65 text-xs tracking-[0.18em] uppercase px-4 border border-amber-800/35 rounded-full py-1 whitespace-nowrap">
+  <div className="flex items-center gap-4 mb-6">
+    <div className="flex-1 h-px bg-amber-800/30" />
+    <span
+      className="text-amber-800 text-xs tracking-[0.18em] uppercase px-4 border border-amber-700/40 rounded-full py-1 whitespace-nowrap"
+      style={{ background: "rgba(180,100,20,0.08)" }}
+    >
       {label}
     </span>
-    <div className="flex-1 h-px bg-amber-900/40" />
+    <div className="flex-1 h-px bg-amber-800/30" />
   </div>
 );
 
@@ -264,8 +270,15 @@ const GallerySection = () => {
   };
 
   return (
-    <section id="gallery" className="py-20 bg-[#0e0500]">
-      <div className="max-w-5xl mx-auto px-4">
+    <section
+      id="gallery"
+      className="py-20"
+      style={{
+        // Warm saffron-cream spiritual gradient — light, airy, sacred
+        background: "linear-gradient(180deg, #fdf3e3 0%, #f5e0c0 40%, #efe0c8 100%)",
+      }}
+    >
+      <div className="max-w-6xl mx-auto px-4">
 
         {/* Heading */}
         <motion.div
@@ -275,18 +288,29 @@ const GallerySection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-14"
         >
-          <p className="text-amber-600/55 text-xs tracking-[0.28em] uppercase mb-3">
+          <p className="text-amber-700/60 text-xs tracking-[0.28em] uppercase mb-3">
             Smritiyaan · स्मृतियाँ
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-amber-50 font-display mb-4">
+          <h2
+            className="text-3xl md:text-4xl font-bold mb-4"
+            style={{ color: "#7a3a00", fontFamily: "serif" }}
+          >
             Photo Gallery
           </h2>
-          <div className="mx-auto w-16 h-px bg-amber-700/50" />
+          <p className="text-amber-800/60 text-sm mb-4 tracking-wide">
+            Cherished moments in the divine presence of Gurudev
+          </p>
+          {/* Decorative divider */}
+          <div className="flex items-center justify-center gap-3">
+            <div className="w-16 h-px bg-amber-700/40" />
+            <span className="text-amber-600 text-lg">✦</span>
+            <div className="w-16 h-px bg-amber-700/40" />
+          </div>
         </motion.div>
 
-        {/* Old / Vintage Photos */}
+        {/* Vintage / Old Photos */}
         {vintagePhotos.length > 0 && (
-          <div className="mb-14">
+          <div className="mb-12">
             <EraDivider label="Early Years · पुरानी यादें" />
             <PhotoGrid items={vintagePhotos} allPhotos={photos} onOpen={openLightbox} />
           </div>
@@ -300,7 +324,7 @@ const GallerySection = () => {
           </div>
         )}
 
-        <p className="text-center text-amber-900/50 text-xs mt-10 tracking-wider">
+        <p className="text-center text-amber-700/40 text-xs mt-10 tracking-wider">
           Click any photo to view · Arrow keys to navigate
         </p>
       </div>
