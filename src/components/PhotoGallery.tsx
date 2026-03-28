@@ -22,6 +22,9 @@ import p18 from "@/assets/gallery/photo-18.jpg";
 import p19 from "@/assets/gallery/photo-19.jpg";
 import p20 from "@/assets/gallery/photo-20.jpg";
 import p21 from "@/assets/gallery/photo-21.jpg";
+import p21 from "@/assets/gallery/v1.jpg";
+import p21 from "@/assets/gallery/v2.jpg";
+import p21 from "@/assets/gallery/v3.jpg";
 
 // ─────────────────────────────────────────────────────────
 // When you add more photos (up to 60), just add imports above
