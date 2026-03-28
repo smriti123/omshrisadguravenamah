@@ -272,7 +272,6 @@ const TributeCard = ({ tribute }: { tribute: Tribute }) => {
     </div>
   );
 };
-};
 
 const ShraddanjaliSection = () => {
   const [page, setPage] = useState(0);
