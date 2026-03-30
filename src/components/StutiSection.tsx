@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronUp, ChevronLeft, ChevronRight } from "lucide-react";
 import SectionHeading from "./SectionHeading";
-import GyannishthaCard from "@/components/GyannishthaCard";
+import GyannishthaCard from "@/components/GyannisthaCard";
 
 const stutiNames = [
   "ॐ ॐकाराय नमः ।",
