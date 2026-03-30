@@ -14,56 +14,70 @@ const pages = [
   { src: l4, page: 4, label: "पृष्ठ ४" },
 ];
 
-const ARTICLE_TITLE    = "ज्ञाननिष्ठ की महासमाधि";
+const ARTICLE_TITLE = "ज्ञाननिष्ठ की महासमाधि";
 const ARTICLE_SUBTITLE = "दिनाँक 12 अक्टूबर, 2020 · चिन्मय समाचार";
-const ARTICLE_SOURCE   = "प्रस्तुति : अरुण गुप्त";
+const ARTICLE_SOURCE = "प्रस्तुति : अरुण गुप्त";
 
 // ── Full-screen Document Viewer ───────────────────────────
-const DocumentViewer = ({
-  startPage,
-  onClose,
-}: {
-  startPage: number;
-  onClose: () => void;
-}) => {
-  const [pageIdx, setPageIdx]     = useState(startPage);
-  const [zoom, setZoom]           = useState(1);
-  const [dragging, setDragging]   = useState(false);
-  const [pos, setPos]             = useState({ x: 0, y: 0 });
+const DocumentViewer = ({ startPage, onClose }) => {
+  const [pageIdx, setPageIdx] = useState(startPage);
+  const [zoom, setZoom] = useState(1);
+  const [dragging, setDragging] = useState(false);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
-  const lastTouchDist             = useRef<number | null>(null);
+  const lastTouchDist = useRef(null);
 
-  const goTo = (idx: number) => {
+  const goTo = (idx) => {
     setPageIdx(Math.max(0, Math.min(pages.length - 1, idx)));
     setZoom(1);
     setPos({ x: 0, y: 0 });
   };
 
-  const zoomIn  = () => setZoom((z) => Math.min(z + 0.4, 3.5));
-  const zoomOut = () => setZoom((z) => { const nz = Math.max(z - 0.4, 1); if (nz === 1) setPos({ x: 0, y: 0 }); return nz; });
-  const resetZoom = () => { setZoom(1); setPos({ x: 0, y: 0 }); };
+  const zoomIn = () => setZoom((z) => Math.min(z + 0.4, 3.5));
 
-  const onMouseDown = useCallback((e: React.MouseEvent) => {
-    if (zoom <= 1) return;
-    setDragging(true);
-    setDragStart({ x: e.clientX - pos.x, y: e.clientY - pos.y });
-  }, [zoom, pos]);
+  const zoomOut = () =>
+    setZoom((z) => {
+      const nz = Math.max(z - 0.4, 1);
+      if (nz === 1) setPos({ x: 0, y: 0 });
+      return nz;
+    });
 
-  const onMouseMove = useCallback((e: React.MouseEvent) => {
-    if (!dragging) return;
-    setPos({ x: e.clientX - dragStart.x, y: e.clientY - dragStart.y });
-  }, [dragging, dragStart]);
+  const resetZoom = () => {
+    setZoom(1);
+    setPos({ x: 0, y: 0 });
+  };
+
+  const onMouseDown = useCallback(
+    (e) => {
+      if (zoom <= 1) return;
+      setDragging(true);
+      setDragStart({ x: e.clientX - pos.x, y: e.clientY - pos.y });
+    },
+    [zoom, pos]
+  );
+
+  const onMouseMove = useCallback(
+    (e) => {
+      if (!dragging) return;
+      setPos({ x: e.clientX - dragStart.x, y: e.clientY - dragStart.y });
+    },
+    [dragging, dragStart]
+  );
 
   const onMouseUp = useCallback(() => setDragging(false), []);
 
-  const onTouchMove = (e: React.TouchEvent) => {
+  const onTouchMove = (e) => {
     if (e.touches.length === 2) {
       const dx = e.touches[0].clientX - e.touches[1].clientX;
       const dy = e.touches[0].clientY - e.touches[1].clientY;
       const dist = Math.sqrt(dx * dx + dy * dy);
+
       if (lastTouchDist.current !== null) {
-        setZoom((z) => Math.max(1, Math.min(3.5, z + (dist - lastTouchDist.current!) * 0.008)));
+        setZoom((z) =>
+          Math.max(1, Math.min(3.5, z + (dist - lastTouchDist.current) * 0.008))
+        );
       }
+
       lastTouchDist.current = dist;
     }
   };
@@ -72,34 +86,63 @@ const DocumentViewer = ({
 
   return (
     <motion.div
-      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       className="fixed inset-0 z-50 flex flex-col"
       style={{ background: "rgba(15,6,0,0.97)" }}
     >
       {/* Top bar */}
-      <div className="flex items-center justify-between px-4 py-3 flex-shrink-0"
-        style={{ borderBottom: "1px solid rgba(200,140,40,0.2)", background: "rgba(30,12,0,0.9)" }}>
+      <div
+        className="flex items-center justify-between px-4 py-3 flex-shrink-0"
+        style={{
+          borderBottom: "1px solid rgba(200,140,40,0.2)",
+          background: "rgba(30,12,0,0.9)",
+        }}
+      >
         <div>
-          <p className="font-bold text-sm" style={{ color: "#ffe8a0", fontFamily: "serif" }}>{ARTICLE_TITLE}</p>
-          <p className="text-xs mt-0.5" style={{ color: "rgba(255,200,100,0.5)" }}>{ARTICLE_SUBTITLE}</p>
+          <p
+            className="font-bold text-sm"
+            style={{ color: "#ffe8a0", fontFamily: "serif" }}
+          >
+            {ARTICLE_TITLE}
+          </p>
+          <p
+            className="text-xs mt-0.5"
+            style={{ color: "rgba(255,200,100,0.5)" }}
+          >
+            {ARTICLE_SUBTITLE}
+          </p>
         </div>
-        <button onClick={onClose} className="text-3xl leading-none ml-4"
-          style={{ color: "rgba(255,200,100,0.6)" }}>×</button>
+        <button
+          onClick={onClose}
+          className="text-3xl leading-none ml-4"
+          style={{ color: "rgba(255,200,100,0.6)" }}
+        >
+          ×
+        </button>
       </div>
 
       {/* Image area */}
       <div
         className="flex-1 overflow-hidden flex items-center justify-center"
         style={{ cursor: zoom > 1 ? (dragging ? "grabbing" : "grab") : "default" }}
-        onMouseDown={onMouseDown} onMouseMove={onMouseMove}
-        onMouseUp={onMouseUp} onMouseLeave={onMouseUp}
-        onTouchMove={onTouchMove} onTouchEnd={() => { lastTouchDist.current = null; }}
+        onMouseDown={onMouseDown}
+        onMouseMove={onMouseMove}
+        onMouseUp={onMouseUp}
+        onMouseLeave={onMouseUp}
+        onTouchMove={onTouchMove}
+        onTouchEnd={() => {
+          lastTouchDist.current = null;
+        }}
       >
         <AnimatePresence mode="wait">
           <motion.div
             key={pageIdx}
-            initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }} transition={{ duration: 0.2 }}
+            initial={{ opacity: 0, scale: 0.97 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
             style={{
               transform: `scale(${zoom}) translate(${pos.x / zoom}px, ${pos.y / zoom}px)`,
               transformOrigin: "center center",
@@ -108,7 +151,9 @@ const DocumentViewer = ({
             }}
           >
             <img
-              src={page.src} alt={`Page ${page.page}`} draggable={false}
+              src={page.src}
+              alt={`Page ${page.page}`}
+              draggable={false}
               style={{
                 maxHeight: "calc(100vh - 160px)",
                 maxWidth: "calc(100vw - 32px)",
@@ -122,26 +167,56 @@ const DocumentViewer = ({
       </div>
 
       {/* Bottom controls */}
-      <div className="flex-shrink-0 px-4 py-3 flex items-center justify-between gap-3 flex-wrap"
-        style={{ borderTop: "1px solid rgba(200,140,40,0.2)", background: "rgba(30,12,0,0.9)" }}>
-
+      <div
+        className="flex-shrink-0 px-4 py-3 flex items-center justify-between gap-3 flex-wrap"
+        style={{
+          borderTop: "1px solid rgba(200,140,40,0.2)",
+          background: "rgba(30,12,0,0.9)",
+        }}
+      >
         {/* Page navigation */}
         <div className="flex items-center gap-2">
-          <button onClick={() => goTo(pageIdx - 1)} disabled={pageIdx === 0}
+          <button
+            onClick={() => goTo(pageIdx - 1)}
+            disabled={pageIdx === 0}
             className="px-4 py-1.5 rounded-full text-xs tracking-wide transition-all disabled:opacity-25"
-            style={{ border: "1px solid rgba(200,140,40,0.35)", color: "rgba(255,210,120,0.8)", background: "rgba(200,120,20,0.08)" }}>
+            style={{
+              border: "1px solid rgba(200,140,40,0.35)",
+              color: "rgba(255,210,120,0.8)",
+              background: "rgba(200,120,20,0.08)",
+            }}
+          >
             ← Prev
           </button>
+
           <div className="flex gap-1.5 mx-1">
             {pages.map((_, i) => (
-              <button key={i} onClick={() => goTo(i)} className="rounded-full transition-all duration-200"
-                style={{ width: i === pageIdx ? "20px" : "8px", height: "8px",
-                  background: i === pageIdx ? "rgba(255,200,80,0.9)" : "rgba(255,200,80,0.3)" }} />
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                className="rounded-full transition-all duration-200"
+                style={{
+                  width: i === pageIdx ? "20px" : "8px",
+                  height: "8px",
+                  background:
+                    i === pageIdx
+                      ? "rgba(255,200,80,0.9)"
+                      : "rgba(255,200,80,0.3)",
+                }}
+              />
             ))}
           </div>
-          <button onClick={() => goTo(pageIdx + 1)} disabled={pageIdx === pages.length - 1}
+
+          <button
+            onClick={() => goTo(pageIdx + 1)}
+            disabled={pageIdx === pages.length - 1}
             className="px-4 py-1.5 rounded-full text-xs tracking-wide transition-all disabled:opacity-25"
-            style={{ border: "1px solid rgba(200,140,40,0.35)", color: "rgba(255,210,120,0.8)", background: "rgba(200,120,20,0.08)" }}>
+            style={{
+              border: "1px solid rgba(200,140,40,0.35)",
+              color: "rgba(255,210,120,0.8)",
+              background: "rgba(200,120,20,0.08)",
+            }}
+          >
             Next →
           </button>
         </div>
@@ -152,16 +227,43 @@ const DocumentViewer = ({
 
         {/* Zoom controls */}
         <div className="flex items-center gap-2">
-          <button onClick={zoomOut} disabled={zoom <= 1}
+          <button
+            onClick={zoomOut}
+            disabled={zoom <= 1}
             className="w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-all disabled:opacity-25"
-            style={{ border: "1px solid rgba(200,140,40,0.35)", color: "rgba(255,210,120,0.8)", background: "rgba(200,120,20,0.08)" }}>−</button>
-          <button onClick={resetZoom} className="text-xs px-2 py-1 rounded"
-            style={{ color: "rgba(255,200,80,0.55)", minWidth: "42px", textAlign: "center" }}>
+            style={{
+              border: "1px solid rgba(200,140,40,0.35)",
+              color: "rgba(255,210,120,0.8)",
+              background: "rgba(200,120,20,0.08)",
+            }}
+          >
+            −
+          </button>
+
+          <button
+            onClick={resetZoom}
+            className="text-xs px-2 py-1 rounded"
+            style={{
+              color: "rgba(255,200,80,0.55)",
+              minWidth: "42px",
+              textAlign: "center",
+            }}
+          >
             {Math.round(zoom * 100)}%
           </button>
-          <button onClick={zoomIn} disabled={zoom >= 3.5}
+
+          <button
+            onClick={zoomIn}
+            disabled={zoom >= 3.5}
             className="w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-all disabled:opacity-25"
-            style={{ border: "1px solid rgba(200,140,40,0.35)", color: "rgba(255,210,120,0.8)", background: "rgba(200,120,20,0.08)" }}>+</button>
+            style={{
+              border: "1px solid rgba(200,140,40,0.35)",
+              color: "rgba(255,210,120,0.8)",
+              background: "rgba(200,120,20,0.08)",
+            }}
+          >
+            +
+          </button>
         </div>
       </div>
     </motion.div>
@@ -171,9 +273,12 @@ const DocumentViewer = ({
 // ── Card shown inside StutiSection ───────────────────────
 const GyannishthaCard = () => {
   const [viewerOpen, setViewerOpen] = useState(false);
-  const [startPage, setStartPage]   = useState(0);
+  const [startPage, setStartPage] = useState(0);
 
-  const openAt = (i: number) => { setStartPage(i); setViewerOpen(true); };
+  const openAt = (i) => {
+    setStartPage(i);
+    setViewerOpen(true);
+  };
 
   return (
     <>
@@ -183,37 +288,73 @@ const GyannishthaCard = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.4, delay: 0.15 }}
         className="p-6 rounded-xl h-full"
-        style={{ background: "var(--background)", border: "1px solid rgba(180,100,20,0.2)" }}
+        style={{
+          background: "var(--background)",
+          border: "1px solid rgba(180,100,20,0.2)",
+        }}
       >
         {/* Header */}
         <h3 className="font-display text-xl font-bold text-primary text-center mb-1">
           {ARTICLE_TITLE}
         </h3>
-        <p className="text-center text-xs mb-1" style={{ color: "var(--muted-foreground)" }}>
+        <p
+          className="text-center text-xs mb-1"
+          style={{ color: "var(--muted-foreground)" }}
+        >
           {ARTICLE_SUBTITLE}
         </p>
-        <p className="text-center text-xs mb-5 italic" style={{ color: "var(--muted-foreground)" }}>
+        <p
+          className="text-center text-xs mb-5 italic"
+          style={{ color: "var(--muted-foreground)" }}
+        >
           {ARTICLE_SOURCE}
         </p>
 
         {/* 4 page thumbnails */}
-        <p className="text-xs mb-3 text-center tracking-wide" style={{ color: "var(--muted-foreground)" }}>
+        <p
+          className="text-xs mb-3 text-center tracking-wide"
+          style={{ color: "var(--muted-foreground)" }}
+        >
           4 पृष्ठों का लेख — किसी भी पृष्ठ पर क्लिक करें पढ़ने के लिए
         </p>
+
         <div className="grid grid-cols-4 gap-2 mb-4">
           {pages.map((p, i) => (
-            <button key={i} onClick={() => openAt(i)}
+            <button
+              key={i}
+              onClick={() => openAt(i)}
               className="relative group rounded-lg overflow-hidden transition-all duration-200 hover:scale-105"
-              style={{ aspectRatio: "3/4", border: "1px solid rgba(180,100,20,0.2)" }}
+              style={{
+                aspectRatio: "3 / 4",
+                border: "1px solid rgba(180,100,20,0.2)",
+              }}
             >
-              <img src={p.src} alt={p.label} className="w-full h-full object-cover object-top" />
-              <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                style={{ background: "rgba(100,40,0,0.75)" }}>
-                <span className="text-base mb-0.5" style={{ color: "#ffe8a0" }}>🔍</span>
-                <span className="text-xs font-medium" style={{ color: "#ffe8a0" }}>{p.label}</span>
+              <img
+                src={p.src}
+                alt={p.label}
+                className="w-full h-full object-cover object-top"
+              />
+
+              <div
+                className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                style={{ background: "rgba(100,40,0,0.75)" }}
+              >
+                <span className="text-base mb-0.5" style={{ color: "#ffe8a0" }}>
+                  🔍
+                </span>
+                <span className="text-xs font-medium" style={{ color: "#ffe8a0" }}>
+                  {p.label}
+                </span>
               </div>
-              <div className="absolute bottom-1 left-1/2 -translate-x-1/2 px-1.5 py-0.5 rounded-full text-xs"
-                style={{ background: "rgba(160,80,10,0.85)", color: "#ffe8a0", fontSize: "9px" }}>
+
+              <div
+                className="absolute bottom-1 left-1/2 -translate-x-1/2 px-1.5 py-0.5 rounded-full text-xs"
+                style={{
+                  background: "rgba(160,80,10,0.85)",
+                  color: "#ffe8a0",
+                  fontSize: "9px",
+                }}
+              >
                 {p.label}
               </div>
             </button>
@@ -221,16 +362,25 @@ const GyannishthaCard = () => {
         </div>
 
         {/* Read full button */}
-        <button onClick={() => openAt(0)}
+        <button
+          onClick={() => openAt(0)}
           className="w-full py-2.5 rounded-lg text-sm font-medium tracking-wide transition-all duration-200 hover:opacity-80"
-          style={{ background: "rgba(160,80,10,0.08)", border: "1px solid rgba(160,80,10,0.25)", color: "var(--primary)" }}>
+          style={{
+            background: "rgba(160,80,10,0.08)",
+            border: "1px solid rgba(160,80,10,0.25)",
+            color: "var(--primary)",
+          }}
+        >
           पूरा लेख पढ़ें — सभी 4 पृष्ठ ↗
         </button>
       </motion.div>
 
       <AnimatePresence>
         {viewerOpen && (
-          <DocumentViewer startPage={startPage} onClose={() => setViewerOpen(false)} />
+          <DocumentViewer
+            startPage={startPage}
+            onClose={() => setViewerOpen(false)}
+          />
         )}
       </AnimatePresence>
     </>
