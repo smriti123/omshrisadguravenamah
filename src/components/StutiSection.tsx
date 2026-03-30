@@ -243,10 +243,10 @@ const ShraddhanjaliCard = () => {
 
 // ── Pages ────────────────────────────────────────────────
 // Page 1: Stuti + Aarti
-// Page 2: Shraddhanjali + Gyannishtha article (replaces स्तवन/भजन placeholders)
+// Page 2: Shraddhanjali + Gyannistha article (replaces स्तवन/भजन placeholders)
 const sectionPages = [
   [<StutiCard key="stuti" />, <AartiCard key="aarti" />],
-  [<ShraddhanjaliCard key="shraddhanjali" />, <GyannishthaCard key="gyannishtha" />],
+  [<ShraddhanjaliCard key="shraddhanjali" />, <GyannisthaCard key="gyannistha" />],
 ];
 
 // ── Main section ─────────────────────────────────────────
