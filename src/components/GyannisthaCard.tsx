@@ -271,7 +271,7 @@ const DocumentViewer = ({ startPage, onClose }) => {
 };
 
 // ── Card shown inside StutiSection ───────────────────────
-const GyannishthaCard = () => {
+const GyannisthaCard = () => {
   const [viewerOpen, setViewerOpen] = useState(false);
   const [startPage, setStartPage] = useState(0);
 
