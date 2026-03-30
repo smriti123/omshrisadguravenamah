@@ -1,10 +1,10 @@
 import { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import l1 from "@/assets/stuti/l1.jpg";
-import l2 from "@/assets/stuti/l2.jpg";
-import l3 from "@/assets/stuti/l3.jpg";
-import l4 from "@/assets/stuti/l4.jpg";
+import l1 from "@/assets/l1.jpg";
+import l2 from "@/assets/l2.jpg";
+import l3 from "@/assets/l3.jpg";
+import l4 from "@/assets/l4.jpg";
 
 // ─────────────────────────────────────────────────────────
 // Add your 4 pages here — title and subtitle shown in header
