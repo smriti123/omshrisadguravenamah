@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import heroPortrait   from "@/assets/pic1.jpg";
-import heroHimalaya  from "@/assets/pic2.jpg";
-import heroFeet      from "@/assets/pic3.jpg";
-import heroShiva     from "@/assets/pic4.jpg";
-import heroSignature from "@/assets/pic5.jpg";
+import heroPortrait   from "@/assets/hero/hero-portrait.jpg";
+import heroHimalaya  from "@/assets/hero/hero-himalaya.jpg";
+import heroFeet      from "@/assets/hero/hero-feet.jpg";
+import heroShiva     from "@/assets/hero/hero-shiva.jpg";
+import heroSignature from "@/assets/hero/hero-signature.jpg";
 
 const photos = [
   { src: heroPortrait,   label: "Swamiji" },
@@ -28,7 +28,7 @@ const HeroSection = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
         background:
-          "linear-gradient(160deg, #c97b10 0%, #e8950a 25%, #f5a800 50%, #e08800 75%, #b86800 100%)",
+          "linear-gradient(160deg, #a85e08 0%, #c47a0a 25%, #d4890a 50%, #be7608 75%, #9a5a06 100%)",
       }}
     >
 
@@ -125,7 +125,7 @@ const HeroSection = () => {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(160deg, rgba(180,90,0,0.55) 0%, rgba(220,130,0,0.45) 50%, rgba(160,70,0,0.55) 100%)",
+            "linear-gradient(160deg, rgba(120,60,0,0.45) 0%, rgba(160,90,0,0.35) 50%, rgba(100,50,0,0.45) 100%)",
         }}
       />
 
@@ -192,7 +192,7 @@ const HeroSection = () => {
         className="absolute bottom-0 left-0 right-0 h-36 pointer-events-none"
         style={{
           background:
-            "linear-gradient(0deg, rgba(140,65,0,0.5) 0%, rgba(190,100,0,0.15) 60%, transparent 100%)",
+            "linear-gradient(0deg, rgba(90,40,0,0.55) 0%, rgba(140,70,0,0.18) 60%, transparent 100%)",
         }}
       />
 
