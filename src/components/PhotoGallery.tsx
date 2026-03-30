@@ -70,6 +70,14 @@ const smritiyaanPhotos: Photo[] = [
     vintage: false,
     story: "A rare photograph of Swamiji with his own Guru, taken during a Guru Purnima celebration. Swamiji has often spoken about this day — how a single glance from his Guru dissolved years of doubt and effort, and left only clarity and peace. 'The Guru does not give knowledge,' he said. 'He reveals what was always there.'",
   },
+   {
+    src: p19,
+    label: "Gaumata",
+    vintage: false,
+    story: "एक बार पूज्य गुरु जी ने राममन्दिर के बाहर भी विधिवत्  गैया मैया की पूजा की थी । 
+ I fondly remember when Swamiji entered the Gaushala how all the cows started getting restless and impatient for Swamiji’s touch and love and cuddle!! Swamiji called few names of Cows sooo lovingly,.. Parvati... Nandini... and few others and they all poured their love for Swamiji the moment he came near each one of them.....💐
+'",
+  },
   { src: p9,  label: "Nature walk",     vintage: false },
   { src: p10, label: "Himalaya",        vintage: true  },
   { src: p11, label: "Puja ceremony",   vintage: false },
@@ -80,7 +88,7 @@ const smritiyaanPhotos: Photo[] = [
   { src: p16, label: "Pravachan",       vintage: false },
   { src: p17, label: "Devotees",        vintage: false },
   { src: p18, label: "Sacred moment",   vintage: false },
-  { src: p19, label: "Gurudev",         vintage: false },
+ 
   { src: p20, label: "Divine presence", vintage: false },
   { src: p21, label: "Jai Gurudev",     vintage: false },
 ];
