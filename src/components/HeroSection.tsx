@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import heroPortrait   from "@/assets/pic1.jpg";
-import heroHimalaya  from "@/assets/pic2.jpg";
-import heroFeet      from "@/assets/pic3.jpg";
-import heroShiva     from "@/assets/pic4.jpg";
-import heroSignature from "@/assets/pic5.jpg";
+import heroPortrait   from "@/assets/hero/hero-portrait.jpg";
+import heroHimalaya  from "@/assets/hero/hero-himalaya.jpg";
+import heroFeet      from "@/assets/hero/hero-feet.jpg";
+import heroShiva     from "@/assets/hero/hero-shiva.jpg";
+import heroSignature from "@/assets/hero/hero-signature.jpg";
 
 const photos = [
   { src: heroPortrait,   label: "Swamiji" },
@@ -25,7 +25,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
       style={{
         background:
           "linear-gradient(160deg, #a85e08 0%, #c47a0a 25%, #d4890a 50%, #be7608 75%, #9a5a06 100%)",
@@ -89,7 +89,7 @@ const HeroSection = () => {
       />
 
       {/* ── 2. Collage mosaic background (from your original file) ── */}
-      <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-0.5 opacity-30">
+      <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-0.5 opacity-15">
         {/* Large portrait — spans 2 rows on the left */}
         <div className="row-span-2 relative overflow-hidden">
           <img
@@ -133,7 +133,7 @@ const HeroSection = () => {
       <div
         className="absolute pointer-events-none"
         style={{
-          top: "15%",
+          top: "12%",
           left: "50%",
           transform: "translateX(-50%)",
           width: "360px",
@@ -201,14 +201,15 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="relative z-10 text-center px-4 max-w-2xl"
+        className="relative z-10 text-center px-4 max-w-2xl flex flex-col items-center justify-center"
+        style={{ paddingTop: "2rem" }}
       >
         {/* Rotating portrait circle */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.15 }}
-          className="relative mx-auto mb-6 w-44 h-44 md:w-52 md:h-52"
+          className="relative mx-auto mb-8 w-48 h-48 md:w-60 md:h-60"
         >
           {/* Glow */}
           <div
