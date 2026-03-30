@@ -74,10 +74,9 @@ const smritiyaanPhotos: Photo[] = [
     src: p19,
     label: "Gaumata",
     vintage: false,
-    story: "एक बार पूज्य गुरु जी ने राममन्दिर के बाहर भी विधिवत्  गैया मैया की पूजा की थी । 
- I fondly remember when Swamiji entered the Gaushala how all the cows started getting restless and impatient for Swamiji’s touch and love and cuddle!! Swamiji called few names of Cows sooo lovingly,.. Parvati... Nandini... and few others and they all poured their love for Swamiji the moment he came near each one of them.....💐
-'",
-  },
+   story: `एक बार पूज्य गुरु जी ने राममन्दिर के बाहर भी विधिवत् गैया मैया की पूजा की थी ।
+I fondly remember when Swamiji entered the Gaushala how all the cows started getting restless and impatient for Swamiji’s touch and love and cuddle!! Swamiji called few names of cows so lovingly... Parvati... Nandini... and a few others, and they all poured their love for Swamiji the moment he came near each one of them.....💐`,
+},
   { src: p9,  label: "Nature walk",     vintage: false },
   { src: p10, label: "Himalaya",        vintage: true  },
   { src: p11, label: "Puja ceremony",   vintage: false },
