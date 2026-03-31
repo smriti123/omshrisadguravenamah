@@ -142,7 +142,7 @@ const visheshPhotos: Photo[] = [
   },
      { src: v10, label: "",    vintage: true },
    { src: v11, label: "",    vintage: true },
-   { src: v12, label: "",    vintage: true },
+   { src: v12, label: "",    vintage: true }
   
 ];
 
