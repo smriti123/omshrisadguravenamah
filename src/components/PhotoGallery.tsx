@@ -28,10 +28,10 @@ import v2 from "@/assets/gallery/v2.jpg";
 import v3 from "@/assets/gallery/v3.jpg";
 import v4 from "@/assets/gallery/v4.jpg";
 import v6 from "@/assets/gallery/v6.jpg";
-import v7 from "@/assets/gallery/v7.jpg";
-import v8_1 from "@/assets/gallery/v8.1.jpg";
-import v9 from "@/assets/gallery/v9.jpg";
-import v10 from "@/assets/gallery/v10.jpg";
+import v7 from "@/assets/gallery/v7.jpeg";
+import v8_1 from "@/assets/gallery/v8.1.jpeg";
+import v9 from "@/assets/gallery/v9.jpeg";
+import v10 from "@/assets/gallery/v10.jpeg";
 
 // ─────────────────────────────────────────────────────────
 // vintage: true  → sepia tint
