@@ -4,7 +4,7 @@ import heroPortrait   from "@/assets/g3.jpg";
 import heroHimalaya  from "@/assets/g2.jpg";
 import heroFeet      from "@/assets/pic2.jpg";
 import heroShiva     from "@/assets/mandir.jpg";
-import heroSignature from "@/assets/pic1.jpg";
+import heroSignature from "@/assets/pic3.jpg";
 
 const photos = [
   { src: heroPortrait,   label: "Swamiji" },
