@@ -29,7 +29,6 @@ import v3 from "@/assets/gallery/v3.jpg";
 import v4 from "@/assets/gallery/v4.jpg";
 import v6 from "@/assets/gallery/v6.jpg";
 import v7 from "@/assets/gallery/v7.jpeg";
-import v8_1 from "@/assets/gallery/v8_1.jpeg";
 import v9 from "@/assets/gallery/v9.jpeg";
 import v10 from "@/assets/gallery/v10.jpeg";
 
@@ -50,8 +49,15 @@ const smritiyaanPhotos: Photo[] = [
     src: p1,
     label: "Diksha ceremony",
     vintage: true,
-    story: "This photograph captures the sacred Diksha ceremony where Swamiji received initiation from his Guru. It was a turning point — from that day, his entire life was dedicated to the pursuit of Truth and the service of all beings. The garlands of marigold, the chanting of Vedic mantras, and the divine presence of saints made it an unforgettable moment in the ashram's history.",
+    story: ".",
   },
+   {
+    src: p19,
+    label: "Gaumata",
+    vintage: false,
+   story: `एक बार पूज्य गुरु जी ने राममन्दिर के बाहर भी विधिवत् गैया मैया की पूजा की थी ।
+I fondly remember when Swamiji entered the Gaushala how all the cows started getting restless and impatient for Swamiji’s touch and love and cuddle!! Swamiji called few names of cows so lovingly... Parvati... Nandini... and a few others, and they all poured their love for Swamiji the moment he came near each one of them.....💐`,
+},
   {
     src: p2,
     label: "First discourse",
@@ -73,14 +79,7 @@ const smritiyaanPhotos: Photo[] = [
     label: "With Param Guru",
     vintage: false,
     story: "A rare photograph of Swamiji with his own Guru, taken during a Guru Purnima celebration. Swamiji has often spoken about this day — how a single glance from his Guru dissolved years of doubt and effort, and left only clarity and peace. 'The Guru does not give knowledge,' he said. 'He reveals what was always there.'",
-  },
-   {
-    src: p19,
-    label: "Gaumata",
-    vintage: false,
-   story: `एक बार पूज्य गुरु जी ने राममन्दिर के बाहर भी विधिवत् गैया मैया की पूजा की थी ।
-I fondly remember when Swamiji entered the Gaushala how all the cows started getting restless and impatient for Swamiji’s touch and love and cuddle!! Swamiji called few names of cows so lovingly... Parvati... Nandini... and a few others, and they all poured their love for Swamiji the moment he came near each one of them.....💐`,
-},
+  },  
   { src: p9,  label: "Nature walk",     vintage: false },
   { src: p10, label: "Himalaya",        vintage: true  },
   { src: p11, label: "Puja ceremony",   vintage: false },
@@ -119,13 +118,12 @@ const visheshPhotos: Photo[] = [
     story: "All final rites of Pujya Gurudev as I had reiterated in past ..were fone by Pujya Brahmaleen His Holiness  Swami Subodanandji immaculately with precision amidst all top Saints present there... You name it..you think it'",
   },
   {
-    src: v8_1,
+    src: v9,
     label: "With Pujya Sant",
     vintage: true,
     story: " जब परम पूज्य गुरुदेव के श्री विग्रह को भू समाधि दी जा रही थी तो पूज्य स्वामीजी नेत्रों में अश्रु होने से उस स्थल पर  उपस्थित नहीं हुए। उनको किसी के द्वारा उस समय वहां बुलाया गया, और फिर पूज्य स्वामीजी ने उस भू खंड में उतरकर परम पूज्य गुरुदेव के श्री विग्रह को अपने हाथों में पकड़कर भूमिष्ट किया। परम पूज्य  गुरुदेव के पंचभौतिक विग्रह को  बिलकुल उसी मुद्रा में  समाधिस्थ किया गया, जिस  मुद्रा में ठीक उसी स्थान के ऊपर उनकी पंच धातु का विग्रह सिद्धबाड़ी में स्थापित है। ॐ श्री चिन्मय सदगुरवे नमः।।'",
   },
-   { src: v9, label: "Divine company",    vintage: true },
-   { src: v10, label: "Divine company",    vintage: true },
+     { src: v10, label: "Divine company",    vintage: true },
   
 ];
 
