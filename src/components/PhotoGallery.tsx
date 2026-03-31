@@ -60,8 +60,14 @@ const smritiyaanPhotos: Photo[] = [
   },
   
   {
-    src: p1,
-    label: "Diksha ceremony",
+    src: gurudev,
+    label: "",
+    vintage: true,
+    story: ".",
+  },
+   {
+    src: g3,
+    label: "",
     vintage: true,
     story: ".",
   },
