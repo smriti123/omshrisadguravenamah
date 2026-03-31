@@ -22,6 +22,7 @@ import p18 from "@/assets/gallery/photo-18.jpg";
 import p19 from "@/assets/gallery/photo-19.jpg";
 import p20 from "@/assets/gallery/photo-20.jpg";
 import p21 from "@/assets/gallery/photo-21.jpg";
+import  ph1 from "@/assets/gallery/ph1.jpeg";
 
 import v1 from "@/assets/gallery/v1.jpg";
 import v2 from "@/assets/gallery/v2.jpg";
@@ -32,6 +33,9 @@ import v7 from "@/assets/gallery/v7.jpeg";
 import v8 from "@/assets/gallery/v8.jpeg";
 import v9 from "@/assets/gallery/v9.jpeg";
 import v10 from "@/assets/gallery/v10.jpeg";
+import v11 from "@/assets/gallery/v11.jpg";
+import v12 from "@/assets/gallery/v12.jpeg";
+
 
 // ─────────────────────────────────────────────────────────
 // vintage: true  → sepia tint
@@ -46,6 +50,12 @@ type Photo = {
 };
 
 const smritiyaanPhotos: Photo[] = [
+  {
+    src: ph1,
+    label: "",
+    vintage: true,
+    story: ".",
+  },
   {
     src: p1,
     label: "Diksha ceremony",
@@ -131,6 +141,8 @@ const visheshPhotos: Photo[] = [
     story: " जब परम पूज्य गुरुदेव के श्री विग्रह को भू समाधि दी जा रही थी तो पूज्य स्वामीजी नेत्रों में अश्रु होने से उस स्थल पर  उपस्थित नहीं हुए। उनको किसी के द्वारा उस समय वहां बुलाया गया, और फिर पूज्य स्वामीजी ने उस भू खंड में उतरकर परम पूज्य गुरुदेव के श्री विग्रह को अपने हाथों में पकड़कर भूमिष्ट किया। परम पूज्य  गुरुदेव के पंचभौतिक विग्रह को  बिलकुल उसी मुद्रा में  समाधिस्थ किया गया, जिस  मुद्रा में ठीक उसी स्थान के ऊपर उनकी पंच धातु का विग्रह सिद्धबाड़ी में स्थापित है। ॐ श्री चिन्मय सदगुरवे नमः।।'",
   },
      { src: v10, label: "Divine company",    vintage: true },
+   { src: v11, label: "",    vintage: true },
+   { src: v12, label: "",    vintage: true },
   
 ];
 
