@@ -4,13 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { label: "Home", href: "#hero" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Quotes", href: "#quotes" },
+  { label: "Gallery", href: "#gallery" }, 
   { label: "Shraddanjali", href: "#shraddanjali" },
   { label: "Attributes", href: "#attributes" },
   { label: "Stuti", href: "#stuti" },
   { label: "Talks", href: "#talks" },
   { label: "Bhajans", href: "#bhajans" },
+   { label: "Quotes", href: "#quotes" },
 ];
 
 const Navbar = () => {
