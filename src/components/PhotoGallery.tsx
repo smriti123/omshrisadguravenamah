@@ -99,19 +99,19 @@ I fondly remember when Swamiji entered the Gaushala how all the cows started get
 const visheshPhotos: Photo[] = [
   {
     src: v1,
-    label: "With Pujya Sant",
+    label: "",
     vintage: true,
     story: "'",
   },
-  { src: v2, label: "Sacred gathering",  vintage: true },
+  { src: v2, label: "",  vintage: true },
   {
     src: v3,
-    label: "Kumbh Mela blessing",
+    label: "",
     vintage: true,
     story: "",
   },
-  { src: v4, label: "Divine company",    vintage: true },
-  { src: v6, label: "Spiritual journey", vintage: true },
+  { src: v4, label: "",    vintage: true },
+  { src: v6, label: "", vintage: true },
   {
     src: v7,
     label: "Gurudev Mahasamadhi",
@@ -120,13 +120,13 @@ const visheshPhotos: Photo[] = [
   },
   {
     src: v9,
-    label: "With Pujya Sant",
+    label: "Gurudev Mahasamadhi",
     vintage: true,
     story: " जब परम पूज्य गुरुदेव के श्री विग्रह को भू समाधि दी जा रही थी तो पूज्य स्वामीजी नेत्रों में अश्रु होने से उस स्थल पर  उपस्थित नहीं हुए। उनको किसी के द्वारा उस समय वहां बुलाया गया, और फिर पूज्य स्वामीजी ने उस भू खंड में उतरकर परम पूज्य गुरुदेव के श्री विग्रह को अपने हाथों में पकड़कर भूमिष्ट किया। परम पूज्य  गुरुदेव के पंचभौतिक विग्रह को  बिलकुल उसी मुद्रा में  समाधिस्थ किया गया, जिस  मुद्रा में ठीक उसी स्थान के ऊपर उनकी पंच धातु का विग्रह सिद्धबाड़ी में स्थापित है। ॐ श्री चिन्मय सदगुरवे नमः।।'",
   },
   {
     src: v8,
-    label: "With Pujya Sant",
+    label: "Gurudev Mahasamadhi",
     vintage: true,
     story: " जब परम पूज्य गुरुदेव के श्री विग्रह को भू समाधि दी जा रही थी तो पूज्य स्वामीजी नेत्रों में अश्रु होने से उस स्थल पर  उपस्थित नहीं हुए। उनको किसी के द्वारा उस समय वहां बुलाया गया, और फिर पूज्य स्वामीजी ने उस भू खंड में उतरकर परम पूज्य गुरुदेव के श्री विग्रह को अपने हाथों में पकड़कर भूमिष्ट किया। परम पूज्य  गुरुदेव के पंचभौतिक विग्रह को  बिलकुल उसी मुद्रा में  समाधिस्थ किया गया, जिस  मुद्रा में ठीक उसी स्थान के ऊपर उनकी पंच धातु का विग्रह सिद्धबाड़ी में स्थापित है। ॐ श्री चिन्मय सदगुरवे नमः।।'",
   },
