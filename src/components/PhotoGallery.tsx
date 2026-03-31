@@ -24,7 +24,7 @@ import p20 from "@/assets/gallery/photo-20.jpg";
 import p21 from "@/assets/gallery/photo-21.jpg";
 import  ph1 from "@/assets/gallery/ph1.jpg";
 import g3  from "@/assets/g3.jpg";
-import gurudev  from "@/assets/gurudev.jpg";
+import gurudev  from "@/assets/Gurudev.jpg";
 
 import v1 from "@/assets/gallery/v1.jpg";
 import v2 from "@/assets/gallery/v2.jpg";
