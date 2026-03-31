@@ -31,7 +31,7 @@ import v4 from "@/assets/gallery/v4.jpg";
 import v6 from "@/assets/gallery/v6.jpg";
 import v7 from "@/assets/gallery/v7.jpeg";
 import v8 from "@/assets/gallery/v8.jpeg";
-import v9 from "@/assets/gallery/v9.jpeg";
+import v9 from "@/assets/gallery/v9.jpg";
 import v10 from "@/assets/gallery/v10.jpeg";
 import v11 from "@/assets/gallery/v11.jpg";
 import v12 from "@/assets/gallery/v12.jpg";
