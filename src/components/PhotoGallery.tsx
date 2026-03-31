@@ -28,6 +28,10 @@ import v2 from "@/assets/gallery/v2.jpg";
 import v3 from "@/assets/gallery/v3.jpg";
 import v4 from "@/assets/gallery/v4.jpg";
 import v6 from "@/assets/gallery/v6.jpg";
+import v6 from "@/assets/gallery/v7.jpg";
+import v6 from "@/assets/gallery/v8.1.jpg";
+import v6 from "@/assets/gallery/v9.jpg";
+import v6 from "@/assets/gallery/v10.jpg";
 
 // ─────────────────────────────────────────────────────────
 // vintage: true  → sepia tint
@@ -108,6 +112,21 @@ const visheshPhotos: Photo[] = [
   },
   { src: v4, label: "Divine company",    vintage: true },
   { src: v6, label: "Spiritual journey", vintage: true },
+  {
+    src: v7,
+    label: "Gurudev Mahasamadhi",
+    vintage: true,
+    story: "All final rites of Pujya Gurudev as I had reiterated in past ..were fone by Pujya Brahmaleen His Holiness  Swami Subodanandji immaculately with precision amidst all top Saints present there... You name it..you think it'",
+  },
+  {
+    src: v8.1,
+    label: "With Pujya Sant",
+    vintage: true,
+    story: " जब परम पूज्य गुरुदेव के श्री विग्रह को भू समाधि दी जा रही थी तो पूज्य स्वामीजी नेत्रों में अश्रु होने से उस स्थल पर  उपस्थित नहीं हुए। उनको किसी के द्वारा उस समय वहां बुलाया गया, और फिर पूज्य स्वामीजी ने उस भू खंड में उतरकर परम पूज्य गुरुदेव के श्री विग्रह को अपने हाथों में पकड़कर भूमिष्ट किया। परम पूज्य  गुरुदेव के पंचभौतिक विग्रह को  बिलकुल उसी मुद्रा में  समाधिस्थ किया गया, जिस  मुद्रा में ठीक उसी स्थान के ऊपर उनकी पंच धातु का विग्रह सिद्धबाड़ी में स्थापित है। ॐ श्री चिन्मय सदगुरवे नमः।।'",
+  },
+   { src: v9, label: "Divine company",    vintage: true },
+   { src: v10, label: "Divine company",    vintage: true },
+  
 ];
 
 const INITIAL  = 12;
