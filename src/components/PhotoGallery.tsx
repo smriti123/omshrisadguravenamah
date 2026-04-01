@@ -26,6 +26,7 @@ import  ph1 from "@/assets/gallery/ph1.jpg";
 import g3  from "@/assets/g3.jpg";
 import gurudev  from "@/assets/Gurudev.jpg";
 import Gaumata  from "@/assets/Gaumata.jpg";
+import Gaumata  from "@/assets/h1.jpg";
 
 import v1 from "@/assets/gallery/v1.jpg";
 import v2 from "@/assets/gallery/v2.jpg";
@@ -59,6 +60,18 @@ const smritiyaanPhotos: Photo[] = [
     vintage: true,
     story: ".",
   },
+  {
+    src: h1,
+    label: "",
+    vintage: true,
+    story: ".",
+  },
+  {
+    src: g3,
+    label: "",
+    vintage: true,
+    story: ".",
+  },
   
   {
     src: gurudev,
@@ -66,12 +79,7 @@ const smritiyaanPhotos: Photo[] = [
     vintage: true,
     story: ".",
   },
-   {
-    src: g3,
-    label: "",
-    vintage: true,
-    story: ".",
-  },
+   
    {
     src: Gaumata,
     label: "ॐ धेनु प्रियाय नमः।",
