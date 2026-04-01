@@ -23,7 +23,7 @@ const tributes: Tribute[] = [
     translation: `"पूज्य स्वामीजी का वर्णन करना अत्यंत कठिन है — उनकी महानता, शास्त्रों के प्रति उनका प्रेम, और किसी भी विषय — चाहे वेदांत हो, धर्मशास्त्र हो, राजनीति हो या सामाजिक मुद्दे — उनका विश्लेषण करने की गहराई अतुलनीय थी। स्वामीजी किसी भी शब्द को खोलकर बिना विषयांतर हुए घंटों बोल सकते थे। उनकी महासमाधि अनेक साधकों और वेदांत के गंभीर विद्यार्थियों के लिए अपूरणीय क्षति है। उनकी शिक्षाओं और मुझ पर बरसाए गए उनके स्नेह के लिए मैं सदा ऋणी रहूँगा। पूज्य स्वामीजी से मैंने विशेष रूप से शंकर भाष्य का अध्ययन-अध्यापन और रामायण की व्याख्याएँ सीखीं। पूज्य स्वामीजी को कोटि-कोटि प्रणाम।.`,
   },
   {
-    name: "Devotee",
+    name: "Mrs. Vijay Khanna, Jaipur",
     message: `अनगणित आँखों में मैंने स्वामीजी के प्रति अथाह भक्ति देखी है। और स्वामीजी! आपकी आँखों का गाम्भीर्य भी देखा है; आपकी परखनहारी, खोजी दृष्टि को निरखा है। सिद्धबाड़ी की तपोभूमि में — गुरुदेव के अनन्य शिष्य रूप में प्रखर सूर्य बनकर उभरे हैं आप। आपकी ज्ञानदृष्टि की किरणों में हम गुरुकुलवासी शिष्यों-साधकों की मलिनता धुलती रही; हमें पवित्रता और ऊर्ध्वमुखता की ओर उन्मुख करते हुए। आपका स्नेहसिक्त वात्सल्य और गम्भीर, गुंजायमान वाणी का आकर्षण — हम शिष्यों को ही नहीं, शिविर में आए साधकों को और ज्ञानयज्ञ में उपस्थित श्रोताओं को भी मंत्रमुग्ध करता रहा। आपका विद्युत-चुम्बकीय वाक्-बल उस ज्ञान का, उस सत्य का सदैव दिग्दर्शक बना — जिसकी शिष्यों को निरंतर अभीप्सा रहती है। हिमाचल की मनमोहक भूमि को गुरुदेव ने चिन्हित किया; वीर हनुमान की रक्षा में सौंपा; राम-राज्य जैसा वातावरण सम्पुष्ट किया। और स्वामी सुबोधानंदजी, आपने उसे तीर्थ बना दिया! आपके वहाँ रहने से केवल सिद्धबाड़ी ही नहीं, बल्कि हम साधकों के हृदय भी — जिनमें आप विराजमान हैं — तीर्थरूप हो गए हैं। नत हृदय से आपको भावभीनी श्रद्धांजलि और नमन! हरि ॐ`,
     translation: `In countless eyes I have seen immeasurable devotion towards Swamiji. And Swamiji — I have also witnessed the depth of your gaze, your perceptive and searching eyes. In the sacred land of Sidhbari, you have risen as a brilliant sun — the incomparable disciple of Gurudev. In the rays of your enlightened vision, the impurities of us Gurukulvasi disciples and seekers kept washing away, turning us towards purity and spiritual upliftment. Your tender, loving affection and the pull of your deep, resonant voice enchanted not just us disciples, but also the seekers who attended the camps and the listeners gathered at the Jnana Yagnas. Your electro-magnetic power of speech was always the guiding light of that knowledge, that truth — for which disciples always yearn. Gurudev identified the enchanting land of Himachal, entrusted it to the protection of brave Hanuman, and nurtured a Ram-Rajya-like atmosphere. And Swami Subodhanandaji, you made it a place of pilgrimage! Through your presence there, not only Sidhbari but also the hearts of us seekers — in which you reside — have become sacred pilgrimage sites. With a bowed heart, our heartfelt tribute and salutation! Hari Om`,
   },
@@ -157,10 +157,20 @@ Pranam! Naman! Vandan! All is offered unto you. 🙏🌹`,
     message: `अद्वितीय वक्ता, अत्यंत श्रेष्ठ एवं मधुर व्यक्तित्व, उच्च कोटि के विद्वान — यह रिक्तता भर पाना बहुत कठिन है। जीवन कितना क्षणभंगुर है! माँ गीता ने अपने लाडले को अपने पास बुला लिया — उन्हें हमसे अधिक आवश्यकता होगी। एक विद्यार्थी की भावभीनी भावांजलि। हे कृष्ण!`,
     translation: `An unparalleled orator, an extremely noble and gentle personality, a scholar of the highest order — filling this void will be very difficult. How fleeting life is! Mother Gita has called her beloved to herself — she must have needed him more than we did. A heartfelt tribute from a student. O Krishna!`,
   },
-  {
+   {
     name: "Devotee",
-    message: `अनगणित आँखों में मैंने स्वामीजी के प्रति अथाह भक्ति देखी है। और स्वामीजी! आपकी आँखों का गाम्भीर्य भी देखा है; आपकी परखनहारी, खोजी दृष्टि को निरखा है। सिद्धबाड़ी की तपोभूमि में — गुरुदेव के अनन्य शिष्य रूप में प्रखर सूर्य बनकर उभरे हैं आप। आपकी ज्ञान-दृष्टि की किरणों में हम गुरुकुलवासी शिष्यों-साधकों की मलिनता धुलती रही; हमें पवित्रता और ऊर्ध्वमुखता की ओर उन्मुख करते हुए। नत हृदय से, इस बाल-बुद्धि की ओर से, आपको भावभीनी श्रद्धांजलि और नमन! हरि ॐ`,
-    translation: `In countless eyes I have seen immeasurable devotion towards Swamiji. And Swamiji — I have also witnessed the depth of your gaze; I have observed your perceptive and searching eyes. In the sacred land of Sidhbari, you have risen as a radiant sun — the incomparable disciple of Gurudev. In the rays of your enlightened vision, the impurities of us Gurukulvasi disciples and seekers kept washing away, turning us towards purity and spiritual elevation. With a bowed heart, from this simple intellect, heartfelt tribute and salutation to you! Hari Om.`,
+    message: `Hari 🕉 ब्रह्मलीन प पूज्य गुरुदेव सान्निध्य प्राप्त करके आपने गुरुदेवकी अप्रतिम सेवा की एवं गुरु निष्ठाका श्रेष्ठ उदाहरण हमें मिला। गुरुदेव के प्रेमपात्र प्रिय शिष्य बने।हम सबको प्रेम देनेवाले, हमारे परम प्रिय विनम्र स्वामीजी आप भले हमें छोड़कर चले गए पर हमारे हृदयसेआपको कोई नहीं निकाल सकता।आत्मज्योतिरूप आप परमात्मारूप ज्योतिसे एकाकार हो गये।मेरा आपको कृतज्ञतापूर्वक सादर सप्रेम शत-शत नमन।एवं प्रार्थना-मेरे मनमें श्रद्धादीपको प्रज्वलित रखना, मनमंदिरमें अंधकार न रहें, ज्ञानप्रकाश देते रहना,ऐसा कृपा-आशीर्वाद मुझ पर बरसाते रहना ।.... वंदन बारंबार नमस्कारम् ।ॐ॥ `,
+    translation: `Hari Om 🕉
+
+Having attained the blessed proximity of the revered, Brahmaleen Gurudev, you rendered incomparable service to Gurudev and gave us a noble example of steadfast devotion to the Guru. You became Gurudev’s beloved and cherished disciple.
+
+O our most beloved and humble Swamiji, who gave love to all of us, though you have physically left us, no one can remove you from our hearts. In the form of the inner light of the soul, you have now become one with the divine light of the Supreme.
+
+With deep gratitude, reverence, and love, I bow to you again and again, hundreds of times.
+
+And this is my prayer: please keep the lamp of श्रद्धा, of faith and devotion, ever lit within my heart. Let there be no darkness in the temple of my mind. Keep bestowing the light of knowledge upon me, and continue showering your grace and blessings on me.
+
+Repeated salutations and reverential pranam.!`,
   },
 ];
 
