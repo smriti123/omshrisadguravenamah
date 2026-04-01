@@ -25,6 +25,7 @@ import p21 from "@/assets/gallery/photo-21.jpg";
 import  ph1 from "@/assets/gallery/ph1.jpg";
 import g3  from "@/assets/g3.jpg";
 import gurudev  from "@/assets/Gurudev.jpg";
+import gurudev  from "@/assets/Gaumata.jpg";
 
 import v1 from "@/assets/gallery/v1.jpg";
 import v2 from "@/assets/gallery/v2.jpg";
@@ -72,8 +73,8 @@ const smritiyaanPhotos: Photo[] = [
     story: ".",
   },
    {
-    src: p19,
-    label: "",
+    src: Gaumata,
+    label: "ॐ धेनु प्रियाय नमः।",
     vintage: false,
    story: `एक बार पूज्य गुरु जी ने राममन्दिर के बाहर भी विधिवत् गैया मैया की पूजा की थी ।
 I fondly remember when Swamiji entered the Gaushala how all the cows started getting restless and impatient for Swamiji’s touch and love and cuddle!! Swamiji called few names of cows so lovingly... Parvati... Nandini... and a few others, and they all poured their love for Swamiji the moment he came near each one of them.....💐`,
