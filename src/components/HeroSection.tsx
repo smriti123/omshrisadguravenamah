@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import heroShiva     from "@/assets/mandir.jpg";
 import heroPortrait   from "@/assets/pic5.jpg";
 import heroHimalaya  from "@/assets/g2.jpg";
-import heroFeet      from "@/assets/gallery/h1.jpg";
+import heroFeet      from "@/assets/h1.jpg";
 import heroSignature from "@/assets/pic4.jpg";
 
 const photos = [
