@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Shraddanjali", href: "#shraddanjali" },
   { label: "Attributes", href: "#attributes" },
   { label: "Stuti", href: "#stuti" },
+  { label: "Journey", href: "#journey" },
   { label: "Talks", href: "#talks" },
   { label: "Bhajans", href: "#bhajans" },
    { label: "Quotes", href: "#quotes" },
