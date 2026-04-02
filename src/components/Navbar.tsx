@@ -11,14 +11,20 @@ const navLinks = [
   { label: "Journey", href: "#journey" },
   { label: "Talks", href: "#talks" },
   { label: "Bhajans", href: "#bhajans" },
-   { label: "Quotes", href: "#quotes" },
+  { label: "Quotes", href: "#quotes" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-gold/20">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b"
+      style={{
+        background: "rgba(253,246,236,0.88)",
+        backdropFilter: "blur(12px)",
+        borderColor: "rgba(200,170,110,0.2)",
+      }}
+    >
       <div className="container mx-auto flex items-center justify-between py-3 px-4">
         <a href="#hero" className="font-display text-2xl font-bold text-primary">
           {"\n"}
@@ -30,7 +36,10 @@ const Navbar = () => {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="font-body text-sm text-muted-foreground hover:text-primary transition-colors"
+                className="font-body text-sm transition-colors"
+                style={{ color: "hsl(25 20% 45%)" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "hsl(30 55% 42%)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "hsl(25 20% 45%)")}
               >
                 {l.label}
               </a>
@@ -40,7 +49,8 @@ const Navbar = () => {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-foreground"
+          className="md:hidden"
+          style={{ color: "hsl(25 25% 35%)" }}
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -55,7 +65,11 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden bg-background border-b border-gold/20 overflow-hidden"
+            className="md:hidden overflow-hidden"
+            style={{
+              background: "rgba(253,246,236,0.96)",
+              borderBottom: "1px solid rgba(200,170,110,0.2)",
+            }}
           >
             <ul className="flex flex-col items-center gap-4 py-4">
               {navLinks.map((l) => (
