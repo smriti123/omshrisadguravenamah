@@ -30,7 +30,7 @@ import gurudev4  from "@/assets/gallery/Gurudev4.jpg";
 import Last  from "@/assets/gallery/Last.jpeg";
 import Gaumata  from "@/assets/Gaumata.jpg";
 import h1  from "@/assets/h1.jpg";
-import h1  from "@/assets/gallery/GP.jpeg";
+import GP  from "@/assets/gallery/GP.jpeg";
 
 import v1 from "@/assets/gallery/v1.jpg";
 import v2 from "@/assets/gallery/v2.jpg";
