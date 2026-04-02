@@ -8,6 +8,7 @@ import StutiSection from "@/components/StutiSection";
 import YouTubeTalksSection from "@/components/YouTubeTalksSection";
 import BhajansSection from "@/components/BhajansSection";
 import SansmaraniyaKshanSection from "@/components/SansmaraniyaKshanSection";
+import JourneyTimeline from "@/components/JourneyTimeline";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -18,6 +19,7 @@ const Index = () => {
       <PhotoGallery />     
       <ShraddanjaliSection />      
       <StutiSection />
+      <JourneyTimeline />
       <YouTubeTalksSection />
       <SansmaraniyaKshanSection />
       <BhajansSection />
