@@ -25,6 +25,10 @@ import p21 from "@/assets/gallery/photo-21.jpg";
 import  ph1 from "@/assets/gallery/ph1.jpg";
 import g3  from "@/assets/g3.jpg";
 import gurudev  from "@/assets/Gurudev.jpg";
+import gurudev3  from "@/assets/Gurudev3.jpg";
+import gurudev4  from "@/assets/Gurudev4.jpg";
+import GuruPoornima  from "@/assets/GuruPoornima.jpg";
+import Last  from "@/assets/Last.jpg";
 import Gaumata  from "@/assets/Gaumata.jpg";
 import h1  from "@/assets/h1.jpg";
 
@@ -79,6 +83,18 @@ const smritiyaanPhotos: Photo[] = [
     vintage: true,
     story: ".",
   },
+  {
+    src: gurudev3,
+    label: "",
+    vintage: true,
+    story: ".",
+  },
+  {
+    src: gurudev4,
+    label: "",
+    vintage: true,
+    story: ".",
+  },
    
    {
     src: Gaumata,
@@ -88,10 +104,22 @@ const smritiyaanPhotos: Photo[] = [
 I fondly remember when Swamiji entered the Gaushala how all the cows started getting restless and impatient for Swamiji’s touch and love and cuddle!! Swamiji called few names of cows so lovingly... Parvati... Nandini... and a few others, and they all poured their love for Swamiji the moment he came near each one of them.....💐`,
 },
   {
+    src: GuruPoornima,
+    label: "",
+    vintage: true,
+    story: "at Siddhbari cottage : Pic credit  : Shri Arun Gupta ji, July 2020,",
+  },
+  {
     src: p2,
     label: "",
     vintage: true,
-    story: "Swamiji's very first public discourse was held in a small hall with only a handful of devotees. Yet the depth of his words on the Bhagavad Gita moved everyone to tears. One elderly devotee later said — 'I have heard many scholars, but today I heard the Gita speak through a living being.'",
+    story: "S'",
+  },
+  {
+    src: Last,
+    label: "",
+    vintage: true,
+    story: "Last available picture dated 3rd Aug 2020 , on 28th Mahasamadhi diwas of Pujya Gurudev",
   },
   { src: p3,  label: "",   vintage: true  },
   { src: p4,  label: "", vintage: true  },
