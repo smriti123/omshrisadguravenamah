@@ -102,7 +102,7 @@ const JourneyTimeline = () => {
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Journey"
-          subtitle="Key milestones in Pujya Swamiji's spiritual journey at Sidhbari"
+          subtitle="Key milestones in Pujya Swamiji's journey at Sidhbari"
         />
 
         <div className="max-w-3xl mx-auto relative">
