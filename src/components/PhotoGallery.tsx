@@ -61,7 +61,7 @@ const smritiyaanPhotos: Photo[] = [
     src: h1,
     label: `ॐ सद्गुरु प्रियाय नमः ।`,
     vintage: true,
-    story: `` ,
+    story: "." ,
   },
    {
     src: gurudev4,
