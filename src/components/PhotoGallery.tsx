@@ -59,7 +59,7 @@ type Photo = {
 const smritiyaanPhotos: Photo[] = [
   {
     src: h1,
-    label: "ॐ सद्गुरु प्रियाय नमः ।",
+    label: `ॐ सद्गुरु प्रियाय नमः ।`,
     vintage: true,
     story: `` ,
   },
@@ -101,7 +101,7 @@ const smritiyaanPhotos: Photo[] = [
     src: Last,
     label: "",
     vintage: true,
-    story: "Last available picture dated 3rd Aug 2020 , on 28th Mahasamadhi diwas of Pujya Gurudev",
+    story: `Last available picture dated 3rd Aug 2020 , on 28th Mahasamadhi diwas of Pujya Gurudev`,
   },
  
      {
