@@ -94,8 +94,7 @@ const smritiyaanPhotos: Photo[] = [
     vintage: true,
     story: ".",
   },
-   
-   {
+     {
     src: Gaumata,
     label: "ॐ धेनु प्रियाय नमः।",
     vintage: false,
