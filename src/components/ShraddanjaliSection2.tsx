@@ -42,6 +42,38 @@ Om. May there be peace in the heavens, peace in the mid-space, peace on earth; p
 Hari Om. Peace, peace, peace.`,
   },
   {
+    name: "SBS Iyer ",
+    message: `What a disciple..unparallel ..unimaginable..incredible..
+Encyclopedia of Spirituality..who churned out Disciples after Disciples from Sidhbari for what Chinmaya Mission is today..
+He was the most knowledgeable,  humility personified n unmatchable Guru Bhakti..most soft spoken , ever smiling , who enjoyed participation of every devotee's experiences n feelings..extremely very good listener..
+It is none else than our Guru Swami Subodanandji but for whom whatever little we grasped according to our transformer's capacities we feel indebted n are grateful to Swami Subodanandji. 
+He has made an indelible mark in our lives..no matter he is not physically with us ..so what ?
+He is with us in our heart of hearts .
+The very reference , the very nectar n inimitable honey soaked voice heard of HIM from any past discourses..oh my Guru..I shed tears silently which wets my clothes out of reverence.
+The nostalgia of wonderful n gifted time spent in Gyan Yagna Halls n also the precious nights spent listening to his experiences of HIS Gurudev ..our Gurudev serves as enormous strength to combat any situation of life.
+HIS teachings rings through our ears n gives us enormous bliss.
+HE was extremely soothing..HE was a tranquilizer for every devotee.
+HE was an embodiment of Behavioural Science. 
+It is HE who quietly taught how to inculcate in ourselves the nectar of spirituality in day to day behaviour !!
+We are one of the most fortunate human beings who have seen Swami Subodanandji as our God in blood n flesh..
+Now imagine ..when we feel so ecstatic of our Guru Swami Subodanandji then listening to HIS Guru's ( Swami Chinmayanandjee) incessant praise, his devotion, his Guru Bhakti . Which we have physically seen when all of a sudden at 3 AM in Sidhbari HE ( Swami Subodanandji) will get up n tell us n other devotees sitting n listening to his spirituality..COME ON ..Gurudev के दर्शन कर के आते हैं..and we all seated disciples follow HIM in that pitch dark, quiet n aromatic night ..the aroma of all flowers which we used to pass through to SAMADHI OF PUJYA GURUDEV  n stand quietly with closed eyes for indefinite time behind HIM ..while HE was communicating silently with HIM ...the omnipresence  of GOD ..Pujya Gurudev to another GOD Swami Subodanandji..oh my Lord ..how fortunate we were !
+Our Sashtang prostrations to my Guru..to your Guru..no no..OUR GURU SWAMI SUBODANANDJI..you are a torch which will enliven our hearts ever !!
+`,
+    translation: `Chinmaya Mission North India’s chief acharya, an ascetic embodiment of tapas, an authoritative scholar of Vedanta, steadfast in the scriptures, ever established in dharma, supremely devoted to Parabrahman, cows, and Brahmins, and a renowned expounder of the Vedas, Vedangas, Vedanta Shastras, the Gita, the Shrimad Bhagavata Mahapurana, and Shri Ramcharit; affectionate toward all, gentle and compassionate at heart, an exclusive devotee of Lord Shiva, a supreme well-wisher of the Chinmaya Mission family, devotees, and the community of disciples; the one who caused the construction and consecration of Shri Akhileshwar Mahadev Temple in Prayagraj according to scriptural विधि; ever engaged in the study of the scriptures, spiritually endowed, the wandering monk Swami Subodhananda Saraswati’s sudden departure to Vaikuntha is extremely painful for all of us.
+
+Today, after his departure, we all have become orphaned. By his great passing, Sanatana culture has suffered an irreparable loss. We all have lost such a personality who is rare even in centuries or millennia.
+
+May Shri Swamiji’s soul abide eternally in everlasting peace at the feet of the Supreme Lord, and at the same time, may the Supreme grant strength to the entire community of devotees, afflicted by his separation, to bear this immense sorrow.
+
+Infinite श्रद्धांजलि is offered at the holy feet of Shri Swamiji.
+
+Om. May there be peace in the heavens, peace in the mid-space, peace on earth; peace in the waters, peace in the herbs; peace in the vegetation, peace among all the gods, peace in Brahman, peace in all; peace only, peace indeed—may that peace come unto me.
+
+Hari Om. Peace, peace, peace.`,
+    transaltion:  ` `,
+  },
+  
+  {
     name: "Mrs. Vijay Khanna, Jaipur",
     message: `अनगणित आँखों में मैंने स्वामीजी के प्रति अथाह भक्ति देखी है। और स्वामीजी! आपकी आँखों का गाम्भीर्य भी देखा है; आपकी परखनहारी, खोजी दृष्टि को निरखा है। सिद्धबाड़ी की तपोभूमि में — गुरुदेव के अनन्य शिष्य रूप में प्रखर सूर्य बनकर उभरे हैं आप। आपकी ज्ञानदृष्टि की किरणों में हम गुरुकुलवासी शिष्यों-साधकों की मलिनता धुलती रही; हमें पवित्रता और ऊर्ध्वमुखता की ओर उन्मुख करते हुए। आपका स्नेहसिक्त वात्सल्य और गम्भीर, गुंजायमान वाणी का आकर्षण — हम शिष्यों को ही नहीं, शिविर में आए साधकों को और ज्ञानयज्ञ में उपस्थित श्रोताओं को भी मंत्रमुग्ध करता रहा। आपका विद्युत-चुम्बकीय वाक्-बल उस ज्ञान का, उस सत्य का सदैव दिग्दर्शक बना — जिसकी शिष्यों को निरंतर अभीप्सा रहती है। हिमाचल की मनमोहक भूमि को गुरुदेव ने चिन्हित किया; वीर हनुमान की रक्षा में सौंपा; राम-राज्य जैसा वातावरण सम्पुष्ट किया। और स्वामी सुबोधानंदजी, आपने उसे तीर्थ बना दिया! आपके वहाँ रहने से केवल सिद्धबाड़ी ही नहीं, बल्कि हम साधकों के हृदय भी — जिनमें आप विराजमान हैं — तीर्थरूप हो गए हैं। नत हृदय से आपको भावभीनी श्रद्धांजलि और नमन! हरि ॐ`,
     translation: `In countless eyes I have seen immeasurable devotion towards Swamiji. And Swamiji — I have also witnessed the depth of your gaze, your perceptive and searching eyes. In the sacred land of Sidhbari, you have risen as a brilliant sun — the incomparable disciple of Gurudev. In the rays of your enlightened vision, the impurities of us Gurukulvasi disciples and seekers kept washing away, turning us towards purity and spiritual upliftment. Your tender, loving affection and the pull of your deep, resonant voice enchanted not just us disciples, but also the seekers who attended the camps and the listeners gathered at the Jnana Yagnas. Your electro-magnetic power of speech was always the guiding light of that knowledge, that truth — for which disciples always yearn. Gurudev identified the enchanting land of Himachal, entrusted it to the protection of brave Hanuman, and nurtured a Ram-Rajya-like atmosphere. And Swami Subodhanandaji, you made it a place of pilgrimage! Through your presence there, not only Sidhbari but also the hearts of us seekers — in which you reside — have become sacred pilgrimage sites. With a bowed heart, our heartfelt tribute and salutation! Hari Om`,
