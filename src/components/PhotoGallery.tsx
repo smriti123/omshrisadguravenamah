@@ -61,13 +61,13 @@ const smritiyaanPhotos: Photo[] = [
     src: h1,
     label: "",
     vintage: true,
-    story: "Pujya Swamiji was a most devoted disciple of Pujya Gurudev. Whenever Pujya Gurudev came to Sidhbari, it was Swami Subodhanandaji who would push his wheelchair — doing so with such devotion and pride." ,
+    story: `Pujya Swamiji was a most devoted disciple of Pujya Gurudev. Whenever Pujya Gurudev came to Sidhbari, it was Swami Subodhanandaji who would push his wheelchair — doing so with such devotion and pride.` ,
   },
    {
     src: gurudev4,
     label: "",
     vintage: true,
-    story: "He would be always around Gurudev, on his toes, alert, sharp, vigilant and forever thinking ahead, knowing what to do before he is told.",
+    story: `He would be always around Gurudev, on his toes, alert, sharp, vigilant and forever thinking ahead, knowing what to do before he is told.`,
   },
   {
     src: ph1,
@@ -80,7 +80,7 @@ const smritiyaanPhotos: Photo[] = [
     src: g3,
     label: "",
     vintage: true,
-    story: "ब्रह्मलीन प पूज्य गुरुदेव सान्निध्य प्राप्त करके आपने गुरुदेवकी अप्रतिम सेवा की एवं गुरु निष्ठाका श्रेष्ठ उदाहरण हमें मिला।",
+    story: `ब्रह्मलीन प पूज्य गुरुदेव सान्निध्य प्राप्त करके आपने गुरुदेवकी अप्रतिम सेवा की एवं गुरु निष्ठाका श्रेष्ठ उदाहरण हमें मिला।`,
   },
   
   {
