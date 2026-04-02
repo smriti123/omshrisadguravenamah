@@ -59,9 +59,9 @@ type Photo = {
 const smritiyaanPhotos: Photo[] = [
   {
     src: h1,
-    label: "",
+    label: "ॐ सद्गुरु प्रियाय नमः ।",
     vintage: true,
-    story: `Pujya Swamiji was a most devoted disciple of Pujya Gurudev. Whenever Pujya Gurudev came to Sidhbari, it was Swami Subodhanandaji who would push his wheelchair — doing so with such devotion and pride.` ,
+    story: `` ,
   },
    {
     src: gurudev4,
@@ -73,7 +73,9 @@ const smritiyaanPhotos: Photo[] = [
     src: ph1,
     label: "",
     vintage: true,
-    story: ".",
+    story: `Whenever Pujya Gurudev came to Sidhbari, it was Swami Subodhanandaji who would push his wheelchair — doing so with such devotion and pride.` ,
+  },
+   {,
   },
   
   {
