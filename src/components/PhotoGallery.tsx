@@ -285,10 +285,20 @@ const Lightbox = ({
           </p>
           {/* Story in lightbox if present */}
           {photo.story && (
-            <p className="mt-3 text-xs leading-relaxed px-2 text-left"
-              style={{ color: "rgba(255,210,150,0.65)", fontFamily: "serif", lineHeight: "1.85" }}>
-              {photo.story}
-            </p>
+            <div
+              className="mt-4 rounded-lg p-4 text-left"
+              style={{
+                border: "1px solid rgba(200,140,40,0.3)",
+                background: "rgba(255,220,170,0.08)",
+              }}
+            >
+              <p
+                className="text-sm md:text-base leading-relaxed"
+                style={{ color: "rgba(255,220,170,0.9)", fontFamily: "serif", lineHeight: "1.8" }}
+              >
+                {photo.story}
+              </p>
+            </div>
           )}
           <p className="text-xs mt-2" style={{ color: "rgba(200,150,60,0.35)" }}>{idx + 1} / {photos.length}</p>
         </div>
@@ -302,119 +312,58 @@ const Lightbox = ({
           ))}
         </div>
       </div>
-
-      <div className="flex gap-2 mt-5 px-4 overflow-x-auto max-w-2xl w-full pb-1" onClick={(e) => e.stopPropagation()}>
-        {photos.map((p, i) => (
-          <button key={i} onClick={() => setIdx(i)}
-            className="flex-shrink-0 w-10 h-10 rounded overflow-hidden transition-all duration-200"
-            style={{
-              border: i === idx ? "2px solid rgba(255,200,80,0.9)" : "1px solid rgba(200,140,40,0.2)",
-              opacity: i === idx ? 1 : 0.4,
-              transform: i === idx ? "scale(1.1)" : "scale(1)",
-            }}
-          >
-            <img src={p.src} alt={p.label} className="w-full h-full object-cover object-top"
-              style={p.vintage ? { filter: "sepia(60%)" } : {}} />
-          </button>
-        ))}
-      </div>
     </motion.div>
   );
 };
 
-// ── Photo Card with hover story popover ──────────────────
+// ── Photo Card with story always visible ──────────────────
 const PhotoCard = ({
   photo, globalIndex, onOpen,
 }: { photo: Photo; globalIndex: number; onOpen: (i: number) => void }) => {
-  const [hovered, setHovered] = useState(false);
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.3 }}
-      className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group shadow-sm"
-      style={{ isolation: "isolate" }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      className="rounded-lg overflow-hidden cursor-pointer shadow-sm border flex flex-col"
+      style={{ borderColor: "rgba(180,100,20,0.2)", background: "rgba(255,245,230,0.75)" }}
       onClick={() => onOpen(globalIndex)}
     >
-      {/* Photo */}
       <img
         src={photo.src}
         alt={photo.label}
-        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+        className="w-full aspect-[4/5] object-cover object-top"
         style={photo.vintage ? { filter: "sepia(55%) contrast(1.05) brightness(0.93)" } : {}}
       />
 
-      {/* Story indicator badge — shows if photo has a story */}
-      {photo.story && (
-        <div
-          className="absolute top-2 right-2 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shadow-md z-10"
-          style={{ background: "rgba(160,80,10,0.85)", color: "#ffe8a0", fontSize: "10px" }}
-          title="Has a story"
-        >
-          ✦
-        </div>
-      )}
-
-      {/* Hover overlay — always shows label */}
-      <AnimatePresence>
-        {hovered && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="absolute inset-0 flex flex-col justify-end"
+      <div className="p-3">
+        {photo.label && (
+          <p className="text-sm font-semibold mb-2 tracking-wide" style={{ color: "#7a3a00" }}>
+            {photo.label}
+          </p>
+        )}
+        {photo.story ? (
+          <p
+            className="text-sm leading-relaxed"
             style={{
-              background: photo.story
-                ? "linear-gradient(0deg, rgba(60,20,0,0.95) 0%, rgba(60,20,0,0.75) 45%, rgba(60,20,0,0.2) 100%)"
-                : "linear-gradient(0deg, rgba(60,20,0,0.75) 0%, rgba(60,20,0,0.1) 60%)",
+              color: "rgba(95,45,10,0.9)",
+              fontFamily: "serif",
+              lineHeight: "1.75",
+              display: "-webkit-box",
+              WebkitLineClamp: 6,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
             }}
           >
-            {photo.story ? (
-              // ── Story popover content ──
-              <div className="p-3 overflow-hidden">
-                <p
-                  className="font-semibold text-xs mb-1.5 tracking-wide"
-                  style={{ color: "#ffe8a0" }}
-                >
-                  {photo.label}
-                </p>
-                <p
-                  className="text-xs leading-relaxed overflow-hidden"
-                  style={{
-                    color: "rgba(255,225,170,0.85)",
-                    fontFamily: "serif",
-                    lineHeight: "1.65",
-                    display: "-webkit-box",
-                    WebkitLineClamp: 5,
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
-                  }}
-                >
-                  {photo.story}
-                </p>
-                <p
-                  className="text-xs mt-2 tracking-wider"
-                  style={{ color: "rgba(255,200,100,0.55)" }}
-                >
-                  Click to read more ↗
-                </p>
-              </div>
-            ) : (
-              // ── Simple label ──
-              <div className="p-3">
-                <p className="text-xs tracking-wide" style={{ color: "rgba(255,225,170,0.9)" }}>
-                  {photo.label}
-                </p>
-              </div>
-            )}
-          </motion.div>
+            {photo.story}
+          </p>
+        ) : (
+          <p className="text-xs tracking-wide" style={{ color: "rgba(130,70,20,0.7)" }}>
+            Click to view fullscreen
+          </p>
         )}
-      </AnimatePresence>
+      </div>
     </motion.div>
   );
 };
@@ -443,16 +392,7 @@ const PhotoGrid = ({
 
   return (
     <div>
-      {/* Legend */}
-      <div className="flex items-center gap-2 mb-4 justify-end">
-        <div className="w-4 h-4 rounded flex items-center justify-center text-xs"
-          style={{ background: "rgba(160,80,10,0.85)", color: "#ffe8a0" }}>✦</div>
-        <span className="text-xs" style={{ color: "rgba(160,90,16,0.55)" }}>
-          = has a story — hover to read
-        </span>
-      </div>
-
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 md:gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
         {shown.map((photo, i) => (
           <PhotoCard
             key={i}
@@ -540,7 +480,7 @@ const GallerySection = () => {
         </div>
 
         <p className="text-center text-xs mt-12 tracking-wider" style={{ color: "rgba(160,90,16,0.4)" }}>
-          Click any photo to view fullscreen · Hover on ✦ photos to read the story
+          Every card shows photo + story snippet · Click any card to read full story
         </p>
       </div>
 
