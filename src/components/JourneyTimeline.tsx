@@ -91,7 +91,7 @@ const events: TimelineEvent[] = [
     date: "27 September 2020",
     title: "End of an Era",
     description:
-      "Swami ji's life journey at Sidhbari came to its conclusion, completing approximately 34 years and 7 months of dedicated service at this sacred place.",
+      "Mahasamadhi",
     highlight: true,
   },
 ];
