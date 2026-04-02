@@ -97,6 +97,12 @@ const smritiyaanPhotos: Photo[] = [
     vintage: true,
     story: ".",
   },
+  {
+    src: Last,
+    label: "",
+    vintage: true,
+    story: "Last available picture dated 3rd Aug 2020 , on 28th Mahasamadhi diwas of Pujya Gurudev",
+  },
  
      {
     src: Gaumata,
@@ -112,12 +118,7 @@ I fondly remember when Swamiji entered the Gaushala how all the cows started get
     vintage: true,
     story: "S'",
   },
-  {
-    src: Last,
-    label: "",
-    vintage: true,
-    story: "Last available picture dated 3rd Aug 2020 , on 28th Mahasamadhi diwas of Pujya Gurudev",
-  },
+  
   { src: p3,  label: "",   vintage: true  },
   { src: p4,  label: "", vintage: true  },
   {
