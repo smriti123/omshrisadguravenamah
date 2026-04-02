@@ -33,8 +33,8 @@ import h1  from "@/assets/h1.jpg";
 import GP  from "@/assets/gallery/GP.jpeg";
 import sh1 from "@/assets/gallery/sh1.jpg";
 import sh2 from "@/assets/gallery/sh2.jpg";
-import sh1 from "@/assets/gallery/akh1.jpg";
-import sh1 from "@/assets/gallery/akh2.jpg";
+import akh1 from "@/assets/gallery/akh1.jpg";
+import akh2 from "@/assets/gallery/akh2.jpg";
 import ma1 from "@/assets/gallery/ma.jpg";
 
 import v1 from "@/assets/gallery/v1.jpg";
