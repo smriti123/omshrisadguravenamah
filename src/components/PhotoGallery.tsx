@@ -93,7 +93,7 @@ const smritiyaanPhotos: Photo[] = [
     src: gurudev3,
     label: "",
     vintage: true,
-    story: "."
+    story: "Swamiji had given strict instructions that the puja asana and the bell and basket for puja must never be left over on the Samadhi sthal platform, it should be immediately removed after the Puja and kept at appropriate hidden place made for this purpose. Also Swamiji would ensure  that the flame of the lamp was just appropriate, not too intense and not to dim and . During summers, Swamiji would himself set  the direction of the  fan which Swamiji  himself got placed at the samadhi sthal, so that it sends  the breeze air in the right direction to  reached Param Pujya Gurudev.  It was required to be done everyday since the workers cleaning the floor would change the fan direction unknowingly. Swamiji would look at Gurudev's vigreh  with so much concentration as if taking orders or approvals from Him. Swamiji would guide us that while doing "Prakrima " even from outside the samadhi hall, Gurudev must always be on our right hand side. Swamiji would do "prakrima " of Gurudev both from inside the samadhi sthla and also from outside. On 23rd March 2020, as Swamiji prostrated before Gurudev, his legs fumbled , which was initially thought to be a vertigo attack but later after CT Scan turned to be a mild haemorrhage. It is so inspiring that Pujya Swamiji also visited Gurudev at the samadhi stahl on 26th Sept 2020 around 10 pm, 4 hours before his last breath at Siddhbari."
   },
   
   {
@@ -131,7 +131,21 @@ I fondly remember when Swamiji entered the Gaushala how all the cows started get
     vintage: true,
     story: "Being from Andhra Pradesh and having not studied Hindi during my school days, I often struggled to understand Hindi. But when I first listened to Pujya Swamiji’s discourses on Ramcharit Manas, something magical happened, everything that Pujya Swamiji was saying was flowing like nectar into my ears!! It is the love and grace of the Gurus!! 🙏🏽 When there is thirst, they quench it immediately. When there is no thirst, the tap goes dry. This has happened multiple times  in my experience. When I was thirsty, there was an ocean of water to drink. When I was not thirsty, I was stranded in a dessert,'",
   },
-  
+   {
+    src: akh1,
+    label: "Akhileshwar Mahadev Mandir",
+    vintage: false,
+    story: "Om Namah Shivaya.. Pujya Swamiji had informed that once Param Pujya  Gurudev mentioned that there should be a Shiva Temple in the ashram at Prayagraj, Hence Swamiji took it as a samkalp and got this temple constructed as per Vedic ordinance . Indeed Swamiji searched for an architect who is very  well versed with construction of temples as per the  Vedic tradition,. Swamiji asked him to make some changes in his given plan. He told Swamiji that if those changes are to be done, then another architect can be selected, as those changes are not in accordance with the Vedas. Swamiji finalised him immediately  and told him this is exactly the type of person he wanted,who should have firm resolve to adhere 100% to Vedic tradition. Swamiji very fondly used to explain the different parts of the temple as representing the parts of the deity's body, perhaps like the "dhwaja" flag on the top representing the hair  .  Swamiji was also  very much concerned for good care of the temple in future and mentioned quite a few times, that he wants  that there should be no wear and tear in this  temple after him. Below are few pictures from the inauguration of this  temple  on Mahashivratri  2009.",
+  },  
+   {
+    src: sh1,
+    label: "Hall",
+    vintage: false,
+    story: "सभागार के निर्माण के दौरान अक्सर मशीनों से बहुत अधिक शोर हुआ करता था। एक दोपहर जब पूज्य स्वामी जी आराम कर रहे थे, मैंने स्वामी जी से अनुरोध किया कि क्या मैं  कुछ समय के लिए मशीन स्विच करने के लिए कह सकता हूँ ताकि स्वामी जी आराम कर सकें। पूज्य स्वामी जी ने उत्तर दिया कि जब तक निर्माण कार्य चल रहा है, वह विश्राम में है। निर्माण कार्य रुक गया तो वह श्रमित हो जायेंगे I जब लिंटर का काम चल रहा होता तो स्वामीजी पैड पर चढ़ जाते थे और फिसलन के कारण निर्माण स्थल पर दो बार गिरे थे, क्योंकि उनके पैरों में संवेदना की शक्ति कम  थी।
+",
+  },  
+   { src: sh2,  label: "",     vintage: false },
+   { src: akh2,  label: "Akhileshwar Mahadev Mandir",   vintage: true  },
   { src: p3,  label: "",   vintage: true  },
   { src: p4,  label: "", vintage: true  },
   {
@@ -145,6 +159,7 @@ The beauty of Swamijee has been that every devotee  n his associated Ashram was 
 This is the beauty of a GURU SWAMI SUBODHANANDJEE  whose love 💘 for any individual or his Ashram was NOT at the cost of others !! 
 He loved all too much n all EQUALLY TOO !! 
 That's why every one of us the  devotees miss him equally n she'd tears equally !!`},
+  
   { src: p7,  label: "",     vintage: false },
   {
     src: p8,
