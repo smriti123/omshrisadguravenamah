@@ -9,6 +9,7 @@ const categories = [
   "Bhagwat Geeta",
   "Bhagwatam",
   "Upanishads",
+  "Prakaran Granth",
 ] as const;
 
 type Category = (typeof categories)[number];
@@ -344,6 +345,42 @@ const talks: Talk[] = [
     title: "Prashnopanishad",
     youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO43d3QXIjCtiVgEZfC5Fw5fz",
     category: "Upanishads",
+  },
+    // === PRAKARAN GRANTH ===
+  {
+    title: "Tatvabodh",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO426wzp--r6EQDfSTCPIchdb",
+    category: "Prakaran Granth",
+  },
+  {
+    title: "Updesh Saar",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO4277Vdw_2jFAr0wt_XiK8_j",
+    category: "Prakaran Granth",
+  },
+  {
+    title: "Pramaan Vichaar",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO41a_JoFftl6s7Rz6eFNXJZL",
+    category: "Prakaran Granth",
+  },
+  {
+    title: "Vedanta Saar",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO43NQ_GQ-OUOCrqlrz9flReV",
+    category: "Prakaran Granth",
+  },
+  {
+    title: "Bhartiya Darshan",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO40UUL2uTTsTsJY_oJICj437",
+    category: "Prakaran Granth",
+  },
+  {
+    title: "Living Life as per Scriptures",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO41oSkPFQArsjdusHNALdQdm",
+    category: "Prakaran Granth",
+  },
+  {
+    title: "Sadhna Panchkam Dehradun",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO40FcBVEC2E0IBLb8hmMNRbm",
+    category: "Prakaran Granth",
   },
 ];
 
