@@ -27,7 +27,7 @@ import g3  from "@/assets/g3.jpg";
 import gurudev  from "@/assets/Gurudev.jpg";
 import gurudev3  from "@/assets/gallery/Gurudev3.jpg";
 import gurudev4  from "@/assets/gallery/Gurudev4.jpg";
-import Last  from "@/assets/gallery/Last.jpg";
+import Last  from "@/assets/gallery/Last.jpeg";
 import Gaumata  from "@/assets/Gaumata.jpg";
 import h1  from "@/assets/h1.jpg";
 
