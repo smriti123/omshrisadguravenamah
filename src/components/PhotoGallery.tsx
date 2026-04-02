@@ -27,7 +27,6 @@ import g3  from "@/assets/g3.jpg";
 import gurudev  from "@/assets/Gurudev.jpg";
 import gurudev3  from "@/assets/gallery/Gurudev3.jpg";
 import gurudev4  from "@/assets/gallery/Gurudev4.jpg";
-import GuruPoornima  from "@/assets/gallery/GuruPoornima.jpg";
 import Last  from "@/assets/gallery/Last.jpg";
 import Gaumata  from "@/assets/Gaumata.jpg";
 import h1  from "@/assets/h1.jpg";
@@ -103,12 +102,7 @@ const smritiyaanPhotos: Photo[] = [
    story: `एक बार पूज्य गुरु जी ने राममन्दिर के बाहर भी विधिवत् गैया मैया की पूजा की थी ।
 I fondly remember when Swamiji entered the Gaushala how all the cows started getting restless and impatient for Swamiji’s touch and love and cuddle!! Swamiji called few names of cows so lovingly... Parvati... Nandini... and a few others, and they all poured their love for Swamiji the moment he came near each one of them.....💐`,
 },
-  {
-    src: GuruPoornima,
-    label: "",
-    vintage: true,
-    story: "at Siddhbari cottage : Pic credit  : Shri Arun Gupta ji, July 2020,",
-  },
+  
   {
     src: p2,
     label: "",
