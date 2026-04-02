@@ -382,6 +382,11 @@ const talks: Talk[] = [
     youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO40FcBVEC2E0IBLb8hmMNRbm",
     category: "Prakaran Granth",
   },
+  {
+    title: "Sadhna Panchkam at Bhavnagar",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO426yvvDRyn57gyh9Do_czCv",
+    category: "Prakaran Granth",
+  },
 ];
 
 const YouTubeTalksSection = () => {
