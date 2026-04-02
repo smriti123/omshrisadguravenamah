@@ -13,17 +13,23 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
-      <PhotoGallery />     
-      <ShraddanjaliSection />      
+      <PhotoGallery />
+      <div className="bg-section-alt">
+        <ShraddanjaliSection />
+      </div>
       <StutiSection />
-      <JourneyTimeline />
+      <div className="bg-section-alt">
+        <JourneyTimeline />
+      </div>
       <YouTubeTalksSection />
-      <SansmaraniyaKshanSection />
+      <div className="bg-section-alt">
+        <SansmaraniyaKshanSection />
+      </div>
       <BhajansSection />
-       <QuotesSection />
+      <QuotesSection />
       <Footer />
     </div>
   );
