@@ -214,6 +214,48 @@ const talks: Talk[] = [
     youtubeUrl: "https://www.youtube.com/watch?v=uU9qK56GKq4&list=PLgy41qSqQO424BoLnQDc7tprnyvOBeZws",
     category: "Bhagwat Geeta",
   },
+  {
+    title: "Bhagvad Geeta Ch 13 (50 videos)",
+    location: "Sidhbari",
+    year: "2005-2008",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO40BB6_AIBkwcHdgh7N05rJ6",
+    category: "Bhagwat Geeta",
+  },
+  {
+    title: "Bhagvad Geeta Ch 14 (13 videos)",
+    location: "Sidhbari",
+    year: "2005-2008",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO42VutHHYtiKv1DDu40Vmrv1",
+    category: "Bhagwat Geeta",
+  },
+   {
+    title: "Bhagvad Geeta Ch 15 (12 videos)",
+    location: "Sidhbari",
+    year: "2005-2008",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO40VsRMF-Qrq6796X6z7qmWD",
+    category: "Bhagwat Geeta",
+  },
+  {
+    title: "Bhagvad Geeta Ch 16 (12 videos)",
+    location: "Sidhbari",
+    year: "2005-2008",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO438JCVf-K6cn9h9_SFiiW7W",
+    category: "Bhagwat Geeta",
+  },
+  {
+    title: "Bhagvad Geeta Ch 17 & 18 ",
+    location: "Sidhbari",
+    year: "2005-2008",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO41r8ff4ae_kydqliiNLpTHo",
+    category: "Bhagwat Geeta",
+  },
+   {
+    title: "Bhagvad Geeta Ch 18 Gyan Yagya",
+    location: "Patiala",
+    year: "March 2018",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO43TI_vVTyjExJxXaikPlgQa",
+    category: "Bhagwat Geeta",
+  },
 
   // === BHAGWATAM ===
   {
@@ -357,9 +399,19 @@ const talks: Talk[] = [
     youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO4277Vdw_2jFAr0wt_XiK8_j",
     category: "Prakaran Granth",
   },
+   {
+    title: "Brahmasutra 1989-1991",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO41lHHO9296nYQMlPCla_px0",
+    category: "Prakaran Granth",
+  },
   {
     title: "Pramaan Vichaar",
     youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO41a_JoFftl6s7Rz6eFNXJZL",
+    category: "Prakaran Granth",
+  },
+  {
+    title: "Panchdasi Tatva Vivek",
+    youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO41RoaVgN3y5mrjDmGJlxOyV",
     category: "Prakaran Granth",
   },
   {
