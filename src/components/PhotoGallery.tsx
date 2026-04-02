@@ -25,10 +25,10 @@ import p21 from "@/assets/gallery/photo-21.jpg";
 import  ph1 from "@/assets/gallery/ph1.jpg";
 import g3  from "@/assets/g3.jpg";
 import gurudev  from "@/assets/Gurudev.jpg";
-import gurudev3  from "@/assets/Gurudev3.jpg";
-import gurudev4  from "@/assets/Gurudev4.jpg";
-import GuruPoornima  from "@/assets/GuruPoornima.jpg";
-import Last  from "@/assets/Last.jpg";
+import gurudev3  from "@/assets/gallery/Gurudev3.jpg";
+import gurudev4  from "@/assets/gallery/Gurudev4.jpg";
+import GuruPoornima  from "@/assets/gallery/GuruPoornima.jpg";
+import Last  from "@/assets/gallery/Last.jpg";
 import Gaumata  from "@/assets/Gaumata.jpg";
 import h1  from "@/assets/h1.jpg";
 
