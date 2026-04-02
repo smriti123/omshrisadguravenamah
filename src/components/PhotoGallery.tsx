@@ -75,8 +75,6 @@ const smritiyaanPhotos: Photo[] = [
     vintage: true,
     story: `Whenever Pujya Gurudev came to Sidhbari, it was Swami Subodhanandaji who would push his wheelchair — doing so with such devotion and pride.` ,
   },
-   {,
-  },
   
   {
     src: g3,
