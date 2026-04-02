@@ -124,7 +124,7 @@ I fondly remember when Swamiji entered the Gaushala how all the cows started get
     src: p2,
     label: "",
     vintage: true,
-    story: "Being from Andhra Pradesh and having not studied Hindi during my school days, I often struggled to understand Hindi. But when I first listened to Pujya Swamiji’s discourses on Ramcharit Manas, something magical happened, everything that Pujya Swamiji was saying was flowing like nectar into my ears!! It is the love and grace of the Gurus!! 🙏🏽 When there is thirst, they quench it immediately. When there is no thirst, the tap goes dry. This has happened multiple times  in my experience. When I was thirsty, there was an ocean of water to drink. When I was not thirsty, I was stranded in a dessert.
+    story: "Being from Andhra Pradesh and having not studied Hindi during my school days, I often struggled to understand Hindi. But when I first listened to Pujya Swamiji’s discourses on Ramcharit Manas, something magical happened, everything that Pujya Swamiji was saying was flowing like nectar into my ears!! It is the love and grace of the Gurus!! 🙏🏽 When there is thirst, they quench it immediately. When there is no thirst, the tap goes dry. This has happened multiple times  in my experience. When I was thirsty, there was an ocean of water to drink. When I was not thirsty, I was stranded in a dessert,
 '",
   },
   
