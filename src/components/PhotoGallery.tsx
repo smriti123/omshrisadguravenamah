@@ -124,7 +124,8 @@ I fondly remember when Swamiji entered the Gaushala how all the cows started get
     src: p2,
     label: "",
     vintage: true,
-    story: "S'",
+    story: "Being from Andhra Pradesh and having not studied Hindi during my school days, I often struggled to understand Hindi. But when I first listened to Pujya Swamiji’s discourses on Ramcharit Manas, something magical happened, everything that Pujya Swamiji was saying was flowing like nectar into my ears!! It is the love and grace of the Gurus!! 🙏🏽 When there is thirst, they quench it immediately. When there is no thirst, the tap goes dry. This has happened multiple times  in my experience. When I was thirsty, there was an ocean of water to drink. When I was not thirsty, I was stranded in a dessert.
+'",
   },
   
   { src: p3,  label: "",   vintage: true  },
@@ -135,7 +136,13 @@ I fondly remember when Swamiji entered the Gaushala how all the cows started get
     vintage: true,
     story: "For three consecutive winters, Swamiji retreated to a remote cave near Gangotri for intense meditation. With no shelter from the biting cold, sustained only by simple food and unwavering faith, these years shaped the extraordinary stillness that devotees would later sense in his presence.",
   },
-  { src: p6,  label: "",         vintage: false },
+  { src: p6,  label: "",         vintage: true, story: "
+The beauty of Swamijee has been that every devotee  n his associated Ashram was liked most whereas all devotees belonging to different different Ashram too felt the same.
+This is the beauty of a GURU SWAMI SUBODHANANDJEE  whose love 💘 for any individual or his Ashram was NOT at the cost of others !! 
+He loved all too much n all EQUALLY TOO !! 
+That's why every one of us the  devotees miss him equally n she'd tears equally !!
+
+"},
   { src: p7,  label: "",     vintage: false },
   {
     src: p8,
