@@ -86,17 +86,19 @@ const smritiyaanPhotos: Photo[] = [
   },
   
   {
+    src: gurudev3,
+    label: "",
+    vintage: true,
+    story: `we have physically seen when all of a sudden at 3 AM in Sidhbari HE ( Swami Subodanandji) will get up n tell us n other devotees sitting n listening to his spirituality..COME ON ..Gurudev के दर्शन कर के आते हैं..and we all seated disciples follow HIM in that pitch dark, quiet n aromatic night ..the aroma of all flowers which we used to pass through to SAMADHI OF PUJYA GURUDEV  n stand quietly with closed eyes for indefinite time behind HIM ..while HE was communicating silently with HIM ...the omnipresence  of GOD ..Pujya Gurudev to another GOD Swami Subodanandji..oh my Lord ..how fortunate we were !`,
+  },
+  
+  {
     src: gurudev,
     label: "",
     vintage: true,
     story: ".",
   },
-  {
-    src: gurudev3,
-    label: "",
-    vintage: true,
-    story: ".",
-  },
+   { src: p16, label: "",       vintage: false },
   {
     src: Last,
     label: "",
@@ -142,7 +144,7 @@ I fondly remember when Swamiji entered the Gaushala how all the cows started get
   { src: p13, label: "Shiva puja",      vintage: false },
   { src: p14, label: "Lotus feet",      vintage: false },
   { src: p15, label: "Blessings",       vintage: false },
-  { src: p16, label: "Pravachan",       vintage: false },
+ 
   { src: p17, label: "Devotees",        vintage: false },
   { src: p18, label: "Sacred moment",   vintage: false },
  
