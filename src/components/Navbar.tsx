@@ -4,11 +4,11 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { label: "Home", href: "#hero" },
+  { label: "Journey", href: "#journey" },
   { label: "Gallery", href: "#gallery" }, 
   { label: "Shraddanjali", href: "#shraddanjali" },
   { label: "Attributes", href: "#attributes" },
-  { label: "Stuti", href: "#stuti" },
-  { label: "Journey", href: "#journey" },
+  { label: "Stuti", href: "#stuti" }, 
   { label: "Talks", href: "#talks" },
   { label: "Bhajans", href: "#bhajans" },
   { label: "Quotes", href: "#quotes" },
