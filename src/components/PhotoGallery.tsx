@@ -139,9 +139,7 @@ I fondly remember when Swamiji entered the Gaushala how all the cows started get
 The beauty of Swamijee has been that every devotee  n his associated Ashram was liked most whereas all devotees belonging to different different Ashram too felt the same.
 This is the beauty of a GURU SWAMI SUBODHANANDJEE  whose love 💘 for any individual or his Ashram was NOT at the cost of others !! 
 He loved all too much n all EQUALLY TOO !! 
-That's why every one of us the  devotees miss him equally n she'd tears equally !!
-
-"},
+That's why every one of us the  devotees miss him equally n she'd tears equally !!,'",},
   { src: p7,  label: "",     vintage: false },
   {
     src: p8,
