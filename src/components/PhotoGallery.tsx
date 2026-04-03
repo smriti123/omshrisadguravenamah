@@ -438,7 +438,7 @@ const GallerySection = () => {
     <section
       id="gallery"
       className="py-20"
-      style={{ background: "linear-gradient(180deg,#fdf3e3 0%,#f5e0c0 40%,#efe0c8 100%)" }}
+      style={{ background: "linear-gradient(180deg, hsl(34 50% 78%) 0%, hsl(32 55% 68%) 40%, hsl(34 50% 75%) 100%)" }}
     >
       <div className="max-w-6xl mx-auto px-4">
 

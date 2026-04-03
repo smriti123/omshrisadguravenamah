@@ -67,8 +67,8 @@ const Navbar = () => {
             exit={{ height: 0, opacity: 0 }}
             className="md:hidden overflow-hidden"
             style={{
-              background: "rgba(253,246,236,0.96)",
-              borderBottom: "1px solid rgba(200,170,110,0.2)",
+              background: "rgba(200,150,60,0.96)",
+              borderBottom: "1px solid rgba(160,100,20,0.3)",
             }}
           >
             <ul className="flex flex-col items-center gap-4 py-4">

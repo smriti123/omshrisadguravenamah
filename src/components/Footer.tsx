@@ -5,7 +5,7 @@ const Footer = () => (
       <p className="font-body text-sm">
         Made with devotion • In loving memory of Gurudev's teachings
       </p>
-      <p className="font-body text-xs mt-2" style={{ color: "hsl(25 15% 60%)" }}>
+      <p className="font-body text-xs mt-2" style={{ color: "hsl(38 40% 70%)" }}>
         सर्वे भवन्तु सुखिनः • May all beings be happy
       </p>
     </div>

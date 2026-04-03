@@ -70,7 +70,7 @@ Infinite श्रद्धांजलि is offered at the holy feet of Shri S
 Om. May there be peace in the heavens, peace in the mid-space, peace on earth; peace in the waters, peace in the herbs; peace in the vegetation, peace among all the gods, peace in Brahman, peace in all; peace only, peace indeed—may that peace come unto me.
 
 Hari Om. Peace, peace, peace.`,
-    transaltion:  ` `,
+    translation: ` `,
   },
   
   {
