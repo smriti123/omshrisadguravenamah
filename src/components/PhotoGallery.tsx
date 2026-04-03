@@ -341,22 +341,19 @@ const PhotoCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.3 }}
-      className="rounded-lg overflow-hidden cursor-pointer shadow-sm border flex flex-col"
-      style={{ borderColor: "rgba(180,100,20,0.2)", background: "rgba(255,245,230,0.75)" }}
+      className="cursor-pointer flex flex-col"
       onClick={() => onOpen(globalIndex)}
     >
-      <div className="bg-[rgba(255,245,228,0.7)]">
-        <img
-          src={photo.src}
-          alt={photo.label}
-          className="w-full aspect-[4/5] object-contain object-center p-2 md:p-3"
-          style={photo.vintage ? { filter: "sepia(55%) contrast(1.05) brightness(0.93)" } : {}}
-        />
-      </div>
+      <img
+        src={photo.src}
+        alt={photo.label}
+        className="w-full aspect-[4/5] object-contain object-center"
+        style={photo.vintage ? { filter: "sepia(55%) contrast(1.05) brightness(0.93)" } : {}}
+      />
 
-      <div className="p-3">
+      <div>
         {photo.label && (
-          <p className="text-sm font-semibold mb-2 tracking-wide" style={{ color: "#7a3a00" }}>
+          <p className="text-sm font-semibold tracking-wide" style={{ color: "#7a3a00" }}>
             {photo.label}
           </p>
         )}
