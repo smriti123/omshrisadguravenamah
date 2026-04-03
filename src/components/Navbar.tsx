@@ -26,7 +26,7 @@ const Navbar = () => {
       }}
     >
       <div className="container mx-auto flex items-center justify-between py-3 px-4">
-        <a href="#hero" className="font-display text-2xl font-bold text-primary">
+        <a href="#hero" className="font-display text-2xl font-bold" style={{ color: "hsl(40 80% 94%)" }}>
           {"\n"}
         </a>
 
