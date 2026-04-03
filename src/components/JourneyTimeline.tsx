@@ -137,10 +137,7 @@ const JourneyTimeline = () => {
             </p>
 
             <div className="rounded-lg border border-primary/20 bg-primary/5 px-5 py-4 md:px-8 md:py-6 text-center">
-              <p className="text-sm md:text-base uppercase tracking-[0.14em] text-primary/90 mb-2">As Pujya Swamiji says</p>
-              <p className="text-[1.05rem] md:text-[1.2rem] italic text-foreground/90">
-                “Guruji Sidhbari ke ek-ek paudhe, ek-ek patte mein hain.”
-              </p>
+              <p className="text-sm md:text-base uppercase tracking-[0.14em] text-primary/90 mb-2">As a Pujya Swamiji says</p>
               <p className="mt-2 text-[1.05rem] md:text-[1.2rem] text-foreground/90">
                 “गुरुजी सिद्धबाड़ी के एक-एक पौधे, एक-एक पत्ते में हैं।”
               </p>
