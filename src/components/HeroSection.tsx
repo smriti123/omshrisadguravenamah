@@ -6,7 +6,7 @@ import heroHimalaya  from "@/assets/g2.jpg";
 import heroFeet      from "@/assets/h1.jpg";
 import heroSignature from "@/assets/pic2.jpg";
 import sign from "@/assets/gallery/sign.jpg";
-import ma from "@/assets/gallery/ma.jpg";
+import ma from "@/assets/gallery/ma.jpeg";
 
 const photos = [
   { src: heroPortrait,   label: "Swamiji" },
@@ -51,22 +51,13 @@ const HeroSection = () => {
         }}
       />
 
-      {/* ── 2. Subtle mosaic background ── */}
-      <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-0.5 opacity-[0.32]">
-        <div className="row-span-2 relative overflow-hidden">
-          <img src={heroPortrait} alt="" className="w-full h-full object-cover object-top scale-105" />
+      {/* ── 2. Hero backdrop with the new photos ── */}
+      <div className="absolute inset-0 grid grid-cols-1 md:grid-cols-2 opacity-[0.5]">
+        <div className="relative overflow-hidden">
+          <img src={ma} alt="" className="w-full h-full object-cover object-center md:object-top" />
         </div>
         <div className="relative overflow-hidden">
-          <img src={heroHimalaya} alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="relative overflow-hidden">
-          <img src={heroShiva} alt="" className="w-full h-full object-cover object-top" />
-        </div>
-        <div className="relative overflow-hidden">
-          <img src={heroFeet} alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="relative overflow-hidden">
-          <img src={heroSignature} alt="" className="w-full h-full object-cover object-center" />
+          <img src={sign} alt="" className="w-full h-full object-cover object-center" />
         </div>
       </div>
 
@@ -75,13 +66,13 @@ const HeroSection = () => {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(170deg, rgba(242,165,40,0.38) 0%, rgba(220,138,28,0.30) 45%, rgba(191,106,8,0.40) 100%)",
+            "linear-gradient(170deg, rgba(242,165,40,0.24) 0%, rgba(220,138,28,0.18) 45%, rgba(191,106,8,0.26) 100%)",
         }}
       />
 
       {/* ── 4. Gentle divine rays ── */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-45"
+        className="absolute inset-0 pointer-events-none opacity-30"
         style={{
           background: `conic-gradient(
             from 0deg at 50% 38%,
@@ -140,7 +131,7 @@ const HeroSection = () => {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(to right, rgba(255,214,132,0.08) 0%, rgba(255,214,132,0.08) 33.33%, rgba(255,246,220,0.18) 33.33%, rgba(255,246,220,0.18) 66.66%, rgba(255,214,132,0.08) 66.66%, rgba(255,214,132,0.08) 100%)",
+            "linear-gradient(to right, rgba(255,214,132,0.04) 0%, rgba(255,214,132,0.04) 33.33%, rgba(255,246,220,0.10) 33.33%, rgba(255,246,220,0.10) 66.66%, rgba(255,214,132,0.04) 66.66%, rgba(255,214,132,0.04) 100%)",
         }}
       />
 
