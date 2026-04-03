@@ -9,6 +9,7 @@ import YouTubeTalksSection from "@/components/YouTubeTalksSection";
 import BhajansSection from "@/components/BhajansSection";
 import SansmaraniyaKshanSection from "@/components/SansmaraniyaKshanSection";
 import JourneyTimeline from "@/components/JourneyTimeline";
+import HomeMemoryAreasSection from "@/components/HomeMemoryAreasSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -19,6 +20,7 @@ const Index = () => {
       <div className="bg-section-alt">
         <JourneyTimeline />
       </div>
+      <HomeMemoryAreasSection />
       <PhotoGallery />
       <div className="bg-section-alt">
         <ShraddanjaliSection />
