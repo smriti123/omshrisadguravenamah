@@ -305,10 +305,10 @@ const HeroSection = () => {
             href="#gallery"
             className="px-8 py-3 rounded-lg text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105"
             style={{
-              background: "hsl(30 55% 42%)",
-              color: "#fdf6ec",
-              border: "1px solid rgba(180,145,85,0.3)",
-              boxShadow: "0 4px 20px rgba(160,120,60,0.2)",
+              background: "hsl(25 50% 25%)",
+              color: "hsl(40 70% 92%)",
+              border: "1px solid rgba(160,100,30,0.4)",
+              boxShadow: "0 4px 20px rgba(80,40,0,0.3)",
             }}
           >
             View Gallery
