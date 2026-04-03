@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import heroShiva     from "@/assets/mandir.jpg";
 import heroPortrait   from "@/assets/pic5.jpg";
@@ -7,23 +6,14 @@ import heroSignature from "@/assets/pic2.jpg";
 import sign from "@/assets/gallery/sign.jpg";
 import ma from "@/assets/gallery/ma.jpeg";
 
-const photos = [
-  { src: heroPortrait,   label: "Swamiji" },
-  { src: heroShiva,     label: "Shiva Puja" },
-  { src: heroFeet,      label: "Lotus Feet" },
-  { src: heroSignature, label: "Signature" },
-  { src: sign, label: "sign" },
-  { src: ma, label: "ma" },
+const lowerPhotos = [
+  { src: heroPortrait, label: "Swamiji" },
+  { src: heroFeet, label: "Lotus Feet" },
+  { src: sign, label: "Sign" },
+  { src: ma, label: "Mataji" },
 ];
 
 const HeroSection = () => {
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    const t = setInterval(() => setCurrent((p) => (p + 1) % photos.length), 5000);
-    return () => clearInterval(t);
-  }, []);
-
   return (
     <section
       id="hero"
@@ -49,32 +39,24 @@ const HeroSection = () => {
         }}
       />
 
-      {/* ── 2. Hero backdrop with the new photos ── */}
-      <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 opacity-[0.5]">
-        <div className="relative overflow-hidden">
-          <img src={heroFeet} alt="" className="w-full h-full object-cover object-center md:object-top" />
+      {/* ── 2. Hero backdrop with mandir top-right and other photos in lower section ── */}
+      <div className="absolute inset-0 opacity-[0.45]">
+        <div className="grid grid-cols-2 h-[42%]">
+          <div />
+          <div className="relative overflow-hidden">
+            <img src={heroShiva} alt="" className="w-full h-full object-cover object-center" />
+          </div>
         </div>
-        <div className="relative overflow-hidden">
-          <img
-            src={heroFeet}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover object-center opacity-80"
-          />
-          <img
-            src={heroPortrait}
-            alt=""
-            className="relative z-10 w-full h-full object-contain object-center scale-[0.92]"
-          />
-        </div>
-        <div className="relative overflow-hidden">
-          <img src={heroShiva} alt="" className="w-full h-full object-cover object-center" />
-        </div>
-        <div className="relative overflow-hidden">
-          <img
-            src={sign}
-            alt=""
-            className="w-full h-full object-contain object-center scale-[0.9]"
-          />
+        <div className="absolute left-0 right-0 bottom-0 h-[42%] grid grid-cols-2 md:grid-cols-4">
+          {lowerPhotos.map((photo) => (
+            <div key={photo.label} className="relative overflow-hidden">
+              <img
+                src={photo.src}
+                alt=""
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+          ))}
         </div>
       </div>
 
@@ -234,32 +216,13 @@ const HeroSection = () => {
                 "linear-gradient(135deg, rgba(246,199,82,0.9), rgba(221,160,44,0.7), rgba(246,199,82,0.9))",
             }}
           />
-          {/* Photos fade in/out */}
+          {/* Circle photo: keep only pic2 */}
           <div className="relative w-full h-full rounded-full overflow-hidden shadow-lg">
-            {photos.map((p, i) => (
-              <img
-                key={i}
-                src={p.src}
-                alt={p.label}
-                className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-1000"
-                style={{ opacity: i === current ? 1 : 0 }}
-              />
-            ))}
-          </div>
-          {/* Dot indicators */}
-          <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 flex gap-1.5">
-            {photos.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrent(i)}
-                className="w-1.5 h-1.5 rounded-full transition-all duration-300"
-                style={{
-                  background:
-                    i === current ? "hsl(30 55% 42%)" : "rgba(160,130,80,0.35)",
-                  transform: i === current ? "scale(1.4)" : "scale(1)",
-                }}
-              />
-            ))}
+            <img
+              src={heroSignature}
+              alt="Signature"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            />
           </div>
         </motion.div>
 
