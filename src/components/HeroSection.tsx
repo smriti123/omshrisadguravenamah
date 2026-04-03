@@ -71,7 +71,7 @@ const HeroSection = () => {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(170deg, rgba(253,246,236,0.6) 0%, rgba(240,215,170,0.4) 50%, rgba(220,185,130,0.5) 100%)",
+            "linear-gradient(170deg, rgba(220,170,80,0.35) 0%, rgba(200,145,50,0.25) 50%, rgba(180,120,30,0.35) 100%)",
         }}
       />
 
