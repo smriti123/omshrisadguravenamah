@@ -329,7 +329,7 @@ const HeroSection = () => {
       </motion.div>
 
       {/* ── 9. Bottom fade into next section ── */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-24" style={{ background: "linear-gradient(0deg, hsl(34 50% 82%) 0%, transparent 100%)" }} />
     </section>
   );
 };
