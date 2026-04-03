@@ -374,7 +374,7 @@ const ShraddanjaliSection = () => {
     <section id="shraddanjali" className="py-20 bg-gradient-spiritual">
       <div className="container mx-auto px-4">
         <SectionHeading
-          title="Shraddanjali"
+          title="Virah Stuti"
           subtitle="Heartfelt tributes from devotees whose lives were touched by Gurudev's grace"
         />
 
