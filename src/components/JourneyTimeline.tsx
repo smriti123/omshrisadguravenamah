@@ -122,21 +122,38 @@ const JourneyTimeline = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto mb-14 text-center"
+          className="max-w-4xl mx-auto mb-16 px-2 md:px-4"
         >
-          <p className="text-base md:text-lg leading-relaxed font-body text-muted-foreground">
-           Param PUjya Swamiji’s association with Sidhbari, from 19 April 1981 to 27 September 2020, spans almost four decades. Even after excluding the period of his absence from 31 October 1983 to 13 September 1988, he spent approximately 34½ years in Sidhbari.
+          <div className="space-y-6 text-[1.075rem] md:text-[1.2rem] leading-relaxed md:leading-loose font-body text-muted-foreground text-left md:text-center">
+            <p>
+              Param Pujya Swamiji’s association with Sidhbari, from 19 April 1981 to 27 September 2020, spans almost four decades.
+              Even after excluding the period of his absence from 31 October 1983 to 13 September 1988, he spent approximately 34½ years in Sidhbari.
+            </p>
 
-Yet no timeline can ever contain the fullness of the life and grace of our Hriday Samarth. This is only a humble and approximate effort to trace the outer journey of one whose inner presence continues to guide countless hearts. If any date or detail appears inconsistent, we request you to kindly let us know.
+            <p>
+              Yet no timeline can ever contain the fullness of the life and grace of our Hriday Samarth.
+              This is only a humble and approximate effort to trace the outer journey of one whose inner presence continues to guide countless hearts.
+              If any date or detail appears inconsistent, we request you to kindly let us know.
+            </p>
 
-As one Pujya Swamiji says:
-“Guruji Sidhbari ke ek-ek paudhe, ek-ek patte mein hain.”
-“गुरुजी सिद्धबाड़ी के एक-एक पौधे, एक-एक पत्ते में हैं।”
+            <div className="rounded-lg border border-primary/20 bg-primary/5 px-5 py-4 md:px-8 md:py-6 text-center">
+              <p className="text-sm md:text-base uppercase tracking-[0.14em] text-primary/90 mb-2">As Pujya Swamiji says</p>
+              <p className="text-[1.05rem] md:text-[1.2rem] italic text-foreground/90">
+                “Guruji Sidhbari ke ek-ek paudhe, ek-ek patte mein hain.”
+              </p>
+              <p className="mt-2 text-[1.05rem] md:text-[1.2rem] text-foreground/90">
+                “गुरुजी सिद्धबाड़ी के एक-एक पौधे, एक-एक पत्ते में हैं।”
+              </p>
+            </div>
 
-And in the words of a devotee — one among countless such expressions of bhāv:
-
-“सिद्धबाड़ी की तपोभूमि में — गुरुदेव के अनन्य शिष्य रूप में प्रखर सूर्य बनकर उभरे हैं आप। हिमाचल की मनमोहक भूमि को गुरुदेव ने चिन्हित किया; वीर हनुमान की रक्षा में सौंपा; राम-राज्य जैसा वातावरण सम्पुष्ट किया। और स्वामी सुबोधानंदजी, आपने उसे तीर्थ बना दिया! आपके वहाँ रहने से केवल सिद्धबाड़ी ही नहीं, बल्कि हम साधकों के हृदय भी — जिनमें आप विराजमान हैं — तीर्थरूप हो गए हैं।.
-          </p>
+            <p className="text-[1.02rem] md:text-[1.12rem] text-foreground/80 leading-relaxed md:leading-loose">
+              In the words of a devotee — one among countless such expressions of bhāv:
+              “सिद्धबाड़ी की तपोभूमि में — गुरुदेव के अनन्य शिष्य रूप में प्रखर सूर्य बनकर उभरे हैं आप।
+              हिमाचल की मनमोहक भूमि को गुरुदेव ने चिन्हित किया; वीर हनुमान की रक्षा में सौंपा;
+              राम-राज्य जैसा वातावरण सम्पुष्ट किया। और स्वामी सुबोधानंदजी, आपने उसे तीर्थ बना दिया!
+              आपके वहाँ रहने से केवल सिद्धबाड़ी ही नहीं, बल्कि हम साधकों के हृदय भी — जिनमें आप विराजमान हैं — तीर्थरूप हो गए हैं।”
+            </p>
+          </div>
         </motion.div>
 
         <div className="max-w-3xl mx-auto relative">
