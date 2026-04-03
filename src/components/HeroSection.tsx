@@ -28,7 +28,7 @@ const HeroSection = () => {
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
       style={{
         background:
-          "linear-gradient(170deg, hsl(38 60% 78%) 0%, hsl(34 65% 68%) 20%, hsl(30 70% 58%) 45%, hsl(28 72% 50%) 70%, hsl(26 75% 44%) 100%)",
+          "linear-gradient(170deg, hsl(38 78% 58%) 0%, hsl(36 78% 48%) 28%, hsl(33 80% 42%) 58%, hsl(30 82% 36%) 100%)",
       }}
     >
 
@@ -43,12 +43,12 @@ const HeroSection = () => {
           height: "600px",
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(255,248,230,0.7) 0%, rgba(245,228,200,0.3) 40%, transparent 70%)",
+            "radial-gradient(circle, rgba(255,234,178,0.65) 0%, rgba(255,214,128,0.3) 38%, transparent 70%)",
         }}
       />
 
       {/* ── 2. Subtle mosaic background ── */}
-      <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-0.5 opacity-[0.18]">
+      <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-0.5 opacity-[0.24]">
         <div className="row-span-2 relative overflow-hidden">
           <img src={heroPortrait} alt="" className="w-full h-full object-cover object-top scale-105" />
         </div>
@@ -71,13 +71,13 @@ const HeroSection = () => {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(170deg, rgba(220,170,80,0.35) 0%, rgba(200,145,50,0.25) 50%, rgba(180,120,30,0.35) 100%)",
+            "linear-gradient(170deg, rgba(242,165,40,0.50) 0%, rgba(220,138,28,0.42) 45%, rgba(191,106,8,0.52) 100%)",
         }}
       />
 
       {/* ── 4. Gentle divine rays ── */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-30"
+        className="absolute inset-0 pointer-events-none opacity-45"
         style={{
           background: `conic-gradient(
             from 0deg at 50% 38%,
@@ -128,6 +128,15 @@ const HeroSection = () => {
             transparent 352deg, rgba(210,175,110,0.12) 356deg,
             transparent 360deg
           )`,
+        }}
+      />
+
+      {/* ── 4b. Vertical glass columns like reference ── */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(255,214,132,0.08) 0%, rgba(255,214,132,0.08) 33.33%, rgba(255,246,220,0.18) 33.33%, rgba(255,246,220,0.18) 66.66%, rgba(255,214,132,0.08) 66.66%, rgba(255,214,132,0.08) 100%)",
         }}
       />
 
@@ -201,7 +210,7 @@ const HeroSection = () => {
           <div
             className="absolute -inset-4 rounded-full pointer-events-none"
             style={{
-              background: "radial-gradient(circle, rgba(215,180,110,0.4) 0%, transparent 70%)",
+              background: "radial-gradient(circle, rgba(255,215,130,0.44) 0%, transparent 70%)",
               filter: "blur(12px)",
             }}
           />
@@ -210,7 +219,7 @@ const HeroSection = () => {
             className="absolute -inset-1.5 rounded-full pointer-events-none"
             style={{
               background:
-                "linear-gradient(135deg, rgba(210,175,110,0.8), rgba(185,145,80,0.6), rgba(210,175,110,0.8))",
+                "linear-gradient(135deg, rgba(246,199,82,0.9), rgba(221,160,44,0.7), rgba(246,199,82,0.9))",
             }}
           />
           {/* Photos fade in/out */}
