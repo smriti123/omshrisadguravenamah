@@ -48,7 +48,7 @@ const HeroSection = () => {
       />
 
       {/* ── 2. Subtle mosaic background ── */}
-      <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-0.5 opacity-[0.24]">
+      <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-0.5 opacity-[0.32]">
         <div className="row-span-2 relative overflow-hidden">
           <img src={heroPortrait} alt="" className="w-full h-full object-cover object-top scale-105" />
         </div>
@@ -71,7 +71,7 @@ const HeroSection = () => {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(170deg, rgba(242,165,40,0.50) 0%, rgba(220,138,28,0.42) 45%, rgba(191,106,8,0.52) 100%)",
+            "linear-gradient(170deg, rgba(242,165,40,0.38) 0%, rgba(220,138,28,0.30) 45%, rgba(191,106,8,0.40) 100%)",
         }}
       />
 
