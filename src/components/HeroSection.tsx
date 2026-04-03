@@ -191,8 +191,8 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="relative z-10 text-center px-4 max-w-2xl flex flex-col items-center justify-center"
-        style={{ paddingTop: "2rem" }}
+        className="relative z-10 text-center px-4 max-w-2xl flex flex-col items-center justify-center -mt-6 md:-mt-8"
+        style={{ paddingTop: "1rem" }}
       >
         {/* Rotating portrait circle */}
         <motion.div
