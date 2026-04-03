@@ -349,7 +349,7 @@ const PhotoCard = ({
           <img
             src={photo.src}
             alt={photo.label}
-            className="w-full h-full min-h-[250px] max-h-[380px] object-cover object-center"
+            className="w-full h-full min-h-[250px] max-h-[380px] object-cover object-top"
             style={photo.vintage ? { filter: "sepia(55%) contrast(1.05) brightness(0.93)" } : {}}
           />
         </div>
