@@ -5,6 +5,8 @@ import heroPortrait   from "@/assets/pic5.jpg";
 import heroHimalaya  from "@/assets/g2.jpg";
 import heroFeet      from "@/assets/h1.jpg";
 import heroSignature from "@/assets/pic2.jpg";
+import sign from "@/assets/gallery/sign.jpg";
+import ma from "@/assets/gallery/ma.jpg";
 
 const photos = [
   { src: heroPortrait,   label: "Swamiji" },
@@ -12,6 +14,8 @@ const photos = [
   { src: heroShiva,     label: "Shiva Puja" },
   { src: heroFeet,      label: "Lotus Feet" },
   { src: heroSignature, label: "Signature" },
+   { src: sign, label: "sign" },
+   { src: ma, label: "ma" },
 ];
 
 const HeroSection = () => {
