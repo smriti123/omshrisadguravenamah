@@ -335,55 +335,64 @@ const Lightbox = ({
 const PhotoCard = ({
   photo, globalIndex, onOpen,
 }: { photo: Photo; globalIndex: number; onOpen: (i: number) => void }) => {
+  const hasStory = Boolean(photo.story?.trim());
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.3 }}
-      className="cursor-pointer rounded-xl overflow-hidden border border-amber-900/20 bg-amber-50/35 shadow-[0_8px_24px_rgba(92,42,8,0.08)] transition-all duration-200 hover:shadow-[0_12px_30px_rgba(92,42,8,0.16)]"
+      className={`cursor-pointer rounded-xl overflow-hidden border border-amber-900/20 bg-amber-50/35 shadow-[0_8px_24px_rgba(92,42,8,0.08)] transition-all duration-200 hover:shadow-[0_12px_30px_rgba(92,42,8,0.16)] ${
+        hasStory ? "md:col-span-2" : "md:col-span-1"
+      }`}
       onClick={() => onOpen(globalIndex)}
     >
-      <div className="grid grid-cols-1 md:grid-cols-[minmax(220px,34%)_1fr]">
-        <div className="bg-[#f4dfc2]">
+      <div className={hasStory ? "grid grid-cols-1 md:grid-cols-[minmax(220px,34%)_1fr]" : "relative"}>
+        <div className="bg-[#f4dfc2] relative">
           <img
             src={photo.src}
             alt={photo.label}
-            className="w-full h-full min-h-[250px] max-h-[380px] object-cover object-top"
+            className={`w-full h-full object-cover object-top ${hasStory ? "min-h-[250px] max-h-[380px]" : "min-h-[240px] max-h-[340px]"}`}
             style={photo.vintage ? { filter: "sepia(55%) contrast(1.05) brightness(0.93)" } : {}}
           />
+
+          {!hasStory && photo.label && (
+            <div
+              className="absolute left-3 bottom-3 px-3 py-1.5 rounded-md text-xs md:text-sm font-semibold tracking-wide max-w-[85%] truncate"
+              style={{ background: "rgba(35,16,5,0.62)", color: "rgba(255,235,190,0.96)" }}
+            >
+              {photo.label}
+            </div>
+          )}
         </div>
 
+        {hasStory && (
         <div className="p-4 md:p-5 flex flex-col">
           {photo.label && (
             <p className="text-sm font-semibold tracking-wide mb-2" style={{ color: "#7a3a00" }}>
               {photo.label}
             </p>
           )}
-          {photo.story ? (
-            <p
-              className="text-sm leading-relaxed"
-              style={{
-                color: "rgba(95,45,10,0.9)",
-                fontFamily: "serif",
-                lineHeight: "1.75",
-                display: "-webkit-box",
-                WebkitLineClamp: 8,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-              }}
-            >
-              {photo.story}
-            </p>
-          ) : (
-            <p className="text-xs tracking-wide mt-1" style={{ color: "rgba(130,70,20,0.7)" }}>
-              Click to view fullscreen
-            </p>
-          )}
+          <p
+            className="text-sm leading-relaxed"
+            style={{
+              color: "rgba(95,45,10,0.9)",
+              fontFamily: "serif",
+              lineHeight: "1.75",
+              display: "-webkit-box",
+              WebkitLineClamp: 8,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+            }}
+          >
+            {photo.story}
+          </p>
           <p className="text-[11px] tracking-[0.14em] uppercase mt-4" style={{ color: "rgba(130,70,20,0.55)" }}>
             Tap card to open full screen
           </p>
         </div>
+        )}
       </div>
     </motion.div>
   );
@@ -413,7 +422,7 @@ const PhotoGrid = ({
 
   return (
     <div>
-      <div className="grid grid-cols-1 gap-4 md:gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
         {shown.map((photo, i) => (
           <PhotoCard
             key={i}
