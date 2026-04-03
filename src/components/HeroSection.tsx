@@ -28,7 +28,7 @@ const HeroSection = () => {
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
       style={{
         background:
-          "linear-gradient(170deg, #fdf6ec 0%, #f5e4c8 20%, #ecd4a8 45%, #e0c08a 70%, #d4ab72 100%)",
+          "linear-gradient(170deg, hsl(38 60% 78%) 0%, hsl(34 65% 68%) 20%, hsl(30 70% 58%) 45%, hsl(28 72% 50%) 70%, hsl(26 75% 44%) 100%)",
       }}
     >
 
@@ -48,7 +48,7 @@ const HeroSection = () => {
       />
 
       {/* ── 2. Subtle mosaic background ── */}
-      <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-0.5 opacity-[0.08]">
+      <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-0.5 opacity-[0.18]">
         <div className="row-span-2 relative overflow-hidden">
           <img src={heroPortrait} alt="" className="w-full h-full object-cover object-top scale-105" />
         </div>
@@ -71,7 +71,7 @@ const HeroSection = () => {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(170deg, rgba(253,246,236,0.6) 0%, rgba(240,215,170,0.4) 50%, rgba(220,185,130,0.5) 100%)",
+            "linear-gradient(170deg, rgba(220,170,80,0.35) 0%, rgba(200,145,50,0.25) 50%, rgba(180,120,30,0.35) 100%)",
         }}
       />
 
@@ -264,8 +264,8 @@ const HeroSection = () => {
           transition={{ duration: 0.9, delay: 0.5 }}
           className="font-display text-5xl md:text-7xl font-bold mb-4 leading-tight"
           style={{
-            color: "hsl(25 35% 22%)",
-            textShadow: "0 2px 12px rgba(200,160,80,0.2)",
+            color: "hsl(40 90% 96%)",
+            textShadow: "0 2px 16px rgba(80,40,0,0.4)",
           }}
         >
           ॐ श्री सद्गुरवे नमः
@@ -277,7 +277,7 @@ const HeroSection = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.75 }}
           className="text-base md:text-lg tracking-widest mb-3 uppercase font-body"
-          style={{ color: "hsl(25 30% 35%)" }}
+          style={{ color: "hsl(38 50% 88%)" }}
         >
           Pujya Swami Subodhananda ji Maharaj
         </motion.p>
@@ -289,9 +289,9 @@ const HeroSection = () => {
           transition={{ duration: 0.7, delay: 0.9 }}
           className="flex items-center justify-center gap-3 mb-8"
         >
-          <div className="w-16 h-px" style={{ background: "rgba(180,145,85,0.5)" }} />
-          <span style={{ color: "rgba(180,145,85,0.7)", fontSize: "16px" }}>✦</span>
-          <div className="w-16 h-px" style={{ background: "rgba(180,145,85,0.5)" }} />
+          <div className="w-16 h-px" style={{ background: "rgba(255,220,150,0.5)" }} />
+          <span style={{ color: "rgba(255,220,150,0.7)", fontSize: "16px" }}>✦</span>
+          <div className="w-16 h-px" style={{ background: "rgba(255,220,150,0.5)" }} />
         </motion.div>
 
         {/* Buttons */}
@@ -305,10 +305,10 @@ const HeroSection = () => {
             href="#gallery"
             className="px-8 py-3 rounded-lg text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105"
             style={{
-              background: "hsl(30 55% 42%)",
-              color: "#fdf6ec",
-              border: "1px solid rgba(180,145,85,0.3)",
-              boxShadow: "0 4px 20px rgba(160,120,60,0.2)",
+              background: "hsl(25 50% 25%)",
+              color: "hsl(40 70% 92%)",
+              border: "1px solid rgba(160,100,30,0.4)",
+              boxShadow: "0 4px 20px rgba(80,40,0,0.3)",
             }}
           >
             View Gallery
@@ -317,9 +317,9 @@ const HeroSection = () => {
             href="#talks"
             className="px-8 py-3 rounded-lg text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105"
             style={{
-              background: "rgba(255,250,240,0.5)",
-              color: "hsl(25 35% 25%)",
-              border: "1px solid rgba(180,145,85,0.35)",
+              background: "rgba(255,220,150,0.2)",
+              color: "hsl(40 80% 94%)",
+              border: "1px solid rgba(255,200,100,0.35)",
               backdropFilter: "blur(4px)",
             }}
           >
@@ -329,7 +329,7 @@ const HeroSection = () => {
       </motion.div>
 
       {/* ── 9. Bottom fade into next section ── */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-24" style={{ background: "linear-gradient(0deg, hsl(34 50% 82%) 0%, transparent 100%)" }} />
     </section>
   );
 };

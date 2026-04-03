@@ -6,44 +6,44 @@
 
 @layer base {
   :root {
-    --background: 38 40% 97%;
-    --foreground: 25 30% 18%;
+    --background: 36 55% 88%;
+    --foreground: 25 40% 15%;
 
-    --card: 36 35% 95%;
-    --card-foreground: 25 30% 18%;
+    --card: 34 50% 84%;
+    --card-foreground: 25 40% 15%;
 
-    --popover: 38 40% 97%;
-    --popover-foreground: 25 30% 18%;
+    --popover: 36 55% 88%;
+    --popover-foreground: 25 40% 15%;
 
-    --primary: 30 55% 42%;
-    --primary-foreground: 40 50% 97%;
+    --primary: 32 70% 40%;
+    --primary-foreground: 40 60% 96%;
 
-    --secondary: 24 30% 88%;
-    --secondary-foreground: 25 35% 25%;
+    --secondary: 28 45% 78%;
+    --secondary-foreground: 25 45% 20%;
 
-    --muted: 36 25% 93%;
-    --muted-foreground: 25 15% 48%;
+    --muted: 34 40% 82%;
+    --muted-foreground: 25 20% 42%;
 
-    --accent: 38 45% 82%;
-    --accent-foreground: 25 30% 18%;
+    --accent: 36 55% 72%;
+    --accent-foreground: 25 40% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 34 25% 88%;
-    --input: 34 25% 88%;
-    --ring: 30 55% 42%;
+    --border: 32 40% 75%;
+    --input: 32 40% 75%;
+    --ring: 32 70% 40%;
 
     --radius: 0.5rem;
 
-    --gold: 38 55% 62%;
-    --gold-light: 40 45% 90%;
-    --saffron: 28 50% 52%;
-    --saffron-light: 30 45% 85%;
-    --maroon: 350 25% 38%;
-    --cream: 38 40% 97%;
-    --cream-dark: 36 30% 92%;
-    --warm-brown: 25 25% 28%;
+    --gold: 38 65% 55%;
+    --gold-light: 36 50% 80%;
+    --saffron: 30 65% 48%;
+    --saffron-light: 32 50% 75%;
+    --maroon: 350 30% 35%;
+    --cream: 36 55% 88%;
+    --cream-dark: 34 45% 82%;
+    --warm-brown: 25 35% 22%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -101,11 +101,11 @@
   }
 
   .bg-gradient-hero {
-    background: linear-gradient(170deg, hsl(38 35% 92%) 0%, hsl(30 40% 85%) 40%, hsl(28 45% 78%) 70%, hsl(30 50% 72%) 100%);
+    background: linear-gradient(170deg, hsl(38 60% 78%) 0%, hsl(34 65% 68%) 40%, hsl(30 70% 58%) 70%, hsl(28 72% 50%) 100%);
   }
 
   .bg-section-alt {
-    background: linear-gradient(180deg, hsl(var(--cream)) 0%, hsl(var(--gold-light)) 50%, hsl(var(--cream)) 100%);
+    background: linear-gradient(180deg, hsl(34 50% 82%) 0%, hsl(32 55% 72%) 50%, hsl(34 50% 82%) 100%);
   }
 
   .shadow-gold {

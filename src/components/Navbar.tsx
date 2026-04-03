@@ -20,13 +20,13 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b"
       style={{
-        background: "rgba(253,246,236,0.88)",
+        background: "rgba(200,150,60,0.92)",
         backdropFilter: "blur(12px)",
-        borderColor: "rgba(200,170,110,0.2)",
+        borderColor: "rgba(160,100,20,0.3)",
       }}
     >
       <div className="container mx-auto flex items-center justify-between py-3 px-4">
-        <a href="#hero" className="font-display text-2xl font-bold text-primary">
+        <a href="#hero" className="font-display text-2xl font-bold" style={{ color: "hsl(40 80% 94%)" }}>
           {"\n"}
         </a>
 
@@ -37,9 +37,9 @@ const Navbar = () => {
               <a
                 href={l.href}
                 className="font-body text-sm transition-colors"
-                style={{ color: "hsl(25 20% 45%)" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "hsl(30 55% 42%)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "hsl(25 20% 45%)")}
+                style={{ color: "hsl(40 70% 92%)" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "hsl(45 90% 98%)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "hsl(40 70% 92%)")}
               >
                 {l.label}
               </a>
@@ -50,7 +50,7 @@ const Navbar = () => {
         {/* Mobile toggle */}
         <button
           className="md:hidden"
-          style={{ color: "hsl(25 25% 35%)" }}
+          style={{ color: "hsl(40 70% 92%)" }}
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -67,8 +67,8 @@ const Navbar = () => {
             exit={{ height: 0, opacity: 0 }}
             className="md:hidden overflow-hidden"
             style={{
-              background: "rgba(253,246,236,0.96)",
-              borderBottom: "1px solid rgba(200,170,110,0.2)",
+              background: "rgba(200,150,60,0.96)",
+              borderBottom: "1px solid rgba(160,100,20,0.3)",
             }}
           >
             <ul className="flex flex-col items-center gap-4 py-4">
