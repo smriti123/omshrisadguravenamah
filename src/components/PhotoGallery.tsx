@@ -341,42 +341,49 @@ const PhotoCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.3 }}
-      className="cursor-pointer flex flex-col"
+      className="cursor-pointer rounded-xl overflow-hidden border border-amber-900/20 bg-amber-50/35 shadow-[0_8px_24px_rgba(92,42,8,0.08)] transition-all duration-200 hover:shadow-[0_12px_30px_rgba(92,42,8,0.16)]"
       onClick={() => onOpen(globalIndex)}
     >
-      <img
-        src={photo.src}
-        alt={photo.label}
-        className="w-full aspect-[4/5] object-contain object-center"
-        style={photo.vintage ? { filter: "sepia(55%) contrast(1.05) brightness(0.93)" } : {}}
-      />
+      <div className="grid grid-cols-1 md:grid-cols-[minmax(220px,34%)_1fr]">
+        <div className="bg-[#f4dfc2]">
+          <img
+            src={photo.src}
+            alt={photo.label}
+            className="w-full h-full min-h-[250px] max-h-[380px] object-cover object-center"
+            style={photo.vintage ? { filter: "sepia(55%) contrast(1.05) brightness(0.93)" } : {}}
+          />
+        </div>
 
-      <div>
-        {photo.label && (
-          <p className="text-sm font-semibold tracking-wide" style={{ color: "#7a3a00" }}>
-            {photo.label}
+        <div className="p-4 md:p-5 flex flex-col">
+          {photo.label && (
+            <p className="text-sm font-semibold tracking-wide mb-2" style={{ color: "#7a3a00" }}>
+              {photo.label}
+            </p>
+          )}
+          {photo.story ? (
+            <p
+              className="text-sm leading-relaxed"
+              style={{
+                color: "rgba(95,45,10,0.9)",
+                fontFamily: "serif",
+                lineHeight: "1.75",
+                display: "-webkit-box",
+                WebkitLineClamp: 8,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+              }}
+            >
+              {photo.story}
+            </p>
+          ) : (
+            <p className="text-xs tracking-wide mt-1" style={{ color: "rgba(130,70,20,0.7)" }}>
+              Click to view fullscreen
+            </p>
+          )}
+          <p className="text-[11px] tracking-[0.14em] uppercase mt-4" style={{ color: "rgba(130,70,20,0.55)" }}>
+            Tap card to open full screen
           </p>
-        )}
-        {photo.story ? (
-          <p
-            className="text-sm leading-relaxed"
-            style={{
-              color: "rgba(95,45,10,0.9)",
-              fontFamily: "serif",
-              lineHeight: "1.75",
-              display: "-webkit-box",
-              WebkitLineClamp: 6,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-            }}
-          >
-            {photo.story}
-          </p>
-        ) : (
-          <p className="text-xs tracking-wide" style={{ color: "rgba(130,70,20,0.7)" }}>
-            Click to view fullscreen
-          </p>
-        )}
+        </div>
       </div>
     </motion.div>
   );
@@ -406,7 +413,7 @@ const PhotoGrid = ({
 
   return (
     <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+      <div className="grid grid-cols-1 gap-4 md:gap-5">
         {shown.map((photo, i) => (
           <PhotoCard
             key={i}
