@@ -8,7 +8,7 @@ import ma from "@/assets/gallery/ma.jpeg";
 
 const lowerPhotos = [
   { src: heroFeet, label: "Lotus Feet" },
-  { src: heroPortrait, label: "Swamiji", imageClassName: "translate-y-6 md:translate-y-8" },
+  { src: heroPortrait, label: "Swamiji", imageClassName: "translate-y-10 md:translate-y-14" },
   { src: sign, label: "Sign" },
 ];
 
