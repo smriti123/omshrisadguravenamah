@@ -20,9 +20,9 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b"
       style={{
-        background: "rgba(253,246,236,0.88)",
+        background: "rgba(200,150,60,0.92)",
         backdropFilter: "blur(12px)",
-        borderColor: "rgba(200,170,110,0.2)",
+        borderColor: "rgba(160,100,20,0.3)",
       }}
     >
       <div className="container mx-auto flex items-center justify-between py-3 px-4">
