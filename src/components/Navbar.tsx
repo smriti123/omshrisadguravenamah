@@ -50,7 +50,7 @@ const Navbar = () => {
         {/* Mobile toggle */}
         <button
           className="md:hidden"
-          style={{ color: "hsl(25 25% 35%)" }}
+          style={{ color: "hsl(40 70% 92%)" }}
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
