@@ -38,6 +38,7 @@ import sign from "@/assets/gallery/sign.jpg";
 import akh1 from "@/assets/gallery/akh1.jpg";
 import akh2 from "@/assets/gallery/akh2.jpg";
 import ma1 from "@/assets/gallery/ma.jpg";
+import kreeda from "@/assets/gallery/kreeda.jpg";
 
 import v1 from "@/assets/gallery/v1.jpg";
 import v2 from "@/assets/gallery/v2.jpg";
@@ -170,6 +171,7 @@ That's why every one of us the  devotees miss him equally n she'd tears equally 
     vintage: false,
     story: "",
   },  
+  { src: kreeda, label: "ॐ क्रीडा प्रियाय नमः ।", vintage: false },
   { src: p9,  label: "Nature walk",     vintage: false },
   { src: p10, label: "Himalaya",        vintage: true  },
   { src: p11, label: "Puja ceremony",   vintage: false },
@@ -180,7 +182,7 @@ That's why every one of us the  devotees miss him equally n she'd tears equally 
  
   { src: p17, label: "Devotees",        vintage: false },
   { src: p18, label: "Sacred moment",   vintage: false },
-  { src: p19, label: "ॐ क्रीडा प्रियाय नमः ।", vintage: false },
+  
  
   { src: p20, label: "Divine presence", vintage: false },
   { src: p21, label: "Jai Gurudev",     vintage: false },
