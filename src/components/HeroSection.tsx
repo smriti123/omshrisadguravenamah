@@ -16,7 +16,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden pt-20 pb-8 md:pt-24"
       style={{
         background:
           "linear-gradient(170deg, hsl(38 78% 58%) 0%, hsl(36 78% 48%) 28%, hsl(33 80% 42%) 58%, hsl(30 82% 36%) 100%)",
@@ -30,8 +30,8 @@ const HeroSection = () => {
           top: "8%",
           left: "50%",
           transform: "translateX(-50%)",
-          width: "600px",
-          height: "600px",
+          width: "min(600px, 88vw)",
+          height: "min(600px, 88vw)",
           borderRadius: "50%",
           background:
             "radial-gradient(circle, rgba(255,234,178,0.65) 0%, rgba(255,214,128,0.3) 38%, transparent 70%)",
@@ -40,7 +40,7 @@ const HeroSection = () => {
 
       {/* ── 2. Hero backdrop with mandir top-right and other photos in lower section ── */}
       <div className="absolute inset-0 opacity-[0.45]">
-        <div className="grid grid-cols-2 h-[42%]">
+        <div className="grid grid-cols-2 h-[34%] md:h-[42%]">
           <div className="relative overflow-hidden">
             <img src={ma} alt="Mataji" className="w-full h-full object-cover object-top" />
           </div>
@@ -48,7 +48,7 @@ const HeroSection = () => {
             <img src={heroShiva} alt="" className="w-full h-full object-cover object-center" />
           </div>
         </div>
-        <div className="absolute left-0 right-0 bottom-0 h-[42%] grid grid-cols-1 md:grid-cols-3">
+        <div className="absolute left-0 right-0 bottom-0 h-[26%] md:h-[42%] grid grid-cols-3">
           {lowerPhotos.map((photo) => (
             <div key={photo.label} className="relative overflow-hidden">
               <img
@@ -191,7 +191,7 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="relative z-10 text-center px-4 max-w-5xl flex flex-col items-center justify-center -mt-6 md:-mt-8"
+        className="relative z-10 text-center px-4 max-w-5xl flex flex-col items-center justify-center mt-2 md:-mt-8"
         style={{ paddingTop: "1rem" }}
       >
         {/* Rotating portrait circle */}
@@ -199,7 +199,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.15 }}
-          className="relative mx-auto mb-3 w-48 h-48 md:w-60 md:h-60"
+          className="relative mx-auto mb-3 w-36 h-36 sm:w-44 sm:h-44 md:w-60 md:h-60"
         >
           {/* Glow */}
           <div
@@ -276,7 +276,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.05 }}
-          className="-mt-2 mb-4 md:-mt-8"
+          className="mt-1 mb-4 md:-mt-8"
         >
           <div
             className="mx-auto w-fit rounded-2xl px-0 py-0"
@@ -321,7 +321,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.5 }}
-          className="font-display text-5xl md:text-7xl font-bold mb-2 -mt-1 leading-tight md:hidden"
+          className="font-display text-4xl sm:text-5xl md:text-7xl font-bold mb-2 leading-tight md:hidden"
           style={{
             color: "hsl(40 90% 96%)",
             textShadow: "0 2px 16px rgba(80,40,0,0.4)",
