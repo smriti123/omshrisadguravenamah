@@ -37,9 +37,9 @@ const Navbar = () => {
               <a
                 href={l.href}
                 className="font-body text-sm transition-colors"
-                style={{ color: "hsl(25 20% 45%)" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "hsl(30 55% 42%)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "hsl(25 20% 45%)")}
+                style={{ color: "hsl(40 70% 92%)" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "hsl(45 90% 98%)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "hsl(40 70% 92%)")}
               >
                 {l.label}
               </a>
