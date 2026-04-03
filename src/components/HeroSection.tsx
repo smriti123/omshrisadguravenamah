@@ -276,21 +276,21 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.05 }}
-          className="mt-3 mb-4 md:mt-4"
+          className="-mt-2 mb-4 md:-mt-8"
         >
           <div
-            className="mx-auto w-fit rounded-2xl px-4 py-3 md:px-6 md:py-4"
+            className="mx-auto w-fit rounded-2xl px-0 py-0"
             style={{
-              background: "linear-gradient(180deg, rgba(191,107,22,0.92), rgba(163,87,16,0.92))",
-              border: "1px solid rgba(255,220,160,0.35)",
-              boxShadow: "0 10px 28px rgba(70,32,0,0.34)",
-              backdropFilter: "blur(1px)",
+              background: "transparent",
+              border: "none",
+              boxShadow: "none",
+              backdropFilter: "none",
             }}
           >
             <div className="flex flex-wrap justify-center gap-3 md:gap-4">
               <a
                 href="#gallery"
-                className="px-8 py-3 rounded-lg text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105"
+                className="px-6 py-2.5 md:px-7 md:py-2.5 rounded-lg text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105"
                 style={{
                   background: "hsl(25 50% 25%)",
                   color: "hsl(40 70% 92%)",
@@ -302,7 +302,7 @@ const HeroSection = () => {
               </a>
               <a
                 href="#talks"
-                className="px-8 py-3 rounded-lg text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105"
+                className="px-6 py-2.5 md:px-7 md:py-2.5 rounded-lg text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105"
                 style={{
                   background: "rgba(255,220,150,0.2)",
                   color: "hsl(40 80% 94%)",
