@@ -289,9 +289,9 @@ const HeroSection = () => {
           transition={{ duration: 0.7, delay: 0.9 }}
           className="flex items-center justify-center gap-3 mb-8"
         >
-          <div className="w-16 h-px" style={{ background: "rgba(180,145,85,0.5)" }} />
-          <span style={{ color: "rgba(180,145,85,0.7)", fontSize: "16px" }}>✦</span>
-          <div className="w-16 h-px" style={{ background: "rgba(180,145,85,0.5)" }} />
+          <div className="w-16 h-px" style={{ background: "rgba(255,220,150,0.5)" }} />
+          <span style={{ color: "rgba(255,220,150,0.7)", fontSize: "16px" }}>✦</span>
+          <div className="w-16 h-px" style={{ background: "rgba(255,220,150,0.5)" }} />
         </motion.div>
 
         {/* Buttons */}
