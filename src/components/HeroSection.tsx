@@ -227,12 +227,12 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* Side ribbons so title stays off the background photos */}
+        {/* Side ribbons moved near portrait (as marked in reference) */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, delay: 0.55 }}
-          className="w-full mb-5"
+          className="w-full mb-6 md:-mt-10"
         >
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-3 md:gap-4">
             <div
@@ -271,12 +271,12 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* Buttons */}
+        {/* Buttons moved to previous ribbon position so they don't overlap photos */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.05 }}
-          className="flex flex-wrap justify-center gap-4 mt-3 mb-4"
+          className="flex flex-wrap justify-center gap-4 mt-1 mb-4 md:mt-0"
         >
           <a
             href="#gallery"
