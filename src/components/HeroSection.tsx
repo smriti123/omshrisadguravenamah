@@ -277,7 +277,7 @@ const HeroSection = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.75 }}
           className="text-base md:text-lg tracking-widest mb-3 uppercase font-body"
-          style={{ color: "hsl(25 30% 35%)" }}
+          style={{ color: "hsl(38 50% 88%)" }}
         >
           Pujya Swami Subodhananda ji Maharaj
         </motion.p>
