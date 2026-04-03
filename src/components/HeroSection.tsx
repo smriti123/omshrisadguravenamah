@@ -55,13 +55,26 @@ const HeroSection = () => {
           <img src={heroFeet} alt="" className="w-full h-full object-cover object-center md:object-top" />
         </div>
         <div className="relative overflow-hidden">
-          <img src={heroPortrait} alt="" className="w-full h-full object-contain object-center" />
+          <img
+            src={heroFeet}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-80"
+          />
+          <img
+            src={heroPortrait}
+            alt=""
+            className="relative z-10 w-full h-full object-contain object-center scale-[0.92]"
+          />
         </div>
         <div className="relative overflow-hidden">
           <img src={heroShiva} alt="" className="w-full h-full object-cover object-center" />
         </div>
         <div className="relative overflow-hidden">
-          <img src={sign} alt="" className="w-full h-full object-cover object-center" />
+          <img
+            src={sign}
+            alt=""
+            className="w-full h-full object-contain object-center scale-[0.9]"
+          />
         </div>
       </div>
 
