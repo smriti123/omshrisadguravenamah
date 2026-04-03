@@ -8,7 +8,7 @@ import ma from "@/assets/gallery/ma.jpeg";
 
 const lowerPhotos = [
   { src: heroFeet, label: "Lotus Feet" },
-  { src: heroPortrait, label: "Swamiji" },
+  { src: heroPortrait, label: "Swamiji", imageClassName: "translate-y-6 md:translate-y-8" },
   { src: sign, label: "Sign" },
 ];
 
@@ -54,7 +54,7 @@ const HeroSection = () => {
               <img
                 src={photo.src}
                 alt=""
-                className="w-full h-full object-cover object-center"
+                className={`w-full h-full object-cover object-center ${photo.imageClassName ?? ""}`}
               />
             </div>
           ))}
