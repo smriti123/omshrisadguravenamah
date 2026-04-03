@@ -191,7 +191,7 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="relative z-10 text-center px-4 max-w-2xl flex flex-col items-center justify-center -mt-6 md:-mt-8"
+        className="relative z-10 text-center px-4 max-w-5xl flex flex-col items-center justify-center -mt-6 md:-mt-8"
         style={{ paddingTop: "1rem" }}
       >
         {/* Rotating portrait circle */}
@@ -224,6 +224,50 @@ const HeroSection = () => {
               alt="Signature"
               className="absolute inset-0 w-full h-full object-cover object-center"
             />
+          </div>
+        </motion.div>
+
+        {/* Side ribbons so title stays off the background photos */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75, delay: 0.55 }}
+          className="w-full mb-5"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-3 md:gap-4">
+            <div
+              className="hidden md:flex justify-end px-4 py-2 rounded-xl"
+              style={{
+                background: "linear-gradient(120deg, rgba(182,96,14,0.9), rgba(226,131,30,0.85))",
+                border: "1px solid rgba(255,220,160,0.35)",
+                boxShadow: "0 6px 18px rgba(88,42,0,0.28)",
+              }}
+            >
+              <span
+                className="font-display text-2xl lg:text-3xl font-bold leading-tight"
+                style={{ color: "hsl(40 90% 96%)" }}
+              >
+                ॐ श्री सद्गुरवे नमः
+              </span>
+            </div>
+
+            <div className="hidden md:block w-10 h-px" style={{ background: "rgba(255,226,178,0.55)" }} />
+
+            <div
+              className="hidden md:flex justify-start px-4 py-2 rounded-xl"
+              style={{
+                background: "linear-gradient(120deg, rgba(226,131,30,0.85), rgba(182,96,14,0.9))",
+                border: "1px solid rgba(255,220,160,0.35)",
+                boxShadow: "0 6px 18px rgba(88,42,0,0.28)",
+              }}
+            >
+              <span
+                className="text-xs lg:text-sm tracking-wider uppercase font-body"
+                style={{ color: "hsl(38 66% 90%)" }}
+              >
+                Param Pujya Swami Subodhananda ji Maharaj
+              </span>
+            </div>
           </div>
         </motion.div>
 
@@ -260,12 +304,12 @@ const HeroSection = () => {
           </a>
         </motion.div>
 
-        {/* Main title */}
+        {/* Main title (mobile + centered fallback) */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.5 }}
-          className="font-display text-5xl md:text-7xl font-bold mb-2 -mt-1 leading-tight"
+          className="font-display text-5xl md:text-7xl font-bold mb-2 -mt-1 leading-tight md:hidden"
           style={{
             color: "hsl(40 90% 96%)",
             textShadow: "0 2px 16px rgba(80,40,0,0.4)",
@@ -279,7 +323,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.75 }}
-          className="text-base md:text-lg tracking-widest mb-2 uppercase font-body"
+          className="text-base md:text-lg tracking-widest mb-2 uppercase font-body md:hidden"
           style={{ color: "hsl(38 50% 88%)" }}
         >
           Param Pujya Swami Subodhananda ji Maharaj
