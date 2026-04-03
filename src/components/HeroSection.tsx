@@ -28,7 +28,7 @@ const HeroSection = () => {
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
       style={{
         background:
-          "linear-gradient(170deg, #fdf6ec 0%, #f5e4c8 20%, #ecd4a8 45%, #e0c08a 70%, #d4ab72 100%)",
+          "linear-gradient(170deg, hsl(38 60% 78%) 0%, hsl(34 65% 68%) 20%, hsl(30 70% 58%) 45%, hsl(28 72% 50%) 70%, hsl(26 75% 44%) 100%)",
       }}
     >
 
