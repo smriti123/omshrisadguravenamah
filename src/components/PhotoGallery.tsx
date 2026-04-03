@@ -256,6 +256,18 @@ const Lightbox = ({
       onClick={onClose}
     >
       <button
+        className="absolute top-5 left-6 rounded-full px-4 py-2 text-sm tracking-wide transition-all"
+        style={{
+          border: "1px solid rgba(200,140,40,0.35)",
+          color: "rgba(255,220,150,0.9)",
+          background: "rgba(200,120,20,0.12)",
+        }}
+        onClick={onClose}
+      >
+        ← Back to Gallery
+      </button>
+
+      <button
         className="absolute top-5 right-6 text-4xl leading-none"
         style={{ color: "rgba(255,210,120,0.6)" }}
         onClick={onClose}
