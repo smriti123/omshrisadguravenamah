@@ -317,9 +317,9 @@ const HeroSection = () => {
             href="#talks"
             className="px-8 py-3 rounded-lg text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105"
             style={{
-              background: "rgba(255,250,240,0.5)",
-              color: "hsl(25 35% 25%)",
-              border: "1px solid rgba(180,145,85,0.35)",
+              background: "rgba(255,220,150,0.2)",
+              color: "hsl(40 80% 94%)",
+              border: "1px solid rgba(255,200,100,0.35)",
               backdropFilter: "blur(4px)",
             }}
           >
