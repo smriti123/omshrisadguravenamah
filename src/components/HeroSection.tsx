@@ -7,10 +7,9 @@ import sign from "@/assets/gallery/sign.jpg";
 import ma from "@/assets/gallery/ma.jpeg";
 
 const lowerPhotos = [
-  { src: heroPortrait, label: "Swamiji" },
   { src: heroFeet, label: "Lotus Feet" },
+  { src: heroPortrait, label: "Swamiji" },
   { src: sign, label: "Sign" },
-  { src: ma, label: "Mataji" },
 ];
 
 const HeroSection = () => {
@@ -42,12 +41,14 @@ const HeroSection = () => {
       {/* ── 2. Hero backdrop with mandir top-right and other photos in lower section ── */}
       <div className="absolute inset-0 opacity-[0.45]">
         <div className="grid grid-cols-2 h-[42%]">
-          <div />
+          <div className="relative overflow-hidden">
+            <img src={ma} alt="Mataji" className="w-full h-full object-cover object-center" />
+          </div>
           <div className="relative overflow-hidden">
             <img src={heroShiva} alt="" className="w-full h-full object-cover object-center" />
           </div>
         </div>
-        <div className="absolute left-0 right-0 bottom-0 h-[42%] grid grid-cols-2 md:grid-cols-4">
+        <div className="absolute left-0 right-0 bottom-0 h-[42%] grid grid-cols-1 md:grid-cols-3">
           {lowerPhotos.map((photo) => (
             <div key={photo.label} className="relative overflow-hidden">
               <img
@@ -226,21 +227,6 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* Om symbol badge */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.7 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.35 }}
-          className="mx-auto mb-4 mt-3 w-14 h-14 rounded-full flex items-center justify-center"
-          style={{
-            border: "2px solid rgba(180,145,85,0.45)",
-            background: "rgba(255,250,240,0.5)",
-            backdropFilter: "blur(4px)",
-          }}
-        >
-          <span className="text-3xl" style={{ color: "hsl(30 55% 38%)" }}>ॐ</span>
-        </motion.div>
-
         {/* Main title */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -263,7 +249,7 @@ const HeroSection = () => {
           className="text-base md:text-lg tracking-widest mb-3 uppercase font-body"
           style={{ color: "hsl(38 50% 88%)" }}
         >
-          Pujya Swami Subodhananda ji Maharaj
+          Param Pujya Swami Subodhananda ji Maharaj
         </motion.p>
 
         {/* Decorative divider */}
