@@ -16,14 +16,14 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
+      <div className="bg-section-alt">
+        <JourneyTimeline />
+      </div>
       <PhotoGallery />
       <div className="bg-section-alt">
         <ShraddanjaliSection />
       </div>
       <StutiSection />
-      <div className="bg-section-alt">
-        <JourneyTimeline />
-      </div>
       <YouTubeTalksSection />
       <div className="bg-section-alt">
         <SansmaraniyaKshanSection />
