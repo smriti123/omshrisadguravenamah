@@ -48,7 +48,7 @@ const HeroSection = () => {
       />
 
       {/* ── 2. Subtle mosaic background ── */}
-      <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-0.5 opacity-[0.08]">
+      <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-0.5 opacity-[0.18]">
         <div className="row-span-2 relative overflow-hidden">
           <img src={heroPortrait} alt="" className="w-full h-full object-cover object-top scale-105" />
         </div>
