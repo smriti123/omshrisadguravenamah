@@ -252,7 +252,7 @@ const Lightbox = ({
     <motion.div
       initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
       className="fixed inset-0 z-50 flex flex-col items-center justify-center"
-      style={{ background: "rgba(20,8,0,0.96)" }}
+      style={{ background: "radial-gradient(circle at top, rgba(80,35,10,0.94) 0%, rgba(35,16,6,0.96) 45%, rgba(24,10,4,0.98) 100%)" }}
       onClick={onClose}
     >
       <button
@@ -342,12 +342,14 @@ const PhotoCard = ({
       style={{ borderColor: "rgba(180,100,20,0.2)", background: "rgba(255,245,230,0.75)" }}
       onClick={() => onOpen(globalIndex)}
     >
-      <img
-        src={photo.src}
-        alt={photo.label}
-        className="w-full aspect-[4/5] object-cover object-center"
-        style={photo.vintage ? { filter: "sepia(55%) contrast(1.05) brightness(0.93)" } : {}}
-      />
+      <div className="bg-[rgba(255,245,228,0.7)]">
+        <img
+          src={photo.src}
+          alt={photo.label}
+          className="w-full aspect-[4/5] object-contain object-center p-2 md:p-3"
+          style={photo.vintage ? { filter: "sepia(55%) contrast(1.05) brightness(0.93)" } : {}}
+        />
+      </div>
 
       <div className="p-3">
         {photo.label && (
