@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import heroShiva     from "@/assets/mandir.jpg";
 import heroPortrait   from "@/assets/pic5.jpg";
-import heroHimalaya  from "@/assets/g2.jpg";
 import heroFeet      from "@/assets/h1.jpg";
 import heroSignature from "@/assets/pic2.jpg";
 import sign from "@/assets/gallery/sign.jpg";
@@ -10,12 +9,11 @@ import ma from "@/assets/gallery/ma.jpeg";
 
 const photos = [
   { src: heroPortrait,   label: "Swamiji" },
-  { src: heroHimalaya,  label: "Himalaya" },
   { src: heroShiva,     label: "Shiva Puja" },
   { src: heroFeet,      label: "Lotus Feet" },
   { src: heroSignature, label: "Signature" },
-   { src: sign, label: "sign" },
-   { src: ma, label: "ma" },
+  { src: sign, label: "sign" },
+  { src: ma, label: "ma" },
 ];
 
 const HeroSection = () => {
@@ -52,9 +50,15 @@ const HeroSection = () => {
       />
 
       {/* ── 2. Hero backdrop with the new photos ── */}
-      <div className="absolute inset-0 grid grid-cols-1 md:grid-cols-2 opacity-[0.5]">
+      <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 opacity-[0.5]">
         <div className="relative overflow-hidden">
-          <img src={ma} alt="" className="w-full h-full object-cover object-center md:object-top" />
+          <img src={heroFeet} alt="" className="w-full h-full object-cover object-center md:object-top" />
+        </div>
+        <div className="relative overflow-hidden">
+          <img src={heroPortrait} alt="" className="w-full h-full object-cover object-center" />
+        </div>
+        <div className="relative overflow-hidden">
+          <img src={heroShiva} alt="" className="w-full h-full object-cover object-center" />
         </div>
         <div className="relative overflow-hidden">
           <img src={sign} alt="" className="w-full h-full object-cover object-center" />
