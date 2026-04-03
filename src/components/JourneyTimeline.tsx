@@ -34,13 +34,13 @@ const events: TimelineEvent[] = [
     date: "29 April 1981",
     title: "First Teaching Class",
     description:
-      "The very first teaching class of the Vedanta course was conducted by Guru ji, marking the beginning of a transformative spiritual education.",
+      "The very first teaching class of the Vedanta course was conducted by Guru ji",
   },
   {
     date: "11 September 1983",
     title: "Brahmachari Deeksha",
     description:
-      "Swami ji and other students received Brahmachari Deeksha. Omkar was given the name Br. Vishal — a milestone in his spiritual journey.",
+      "Swami ji and other students received Brahmachari Deeksha. Omkar was given the name Br. Vishal ",
     highlight: true,
     image: imgDeeksha,
   },
@@ -48,7 +48,7 @@ const events: TimelineEvent[] = [
     date: "30 September 1983",
     title: "Last Class of the Batch",
     description:
-      "The final class of this batch was held, with the teaching on चतु: सूत्री (Chatuh Sutri), bringing the first course to a meaningful conclusion.",
+      "The final class of this batch was held, with the teaching on चतु: सूत्री (Chatuh Sutri)",
   },
   {
     date: "30 October 1983",
@@ -67,7 +67,7 @@ const events: TimelineEvent[] = [
     date: "19 September 1988",
     title: "Appointed Trustee & Acharya",
     description:
-      "Br. Vishal Chaitanya was appointed as Trustee of CTT (Chinmaya Tapovan Trust) and Acharya of Sandeepany Himalaya — a recognition of his deep knowledge and dedication.",
+      "Br. Vishal Chaitanya was appointed as Trustee of CTT (Chinmaya Tapovan Trust) and Acharya of Sandeepany Himalaya .",
     highlight: true,
     image: imgAcharya,
   },
@@ -81,7 +81,7 @@ const events: TimelineEvent[] = [
     date: "24 February 1990",
     title: "Sanyasa Deeksha",
     description:
-      "Br. Vishal ji was given Sanyasa by Gurudev at Sarveswar Temple, Tamrapakkam, Chennai — a sacred moment of complete renunciation and dedication to the spiritual path.",
+      "Br. Vishal ji was given Sanyasa by Gurudev at Sarveswar Temple, Tamrapakkam, Chennai.",
     highlight: true,
     image: imgSanyasa,
   },
@@ -89,13 +89,13 @@ const events: TimelineEvent[] = [
     date: "30 October 1991",
     title: "Regional Head, North India",
     description:
-      "Gurudev appointed him as Regional Head of North India, Chinmaya Mission, expanding his responsibilities and service across the region.",
+      "Gurudev appointed him as Regional Head of North India, Chinmaya Mission.",
   },
   {
     date: "21 June 1994",
     title: "President of CTT",
     description:
-      "Appointed as President of Chinmaya Tapovan Trust (CTT), the pinnacle of organizational responsibility within the mission.",
+      "Appointed as President of Chinmaya Tapovan Trust (CTT).",
     highlight: true,
     image: imgPresident,
   },
@@ -125,11 +125,17 @@ const JourneyTimeline = () => {
           className="max-w-3xl mx-auto mb-14 text-center"
         >
           <p className="text-base md:text-lg leading-relaxed font-body text-muted-foreground">
-            Pujya Swami Subodhananda ji Maharaj's life was a luminous thread woven through the sacred
-            tapestry of Chinmaya Mission. From his very first step into Sidhbari in 1981 — arriving even
-            before Gurudev — to his final breath in 2020, every milestone was an offering of selfless
-            devotion, profound scholarship, and unwavering Guru Bhakti. Here we trace the key moments
-            of this extraordinary spiritual journey.
+           Param PUjya Swamiji’s association with Sidhbari, from 19 April 1981 to 27 September 2020, spans almost four decades. Even after excluding the period of his absence from 31 October 1983 to 13 September 1988, he spent approximately 34½ years in Sidhbari.
+
+Yet no timeline can ever contain the fullness of the life and grace of our Hriday Samarth. This is only a humble and approximate effort to trace the outer journey of one whose inner presence continues to guide countless hearts. If any date or detail appears inconsistent, we request you to kindly let us know.
+
+As one Pujya Swamiji says:
+“Guruji Sidhbari ke ek-ek paudhe, ek-ek patte mein hain.”
+“गुरुजी सिद्धबाड़ी के एक-एक पौधे, एक-एक पत्ते में हैं।”
+
+And in the words of a devotee — one among countless such expressions of bhāv:
+
+“सिद्धबाड़ी की तपोभूमि में — गुरुदेव के अनन्य शिष्य रूप में प्रखर सूर्य बनकर उभरे हैं आप। हिमाचल की मनमोहक भूमि को गुरुदेव ने चिन्हित किया; वीर हनुमान की रक्षा में सौंपा; राम-राज्य जैसा वातावरण सम्पुष्ट किया। और स्वामी सुबोधानंदजी, आपने उसे तीर्थ बना दिया! आपके वहाँ रहने से केवल सिद्धबाड़ी ही नहीं, बल्कि हम साधकों के हृदय भी — जिनमें आप विराजमान हैं — तीर्थरूप हो गए हैं।.
           </p>
         </motion.div>
 
