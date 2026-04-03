@@ -55,7 +55,7 @@ const HeroSection = () => {
           <img src={heroFeet} alt="" className="w-full h-full object-cover object-center md:object-top" />
         </div>
         <div className="relative overflow-hidden">
-          <img src={heroPortrait} alt="" className="w-full h-full object-cover object-center" />
+          <img src={heroPortrait} alt="" className="w-full h-full object-contain object-center" />
         </div>
         <div className="relative overflow-hidden">
           <img src={heroShiva} alt="" className="w-full h-full object-cover object-center" />
