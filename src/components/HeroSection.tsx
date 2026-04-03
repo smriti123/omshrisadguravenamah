@@ -264,8 +264,8 @@ const HeroSection = () => {
           transition={{ duration: 0.9, delay: 0.5 }}
           className="font-display text-5xl md:text-7xl font-bold mb-4 leading-tight"
           style={{
-            color: "hsl(25 35% 22%)",
-            textShadow: "0 2px 12px rgba(200,160,80,0.2)",
+            color: "hsl(40 90% 96%)",
+            textShadow: "0 2px 16px rgba(80,40,0,0.4)",
           }}
         >
           ॐ श्री सद्गुरवे नमः
