@@ -180,6 +180,7 @@ That's why every one of us the  devotees miss him equally n she'd tears equally 
  
   { src: p17, label: "Devotees",        vintage: false },
   { src: p18, label: "Sacred moment",   vintage: false },
+  { src: p19, label: "ॐ क्रीडा प्रियाय नमः ।", vintage: false },
  
   { src: p20, label: "Divine presence", vintage: false },
   { src: p21, label: "Jai Gurudev",     vintage: false },
