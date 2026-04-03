@@ -42,7 +42,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 opacity-[0.45]">
         <div className="grid grid-cols-2 h-[42%]">
           <div className="relative overflow-hidden">
-            <img src={ma} alt="Mataji" className="w-full h-full object-cover object-center" />
+            <img src={ma} alt="Mataji" className="w-full h-full object-cover object-top" />
           </div>
           <div className="relative overflow-hidden">
             <img src={heroShiva} alt="" className="w-full h-full object-cover object-center" />
@@ -276,7 +276,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.05 }}
-          className="flex flex-wrap justify-center gap-4 mb-4"
+          className="flex flex-wrap justify-center gap-4 mt-3 mb-4"
         >
           <a
             href="#gallery"
