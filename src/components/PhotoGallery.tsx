@@ -273,18 +273,18 @@ const Lightbox = ({
         onClick={onClose}
       >×</button>
 
-      <div className="relative w-full max-w-2xl px-4" onClick={(e) => e.stopPropagation()}>
+      <div className="relative w-full max-w-5xl px-4" onClick={(e) => e.stopPropagation()}>
         <AnimatePresence mode="wait">
           <motion.div
             key={idx}
             initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="rounded-xl overflow-hidden shadow-2xl"
-            style={{ maxHeight: "55vh", border: "1px solid rgba(200,140,40,0.3)" }}
+            className="rounded-xl overflow-hidden shadow-2xl flex items-center justify-center"
+            style={{ maxHeight: "78vh", border: "1px solid rgba(200,140,40,0.3)" }}
           >
             <img
               src={photo.src} alt={photo.label}
-              className="w-full h-full object-contain"
+              className="w-full max-h-[78vh] object-contain object-center"
               style={photo.vintage ? { filter: "sepia(60%) contrast(1.05) brightness(0.94)" } : {}}
             />
           </motion.div>
@@ -345,7 +345,7 @@ const PhotoCard = ({
       <img
         src={photo.src}
         alt={photo.label}
-        className="w-full aspect-[4/5] object-cover object-top"
+        className="w-full aspect-[4/5] object-cover object-center"
         style={photo.vintage ? { filter: "sepia(55%) contrast(1.05) brightness(0.93)" } : {}}
       />
 
