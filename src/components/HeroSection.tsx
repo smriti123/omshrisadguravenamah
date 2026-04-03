@@ -199,7 +199,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.15 }}
-          className="relative mx-auto mb-8 w-48 h-48 md:w-60 md:h-60"
+          className="relative mx-auto mb-3 w-48 h-48 md:w-60 md:h-60"
         >
           {/* Glow */}
           <div
@@ -227,49 +227,12 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* Main title */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.5 }}
-          className="font-display text-5xl md:text-7xl font-bold mb-4 leading-tight"
-          style={{
-            color: "hsl(40 90% 96%)",
-            textShadow: "0 2px 16px rgba(80,40,0,0.4)",
-          }}
-        >
-          ॐ श्री सद्गुरवे नमः
-        </motion.h1>
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.75 }}
-          className="text-base md:text-lg tracking-widest mb-3 uppercase font-body"
-          style={{ color: "hsl(38 50% 88%)" }}
-        >
-          Param Pujya Swami Subodhananda ji Maharaj
-        </motion.p>
-
-        {/* Decorative divider */}
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.7, delay: 0.9 }}
-          className="flex items-center justify-center gap-3 mb-8"
-        >
-          <div className="w-16 h-px" style={{ background: "rgba(255,220,150,0.5)" }} />
-          <span style={{ color: "rgba(255,220,150,0.7)", fontSize: "16px" }}>✦</span>
-          <div className="w-16 h-px" style={{ background: "rgba(255,220,150,0.5)" }} />
-        </motion.div>
-
         {/* Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.05 }}
-          className="flex flex-wrap justify-center gap-4"
+          className="flex flex-wrap justify-center gap-4 mb-4"
         >
           <a
             href="#gallery"
@@ -295,6 +258,43 @@ const HeroSection = () => {
           >
             Watch Talks
           </a>
+        </motion.div>
+
+        {/* Main title */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.5 }}
+          className="font-display text-5xl md:text-7xl font-bold mb-2 -mt-1 leading-tight"
+          style={{
+            color: "hsl(40 90% 96%)",
+            textShadow: "0 2px 16px rgba(80,40,0,0.4)",
+          }}
+        >
+          ॐ श्री सद्गुरवे नमः
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.75 }}
+          className="text-base md:text-lg tracking-widest mb-2 uppercase font-body"
+          style={{ color: "hsl(38 50% 88%)" }}
+        >
+          Param Pujya Swami Subodhananda ji Maharaj
+        </motion.p>
+
+        {/* Decorative divider */}
+        <motion.div
+          initial={{ opacity: 0, scaleX: 0 }}
+          animate={{ opacity: 1, scaleX: 1 }}
+          transition={{ duration: 0.7, delay: 0.9 }}
+          className="flex items-center justify-center gap-3 mb-8"
+        >
+          <div className="w-16 h-px" style={{ background: "rgba(255,220,150,0.5)" }} />
+          <span style={{ color: "rgba(255,220,150,0.7)", fontSize: "16px" }}>✦</span>
+          <div className="w-16 h-px" style={{ background: "rgba(255,220,150,0.5)" }} />
         </motion.div>
       </motion.div>
 
