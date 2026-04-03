@@ -1,13 +1,18 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 
-
+import imgArrival from "@/assets/gallery/v1.jpg";
+import imgDeeksha from "@/assets/gallery/photo-3.jpg";
+import imgAcharya from "@/assets/gallery/photo-6.jpg";
+import imgSanyasa from "@/assets/gallery/v3.jpg";
+import imgPresident from "@/assets/pic5.jpg";
 
 interface TimelineEvent {
   date: string;
   title: string;
   description: string;
   highlight?: boolean;
+  image?: string;
 }
 
 const events: TimelineEvent[] = [
@@ -17,6 +22,7 @@ const events: TimelineEvent[] = [
     description:
       "Swami ji reached Sidhbari for joining the 1st Vedanta Course at Sandeepany Himalaya. He was the first student to arrive — even before Gurudev and Guru ji.",
     highlight: true,
+    image: imgArrival,
   },
   {
     date: "24–25 April 1981",
@@ -36,6 +42,7 @@ const events: TimelineEvent[] = [
     description:
       "Swami ji and other students received Brahmachari Deeksha. Omkar was given the name Br. Vishal — a milestone in his spiritual journey.",
     highlight: true,
+    image: imgDeeksha,
   },
   {
     date: "30 September 1983",
@@ -62,6 +69,7 @@ const events: TimelineEvent[] = [
     description:
       "Br. Vishal Chaitanya was appointed as Trustee of CTT (Chinmaya Tapovan Trust) and Acharya of Sandeepany Himalaya — a recognition of his deep knowledge and dedication.",
     highlight: true,
+    image: imgAcharya,
   },
   {
     date: "19 March 1989",
@@ -75,6 +83,7 @@ const events: TimelineEvent[] = [
     description:
       "Br. Vishal ji was given Sanyasa by Gurudev at Sarveswar Temple, Tamrapakkam, Chennai — a sacred moment of complete renunciation and dedication to the spiritual path.",
     highlight: true,
+    image: imgSanyasa,
   },
   {
     date: "30 October 1991",
@@ -88,12 +97,12 @@ const events: TimelineEvent[] = [
     description:
       "Appointed as President of Chinmaya Tapovan Trust (CTT), the pinnacle of organizational responsibility within the mission.",
     highlight: true,
+    image: imgPresident,
   },
   {
     date: "27 September 2020",
     title: "End of an Era",
-    description:
-      "Mahasamadhi",
+    description: "Mahasamadhi",
     highlight: true,
   },
 ];
@@ -107,11 +116,31 @@ const JourneyTimeline = () => {
           subtitle="Key milestones in Pujya Swamiji's journey at Sidhbari"
         />
 
+        {/* Intro paragraph */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mx-auto mb-14 text-center"
+        >
+          <p className="text-base md:text-lg leading-relaxed font-body text-muted-foreground">
+            Pujya Swami Subodhananda ji Maharaj's life was a luminous thread woven through the sacred
+            tapestry of Chinmaya Mission. From his very first step into Sidhbari in 1981 — arriving even
+            before Gurudev — to his final breath in 2020, every milestone was an offering of selfless
+            devotion, profound scholarship, and unwavering Guru Bhakti. Here we trace the key moments
+            of this extraordinary spiritual journey.
+          </p>
+        </motion.div>
+
         <div className="max-w-3xl mx-auto relative">
           {/* Vertical line */}
-          <div className="absolute left-4 md:left-8 top-0 bottom-0 w-px bg-border" />
+          <div
+            className="absolute left-4 md:left-8 top-0 bottom-0 w-px"
+            style={{ background: "linear-gradient(180deg, hsl(var(--gold) / 0.6), hsl(var(--saffron) / 0.3), hsl(var(--gold) / 0.6))" }}
+          />
 
-          <div className="space-y-12">
+          <div className="space-y-10">
             {events.map((event, index) => (
               <motion.div
                 key={index}
@@ -145,6 +174,28 @@ const JourneyTimeline = () => {
                   <p className="mt-2 text-muted-foreground leading-relaxed text-[0.95rem] font-body">
                     {event.description}
                   </p>
+
+                  {/* Photo for select milestones */}
+                  {event.image && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.15 }}
+                      className="mt-4 rounded-lg overflow-hidden shadow-md border"
+                      style={{
+                        borderColor: "hsl(var(--gold) / 0.3)",
+                        maxWidth: "320px",
+                      }}
+                    >
+                      <img
+                        src={event.image}
+                        alt={event.title}
+                        className="w-full h-48 object-cover object-top"
+                        style={{ filter: "sepia(25%) contrast(1.02) brightness(0.96)" }}
+                      />
+                    </motion.div>
+                  )}
                 </div>
               </motion.div>
             ))}
