@@ -31,7 +31,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[92svh] md:min-h-[100svh] flex flex-col items-center justify-center overflow-hidden pt-16 pb-7 md:pt-24 md:pb-8"
+      className="relative min-h-[92svh] md:min-h-[100svh] flex flex-col items-center justify-center overflow-hidden pt-14 pb-4 md:pt-24 md:pb-8"
       style={{
         background:
           "linear-gradient(170deg, hsl(38 78% 58%) 0%, hsl(36 78% 48%) 28%, hsl(33 80% 42%) 58%, hsl(30 82% 36%) 100%)",
@@ -54,24 +54,24 @@ const HeroSection = () => {
 
       {/* Background photos */}
       <div className="absolute inset-0 opacity-[0.45]">
-        {/* Top row */}
-        <div className="grid grid-cols-2 h-[30%] md:h-[42%]">
-          {/* Upper-left (ma): push right on mobile so mandir gets more room */}
+        {/* Top row — taller on mobile so pics aren't squeezed */}
+        <div className="grid grid-cols-2 h-[38%] md:h-[42%]">
+          {/* Upper-left (ma): lady with instrument — she sits lower in frame, anchor center */}
           <div className="relative overflow-hidden">
             <img
               src={ma}
               alt="Mataji"
               className="w-full h-full object-cover"
-              style={{ objectPosition: "30% 45%" }}
+              style={{ objectPosition: "15% 15%" }}
             />
           </div>
-          {/* Upper-right (mandir): show more from top and center horizontally */}
+          {/* Upper-right (mandir): shift left so temple is centered, not clipped right */}
           <div className="relative overflow-hidden">
             <img
               src={heroShiva}
               alt=""
               className="w-full h-full object-cover"
-              style={{ objectPosition: "center 40%" }}
+              style={{ objectPosition: "20% 10%" }}
             />
           </div>
         </div>
@@ -120,28 +120,28 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="relative z-10 w-full max-w-6xl px-4 flex flex-col items-center"
+        className="relative z-10 w-full max-w-6xl px-2 md:px-4 flex flex-col items-center"
       >
         {/*
           Circle + links bar
           ─ Desktop: 3-col grid [leftLinks | circle | rightLinks]
-          ─ Mobile:  same 3-col grid but with smaller circle & tighter text
+          ─ Mobile:  same 3-col grid but very compact
         */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, delay: 0.15 }}
-          className="relative w-full mb-2 md:mb-6"
+          className="relative w-full mb-1 md:mb-6"
         >
-          <div className="grid grid-cols-[1fr_auto_1fr] gap-1.5 md:gap-12 items-center">
+          <div className="grid grid-cols-[1fr_auto_1fr] gap-1 md:gap-12 items-center">
 
-            {/* Left links — visible on ALL screens */}
-            <div className="flex flex-col items-end gap-1 md:gap-2 md:pr-8">
+            {/* Left links — pushed left so ring breathes */}
+            <div className="flex flex-col items-end gap-[3px] md:gap-2 md:pr-8 pr-2">
               {leftLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="px-1.5 py-1 md:px-4 md:py-2 rounded-md text-[9px] sm:text-xs md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
+                  className="px-1.5 py-[3px] md:px-4 md:py-2 rounded text-[8px] md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
                   style={linkStyle}
                 >
                   {link.label}
@@ -149,13 +149,13 @@ const HeroSection = () => {
               ))}
             </div>
 
-            {/* Circle */}
+            {/* Circle — very compact on mobile */}
             <div className="relative flex items-center justify-center">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.9, delay: 0.15 }}
-                className="relative mx-auto w-24 h-24 sm:w-36 sm:h-36 md:w-56 md:h-56"
+                className="relative mx-auto w-20 h-20 sm:w-32 sm:h-32 md:w-56 md:h-56"
               >
                 {/* Glow */}
                 <div
@@ -166,26 +166,19 @@ const HeroSection = () => {
                   }}
                 />
 
-                {/* Curved Sanskrit text ring */}
+                {/* Rotating Sanskrit text ring — single phrase, CSS spin */}
                 <svg
                   className="absolute -inset-6 sm:-inset-8 md:-inset-12 w-[calc(100%+3rem)] h-[calc(100%+3rem)] sm:w-[calc(100%+4rem)] sm:h-[calc(100%+4rem)] md:w-[calc(100%+6rem)] md:h-[calc(100%+6rem)] pointer-events-none"
                   viewBox="0 0 300 300"
+                  style={{ animation: "spinRing 18s linear infinite", transformOrigin: "center" }}
                 >
                   <defs>
-                    <path
-                      id="textCircle"
-                      d="M 150,150 m -120,0 a 120,120 0 1,1 240,0 a 120,120 0 1,1 -240,0"
-                    />
+                    <path id="textCircle" d="M 150,150 m -120,0 a 120,120 0 1,1 240,0 a 120,120 0 1,1 -240,0" />
+                    <style>{`@keyframes spinRing { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
                   </defs>
-                  <text
-                    fill="hsl(40 90% 96%)"
-                    fontSize="15.5"
-                    fontWeight="600"
-                    letterSpacing="4"
-                    style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                  >
-                    <textPath href="#textCircle" startOffset="0%" textLength="754" lengthAdjust="spacing">
-                      ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦
+                  <text fill="hsl(40 90% 96%)" fontSize="13" fontWeight="600" letterSpacing="3" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                    <textPath href="#textCircle" startOffset="0%">
+                      ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦
                     </textPath>
                   </text>
                 </svg>
@@ -211,13 +204,13 @@ const HeroSection = () => {
               </motion.div>
             </div>
 
-            {/* Right links — visible on ALL screens */}
-            <div className="flex flex-col items-start gap-1 md:gap-2 md:pl-8">
+            {/* Right links — pushed right so ring breathes */}
+            <div className="flex flex-col items-start gap-[3px] md:gap-2 md:pl-8 pl-2">
               {rightLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="px-1.5 py-1 md:px-4 md:py-2 rounded-md text-[9px] sm:text-xs md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
+                  className="px-1.5 py-[3px] md:px-4 md:py-2 rounded text-[8px] md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
                   style={{
                     background: "rgba(255,229,175,0.18)",
                     color: "hsl(40 85% 95%)",
@@ -236,7 +229,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.55 }}
-          className="text-sm sm:text-base md:text-lg tracking-widest mb-5 md:mb-8 uppercase font-body text-center"
+          className="text-[10px] sm:text-base md:text-lg tracking-widest mb-2 md:mb-8 uppercase font-body text-center"
           style={{ color: "hsl(38 50% 88%)" }}
         >
           Param Pujya Swami Subodhananda ji Maharaj
