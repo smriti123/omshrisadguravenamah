@@ -481,6 +481,8 @@ const GallerySection = () => {
     >
       <div className="max-w-6xl mx-auto px-4">
 
+        <SectionHeading sub="Photo gallery" english="Divine Glimpses" hindi="दिव्य दर्शन" />
+
         {/* Section 1 */}
         <div className="mb-20">
           <PhotoGrid photos={smritiyaanPhotos} globalOffset={0} onOpen={openLb} />
@@ -495,7 +497,6 @@ const GallerySection = () => {
 
         {/* Section 2 */}
         <div>
-          <SectionHeading sub="Special collection" english="Vishesh Darshan" hindi="विशेष दर्शन — With Saints & Sacred Moments" />
           <PhotoGrid photos={visheshPhotos} globalOffset={smritiyaanPhotos.length} onOpen={openLb} />
         </div>
 
