@@ -23,6 +23,7 @@ const lowerPhotos = [
 ];
 
 const leftLinks = [
+  { label: "Journey", href: "#journey" },
   { label: "View Gallery", href: "#gallery" },
   { label: "Watch Talks", href: "#talks" },
 ];
@@ -163,11 +164,11 @@ const HeroSection = () => {
                     fill="hsl(40 90% 96%)"
                     fontSize="15.5"
                     fontWeight="600"
-                    letterSpacing="6"
+                    letterSpacing="4"
                     style={{ fontFamily: "'Cormorant Garamond', serif" }}
                   >
-                    <textPath href="#textCircle" startOffset="0%">
-                      ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦
+                    <textPath href="#textCircle" startOffset="0%" textLength="754" lengthAdjust="spacing">
+                      ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦
                     </textPath>
                   </text>
                 </svg>
