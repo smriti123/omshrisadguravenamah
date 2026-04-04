@@ -8,7 +8,7 @@ import sign from "@/assets/gallery/sign.jpg";
 import ma from "@/assets/gallery/ma.jpeg";
 
 const lowerPhotos = [
-  { src: heroFeet, label: "Lotus Feet" },
+  { src: heroFeet, label: "Lotus Feet", imageClassName: "object-left md:object-center" },
   { src: heroPortrait, label: "Swamiji", imageClassName: "object-top" },
   {
     src: sign,
@@ -63,10 +63,10 @@ const HeroSection = () => {
       <div className="absolute inset-0 opacity-[0.45]">
         <div className="grid grid-cols-2 h-[30%] md:h-[42%]">
           <div className="relative overflow-hidden">
-            <img src={ma} alt="Mataji" className="w-full h-full object-cover object-top" />
+            <img src={ma} alt="Mataji" className="w-full h-full object-cover object-bottom md:object-top object-left" />
           </div>
           <div className="relative overflow-hidden">
-            <img src={heroShiva} alt="" className="w-full h-full object-cover object-top md:object-center" />
+            <img src={heroShiva} alt="" className="w-full h-full object-cover object-left md:object-center" />
           </div>
         </div>
         <div className="absolute left-0 right-0 bottom-0 h-[30%] md:h-[42%] grid grid-cols-3">
