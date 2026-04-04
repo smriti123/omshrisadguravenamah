@@ -56,13 +56,23 @@ const HeroSection = () => {
       <div className="absolute inset-0 opacity-[0.45]">
         {/* Top row */}
         <div className="grid grid-cols-2 h-[30%] md:h-[42%]">
-          {/* Upper-left (ma): anchor bottom-left — crop from top & right */}
+          {/* Upper-left (ma): shift down so face isn't clipped; anchor left so right edge crops */}
           <div className="relative overflow-hidden">
-            <img src={ma} alt="Mataji" className="w-full h-full object-cover" style={{ objectPosition: "left bottom" }} />
+            <img
+              src={ma}
+              alt="Mataji"
+              className="w-full h-full object-cover"
+              style={{ objectPosition: "10% 30%" }}
+            />
           </div>
-          {/* Upper-right (mandir): anchor top-left so subject stays visible, not cropped on right */}
+          {/* Upper-right (mandir): shift left + slightly down */}
           <div className="relative overflow-hidden">
-            <img src={heroShiva} alt="" className="w-full h-full object-cover" style={{ objectPosition: "left top" }} />
+            <img
+              src={heroShiva}
+              alt=""
+              className="w-full h-full object-cover"
+              style={{ objectPosition: "5% 20%" }}
+            />
           </div>
         </div>
 
@@ -121,17 +131,17 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, delay: 0.15 }}
-          className="relative w-full mb-4 md:mb-6"
+          className="relative w-full mb-2 md:mb-6"
         >
-          <div className="grid grid-cols-[1fr_auto_1fr] gap-2 md:gap-12 items-center">
+          <div className="grid grid-cols-[1fr_auto_1fr] gap-1.5 md:gap-12 items-center">
 
             {/* Left links — visible on ALL screens */}
-            <div className="flex flex-col items-end gap-1.5 md:gap-2 md:pr-8">
+            <div className="flex flex-col items-end gap-1 md:gap-2 md:pr-8">
               {leftLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="px-2 py-1.5 md:px-4 md:py-2 rounded-lg text-[10px] sm:text-xs md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
+                  className="px-1.5 py-1 md:px-4 md:py-2 rounded-md text-[9px] sm:text-xs md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
                   style={linkStyle}
                 >
                   {link.label}
@@ -145,8 +155,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.9, delay: 0.15 }}
-                /* Smaller on mobile, larger on md+ */
-                className="relative mx-auto w-28 h-28 sm:w-36 sm:h-36 md:w-56 md:h-56"
+                className="relative mx-auto w-24 h-24 sm:w-36 sm:h-36 md:w-56 md:h-56"
               >
                 {/* Glow */}
                 <div
@@ -203,12 +212,12 @@ const HeroSection = () => {
             </div>
 
             {/* Right links — visible on ALL screens */}
-            <div className="flex flex-col items-start gap-1.5 md:gap-2 md:pl-8">
+            <div className="flex flex-col items-start gap-1 md:gap-2 md:pl-8">
               {rightLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="px-2 py-1.5 md:px-4 md:py-2 rounded-lg text-[10px] sm:text-xs md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
+                  className="px-1.5 py-1 md:px-4 md:py-2 rounded-md text-[9px] sm:text-xs md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
                   style={{
                     background: "rgba(255,229,175,0.18)",
                     color: "hsl(40 85% 95%)",
