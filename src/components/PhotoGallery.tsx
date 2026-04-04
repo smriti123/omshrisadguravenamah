@@ -336,6 +336,7 @@ const PhotoCard = ({
   photo, globalIndex, onOpen,
 }: { photo: Photo; globalIndex: number; onOpen: (i: number) => void }) => {
   const hasStory = Boolean(photo.story?.trim());
+  const isFirstPhoto = globalIndex === 0;
 
   return (
     <motion.div
@@ -368,30 +369,38 @@ const PhotoCard = ({
         </div>
 
         {hasStory && (
-        <div className="p-4 md:p-5 flex flex-col">
-          {photo.label && (
-            <p className="text-sm font-semibold tracking-wide mb-2" style={{ color: "#7a3a00" }}>
-              {photo.label}
-            </p>
-          )}
-          <p
-            className="text-sm leading-relaxed"
-            style={{
-              color: "rgba(95,45,10,0.9)",
-              fontFamily: "serif",
-              lineHeight: "1.75",
-              display: "-webkit-box",
-              WebkitLineClamp: 8,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-            }}
-          >
-            {photo.story}
-          </p>
-          <p className="text-[11px] tracking-[0.14em] uppercase mt-4" style={{ color: "rgba(130,70,20,0.55)" }}>
-            Tap card to open full screen
-          </p>
-        </div>
+          <div className={`p-4 md:p-5 flex flex-col ${isFirstPhoto ? "items-center justify-center text-center" : ""}`}>
+            {photo.label && (
+              <p
+                className={isFirstPhoto ? "text-2xl md:text-4xl font-bold tracking-wide" : "text-sm font-semibold tracking-wide mb-2"}
+                style={{ color: "#7a3a00", fontFamily: "serif" }}
+              >
+                {photo.label}
+              </p>
+            )}
+
+            {!isFirstPhoto && (
+              <>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{
+                    color: "rgba(95,45,10,0.9)",
+                    fontFamily: "serif",
+                    lineHeight: "1.75",
+                    display: "-webkit-box",
+                    WebkitLineClamp: 8,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                  }}
+                >
+                  {photo.story}
+                </p>
+                <p className="text-[11px] tracking-[0.14em] uppercase mt-4" style={{ color: "rgba(130,70,20,0.55)" }}>
+                  Tap card to open full screen
+                </p>
+              </>
+            )}
+          </div>
         )}
       </div>
     </motion.div>
@@ -472,27 +481,8 @@ const GallerySection = () => {
     >
       <div className="max-w-6xl mx-auto px-4">
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.7 }}
-          className="text-center mb-16"
-        >
-          <p className="text-xs tracking-[0.28em] uppercase mb-3" style={{ color: "rgba(160,90,16,0.6)" }}>
-            Divya Darshan · दिव्य दर्शन
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "#7a3a00", fontFamily: "serif" }}>
-            Photo Gallery
-          </h2>
-          <div className="flex items-center justify-center gap-3">
-            <div className="w-16 h-px" style={{ background: "rgba(180,100,20,0.4)" }} />
-            <span style={{ color: "rgba(180,100,20,0.7)" }}>✦</span>
-            <div className="w-16 h-px" style={{ background: "rgba(180,100,20,0.4)" }} />
-          </div>
-        </motion.div>
-
         {/* Section 1 */}
         <div className="mb-20">
-          <SectionHeading sub="Photo collection" english="Smritiyaan" hindi="स्मृतियाँ — Cherished Memories" />
           <PhotoGrid photos={smritiyaanPhotos} globalOffset={0} onOpen={openLb} />
         </div>
 
