@@ -65,7 +65,7 @@ const HeroSection = () => {
             <img src={ma} alt="Mataji" className="w-full h-full object-cover object-top" />
           </div>
           <div className="relative overflow-hidden">
-            <img src={heroShiva} alt="" className="w-full h-full object-cover object-center" />
+            <img src={heroShiva} alt="" className="w-full h-full object-cover object-top md:object-center" />
           </div>
         </div>
         <div className="absolute left-0 right-0 bottom-0 h-[30%] md:h-[42%] grid grid-cols-3">
