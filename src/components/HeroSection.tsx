@@ -34,6 +34,13 @@ const rightLinks = [
   { label: "Virah Stuti", href: "#shraddanjali" },
 ];
 
+// Shared link style
+const linkStyle: CSSProperties = {
+  background: "rgba(86,38,6,0.42)",
+  color: "hsl(40 85% 95%)",
+  border: "1px solid rgba(255,202,121,0.4)",
+};
+
 const HeroSection = () => {
   return (
     <section
@@ -61,14 +68,24 @@ const HeroSection = () => {
 
       {/* Background photos */}
       <div className="absolute inset-0 opacity-[0.45]">
+        {/* Top row: crop from bottom (keep top of image visible) */}
         <div className="grid grid-cols-2 h-[30%] md:h-[42%]">
           <div className="relative overflow-hidden">
-            <img src={ma} alt="Mataji" className="w-full h-full object-cover object-bottom md:object-top object-left" />
+            <img
+              src={ma}
+              alt="Mataji"
+              className="w-full h-full object-cover object-top"
+            />
           </div>
           <div className="relative overflow-hidden">
-            <img src={heroShiva} alt="" className="w-full h-full object-cover object-left md:object-center" />
+            <img
+              src={heroShiva}
+              alt=""
+              className="w-full h-full object-cover object-top"
+            />
           </div>
         </div>
+        {/* Bottom row */}
         <div className="absolute left-0 right-0 bottom-0 h-[30%] md:h-[42%] grid grid-cols-3">
           {lowerPhotos.map((photo) => (
             <div key={photo.label} className={`relative overflow-hidden ${photo.containerClassName ?? ""}`}>
@@ -107,38 +124,41 @@ const HeroSection = () => {
         transition={{ duration: 1, ease: "easeOut" }}
         className="relative z-10 w-full max-w-6xl px-4 flex flex-col items-center"
       >
-        {/* Orange bar with side links and centered circle */}
+        {/*
+          Circle + links bar
+          ─ Desktop: 3-col grid [leftLinks | circle | rightLinks]
+          ─ Mobile:  same 3-col grid but with smaller circle & tighter text
+        */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, delay: 0.15 }}
-          className="relative w-full px-3 py-5 sm:px-4 md:px-8 md:py-8 mb-6"
+          className="relative w-full mb-4 md:mb-6"
         >
-          <div className="grid md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-12 items-center">
-            <div className="hidden md:flex items-center justify-end gap-3 md:pr-8">
+          <div className="grid grid-cols-[1fr_auto_1fr] gap-2 md:gap-12 items-center">
+
+            {/* Left links — visible on ALL screens */}
+            <div className="flex flex-col items-end gap-1.5 md:gap-2 md:pr-8">
               {leftLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="px-4 py-2 rounded-lg text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105"
-                  style={{
-                    background: "rgba(86,38,6,0.42)",
-                    color: "hsl(40 85% 95%)",
-                    border: "1px solid rgba(255,202,121,0.4)",
-                  }}
+                  className="px-2 py-1.5 md:px-4 md:py-2 rounded-lg text-[10px] sm:text-xs md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
+                  style={linkStyle}
                 >
                   {link.label}
                 </a>
               ))}
             </div>
 
-            {/* Circle with curved text around it */}
+            {/* Circle */}
             <div className="relative flex items-center justify-center">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.9, delay: 0.15 }}
-                className="relative mx-auto w-32 h-32 sm:w-44 sm:h-44 md:w-56 md:h-56"
+                /* Smaller on mobile, larger on md+ */
+                className="relative mx-auto w-28 h-28 sm:w-36 sm:h-36 md:w-56 md:h-56"
               >
                 {/* Glow */}
                 <div
@@ -149,7 +169,7 @@ const HeroSection = () => {
                   }}
                 />
 
-                {/* Curved Hindi text ring - SVG */}
+                {/* Curved Sanskrit text ring */}
                 <svg
                   className="absolute -inset-6 sm:-inset-8 md:-inset-12 w-[calc(100%+3rem)] h-[calc(100%+3rem)] sm:w-[calc(100%+4rem)] sm:h-[calc(100%+4rem)] md:w-[calc(100%+6rem)] md:h-[calc(100%+6rem)] pointer-events-none"
                   viewBox="0 0 300 300"
@@ -194,12 +214,13 @@ const HeroSection = () => {
               </motion.div>
             </div>
 
-            <div className="hidden md:flex items-center justify-start gap-3 md:pl-8">
+            {/* Right links — visible on ALL screens */}
+            <div className="flex flex-col items-start gap-1.5 md:gap-2 md:pl-8">
               {rightLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="px-4 py-2 rounded-lg text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105"
+                  className="px-2 py-1.5 md:px-4 md:py-2 rounded-lg text-[10px] sm:text-xs md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
                   style={{
                     background: "rgba(255,229,175,0.18)",
                     color: "hsl(40 85% 95%)",
@@ -211,27 +232,9 @@ const HeroSection = () => {
               ))}
             </div>
           </div>
-
-          {/* Mobile links */}
-          <div className="md:hidden mt-4 grid grid-cols-2 gap-2 max-w-md mx-auto">
-            {[...leftLinks, ...rightLinks].map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="px-2.5 py-2 rounded-lg text-[11px] sm:text-sm font-medium tracking-wide text-center transition-all duration-200 hover:scale-105"
-                style={{
-                  background: "rgba(86,38,6,0.42)",
-                  color: "hsl(40 85% 95%)",
-                  border: "1px solid rgba(255,202,121,0.4)",
-                }}
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
         </motion.div>
 
-        {/* Subtitle below circle */}
+        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -241,11 +244,13 @@ const HeroSection = () => {
         >
           Param Pujya Swami Subodhananda ji Maharaj
         </motion.p>
-
       </motion.div>
 
       {/* Bottom fade into next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-24" style={{ background: "linear-gradient(0deg, hsl(34 50% 82%) 0%, transparent 100%)" }} />
+      <div
+        className="absolute bottom-0 left-0 right-0 h-24"
+        style={{ background: "linear-gradient(0deg, hsl(34 50% 82%) 0%, transparent 100%)" }}
+      />
     </section>
   );
 };
