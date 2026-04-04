@@ -111,16 +111,10 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, delay: 0.15 }}
-          className="relative w-full rounded-2xl px-3 py-5 sm:px-4 md:px-8 md:py-8 mb-6"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(227,140,42,0.84) 0%, rgba(207,116,30,0.88) 100%)",
-            border: "1px solid rgba(255,221,150,0.42)",
-            boxShadow: "0 10px 36px rgba(95,45,0,0.3)",
-          }}
+          className="relative w-full px-3 py-5 sm:px-4 md:px-8 md:py-8 mb-6"
         >
-          <div className="grid md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-5 items-center">
-            <div className="hidden md:flex items-center justify-end gap-3">
+          <div className="grid md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-12 items-center">
+            <div className="hidden md:flex items-center justify-end gap-3 md:pr-8">
               {leftLinks.map((link) => (
                 <a
                   key={link.href}
@@ -199,7 +193,7 @@ const HeroSection = () => {
               </motion.div>
             </div>
 
-            <div className="hidden md:flex items-center justify-start gap-3">
+            <div className="hidden md:flex items-center justify-start gap-3 md:pl-8">
               {rightLinks.map((link) => (
                 <a
                   key={link.href}
