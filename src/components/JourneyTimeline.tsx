@@ -5,6 +5,9 @@ import imgArrival from "@/assets/gallery/v1.jpg";
 import imgDeeksha from "@/assets/gallery/photo-3.jpg";
 import imgAcharya from "@/assets/gallery/photo-6.jpg";
 import imgSanyasa from "@/assets/gallery/v3.jpg";
+import v2 from "@/assets/gallery/v2.jpg";
+import v4 from "@/assets/gallery/v4.jpg";
+import v6 from "@/assets/gallery/v6.jpg";
 import imgPresident from "@/assets/pic5.jpg";
 
 interface TimelineEvent {
@@ -35,6 +38,7 @@ const events: TimelineEvent[] = [
     title: "First Teaching Class",
     description:
       "The very first teaching class of the Vedanta course was conducted by Guru ji",
+    image: v4,
   },
   {
     date: "11 September 1983",
@@ -49,6 +53,7 @@ const events: TimelineEvent[] = [
     title: "Last Class of the Batch",
     description:
       "The final class of this batch was held, with the teaching on चतु: सूत्री (Chatuh Sutri)",
+    image: v2,
   },
   {
     date: "30 October 1983",
