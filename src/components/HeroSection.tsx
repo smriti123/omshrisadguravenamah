@@ -31,7 +31,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[92svh] md:min-h-[100svh] flex flex-col items-center justify-center overflow-hidden pt-14 pb-4 md:pt-24 md:pb-8"
+      className="relative min-h-[92svh] md:min-h-[100svh] flex flex-col items-center justify-center overflow-hidden pt-12 pb-4 md:pt-24 md:pb-8"
       style={{
         background:
           "linear-gradient(170deg, hsl(38 78% 58%) 0%, hsl(36 78% 48%) 28%, hsl(33 80% 42%) 58%, hsl(30 82% 36%) 100%)",
@@ -54,24 +54,24 @@ const HeroSection = () => {
 
       {/* Background photos */}
       <div className="absolute inset-0 opacity-[0.45]">
-        {/* Top row — taller on mobile so pics aren't squeezed */}
-        <div className="grid grid-cols-2 h-[38%] md:h-[42%]">
-          {/* Upper-left (ma): lady with instrument — she sits lower in frame, anchor center */}
+        {/* Top row — h-[44%] on mobile gives enough room to show full pics */}
+        <div className="grid grid-cols-2 h-[44%] md:h-[42%]">
+          {/* Upper-left (ma/saraswati): image content is upper-center, show from top */}
           <div className="relative overflow-hidden">
             <img
               src={ma}
               alt="Mataji"
               className="w-full h-full object-cover"
-              style={{ objectPosition: "15% 15%" }}
+              style={{ objectPosition: "25% 0%" }}
             />
           </div>
-          {/* Upper-right (mandir): shift left so temple is centered, not clipped right */}
+          {/* Upper-right (mandir): shift well left so statue visible, not right-clipped */}
           <div className="relative overflow-hidden">
             <img
               src={heroShiva}
               alt=""
               className="w-full h-full object-cover"
-              style={{ objectPosition: "20% 10%" }}
+              style={{ objectPosition: "30% 0%" }}
             />
           </div>
         </div>
@@ -133,15 +133,15 @@ const HeroSection = () => {
           transition={{ duration: 0.85, delay: 0.15 }}
           className="relative w-full mb-1 md:mb-6"
         >
-          <div className="grid grid-cols-[1fr_auto_1fr] gap-1 md:gap-12 items-center">
+          <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] gap-3 md:gap-12 items-center px-1 md:px-0">
 
-            {/* Left links — pushed left so ring breathes */}
-            <div className="flex flex-col items-end gap-[3px] md:gap-2 md:pr-8 pr-2">
+            {/* Left links — right-aligned, won't exceed their column */}
+            <div className="flex flex-col items-end gap-[4px] md:gap-2 md:pr-8">
               {leftLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="px-1.5 py-[3px] md:px-4 md:py-2 rounded text-[8px] md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
+                  className="px-2 py-[4px] md:px-4 md:py-2 rounded text-[9px] md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
                   style={linkStyle}
                 >
                   {link.label}
@@ -149,13 +149,13 @@ const HeroSection = () => {
               ))}
             </div>
 
-            {/* Circle — very compact on mobile */}
+            {/* Circle — larger on mobile so ring text has room */}
             <div className="relative flex items-center justify-center">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.9, delay: 0.15 }}
-                className="relative mx-auto w-20 h-20 sm:w-32 sm:h-32 md:w-56 md:h-56"
+                className="relative mx-auto w-[88px] h-[88px] sm:w-32 sm:h-32 md:w-56 md:h-56"
               >
                 {/* Glow */}
                 <div
@@ -168,9 +168,9 @@ const HeroSection = () => {
 
                 {/* Rotating Sanskrit text ring — single phrase, CSS spin */}
                 <svg
-                  className="absolute -inset-6 sm:-inset-8 md:-inset-12 w-[calc(100%+3rem)] h-[calc(100%+3rem)] sm:w-[calc(100%+4rem)] sm:h-[calc(100%+4rem)] md:w-[calc(100%+6rem)] md:h-[calc(100%+6rem)] pointer-events-none"
+                  className="absolute -inset-5 sm:-inset-8 md:-inset-12 w-[calc(100%+2.5rem)] h-[calc(100%+2.5rem)] sm:w-[calc(100%+4rem)] sm:h-[calc(100%+4rem)] md:w-[calc(100%+6rem)] md:h-[calc(100%+6rem)] pointer-events-none"
                   viewBox="0 0 300 300"
-                  style={{ animation: "spinRing 18s linear infinite", transformOrigin: "center" }}
+                  style={{ animation: "spinRing 20s linear infinite", transformOrigin: "center" }}
                 >
                   <defs>
                     <path id="textCircle" d="M 150,150 m -120,0 a 120,120 0 1,1 240,0 a 120,120 0 1,1 -240,0" />
@@ -204,13 +204,13 @@ const HeroSection = () => {
               </motion.div>
             </div>
 
-            {/* Right links — pushed right so ring breathes */}
-            <div className="flex flex-col items-start gap-[3px] md:gap-2 md:pl-8 pl-2">
+            {/* Right links — left-aligned, won't exceed their column */}
+            <div className="flex flex-col items-start gap-[4px] md:gap-2 md:pl-8">
               {rightLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="px-1.5 py-[3px] md:px-4 md:py-2 rounded text-[8px] md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
+                  className="px-2 py-[4px] md:px-4 md:py-2 rounded text-[9px] md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
                   style={{
                     background: "rgba(255,229,175,0.18)",
                     color: "hsl(40 85% 95%)",
