@@ -56,22 +56,22 @@ const HeroSection = () => {
       <div className="absolute inset-0 opacity-[0.45]">
         {/* Top row */}
         <div className="grid grid-cols-2 h-[30%] md:h-[42%]">
-          {/* Upper-left (ma): shift down so face isn't clipped; anchor left so right edge crops */}
+          {/* Upper-left (ma): push right on mobile so mandir gets more room */}
           <div className="relative overflow-hidden">
             <img
               src={ma}
               alt="Mataji"
               className="w-full h-full object-cover"
-              style={{ objectPosition: "10% 30%" }}
+              style={{ objectPosition: "30% 45%" }}
             />
           </div>
-          {/* Upper-right (mandir): shift left + slightly down */}
+          {/* Upper-right (mandir): show more from top and center horizontally */}
           <div className="relative overflow-hidden">
             <img
               src={heroShiva}
               alt=""
               className="w-full h-full object-cover"
-              style={{ objectPosition: "5% 20%" }}
+              style={{ objectPosition: "center 40%" }}
             />
           </div>
         </div>
