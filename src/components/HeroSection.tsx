@@ -7,20 +7,6 @@ import heroSignature from "@/assets/pic2.jpg";
 import sign from "@/assets/gallery/sign.jpg";
 import ma from "@/assets/gallery/ma.jpeg";
 
-const lowerPhotos = [
-  { src: heroFeet, label: "Lotus Feet", imageClassName: "object-left md:object-center" },
-  { src: heroPortrait, label: "Swamiji", imageClassName: "object-top" },
-  {
-    src: sign,
-    label: "Sign",
-    containerClassName: "opacity-100",
-    imageClassName: "object-contain md:object-cover p-1 md:p-0",
-    imageStyle: {
-      filter: "contrast(1.18) saturate(1.08) brightness(1.05)",
-      imageRendering: "-webkit-optimize-contrast",
-    } as CSSProperties,
-  },
-];
 
 const leftLinks = [
   { label: "Journey", href: "#journey" },
@@ -68,35 +54,37 @@ const HeroSection = () => {
 
       {/* Background photos */}
       <div className="absolute inset-0 opacity-[0.45]">
-        {/* Top row: crop from bottom (keep top of image visible) */}
+        {/* Top row */}
         <div className="grid grid-cols-2 h-[30%] md:h-[42%]">
+          {/* Upper-left (ma): anchor bottom-left — crop from top & right */}
           <div className="relative overflow-hidden">
-            <img
-              src={ma}
-              alt="Mataji"
-              className="w-full h-full object-cover object-top"
-            />
+            <img src={ma} alt="Mataji" className="w-full h-full object-cover" style={{ objectPosition: "left bottom" }} />
           </div>
+          {/* Upper-right (mandir): anchor top-left so subject stays visible, not cropped on right */}
           <div className="relative overflow-hidden">
-            <img
-              src={heroShiva}
-              alt=""
-              className="w-full h-full object-cover object-top"
-            />
+            <img src={heroShiva} alt="" className="w-full h-full object-cover" style={{ objectPosition: "left top" }} />
           </div>
         </div>
-        {/* Bottom row */}
-        <div className="absolute left-0 right-0 bottom-0 h-[30%] md:h-[42%] grid grid-cols-3">
-          {lowerPhotos.map((photo) => (
-            <div key={photo.label} className={`relative overflow-hidden ${photo.containerClassName ?? ""}`}>
-              <img
-                src={photo.src}
-                alt=""
-                className={`w-full h-full object-cover object-center ${photo.imageClassName ?? ""}`}
-                style={photo.imageStyle}
-              />
-            </div>
-          ))}
+
+        {/* Bottom row: 2 cols on mobile (sign hidden), 3 cols on md+ */}
+        <div className="absolute left-0 right-0 bottom-0 h-[30%] md:h-[42%] grid grid-cols-2 md:grid-cols-3">
+          {/* Lower-left (feet): anchor top-left so subject isn't cropped on right */}
+          <div className="relative overflow-hidden">
+            <img src={heroFeet} alt="" className="w-full h-full object-cover" style={{ objectPosition: "left top" }} />
+          </div>
+          {/* Lower-center (portrait) */}
+          <div className="relative overflow-hidden">
+            <img src={heroPortrait} alt="" className="w-full h-full object-cover object-top" />
+          </div>
+          {/* Sign: hidden on mobile, shown on md+ */}
+          <div className="hidden md:block relative overflow-hidden">
+            <img
+              src={sign}
+              alt=""
+              className="w-full h-full object-cover object-center"
+              style={{ filter: "contrast(1.18) saturate(1.08) brightness(1.05)" } as CSSProperties}
+            />
+          </div>
         </div>
       </div>
 
