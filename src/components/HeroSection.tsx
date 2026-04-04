@@ -9,14 +9,14 @@ import ma from "@/assets/gallery/ma.jpeg";
 const lowerPhotos = [
   { src: heroFeet, label: "Lotus Feet" },
   { src: heroPortrait, label: "Swamiji", imageClassName: "object-top" },
-  { src: sign, label: "Sign" },
+  { src: sign, label: "Sign", containerClassName: "opacity-95" },
 ];
 
 const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden pt-20 pb-8 md:pt-24"
+      className="relative min-h-[88svh] md:min-h-[100svh] flex flex-col items-center justify-center overflow-hidden pt-14 pb-6 md:pt-24 md:pb-8"
       style={{
         background:
           "linear-gradient(170deg, hsl(38 78% 58%) 0%, hsl(36 78% 48%) 28%, hsl(33 80% 42%) 58%, hsl(30 82% 36%) 100%)",
@@ -50,7 +50,7 @@ const HeroSection = () => {
         </div>
         <div className="absolute left-0 right-0 bottom-0 h-[26%] md:h-[42%] grid grid-cols-3">
           {lowerPhotos.map((photo) => (
-            <div key={photo.label} className="relative overflow-hidden">
+            <div key={photo.label} className={`relative overflow-hidden ${photo.containerClassName ?? ""}`}>
               <img
                 src={photo.src}
                 alt=""
@@ -199,7 +199,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.15 }}
-          className="relative mx-auto mb-3 w-36 h-36 sm:w-44 sm:h-44 md:w-60 md:h-60"
+          className="relative mx-auto mb-2 md:mb-3 w-32 h-32 sm:w-44 sm:h-44 md:w-60 md:h-60"
         >
           {/* Glow */}
           <div
@@ -232,7 +232,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, delay: 0.55 }}
-          className="w-full mb-6 md:-mt-10"
+          className="w-full mb-4 md:mb-6 md:-mt-10"
         >
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-3 md:gap-4">
             <div
@@ -276,7 +276,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.05 }}
-          className="mt-1 mb-4 md:-mt-8"
+          className="mt-0.5 mb-3 md:mb-4 md:-mt-8"
         >
           <div
             className="mx-auto w-fit rounded-2xl px-0 py-0"
@@ -321,7 +321,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.5 }}
-          className="font-display text-4xl sm:text-5xl md:text-7xl font-bold mb-2 leading-tight md:hidden"
+          className="font-display text-4xl sm:text-5xl md:text-7xl font-bold mb-1 leading-tight md:hidden"
           style={{
             color: "hsl(40 90% 96%)",
             textShadow: "0 2px 16px rgba(80,40,0,0.4)",
@@ -335,7 +335,7 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.75 }}
-          className="text-base md:text-lg tracking-widest mb-2 uppercase font-body md:hidden"
+          className="text-base md:text-lg tracking-widest mb-1 uppercase font-body md:hidden"
           style={{ color: "hsl(38 50% 88%)" }}
         >
           Param Pujya Swami Subodhananda ji Maharaj
@@ -346,7 +346,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, scaleX: 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 0.7, delay: 0.9 }}
-          className="flex items-center justify-center gap-3 mb-8"
+          className="flex items-center justify-center gap-3 mb-5 md:mb-8"
         >
           <div className="w-16 h-px" style={{ background: "rgba(255,220,150,0.5)" }} />
           <span style={{ color: "rgba(255,220,150,0.7)", fontSize: "16px" }}>✦</span>
