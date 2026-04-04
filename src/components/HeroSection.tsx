@@ -14,11 +14,12 @@ const lowerPhotos = [
 
 const leftLinks = [
   { label: "View Gallery", href: "#gallery" },
-  { label: "Stuti", href: "#stuti" },
+  { label: "Watch Talks", href: "#talks" },
 ];
 
 const rightLinks = [
-  { label: "Watch Talks", href: "#talks" },
+  { label: "Bhaajan", href: "#bhajans" },
+  { label: "Stuti", href: "#stuti" },
   { label: "Virah Stuti", href: "#shraddanjali" },
 ];
 
@@ -92,63 +93,134 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="relative z-10 w-full max-w-5xl px-4 flex flex-col items-center"
+        className="relative z-10 w-full max-w-6xl px-4 flex flex-col items-center"
       >
-        {/* Circle with curved text around it */}
+        {/* Orange bar with side links and centered circle */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, delay: 0.15 }}
-          className="relative mx-auto mb-4 md:mb-6 w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64"
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.85, delay: 0.15 }}
+          className="relative w-full rounded-2xl px-3 py-5 md:px-8 md:py-8 mb-6"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(209,115,20,0.86) 0%, rgba(184,94,12,0.9) 100%)",
+            border: "1px solid rgba(255,210,120,0.26)",
+            boxShadow: "0 10px 40px rgba(95,45,0,0.35)",
+          }}
         >
-          {/* Glow */}
-          <div
-            className="absolute -inset-6 rounded-full pointer-events-none"
-            style={{
-              background: "radial-gradient(circle, rgba(255,215,130,0.44) 0%, transparent 70%)",
-              filter: "blur(14px)",
-            }}
-          />
+          <div className="grid md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-5 items-center">
+            <div className="hidden md:flex items-center justify-end gap-3">
+              {leftLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="px-4 py-2 rounded-lg text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105"
+                  style={{
+                    background: "rgba(86,38,6,0.42)",
+                    color: "hsl(40 85% 95%)",
+                    border: "1px solid rgba(255,202,121,0.4)",
+                  }}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
 
-          {/* Curved Hindi text ring - SVG */}
-          <svg
-            className="absolute -inset-8 sm:-inset-10 md:-inset-12 w-[calc(100%+4rem)] h-[calc(100%+4rem)] sm:w-[calc(100%+5rem)] sm:h-[calc(100%+5rem)] md:w-[calc(100%+6rem)] md:h-[calc(100%+6rem)] pointer-events-none animate-spin-slow"
-            viewBox="0 0 300 300"
-          >
-            <defs>
-              <path
-                id="textCircle"
-                d="M 150,150 m -120,0 a 120,120 0 1,1 240,0 a 120,120 0 1,1 -240,0"
-              />
-            </defs>
-            <text
-              fill="hsl(40 90% 96%)"
-              fontSize="20"
-              fontWeight="600"
-              letterSpacing="4"
-              style={{ fontFamily: "'Cormorant Garamond', serif" }}
-            >
-              <textPath href="#textCircle" startOffset="0%">
-                ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦
-              </textPath>
-            </text>
-          </svg>
+            {/* Circle with curved text around it */}
+            <div className="relative flex items-center justify-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.9, delay: 0.15 }}
+                className="relative mx-auto w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56"
+              >
+                {/* Glow */}
+                <div
+                  className="absolute -inset-6 rounded-full pointer-events-none"
+                  style={{
+                    background: "radial-gradient(circle, rgba(255,215,130,0.44) 0%, transparent 70%)",
+                    filter: "blur(14px)",
+                  }}
+                />
 
-          {/* Gold ring */}
-          <div
-            className="absolute -inset-1.5 rounded-full pointer-events-none"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(246,199,82,0.9), rgba(221,160,44,0.7), rgba(246,199,82,0.9))",
-            }}
-          />
-          {/* Circle photo */}
-          <div className="relative w-full h-full rounded-full overflow-hidden shadow-lg">
-            <img
-              src={heroSignature}
-              alt="Swami Subodhananda ji Maharaj"
-              className="absolute inset-0 w-full h-full object-cover object-center"
-            />
+                {/* Curved Hindi text ring - SVG */}
+                <svg
+                  className="absolute -inset-8 sm:-inset-10 md:-inset-12 w-[calc(100%+4rem)] h-[calc(100%+4rem)] sm:w-[calc(100%+5rem)] sm:h-[calc(100%+5rem)] md:w-[calc(100%+6rem)] md:h-[calc(100%+6rem)] pointer-events-none"
+                  viewBox="0 0 300 300"
+                >
+                  <defs>
+                    <path
+                      id="textCircle"
+                      d="M 150,150 m -120,0 a 120,120 0 1,1 240,0 a 120,120 0 1,1 -240,0"
+                    />
+                  </defs>
+                  <text
+                    fill="hsl(40 90% 96%)"
+                    fontSize="20"
+                    fontWeight="600"
+                    letterSpacing="4"
+                    style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                  >
+                    <textPath href="#textCircle" startOffset="0%">
+                      ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦
+                    </textPath>
+                  </text>
+                </svg>
+
+                {/* Gold ring */}
+                <div
+                  className="absolute -inset-1.5 rounded-full pointer-events-none"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, rgba(246,199,82,0.9), rgba(221,160,44,0.7), rgba(246,199,82,0.9))",
+                  }}
+                />
+
+                {/* Circle photo */}
+                <div className="relative w-full h-full rounded-full overflow-hidden shadow-lg">
+                  <img
+                    src={heroSignature}
+                    alt="Swami Subodhananda ji Maharaj"
+                    className="absolute inset-0 w-full h-full object-cover object-center"
+                  />
+                </div>
+              </motion.div>
+            </div>
+
+            <div className="hidden md:flex items-center justify-start gap-3">
+              {rightLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="px-4 py-2 rounded-lg text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105"
+                  style={{
+                    background: "rgba(255,229,175,0.18)",
+                    color: "hsl(40 85% 95%)",
+                    border: "1px solid rgba(255,202,121,0.4)",
+                  }}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile links */}
+          <div className="md:hidden mt-4 grid grid-cols-2 gap-2.5 max-w-sm mx-auto">
+            {[...leftLinks, ...rightLinks].map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="px-3 py-2 rounded-lg text-xs sm:text-sm font-medium tracking-wide text-center transition-all duration-200 hover:scale-105"
+                style={{
+                  background: "rgba(86,38,6,0.42)",
+                  color: "hsl(40 85% 95%)",
+                  border: "1px solid rgba(255,202,121,0.4)",
+                }}
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
         </motion.div>
 
@@ -163,89 +235,6 @@ const HeroSection = () => {
           Param Pujya Swami Subodhananda ji Maharaj
         </motion.p>
 
-        {/* Decorative divider */}
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.7, delay: 0.7 }}
-          className="flex items-center justify-center gap-3 mb-5 md:mb-8"
-        >
-          <div className="w-16 h-px" style={{ background: "rgba(255,220,150,0.5)" }} />
-          <span style={{ color: "rgba(255,220,150,0.7)", fontSize: "16px" }}>✦</span>
-          <div className="w-16 h-px" style={{ background: "rgba(255,220,150,0.5)" }} />
-        </motion.div>
-
-        {/* Navigation links - left & right of center */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.9 }}
-          className="w-full"
-        >
-          {/* Desktop: side-by-side layout */}
-          <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center gap-6">
-            {/* Left links */}
-            <div className="flex justify-end gap-4">
-              {leftLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="px-6 py-2.5 rounded-lg text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105"
-                  style={{
-                    background: "hsl(25 50% 25%)",
-                    color: "hsl(40 70% 92%)",
-                    border: "1px solid rgba(160,100,30,0.4)",
-                    boxShadow: "0 4px 20px rgba(80,40,0,0.3)",
-                  }}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-
-            {/* Center diamond */}
-            <span style={{ color: "rgba(255,220,150,0.6)", fontSize: "14px" }}>✦</span>
-
-            {/* Right links */}
-            <div className="flex justify-start gap-4">
-              {rightLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="px-6 py-2.5 rounded-lg text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105"
-                  style={{
-                    background: "rgba(255,220,150,0.2)",
-                    color: "hsl(40 80% 94%)",
-                    border: "1px solid rgba(255,200,100,0.35)",
-                    backdropFilter: "blur(4px)",
-                  }}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Mobile: 2x2 grid */}
-          <div className="md:hidden grid grid-cols-2 gap-3 max-w-xs mx-auto">
-            {[...leftLinks, ...rightLinks].map((link, i) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="px-4 py-2.5 rounded-lg text-sm font-medium tracking-wide text-center transition-all duration-200 hover:scale-105"
-                style={{
-                  background: i < 2 ? "hsl(25 50% 25%)" : "rgba(255,220,150,0.2)",
-                  color: i < 2 ? "hsl(40 70% 92%)" : "hsl(40 80% 94%)",
-                  border: i < 2 ? "1px solid rgba(160,100,30,0.4)" : "1px solid rgba(255,200,100,0.35)",
-                  boxShadow: i < 2 ? "0 4px 20px rgba(80,40,0,0.3)" : "none",
-                  backdropFilter: i >= 2 ? "blur(4px)" : "none",
-                }}
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-        </motion.div>
       </motion.div>
 
       {/* Bottom fade into next section */}
