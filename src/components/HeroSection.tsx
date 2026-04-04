@@ -7,7 +7,6 @@ import heroSignature from "@/assets/pic2.jpg";
 import sign from "@/assets/gallery/sign.jpg";
 import ma from "@/assets/gallery/ma.jpeg";
 
-
 const leftLinks = [
   { label: "Journey", href: "#journey" },
   { label: "View Gallery", href: "#gallery" },
@@ -20,7 +19,6 @@ const rightLinks = [
   { label: "Virah Stuti", href: "#shraddanjali" },
 ];
 
-// Shared link style
 const linkStyle: CSSProperties = {
   background: "rgba(86,38,6,0.42)",
   color: "hsl(40 85% 95%)",
@@ -31,7 +29,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-0 md:min-h-[100svh] flex flex-col overflow-hidden md:items-center md:justify-center pt-10 pb-0 md:pt-24 md:pb-8"
+      className="relative min-h-[92svh] md:min-h-[100svh] flex flex-col items-center justify-center overflow-hidden pt-12 pb-4 md:pt-24 md:pb-8"
       style={{
         background:
           "linear-gradient(170deg, hsl(38 78% 58%) 0%, hsl(36 78% 48%) 28%, hsl(33 80% 42%) 58%, hsl(30 82% 36%) 100%)",
@@ -54,10 +52,10 @@ const HeroSection = () => {
 
       {/* Background photos */}
       <div className="absolute inset-0 opacity-[0.45]">
-        {/* Top row */}
-        {/* Mobile: mandir full-width only. Desktop: both side by side */}
-        <div className="grid grid-cols-1 md:grid-cols-2 h-48 md:h-[42%]">
-          {/* Upper-left (ma): hidden on mobile, shown on desktop */}
+
+        {/* Top row: mobile = mandir full width; desktop = ma + mandir */}
+        <div className="grid grid-cols-1 md:grid-cols-2 h-[44%] md:h-[42%]">
+          {/* ma — desktop only */}
           <div className="hidden md:block relative overflow-hidden">
             <img
               src={ma}
@@ -66,7 +64,7 @@ const HeroSection = () => {
               style={{ objectPosition: "25% 0%" }}
             />
           </div>
-          {/* Mandir: full width on mobile, half on desktop — centered so not cropped on right */}
+          {/* Mandir — full width on mobile, centered so not right-clipped */}
           <div className="relative overflow-hidden">
             <img
               src={heroShiva}
@@ -78,16 +76,22 @@ const HeroSection = () => {
         </div>
 
         {/* Bottom row: 2 cols on mobile (sign hidden), 3 cols on md+ */}
-        <div className="relative md:absolute md:left-0 md:right-0 md:bottom-0 h-36 md:h-[42%] grid grid-cols-2 md:grid-cols-3">
-          {/* Lower-left (feet): anchor top-left so subject isn't cropped on right */}
+        <div className="absolute left-0 right-0 bottom-0 h-[30%] md:h-[42%] grid grid-cols-2 md:grid-cols-3">
           <div className="relative overflow-hidden">
-            <img src={heroFeet} alt="" className="w-full h-full object-cover" style={{ objectPosition: "left top" }} />
+            <img
+              src={heroFeet}
+              alt=""
+              className="w-full h-full object-cover"
+              style={{ objectPosition: "left top" }}
+            />
           </div>
-          {/* Lower-center (portrait) */}
           <div className="relative overflow-hidden">
-            <img src={heroPortrait} alt="" className="w-full h-full object-cover object-top" />
+            <img
+              src={heroPortrait}
+              alt=""
+              className="w-full h-full object-cover object-top"
+            />
           </div>
-          {/* Sign: hidden on mobile, shown on md+ */}
           <div className="hidden md:block relative overflow-hidden">
             <img
               src={sign}
@@ -121,13 +125,8 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="relative z-10 w-full max-w-6xl px-2 md:px-4 flex flex-col items-center gap-0 py-3 md:py-0"
+        className="relative z-10 w-full max-w-6xl px-2 md:px-4 flex flex-col items-center"
       >
-        {/*
-          Circle + links bar
-          ─ Desktop: 3-col grid [leftLinks | circle | rightLinks]
-          ─ Mobile:  same 3-col grid but very compact
-        */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -136,7 +135,7 @@ const HeroSection = () => {
         >
           <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] gap-3 md:gap-12 items-center px-1 md:px-0">
 
-            {/* Left links — right-aligned, won't exceed their column */}
+            {/* Left links */}
             <div className="flex flex-col items-end gap-[4px] md:gap-2 md:pr-8">
               {leftLinks.map((link) => (
                 <a
@@ -150,7 +149,7 @@ const HeroSection = () => {
               ))}
             </div>
 
-            {/* Circle — larger on mobile so ring text has room */}
+            {/* Circle */}
             <div className="relative flex items-center justify-center">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -167,7 +166,7 @@ const HeroSection = () => {
                   }}
                 />
 
-                {/* Rotating Sanskrit text ring — single phrase, CSS spin */}
+                {/* Rotating Sanskrit text ring */}
                 <svg
                   className="absolute -inset-5 sm:-inset-8 md:-inset-12 w-[calc(100%+2.5rem)] h-[calc(100%+2.5rem)] sm:w-[calc(100%+4rem)] sm:h-[calc(100%+4rem)] md:w-[calc(100%+6rem)] md:h-[calc(100%+6rem)] pointer-events-none"
                   viewBox="0 0 300 300"
@@ -205,7 +204,7 @@ const HeroSection = () => {
               </motion.div>
             </div>
 
-            {/* Right links — left-aligned, won't exceed their column */}
+            {/* Right links */}
             <div className="flex flex-col items-start gap-[4px] md:gap-2 md:pl-8">
               {rightLinks.map((link) => (
                 <a
@@ -225,7 +224,7 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* Subtitle */}
+        {/* Subtitle — one line gap above */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -239,7 +238,7 @@ const HeroSection = () => {
 
       {/* Bottom fade into next section */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-12 md:h-24"
+        className="absolute bottom-0 left-0 right-0 h-24"
         style={{ background: "linear-gradient(0deg, hsl(34 50% 82%) 0%, transparent 100%)" }}
       />
     </section>
