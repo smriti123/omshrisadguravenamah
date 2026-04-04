@@ -31,7 +31,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[92svh] md:min-h-[100svh] flex flex-col items-center justify-center overflow-hidden pt-10 pb-0 md:pt-24 md:pb-8"
+      className="relative min-h-0 md:min-h-[100svh] flex flex-col overflow-hidden md:items-center md:justify-center pt-10 pb-0 md:pt-24 md:pb-8"
       style={{
         background:
           "linear-gradient(170deg, hsl(38 78% 58%) 0%, hsl(36 78% 48%) 28%, hsl(33 80% 42%) 58%, hsl(30 82% 36%) 100%)",
@@ -56,7 +56,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 opacity-[0.45]">
         {/* Top row */}
         {/* Mobile: mandir full-width only. Desktop: both side by side */}
-        <div className="grid grid-cols-1 md:grid-cols-2 h-[44%] md:h-[42%]">
+        <div className="grid grid-cols-1 md:grid-cols-2 h-48 md:h-[42%]">
           {/* Upper-left (ma): hidden on mobile, shown on desktop */}
           <div className="hidden md:block relative overflow-hidden">
             <img
@@ -66,19 +66,19 @@ const HeroSection = () => {
               style={{ objectPosition: "25% 0%" }}
             />
           </div>
-          {/* Mandir: full width on mobile, half on desktop */}
+          {/* Mandir: full width on mobile, half on desktop — centered so not cropped on right */}
           <div className="relative overflow-hidden">
             <img
               src={heroShiva}
               alt=""
               className="w-full h-full object-cover"
-              style={{ objectPosition: "30% 0%" }}
+              style={{ objectPosition: "50% 0%" }}
             />
           </div>
         </div>
 
         {/* Bottom row: 2 cols on mobile (sign hidden), 3 cols on md+ */}
-        <div className="absolute left-0 right-0 bottom-0 h-[30%] md:h-[42%] grid grid-cols-2 md:grid-cols-3">
+        <div className="relative md:absolute md:left-0 md:right-0 md:bottom-0 h-36 md:h-[42%] grid grid-cols-2 md:grid-cols-3">
           {/* Lower-left (feet): anchor top-left so subject isn't cropped on right */}
           <div className="relative overflow-hidden">
             <img src={heroFeet} alt="" className="w-full h-full object-cover" style={{ objectPosition: "left top" }} />
@@ -121,7 +121,7 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="relative z-10 w-full max-w-6xl px-2 md:px-4 flex flex-col items-center gap-0"
+        className="relative z-10 w-full max-w-6xl px-2 md:px-4 flex flex-col items-center gap-0 py-3 md:py-0"
       >
         {/*
           Circle + links bar
@@ -230,7 +230,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.55 }}
-          className="text-[9px] sm:text-base md:text-lg tracking-widest mb-0 md:mb-8 uppercase font-body text-center leading-tight"
+          className="text-[9px] sm:text-base md:text-lg tracking-widest mt-2 mb-0 md:mb-8 uppercase font-body text-center leading-tight"
           style={{ color: "hsl(38 50% 88%)" }}
         >
           Param Pujya Swami Subodhananda ji Maharaj
