@@ -138,10 +138,8 @@ const JourneyTimeline = () => {
             <p>
               Yet no timeline can ever contain the fullness of the life and grace of our Hriday Samarth.
               This is only a humble and approximate effort to trace the outer journey of one whose inner presence continues to guide countless hearts.
-             
             </p>
-
-          
+          </div>
         </motion.div>
 
         <div className="max-w-3xl mx-auto relative">
