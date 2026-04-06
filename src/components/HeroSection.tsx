@@ -155,7 +155,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.9, delay: 0.15 }}
-                className="relative mx-auto w-[88px] h-[88px] sm:w-32 sm:h-32 md:w-56 md:h-56"
+                className="relative mx-auto w-[120px] h-[120px] sm:w-40 sm:h-40 md:w-56 md:h-56"
               >
                 {/* Glow */}
                 <div
