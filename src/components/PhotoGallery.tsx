@@ -152,7 +152,6 @@ I fondly remember when Swamiji entered the Gaushala how all the cows started get
    { src: akh2,  label: "Akhileshwar Mahadev Mandir",   vintage: true  },
   { src: p3,  label: "",   vintage: true  },
   { src: p4,  label: "", vintage: true  },
-  { src: p5,  label: "", vintage: true },
   { src: p6,  label: "",         vintage: true, story: `
 The beauty of Swamijee has been that every devotee  n his associated Ashram was liked most whereas all devotees belonging to different different Ashram too felt the same.
 This is the beauty of a GURU SWAMI SUBODHANANDJEE  whose love 💘 for any individual or his Ashram was NOT at the cost of others !! 
