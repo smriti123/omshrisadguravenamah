@@ -29,7 +29,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[92svh] md:min-h-[100svh] flex flex-col items-center justify-center overflow-hidden pt-12 pb-4 md:pt-24 md:pb-8"
+      className="relative min-h-[92svh] md:min-h-[100svh] flex flex-col items-center justify-center overflow-hidden pt-12 pb-2 md:pt-24 md:pb-4"
       style={{
         background:
           "linear-gradient(170deg, hsl(38 78% 58%) 0%, hsl(36 78% 48%) 28%, hsl(33 80% 42%) 58%, hsl(30 82% 36%) 100%)",
@@ -133,7 +133,7 @@ const HeroSection = () => {
           transition={{ duration: 0.85, delay: 0.15 }}
           className="relative w-full mb-0 md:mb-6"
         >
-          <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] gap-3 md:gap-12 items-center px-1 md:px-0">
+          <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] gap-2 md:gap-12 items-center px-1 md:px-0">
 
             {/* Left links */}
             <div className="flex flex-col items-end gap-[4px] md:gap-2 md:pr-8">
@@ -155,7 +155,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.9, delay: 0.15 }}
-                className="relative mx-auto w-[88px] h-[88px] sm:w-32 sm:h-32 md:w-56 md:h-56"
+                className="relative mx-auto w-[120px] h-[120px] sm:w-40 sm:h-40 md:w-56 md:h-56"
               >
                 {/* Glow */}
                 <div
@@ -229,7 +229,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.55 }}
-          className="text-[9px] sm:text-base md:text-lg tracking-widest mt-2 mb-0 md:mb-8 uppercase font-body text-center leading-tight"
+          className="text-[9px] sm:text-base md:text-lg tracking-widest mt-2 mb-0 uppercase font-body text-center leading-tight"
           style={{ color: "hsl(38 50% 88%)" }}
         >
           Param Pujya Swami Subodhananda ji Maharaj
