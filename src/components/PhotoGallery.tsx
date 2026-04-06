@@ -173,19 +173,19 @@ That's why every one of us the  devotees miss him equally n she'd tears equally 
     story: "",
   },  
 
-  { src: p10, label: "Himalaya",        vintage: true  },
+  { src: p10, label: "",        vintage: true  },
   { src: p11, label: "Puja ceremony",   vintage: false },
-  { src: p12, label: "With disciples",  vintage: false },
-  { src: p13, label: "Shiva puja",      vintage: false },
-  { src: p14, label: "Lotus feet",      vintage: false },
-  { src: p15, label: "Blessings",       vintage: false },
+  { src: p12, label: "",  vintage: false },
+  { src: p13, label: "",      vintage: false },
+  { src: p14, label: "",      vintage: false },
+  { src: p15, label: "",       vintage: false },
  
-  { src: p17, label: "Devotees",        vintage: false },
-  { src: p18, label: "Sacred moment",   vintage: false },
+  { src: p17, label: "",        vintage: false },
+  { src: p18, label: "",   vintage: false },
   
  
-  { src: p20, label: "Divine presence", vintage: false },
-  { src: p21, label: "Jai Gurudev",     vintage: false },
+  { src: p20, label: "", vintage: false },
+  { src: p21, label: "",     vintage: false },
 ];
 
 const visheshPhotos: Photo[] = [
