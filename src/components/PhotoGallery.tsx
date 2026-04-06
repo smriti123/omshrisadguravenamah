@@ -152,12 +152,7 @@ I fondly remember when Swamiji entered the Gaushala how all the cows started get
    { src: akh2,  label: "Akhileshwar Mahadev Mandir",   vintage: true  },
   { src: p3,  label: "",   vintage: true  },
   { src: p4,  label: "", vintage: true  },
-  {
-    src: p5,
-    label: "",
-    vintage: true,
-    story: "For three consecutive winters, Swamiji retreated to a remote cave near Gangotri for intense meditation. With no shelter from the biting cold, sustained only by simple food and unwavering faith, these years shaped the extraordinary stillness that devotees would later sense in his presence.",
-  },
+  { src: p5,  label: "", vintage: true },
   { src: p6,  label: "",         vintage: true, story: `
 The beauty of Swamijee has been that every devotee  n his associated Ashram was liked most whereas all devotees belonging to different different Ashram too felt the same.
 This is the beauty of a GURU SWAMI SUBODHANANDJEE  whose love 💘 for any individual or his Ashram was NOT at the cost of others !! 
@@ -354,7 +349,7 @@ const PhotoCard = ({
           <img
             src={photo.src}
             alt={photo.label}
-            className={`w-full h-full object-cover object-top ${hasStory ? "min-h-[250px] max-h-[380px]" : "min-h-[240px] max-h-[340px]"}`}
+            className={`w-full h-full object-cover object-center ${hasStory ? "min-h-[250px] max-h-[380px]" : "min-h-[240px] max-h-[340px]"}`}
             style={photo.vintage ? { filter: "sepia(55%) contrast(1.05) brightness(0.93)" } : {}}
           />
 
