@@ -25,7 +25,6 @@ const events: TimelineEvent[] = [
     description:
       "Swami ji reached Sidhbari for joining the 1st Vedanta Course at Sandeepany Himalaya. He was the first student to arrive — even before Gurudev and Guru ji.",
     highlight: true,
-    image: imgArrival,
   },
   {
     date: "24–25 April 1981",

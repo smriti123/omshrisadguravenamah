@@ -171,7 +171,7 @@ That's why every one of us the  devotees miss him equally n she'd tears equally 
     vintage: false,
     story: "",
   },  
-  { src: kreeda, label: "ॐ क्रीडा प्रियाय नमः ।", vintage: false },
+  { src: kreeda, label: "ॐ क्रीडा प्रियाय नमः ।", vintage: false, story: `एकदम सार्थक है यह नाम। विद्यार्थी काल में क्रिकेट 🏏 के लिए जयंत क्लब की स्थापना। ब्रह्मचारी काल में और आचार्य काल में सिद्धबारी में 🏸 बैडमिंटन, कब्बडी। A lot of Volleyball too until early 2005 before valve replacement surgery! Later Pujya Swamiji adopted doing regular yogasanas in His cottage instead of outdoor games. He was a very good badminton player in his time. During my batch (1998), I was blessed enough that he used to play with me in a very well steady manner and also taught me the same.` },
   { src: p9,  label: "Nature walk",     vintage: false },
   { src: p10, label: "Himalaya",        vintage: true  },
   { src: p11, label: "Puja ceremony",   vintage: false },
