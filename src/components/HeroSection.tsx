@@ -229,7 +229,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.55 }}
-          className="text-[9px] sm:text-base md:text-lg tracking-widest mt-2 mb-0 md:mb-8 uppercase font-body text-center leading-tight"
+          className="text-[9px] sm:text-base md:text-lg tracking-widest mt-2 mb-0 uppercase font-body text-center leading-tight"
           style={{ color: "hsl(38 50% 88%)" }}
         >
           Param Pujya Swami Subodhananda ji Maharaj
