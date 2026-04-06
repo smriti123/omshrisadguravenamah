@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 
-import imgArrival from "@/assets/gallery/v1.jpg";
+
 import imgDeeksha from "@/assets/gallery/photo-3.jpg";
 import imgAcharya from "@/assets/gallery/photo-6.jpg";
 import imgSanyasa from "@/assets/gallery/v3.jpg";
