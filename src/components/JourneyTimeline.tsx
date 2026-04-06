@@ -200,7 +200,7 @@ const JourneyTimeline = () => {
                       <img
                         src={event.image}
                         alt={event.title}
-                        className="w-full h-48 object-cover object-top"
+                        className="w-full h-auto"
                         style={{ filter: "sepia(25%) contrast(1.02) brightness(0.96)" }}
                       />
                     </motion.div>
