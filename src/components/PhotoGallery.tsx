@@ -408,11 +408,26 @@ const PhotoCard = ({
 };
 
 // ── Section heading ───────────────────────────────────────
-const SectionHeading = ({ hindi, english, sub }: { hindi: string; english: string; sub: string }) => (
+const SectionHeading = ({
+  hindi,
+  english,
+  sub,
+  description,
+}: {
+  hindi: string;
+  english: string;
+  sub: string;
+  description?: string;
+}) => (
   <div className="text-center mb-8">
     <p className="text-xs tracking-[0.25em] uppercase mb-2" style={{ color: "rgba(160,90,16,0.6)" }}>{sub}</p>
     <h3 className="text-2xl md:text-3xl font-bold mb-2" style={{ color: "#7a3a00", fontFamily: "serif" }}>{english}</h3>
     <p className="text-sm mb-4" style={{ color: "rgba(140,70,10,0.65)", fontFamily: "serif" }}>{hindi}</p>
+    {description && (
+      <p className="text-sm md:text-base max-w-3xl mx-auto mb-4" style={{ color: "rgba(120,65,14,0.75)", fontFamily: "serif" }}>
+        {description}
+      </p>
+    )}
     <div className="flex items-center justify-center gap-3">
       <div className="w-12 h-px" style={{ background: "rgba(180,100,20,0.35)" }} />
       <span style={{ color: "rgba(180,100,20,0.6)" }}>✦</span>
@@ -481,7 +496,12 @@ const GallerySection = () => {
     >
       <div className="max-w-6xl mx-auto px-4">
 
-        <SectionHeading sub="Photo gallery" english="Divine Glimpses" hindi="दिव्य दर्शन" />
+        <SectionHeading
+          sub="Photo gallery"
+          english="Divine Glimpses"
+          hindi="दिव्य दर्शन"
+          description="Along with fond memories and heartfelt recollections shared by devotees from time to time."
+        />
 
         {/* Section 1 */}
         <div className="mb-20">
