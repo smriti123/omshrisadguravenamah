@@ -29,7 +29,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[92svh] md:min-h-[100svh] flex flex-col items-center justify-center overflow-hidden pt-12 pb-4 md:pt-24 md:pb-8"
+      className="relative min-h-[92svh] md:min-h-[100svh] flex flex-col items-center justify-center overflow-hidden pt-12 pb-2 md:pt-24 md:pb-4"
       style={{
         background:
           "linear-gradient(170deg, hsl(38 78% 58%) 0%, hsl(36 78% 48%) 28%, hsl(33 80% 42%) 58%, hsl(30 82% 36%) 100%)",
