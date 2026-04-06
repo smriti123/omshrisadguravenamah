@@ -42,7 +42,7 @@ Om. May there be peace in the heavens, peace in the mid-space, peace on earth; p
 Hari Om. Peace, peace, peace.`,
   },
   {
-    name: "SBS Iyer ",
+    name: " ",
     message: `What a disciple..unparallel ..unimaginable..incredible..
 Encyclopedia of Spirituality..who churned out Disciples after Disciples from Sidhbari for what Chinmaya Mission is today..
 He was the most knowledgeable,  humility personified n unmatchable Guru Bhakti..most soft spoken , ever smiling , who enjoyed participation of every devotee's experiences n feelings..extremely very good listener..
@@ -105,7 +105,7 @@ Hari Om. Peace, peace, peace.`,
 ॐ शान्तिः!`,
   },
   {
-    name: "SBS Iyer",
+    name: " ",
     message: `nparallel Guru..Most loving Guru...Most soft spoken Guru...Most ...highly read Guru...Epitome of Simplicity..Guru...Never hurting Guru...inimitable Smiling Guru .....Laughing freely Guru ..who enjoyed every body's jokes ..Guru who was ...
 Encyclopedia of Vedanta...
 He was Guru's Guru !!
