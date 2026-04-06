@@ -133,7 +133,7 @@ const HeroSection = () => {
           transition={{ duration: 0.85, delay: 0.15 }}
           className="relative w-full mb-0 md:mb-6"
         >
-          <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] gap-3 md:gap-12 items-center px-1 md:px-0">
+          <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] gap-2 md:gap-12 items-center px-1 md:px-0">
 
             {/* Left links */}
             <div className="flex flex-col items-end gap-[4px] md:gap-2 md:pr-8">
