@@ -136,12 +136,12 @@ const HeroSection = () => {
           <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] gap-2 md:gap-12 items-center px-1 md:px-0">
 
             {/* Left links */}
-            <div className="flex flex-col items-end gap-[4px] md:gap-2 md:pr-8">
+            <div className="flex flex-col items-end gap-[5px] md:gap-2 md:pr-8 pr-1">
               {leftLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="px-2 py-[4px] md:px-4 md:py-2 rounded text-[9px] md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
+                  className="px-2.5 py-[5px] md:px-4 md:py-2 rounded text-[10px] md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
                   style={linkStyle}
                 >
                   {link.label}
@@ -168,7 +168,7 @@ const HeroSection = () => {
 
                 {/* Rotating Sanskrit text ring */}
                 <svg
-                  className="absolute -inset-5 sm:-inset-8 md:-inset-12 w-[calc(100%+2.5rem)] h-[calc(100%+2.5rem)] sm:w-[calc(100%+4rem)] sm:h-[calc(100%+4rem)] md:w-[calc(100%+6rem)] md:h-[calc(100%+6rem)] pointer-events-none"
+                  className="absolute -inset-7 sm:-inset-8 md:-inset-12 w-[calc(100%+3.5rem)] h-[calc(100%+3.5rem)] sm:w-[calc(100%+4rem)] sm:h-[calc(100%+4rem)] md:w-[calc(100%+6rem)] md:h-[calc(100%+6rem)] pointer-events-none"
                   viewBox="0 0 300 300"
                   style={{ animation: "spinRing 20s linear infinite", transformOrigin: "center" }}
                 >
@@ -176,7 +176,12 @@ const HeroSection = () => {
                     <path id="textCircle" d="M 150,150 m -120,0 a 120,120 0 1,1 240,0 a 120,120 0 1,1 -240,0" />
                     <style>{`@keyframes spinRing { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
                   </defs>
-                  <text fill="hsl(40 90% 96%)" fontSize="13" fontWeight="600" letterSpacing="3" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                  <text fill="hsl(40 90% 96%)" fontSize="16" fontWeight="600" letterSpacing="2.5" className="md:hidden" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                    <textPath href="#textCircle" startOffset="0%">
+                      ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦
+                    </textPath>
+                  </text>
+                  <text fill="hsl(40 90% 96%)" fontSize="13" fontWeight="600" letterSpacing="3" className="hidden md:block" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
                     <textPath href="#textCircle" startOffset="0%">
                       ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦
                     </textPath>
@@ -205,12 +210,12 @@ const HeroSection = () => {
             </div>
 
             {/* Right links */}
-            <div className="flex flex-col items-start gap-[4px] md:gap-2 md:pl-8">
+            <div className="flex flex-col items-start gap-[5px] md:gap-2 md:pl-8 pl-1">
               {rightLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="px-2 py-[4px] md:px-4 md:py-2 rounded text-[9px] md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
+                  className="px-2.5 py-[5px] md:px-4 md:py-2 rounded text-[10px] md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
                   style={{
                     background: "rgba(255,229,175,0.18)",
                     color: "hsl(40 85% 95%)",
