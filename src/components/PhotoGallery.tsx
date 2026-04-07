@@ -235,57 +235,98 @@ const Lightbox = ({
 
   useEffect(() => {
     const fn = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft")  prev();
+      if (e.key === "ArrowLeft") prev();
       if (e.key === "ArrowRight") next();
-      if (e.key === "Escape")     onClose();
+      if (e.key === "Escape") onClose();
     };
+
     window.addEventListener("keydown", fn);
     return () => window.removeEventListener("keydown", fn);
   }, [prev, next, onClose]);
+
+  useEffect(() => {
+    const scrollY = window.scrollY;
+    const originalBodyStyles = {
+      overflow: document.body.style.overflow,
+      position: document.body.style.position,
+      top: document.body.style.top,
+      width: document.body.style.width,
+    };
+
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
+
+    return () => {
+      document.body.style.overflow = originalBodyStyles.overflow;
+      document.body.style.position = originalBodyStyles.position;
+      document.body.style.top = originalBodyStyles.top;
+      document.body.style.width = originalBodyStyles.width;
+      window.scrollTo(0, scrollY);
+    };
+  }, []);
 
   const photo = photos[idx];
 
   return (
     <motion.div
-      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex flex-col"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 overflow-hidden"
       style={{ background: "radial-gradient(circle at top, rgba(80,35,10,0.94) 0%, rgba(35,16,6,0.96) 45%, rgba(24,10,4,0.98) 100%)" }}
       onClick={onClose}
     >
-      {/* Fixed header with back button */}
-      <div className="flex-shrink-0 flex items-center justify-between px-4 py-3 md:px-6 md:py-5">
-        <button
-          className="rounded-full px-4 py-2 text-sm tracking-wide transition-all"
+      <div className="h-full overflow-y-auto overscroll-contain" onClick={(e) => e.stopPropagation()}>
+        <div
+          className="sticky top-0 z-20 flex items-center justify-between gap-3 px-4 pb-3 md:px-6 md:pb-5"
           style={{
-            border: "1px solid rgba(200,140,40,0.35)",
-            color: "rgba(255,220,150,0.9)",
-            background: "rgba(200,120,20,0.12)",
+            paddingTop: "max(env(safe-area-inset-top), 0.75rem)",
+            background: "linear-gradient(180deg, rgba(50,22,8,0.96) 0%, rgba(50,22,8,0.86) 70%, rgba(50,22,8,0) 100%)",
+            backdropFilter: "blur(10px)",
           }}
-          onClick={onClose}
         >
-          ← Back to Gallery
-        </button>
-        <button
-          className="text-3xl leading-none"
-          style={{ color: "rgba(255,210,120,0.6)" }}
-          onClick={onClose}
-        >×</button>
-      </div>
+          <button
+            className="rounded-full px-4 py-2 text-sm tracking-wide transition-all"
+            style={{
+              border: "1px solid rgba(200,140,40,0.35)",
+              color: "rgba(255,220,150,0.9)",
+              background: "rgba(200,120,20,0.12)",
+            }}
+            onClick={onClose}
+          >
+            ← Back to Gallery
+          </button>
 
-      {/* Scrollable content area */}
-      <div className="flex-1 overflow-y-auto px-4 pb-4" onClick={(e) => e.stopPropagation()}>
-        <div className="max-w-5xl mx-auto">
+          <button
+            className="text-3xl leading-none"
+            style={{ color: "rgba(255,210,120,0.6)" }}
+            onClick={onClose}
+            aria-label="Close gallery"
+          >
+            ×
+          </button>
+        </div>
+
+        <div
+          className="max-w-5xl mx-auto px-4 pb-4"
+          style={{ paddingBottom: "max(env(safe-area-inset-bottom), 1rem)" }}
+        >
           <AnimatePresence mode="wait">
             <motion.div
               key={idx}
-              initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="rounded-xl overflow-hidden shadow-2xl flex items-center justify-center"
-              style={{ maxHeight: "60vh", border: "1px solid rgba(200,140,40,0.3)" }}
+              className="rounded-xl overflow-hidden shadow-2xl flex items-center justify-center min-h-[220px]"
+              style={{ border: "1px solid rgba(200,140,40,0.3)" }}
             >
               <img
-                src={photo.src} alt={photo.label}
-                className="w-full max-h-[60vh] object-contain object-center"
+                src={photo.src}
+                alt={photo.label}
+                className="w-full h-auto max-h-[56svh] object-contain object-center sm:max-h-[60vh]"
                 style={photo.vintage ? { filter: "sepia(60%) contrast(1.05) brightness(0.94)" } : {}}
               />
             </motion.div>
@@ -296,6 +337,7 @@ const Lightbox = ({
               {photo.label}
               {photo.vintage && <span className="ml-2 text-xs" style={{ color: "rgba(200,150,60,0.6)" }}>· vintage</span>}
             </p>
+
             {photo.story && (
               <div
                 className="mt-4 rounded-lg p-4 text-left"
@@ -305,22 +347,33 @@ const Lightbox = ({
                 }}
               >
                 <p
-                  className="text-sm md:text-base leading-relaxed"
+                  className="text-sm md:text-base leading-relaxed whitespace-pre-line break-words"
                   style={{ color: "rgba(255,220,170,0.9)", fontFamily: "serif", lineHeight: "1.8" }}
                 >
                   {photo.story}
                 </p>
               </div>
             )}
-            <p className="text-xs mt-2" style={{ color: "rgba(200,150,60,0.35)" }}>{idx + 1} / {photos.length}</p>
+
+            <p className="text-xs mt-2" style={{ color: "rgba(200,150,60,0.35)" }}>
+              {idx + 1} / {photos.length}
+            </p>
           </div>
 
-          <div className="flex justify-between mt-4">
+          <div className="flex justify-between gap-3 mt-4 pb-2">
             {[{ fn: prev, label: "← Prev" }, { fn: next, label: "Next →" }].map(({ fn, label }) => (
-              <button key={label} onClick={fn}
-                className="px-6 py-2 rounded-full text-sm tracking-wide transition-all"
-                style={{ border: "1px solid rgba(200,140,40,0.3)", color: "rgba(255,210,120,0.7)", background: "rgba(200,120,20,0.08)" }}
-              >{label}</button>
+              <button
+                key={label}
+                onClick={fn}
+                className="px-5 py-2 rounded-full text-sm tracking-wide transition-all"
+                style={{
+                  border: "1px solid rgba(200,140,40,0.3)",
+                  color: "rgba(255,210,120,0.7)",
+                  background: "rgba(200,120,20,0.08)",
+                }}
+              >
+                {label}
+              </button>
             ))}
           </div>
         </div>
