@@ -210,12 +210,12 @@ const HeroSection = () => {
             </div>
 
             {/* Right links */}
-            <div className="flex flex-col items-start gap-[4px] md:gap-2 md:pl-8">
+            <div className="flex flex-col items-start gap-[5px] md:gap-2 md:pl-8 pl-1">
               {rightLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="px-2 py-[4px] md:px-4 md:py-2 rounded text-[9px] md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
+                  className="px-2.5 py-[5px] md:px-4 md:py-2 rounded text-[10px] md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
                   style={{
                     background: "rgba(255,229,175,0.18)",
                     color: "hsl(40 85% 95%)",
