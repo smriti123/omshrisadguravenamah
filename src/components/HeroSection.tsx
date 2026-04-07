@@ -136,12 +136,12 @@ const HeroSection = () => {
           <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] gap-2 md:gap-12 items-center px-1 md:px-0">
 
             {/* Left links */}
-            <div className="flex flex-col items-end gap-[4px] md:gap-2 md:pr-8">
+            <div className="flex flex-col items-end gap-[5px] md:gap-2 md:pr-8 pr-1">
               {leftLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="px-2 py-[4px] md:px-4 md:py-2 rounded text-[9px] md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
+                  className="px-2.5 py-[5px] md:px-4 md:py-2 rounded text-[10px] md:text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 text-center whitespace-nowrap"
                   style={linkStyle}
                 >
                   {link.label}
