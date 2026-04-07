@@ -248,77 +248,81 @@ const Lightbox = ({
   return (
     <motion.div
       initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center"
+      className="fixed inset-0 z-50 flex flex-col"
       style={{ background: "radial-gradient(circle at top, rgba(80,35,10,0.94) 0%, rgba(35,16,6,0.96) 45%, rgba(24,10,4,0.98) 100%)" }}
       onClick={onClose}
     >
-      <button
-        className="absolute top-5 left-6 rounded-full px-4 py-2 text-sm tracking-wide transition-all"
-        style={{
-          border: "1px solid rgba(200,140,40,0.35)",
-          color: "rgba(255,220,150,0.9)",
-          background: "rgba(200,120,20,0.12)",
-        }}
-        onClick={onClose}
-      >
-        ← Back to Gallery
-      </button>
+      {/* Fixed header with back button */}
+      <div className="flex-shrink-0 flex items-center justify-between px-4 py-3 md:px-6 md:py-5">
+        <button
+          className="rounded-full px-4 py-2 text-sm tracking-wide transition-all"
+          style={{
+            border: "1px solid rgba(200,140,40,0.35)",
+            color: "rgba(255,220,150,0.9)",
+            background: "rgba(200,120,20,0.12)",
+          }}
+          onClick={onClose}
+        >
+          ← Back to Gallery
+        </button>
+        <button
+          className="text-3xl leading-none"
+          style={{ color: "rgba(255,210,120,0.6)" }}
+          onClick={onClose}
+        >×</button>
+      </div>
 
-      <button
-        className="absolute top-5 right-6 text-4xl leading-none"
-        style={{ color: "rgba(255,210,120,0.6)" }}
-        onClick={onClose}
-      >×</button>
-
-      <div className="relative w-full max-w-5xl px-4" onClick={(e) => e.stopPropagation()}>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="rounded-xl overflow-hidden shadow-2xl flex items-center justify-center"
-            style={{ maxHeight: "78vh", border: "1px solid rgba(200,140,40,0.3)" }}
-          >
-            <img
-              src={photo.src} alt={photo.label}
-              className="w-full max-h-[78vh] object-contain object-center"
-              style={photo.vintage ? { filter: "sepia(60%) contrast(1.05) brightness(0.94)" } : {}}
-            />
-          </motion.div>
-        </AnimatePresence>
-
-        <div className="mt-3 text-center">
-          <p className="text-sm tracking-widest" style={{ color: "rgba(255,220,150,0.85)" }}>
-            {photo.label}
-            {photo.vintage && <span className="ml-2 text-xs" style={{ color: "rgba(200,150,60,0.6)" }}>· vintage</span>}
-          </p>
-          {/* Story in lightbox if present */}
-          {photo.story && (
-            <div
-              className="mt-4 rounded-lg p-4 text-left"
-              style={{
-                border: "1px solid rgba(200,140,40,0.3)",
-                background: "rgba(255,220,170,0.08)",
-              }}
+      {/* Scrollable content area */}
+      <div className="flex-1 overflow-y-auto px-4 pb-4" onClick={(e) => e.stopPropagation()}>
+        <div className="max-w-5xl mx-auto">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="rounded-xl overflow-hidden shadow-2xl flex items-center justify-center"
+              style={{ maxHeight: "60vh", border: "1px solid rgba(200,140,40,0.3)" }}
             >
-              <p
-                className="text-sm md:text-base leading-relaxed"
-                style={{ color: "rgba(255,220,170,0.9)", fontFamily: "serif", lineHeight: "1.8" }}
-              >
-                {photo.story}
-              </p>
-            </div>
-          )}
-          <p className="text-xs mt-2" style={{ color: "rgba(200,150,60,0.35)" }}>{idx + 1} / {photos.length}</p>
-        </div>
+              <img
+                src={photo.src} alt={photo.label}
+                className="w-full max-h-[60vh] object-contain object-center"
+                style={photo.vintage ? { filter: "sepia(60%) contrast(1.05) brightness(0.94)" } : {}}
+              />
+            </motion.div>
+          </AnimatePresence>
 
-        <div className="flex justify-between mt-4">
-          {[{ fn: prev, label: "← Prev" }, { fn: next, label: "Next →" }].map(({ fn, label }) => (
-            <button key={label} onClick={fn}
-              className="px-6 py-2 rounded-full text-sm tracking-wide transition-all"
-              style={{ border: "1px solid rgba(200,140,40,0.3)", color: "rgba(255,210,120,0.7)", background: "rgba(200,120,20,0.08)" }}
-            >{label}</button>
-          ))}
+          <div className="mt-3 text-center">
+            <p className="text-sm tracking-widest" style={{ color: "rgba(255,220,150,0.85)" }}>
+              {photo.label}
+              {photo.vintage && <span className="ml-2 text-xs" style={{ color: "rgba(200,150,60,0.6)" }}>· vintage</span>}
+            </p>
+            {photo.story && (
+              <div
+                className="mt-4 rounded-lg p-4 text-left"
+                style={{
+                  border: "1px solid rgba(200,140,40,0.3)",
+                  background: "rgba(255,220,170,0.08)",
+                }}
+              >
+                <p
+                  className="text-sm md:text-base leading-relaxed"
+                  style={{ color: "rgba(255,220,170,0.9)", fontFamily: "serif", lineHeight: "1.8" }}
+                >
+                  {photo.story}
+                </p>
+              </div>
+            )}
+            <p className="text-xs mt-2" style={{ color: "rgba(200,150,60,0.35)" }}>{idx + 1} / {photos.length}</p>
+          </div>
+
+          <div className="flex justify-between mt-4">
+            {[{ fn: prev, label: "← Prev" }, { fn: next, label: "Next →" }].map(({ fn, label }) => (
+              <button key={label} onClick={fn}
+                className="px-6 py-2 rounded-full text-sm tracking-wide transition-all"
+                style={{ border: "1px solid rgba(200,140,40,0.3)", color: "rgba(255,210,120,0.7)", background: "rgba(200,120,20,0.08)" }}
+              >{label}</button>
+            ))}
+          </div>
         </div>
       </div>
     </motion.div>
