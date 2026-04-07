@@ -168,7 +168,7 @@ const HeroSection = () => {
 
                 {/* Rotating Sanskrit text ring */}
                 <svg
-                  className="absolute -inset-5 sm:-inset-8 md:-inset-12 w-[calc(100%+2.5rem)] h-[calc(100%+2.5rem)] sm:w-[calc(100%+4rem)] sm:h-[calc(100%+4rem)] md:w-[calc(100%+6rem)] md:h-[calc(100%+6rem)] pointer-events-none"
+                  className="absolute -inset-7 sm:-inset-8 md:-inset-12 w-[calc(100%+3.5rem)] h-[calc(100%+3.5rem)] sm:w-[calc(100%+4rem)] sm:h-[calc(100%+4rem)] md:w-[calc(100%+6rem)] md:h-[calc(100%+6rem)] pointer-events-none"
                   viewBox="0 0 300 300"
                   style={{ animation: "spinRing 20s linear infinite", transformOrigin: "center" }}
                 >
@@ -176,7 +176,12 @@ const HeroSection = () => {
                     <path id="textCircle" d="M 150,150 m -120,0 a 120,120 0 1,1 240,0 a 120,120 0 1,1 -240,0" />
                     <style>{`@keyframes spinRing { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
                   </defs>
-                  <text fill="hsl(40 90% 96%)" fontSize="13" fontWeight="600" letterSpacing="3" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                  <text fill="hsl(40 90% 96%)" fontSize="16" fontWeight="600" letterSpacing="2.5" className="md:hidden" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                    <textPath href="#textCircle" startOffset="0%">
+                      ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦
+                    </textPath>
+                  </text>
+                  <text fill="hsl(40 90% 96%)" fontSize="13" fontWeight="600" letterSpacing="3" className="hidden md:block" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
                     <textPath href="#textCircle" startOffset="0%">
                       ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦ ॐ श्री सद्गुरवे नमः ✦
                     </textPath>
