@@ -4,8 +4,14 @@ import smile1 from "@/assets/smile1.jpg";
 import smile2 from "@/assets/smile2.jpg";
 import smile3 from "@/assets/smile3.jpg";
 import smile4 from "@/assets/smile4.jpg";
+import smile5 from "@/assets/smile5.jpg";
+import smile6 from "@/assets/smile6.jpg";
+import smile7 from "@/assets/smile7.jpg";
+import smile8 from "@/assets/smile8.jpeg";
+import smile9 from "@/assets/smile9.jpeg";
+import smile10 from "@/assets/smile10.jpg";
 
-const photos = [smile1, smile2, smile3, smile4];
+const photos = [smile1, smile2, smile3, smile4, smile5, smile6, smile7, smile8, smile9, smile10];
 
 const RadiantSmileSection = () => {
   return (
