@@ -17,10 +17,10 @@ const photos = [
   { src: smile3, caption: "🕉️श्री प्रमोदनाय नमः।(जो सदा प्रसन्न हैं वो प्रमोदन: ।)", objectPosition: "top" },
   { src: smile4, caption: "ॐ प्रसन्न चित्ताय नमः ।", objectPosition: "top" },
   { src: smile5, caption: "🕉️श्री नन्दनाय नमः।जो", objectPosition: "top" },
-  { src: smile6, caption: "", objectPosition: "center" },
+  { src: smile6, caption: "", objectPosition: "50% 30%" },
   { src: smile7, caption: "", objectPosition: "top" },
   { src: smile8, caption: "श्री नन्दनाय नमः। जो अन्य को प्रसन्नचित्त करता है वो नन्दन: ऐसे हमारे प पू श्री गुरुवर्याय नमः।", objectPosition: "center" },
-  { src: smile9, caption: "", objectPosition: "top" },
+  { src: smile9, caption: "", objectPosition: "center" },
   { src: smile10, caption: "", objectPosition: "top" },
 ];
 
