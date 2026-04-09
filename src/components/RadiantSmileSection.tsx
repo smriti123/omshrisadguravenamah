@@ -12,16 +12,16 @@ import smile9 from "@/assets/smile9.jpeg";
 import smile10 from "@/assets/smile10.jpg";
 
 const photos = [
-  { src: smile1, caption: "प्रसन्नाननं नीलकण्ठं दयालम्‌ । प्रिय शंकरं सर्वनाथं भजामि ॥" },
-  { src: smile2, caption: "" },
-  { src: smile3, caption: "🕉️श्री प्रमोदनाय नमः।(जो सदा प्रसन्न हैं वो प्रमोदन: ।)" },
-  { src: smile4, caption: "ॐ प्रसन्न चित्ताय नमः ।" },
-  { src: smile5, caption: "🕉️श्री नन्दनाय नमः।जो" },
-  { src: smile6, caption: "" },
-  { src: smile7, caption: "" },
-  { src: smile8, caption: "श्री नन्दनाय नमः। जो अन्य को प्रसन्नचित्त करता है वो नन्दन: ऐसे हमारे प पू श्री गुरुवर्याय नमः।" },
-  { src: smile9, caption: "" },
-  { src: smile10, caption: "" },
+  { src: smile1, caption: "प्रसन्नाननं नीलकण्ठं दयालम्‌ । प्रिय शंकरं सर्वनाथं भजामि ॥", objectPosition: "top" },
+  { src: smile2, caption: "", objectPosition: "top" },
+  { src: smile3, caption: "🕉️श्री प्रमोदनाय नमः।(जो सदा प्रसन्न हैं वो प्रमोदन: ।)", objectPosition: "top" },
+  { src: smile4, caption: "ॐ प्रसन्न चित्ताय नमः ।", objectPosition: "top" },
+  { src: smile5, caption: "🕉️श्री नन्दनाय नमः।जो", objectPosition: "top" },
+  { src: smile6, caption: "", objectPosition: "center" },
+  { src: smile7, caption: "", objectPosition: "top" },
+  { src: smile8, caption: "श्री नन्दनाय नमः। जो अन्य को प्रसन्नचित्त करता है वो नन्दन: ऐसे हमारे प पू श्री गुरुवर्याय नमः।", objectPosition: "center" },
+  { src: smile9, caption: "", objectPosition: "top" },
+  { src: smile10, caption: "", objectPosition: "top" },
 ];
 
 const RadiantSmileSection = () => {
