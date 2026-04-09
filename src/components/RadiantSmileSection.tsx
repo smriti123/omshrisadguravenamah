@@ -43,7 +43,8 @@ const RadiantSmileSection = () => {
                 <img
                   src={photo.src}
                   alt={`Radiant smile ${i + 1}`}
-                  className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  style={{ objectPosition: photo.objectPosition }}
                 />
               </div>
               {photo.caption && (
