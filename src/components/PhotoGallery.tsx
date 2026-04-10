@@ -106,7 +106,13 @@ const smritiyaanPhotos: Photo[] = [
     vintage: true,
     story: `we have physically seen when all of a sudden at 3 AM in Sidhbari HE ( Swami Subodanandji) will get up n tell us n other devotees sitting n listening to his spirituality..COME ON ..Gurudev के दर्शन कर के आते हैं..and we all seated disciples follow HIM in that pitch dark, quiet n aromatic night ..the aroma of all flowers which we used to pass through to SAMADHI OF PUJYA GURUDEV  n stand quietly with closed eyes for indefinite time behind HIM ..while HE was communicating silently with HIM ...the omnipresence  of GOD ..Pujya Gurudev to another GOD Swami Subodanandji..oh my Lord ..how fortunate we were !`,
   },
-   { src: p16, label: "",       vintage: false },
+  {
+    src: p16,
+    label: "",
+    vintage: false,
+    showFullImage: true,
+    story: `One very inspiring quality I found about Swamiji, that whenever he was doing Pooja, he would NEVER pose for the camera. His attention was totally on Puja and not even 0.1% on camera.`,
+  },
   {
     src: Last,
     label: "",
@@ -173,7 +179,6 @@ That's why every one of us the  devotees miss him equally n she'd tears equally 
     label: "",
     vintage: true,
     showFullImage: true,
-    story: `One very inspiring quality I found about Swamiji was that whenever he was doing Pooja, he would never pose for the camera. His attention was totally on Pooja and not even 0.1% on the camera.`,
   },
   { src: p11, label: "Puja ceremony",   vintage: false },
   { src: p12, label: "",  vintage: false },
