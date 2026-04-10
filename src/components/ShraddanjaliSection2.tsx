@@ -42,6 +42,16 @@ Om. May there be peace in the heavens, peace in the mid-space, peace on earth; p
 Hari Om. Peace, peace, peace.`,
   },
   {
+    name: "Virah Stuti",
+    message: `हे शंकर-रूप! हे वेदांत-मूर्ति!
+हे ब्रह्मसूत्र ,उपनिषद, भगवद्गीता, रामायण व भागवत के मूर्तिमान स्वरूप!
+मेरे चित्त के परमाश्रय!
+आध्यात्मिक जगत के किसी भी प्रश्न का उत्तर आपके हस्ताक्षर के बिना अपूर्ण रहेगा...
+
+ॐ पूर्णमदः पूर्णमिदं...`,
+  },
+
+  {
     name: " ",
     message: `What a disciple..unparallel ..unimaginable..incredible..
 Encyclopedia of Spirituality..who churned out Disciples after Disciples from Sidhbari for what Chinmaya Mission is today..
