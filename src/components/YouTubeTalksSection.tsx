@@ -451,7 +451,7 @@ const YouTubeTalksSection = () => {
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Talks & Discourses"
-          subtitle="An indexed collection of Gurudev's YouTube talks for easy reference"
+          subtitle="An indexed collection of Pujya Swamiji's YouTube talks for easy reference"
         />
 
         {/* Category Tabs */}

@@ -71,7 +71,7 @@ const QuotesSection = () => {
             className="text-3xl md:text-4xl font-bold mb-3"
             style={{ color: "#7a3a00", fontFamily: "serif" }}
           >
-            Gurudev's Wisdom
+            Pujya Swamiji’s Pearls of Wisdom
           </h2>
           <p className="text-amber-800/55 text-sm mb-5 tracking-wide">
             A teaching for every day — click any date to read

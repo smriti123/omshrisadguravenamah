@@ -375,7 +375,7 @@ const ShraddanjaliSection = () => {
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Virah Stuti"
-          subtitle="Heartfelt tributes from devotees whose lives were touched by Gurudev's grace"
+          subtitle="Heartfelt tributes from devotees whose lives were touched by Pujya Swamiji's grace"
         />
 
         <AnimatePresence mode="wait">
