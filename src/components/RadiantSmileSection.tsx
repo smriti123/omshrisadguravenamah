@@ -13,9 +13,9 @@ import smile10 from "@/assets/smile10.jpg";
 
 const photos = [
   { src: smile1, caption: "प्रसन्नाननं नीलकण्ठं दयालम्‌ । प्रिय शंकरं सर्वनाथं भजामि ॥", objectPosition: "top" },
-  { src: smile2, caption: "", objectPosition: "top" },
+  { src: smile2, caption: "ॐ प्रसन्न चित्ताय नमः ।", objectPosition: "top" },
   { src: smile3, caption: "🕉️श्री प्रमोदनाय नमः।(जो सदा प्रसन्न हैं वो प्रमोदन: ।)", objectPosition: "top" },
-  { src: smile4, caption: "ॐ प्रसन्न चित्ताय नमः ।", objectPosition: "top" },
+  { src: smile4, caption: "ॐ आनन्द स्वरूपाय नमः ।", objectPosition: "top" },
   { src: smile5, caption: "🕉️श्री नन्दनाय नमः।जो", objectPosition: "top" },
   { src: smile6, caption: "", objectPosition: "50% 30%" },
   { src: smile7, caption: "", objectPosition: "top" },
