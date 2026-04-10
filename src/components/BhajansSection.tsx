@@ -112,7 +112,7 @@ const BhajansSection = () => {
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Bhajans & Samkeertan"
-          subtitle="Soul-stirring devotional songs sung in Gurudev's satsangs"
+          subtitle="Soul-stirring devotional songs sung in Pujya Swamiji's satsangs"
         />
 
         <motion.div
