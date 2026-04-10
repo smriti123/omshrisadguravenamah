@@ -1,15 +1,11 @@
-const Footer = () => (
-  <footer className="py-12" style={{ background: "hsl(30 55% 35%)", color: "hsl(38 50% 85%)" }}>
-    <div className="container mx-auto px-4 text-center">
-      <p className="font-display text-2xl mb-2">🙏</p>
-      <p className="font-body text-sm">
-        Made with devotion • In loving memory of Gurudev's teachings
-      </p>
-      <p className="font-body text-xs mt-2" style={{ color: "hsl(38 40% 70%)" }}>
-        सर्वे भवन्तु सुखिनः • May all beings be happy
-      </p>
-    </div>
-  </footer>
-);
+import React from 'react';
+
+const Footer: React.FC = () => {
+  return (
+    <footer className="py-8 px-6 border-t border-orange-200 bg-orange-50 text-center mt-12">
+      <p className="font-devanagari text-orange-900 mb-2 text-lg">Made for स्वान्तः सुखाय</p>
+    </footer>
+  );
+};
 
 export default Footer;
