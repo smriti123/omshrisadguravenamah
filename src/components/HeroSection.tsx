@@ -9,7 +9,7 @@ import ma from "@/assets/gallery/ma.jpeg";
 
 const leftLinks = [
   { label: "Journey", href: "#journey" },
-  { label: "View Gallery", href: "#gallery" },
+  { label: "View Charitra Jhalak", href: "#gallery" },
   { label: "Watch Talks", href: "#talks" },
 ];
 
