@@ -63,6 +63,7 @@ type Photo = {
   label: string;
   vintage: boolean;
   story?: string; // ← Add a story to any photo for the hover popover
+  showFullImage?: boolean;
 };
 
 const smritiyaanPhotos: Photo[] = [
@@ -167,7 +168,13 @@ That's why every one of us the  devotees miss him equally n she'd tears equally 
     story: "",
   },  
 
-  { src: p10, label: "",        vintage: true  },
+  {
+    src: p10,
+    label: "",
+    vintage: true,
+    showFullImage: true,
+    story: `One very inspiring quality I found about Swamiji was that whenever he was doing Pooja, he would never pose for the camera. His attention was totally on Pooja and not even 0.1% on the camera.`,
+  },
   { src: p11, label: "Puja ceremony",   vintage: false },
   { src: p12, label: "",  vintage: false },
   { src: p13, label: "",      vintage: false },
@@ -405,7 +412,7 @@ const PhotoCard = ({
           <img
             src={photo.src}
             alt={photo.label}
-            className={`w-full h-full object-cover object-center ${hasStory ? "min-h-[250px] max-h-[380px]" : "min-h-[240px] max-h-[340px]"}`}
+            className={`w-full h-full ${photo.showFullImage ? "object-contain p-2" : "object-cover object-center"} ${hasStory ? "min-h-[250px] max-h-[380px]" : "min-h-[240px] max-h-[340px]"}`}
             style={photo.vintage ? { filter: "sepia(55%) contrast(1.05) brightness(0.93)" } : {}}
           />
 
