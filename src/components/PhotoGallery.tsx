@@ -113,6 +113,12 @@ const smritiyaanPhotos: Photo[] = [
     vintage: true,
     story: `Last available picture dated 3rd Aug 2020 , on 28th Mahasamadhi diwas of Pujya Gurudev`,
   },
+  {
+    src: p20,
+    label: "",
+    vintage: false,
+    story: `prostrations to the God Subodhanandjee whom we had seen in blood and flesh!! An incredible, amazing, infallible n astonishing Gift ...every Chinmaya Mission devotee had 🙏🏽🙏🏽🙏🏽`,
+  },
  
      {
     src: Gaumata,
@@ -184,8 +190,6 @@ That's why every one of us the  devotees miss him equally n she'd tears equally 
   { src: p17, label: "",        vintage: false },
   { src: p18, label: "",   vintage: false },
   
- 
-  { src: p20, label: "", vintage: false },
   { src: p21, label: "",     vintage: false },
 ];
 
