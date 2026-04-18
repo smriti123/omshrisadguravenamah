@@ -6,7 +6,7 @@ const navLinks = [
   { label: "Home", href: "#hero" },
   { label: "Journey", href: "#journey" },
   { label: "Charitra Jhalak", href: "#gallery" },
-  { label: "Radiant Smile", href: "#radiant-smile" },
+  { label: "Namami Chittchorkam", href: "#radiant-smile" },
   { label: "Virah Stuti", href: "#shraddanjali" },
   
   { label: "Stuti", href: "#stuti" }, 
