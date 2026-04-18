@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import charanKamalImage from "@/assets/01044.jpg";
+import charanKamalImageTwo from "@/assets/IMG-20210324-WA0000.jpg";
 import {
   Carousel,
   CarouselContent,
@@ -12,6 +13,10 @@ import {
 const slides = [
   {
     image: charanKamalImage,
+    caption: "बंदऊँ गुरु पद पदुम परागा।",
+  },
+  {
+    image: charanKamalImageTwo,
     caption: "चरण कमल तेरे धोय धोय पीवां मेरे सतगुरु दीन दयाला",
   },
 ];
