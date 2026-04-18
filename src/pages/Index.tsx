@@ -19,6 +19,9 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <div className="bg-section-alt">
+        <CharanKamalCarouselSection />
+      </div>
+      <div className="bg-section-alt">
         <JourneyTimeline />
       </div>
       <PhotoGallery />
@@ -33,9 +36,6 @@ const Index = () => {
       </div>
       <BhajansSection />
       <QuotesSection />
-      <div className="bg-section-alt">
-        <CharanKamalCarouselSection />
-      </div>
       <Footer />
     </div>
   );
