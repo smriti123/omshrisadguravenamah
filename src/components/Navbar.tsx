@@ -13,6 +13,7 @@ const navLinks = [
   { label: "Talks", href: "#talks" },
   { label: "Bhajans", href: "#bhajans" },
   { label: "Quotes", href: "#quotes" },
+  { label: "Charan Kamal", href: "#charan-kamal" },
 ];
 
 const Navbar = () => {

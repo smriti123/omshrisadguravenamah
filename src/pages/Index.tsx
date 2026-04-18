@@ -10,6 +10,7 @@ import YouTubeTalksSection from "@/components/YouTubeTalksSection";
 import BhajansSection from "@/components/BhajansSection";
 import SansmaraniyaKshanSection from "@/components/SansmaraniyaKshanSection";
 import JourneyTimeline from "@/components/JourneyTimeline";
+import CharanKamalCarouselSection from "@/components/CharanKamalCarouselSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -32,6 +33,9 @@ const Index = () => {
       </div>
       <BhajansSection />
       <QuotesSection />
+      <div className="bg-section-alt">
+        <CharanKamalCarouselSection />
+      </div>
       <Footer />
     </div>
   );
