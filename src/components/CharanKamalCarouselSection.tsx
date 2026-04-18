@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
-import charanKamalImage from "@/assets/IMG-20210508-WA0006.jpg";
+import charanKamalImage from "@/assets/01044.jpg";
 import {
   Carousel,
   CarouselContent,
