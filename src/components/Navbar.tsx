@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { label: "Home", href: "#hero" },
-  { label: "Charan Kamal", href: "#charan-kamal" },
+  { label: "Shri Charan", href: "#charan-kamal" },
   { label: "Journey", href: "#journey" },
   { label: "Charitra Jhalak", href: "#gallery" },
   { label: "Namami Chittchorkam", href: "#radiant-smile" },

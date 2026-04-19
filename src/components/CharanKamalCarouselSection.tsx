@@ -26,7 +26,7 @@ const CharanKamalCarouselSection = () => {
     <section id="charan-kamal" className="py-20 bg-gradient-spiritual">
       <div className="container mx-auto px-4">
         <SectionHeading
-          title="चरण कमल"
+          title="Shri Charan"
           subtitle="भावपूर्ण स्मरण"
         />
 
