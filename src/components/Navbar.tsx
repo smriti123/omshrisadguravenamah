@@ -48,6 +48,15 @@ const Navbar = () => {
           ))}
         </ul>
 
+        <div className="hidden md:block">
+          <a
+            href="/second"
+            className="rounded-full border border-amber-100/60 px-4 py-2 text-xs font-semibold tracking-wide text-amber-50 transition hover:bg-amber-50/20"
+          >
+            Second Page
+          </a>
+        </div>
+
         {/* Mobile toggle */}
         <button
           className="md:hidden"
@@ -73,6 +82,9 @@ const Navbar = () => {
             }}
           >
             <ul className="flex flex-col items-center gap-4 py-4">
+              <li>
+                <a href="/second" className="font-body text-muted-foreground hover:text-primary transition-colors" onClick={() => setOpen(false)}>Second Page</a>
+              </li>
               {navLinks.map((l) => (
                 <li key={l.href}>
                   <a
