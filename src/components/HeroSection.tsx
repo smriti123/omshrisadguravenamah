@@ -229,27 +229,7 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        <div className="mt-3 md:mt-4 w-full">
-          <div
-            className="relative overflow-hidden rounded-md border border-amber-100/35 py-2 md:py-3"
-            style={{
-              background:
-                "linear-gradient(90deg, rgba(166,86,10,0.55) 0%, rgba(201,116,16,0.62) 45%, rgba(166,86,10,0.55) 100%)",
-            }}
-          >
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: "-100%" }}
-              transition={{ duration: 20, ease: "linear", repeat: Infinity }}
-              className="whitespace-nowrap px-6 text-[11px] sm:text-sm md:text-base tracking-[0.18em] uppercase font-body"
-              style={{ color: "hsl(40 90% 95%)" }}
-            >
-              ॐ श्री सद्गुरवे नमः • Param Pujya Swami Subodhananda ji Maharaj • ॐ पूर्णमदः पूर्णमिदं •
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Subtitle */}
+        {/* Subtitle — one line gap above */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
