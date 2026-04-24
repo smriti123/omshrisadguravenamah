@@ -25,6 +25,14 @@ const linkStyle: CSSProperties = {
   border: "1px solid rgba(255,202,121,0.4)",
 };
 
+const dedicationLines = [
+  "हे शंकर-रूप! हे वेदांत-मूर्ति!",
+  "हे ब्रह्मसूत्र, उपनिषद, भगवद्गीता, रामायण व भागवत के मूर्तिमान स्वरूप!",
+  "मेरे चित्त के परमाश्रय!",
+  "आध्यात्मिक जगत के किसी भी प्रश्न का उत्तर आपके हस्ताक्षर के बिना अपूर्ण रहेगा...",
+  "ॐ पूर्णमदः पूर्णमिदं...",
+];
+
 const HeroSection = () => {
   return (
     <section
@@ -239,6 +247,34 @@ const HeroSection = () => {
         >
           Param Pujya Swami Subodhananda ji Maharaj
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.7 }}
+          className="mt-4 md:mt-6 w-[92%] max-w-4xl rounded-2xl border border-amber-100/35 bg-amber-100/10 backdrop-blur-[2px] p-3 sm:p-4 md:p-6 shadow-2xl"
+        >
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6">
+            <div className="shrink-0">
+              <img
+                src={heroSignature}
+                alt="पूज्य गुरुदेव का चित्र"
+                className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full object-cover border-2 border-amber-100/70 shadow-lg"
+              />
+            </div>
+            <div className="text-center md:text-left space-y-1 sm:space-y-2">
+              {dedicationLines.map((line) => (
+                <p
+                  key={line}
+                  className="font-serif text-[11px] sm:text-sm md:text-base leading-relaxed"
+                  style={{ color: "hsl(40 80% 95%)" }}
+                >
+                  {line}
+                </p>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </motion.div>
 
       {/* Bottom fade into next section */}
