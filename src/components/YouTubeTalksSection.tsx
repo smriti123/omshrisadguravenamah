@@ -450,7 +450,7 @@ const YouTubeTalksSection = () => {
     <section id="talks" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <SectionHeading
-          title="Talks & Discourses"
+          title="Pravachan & Discourses"
           subtitle="An indexed collection of Pujya Swamiji's YouTube talks for easy reference"
         />
 

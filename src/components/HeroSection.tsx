@@ -8,9 +8,9 @@ import sign from "@/assets/gallery/sign.jpg";
 import ma from "@/assets/gallery/ma.jpeg";
 
 const leftLinks = [
-  { label: "Journey", href: "#journey" },
+  { label: "Leela", href: "#leela" },
   { label: "View Charitra Jhalak", href: "#gallery" },
-  { label: "Watch Talks", href: "#talks" },
+  { label: "Watch Pravachan", href: "#talks" },
 ];
 
 const rightLinks = [

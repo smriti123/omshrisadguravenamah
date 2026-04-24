@@ -113,10 +113,10 @@ const events: TimelineEvent[] = [
 
 const JourneyTimeline = () => {
   return (
-    <section id="journey" className="py-20 bg-background">
+    <section id="leela" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <SectionHeading
-          title="Journey"
+          title="Leela"
           subtitle="Key milestones in Pujya Swamiji's journey at Sidhbari"
         />
 
