@@ -141,6 +141,32 @@ const JourneyTimeline = () => {
           </div>
         </motion.div>
 
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.05 }}
+          className="max-w-4xl mx-auto mb-16 px-2 md:px-4"
+        >
+          <div className="flex justify-center mb-8">
+            <div
+              className="w-full max-w-sm aspect-[4/5] rounded-xl border-2 border-dashed bg-muted/30 flex items-center justify-center text-muted-foreground font-body text-sm tracking-wide"
+              aria-label="Photo placeholder"
+            >
+              Photo Placeholder
+            </div>
+          </div>
+
+          <div className="space-y-3 text-[1.05rem] md:text-[1.15rem] leading-relaxed md:leading-loose font-body text-foreground text-center">
+            <p>हे शंकर-रूप!</p>
+            <p>हे वेदांत-मूर्ति!</p>
+            <p>हे ब्रह्मसूत्र, उपनिषद, भगवद्गीता, रामायण व भागवत के मूर्तिमान स्वरूप!</p>
+            <p>हमारे चित्त के परमाश्रय!</p>
+            <p>आध्यात्मिक जगत के किसी भी प्रश्न का उत्तर आपके हस्ताक्षर के बिना अपूर्ण रहेगा...</p>
+            <p>ॐ पूर्णमदः पूर्णमिदं...</p>
+          </div>
+        </motion.div>
+
         <div className="max-w-3xl mx-auto relative">
           {/* Vertical line */}
           <div
