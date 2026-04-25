@@ -42,7 +42,7 @@ Om. May there be peace in the heavens, peace in the mid-space, peace on earth; p
 Hari Om. Peace, peace, peace.`,
   },
   {
-    name: "Virah Stuti",
+    name: "Virah-Stuti",
     message: `हे शंकर-रूप! हे वेदांत-मूर्ति!
 हे ब्रह्मसूत्र ,उपनिषद, भगवद्गीता, रामायण व भागवत के मूर्तिमान स्वरूप!
 मेरे चित्त के परमाश्रय!
@@ -384,7 +384,7 @@ const ShraddanjaliSection = () => {
     <section id="shraddanjali" className="py-20 bg-gradient-spiritual">
       <div className="container mx-auto px-4">
         <SectionHeading
-          title="Virah Stuti"
+          title="Virah-Stuti"
           subtitle="Heartfelt tributes from devotees whose lives were touched by Pujya Swamiji's grace"
         />
 

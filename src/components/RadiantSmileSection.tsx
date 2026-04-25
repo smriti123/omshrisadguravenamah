@@ -28,7 +28,7 @@ const RadiantSmileSection = () => {
   return (
     <section id="radiant-smile" className="py-16 md:py-24">
       <div className="container mx-auto px-4">
-        <SectionHeading title="Namami Chittchorkam" subtitle="The smile that touched millions of hearts" />
+        <SectionHeading title="Namami-Chittchorkam" subtitle="The smile that touched millions of hearts" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto mt-10">
           {photos.map((photo, i) => (
             <motion.div

@@ -1,34 +1,46 @@
+import { motion } from "framer-motion";
+import SectionHeading from "./SectionHeading";
 import swamijiImage from "@/assets/swamiji-photo.jpg";
-
-const shlokaLines = [
-  "हे शंकर-रूप! हे वेदांत-मूर्ति!",
-  "हे ब्रह्मसूत्र, उपनिषद, भगवद्गीता, रामायण व भागवत के मूर्तिमान स्वरूप!",
-  "हमारे चित्त के परमाश्रय!",
-  "आध्यात्मिक जगत के किसी भी प्रश्न का उत्तर आपके हस्ताक्षर के बिना अपूर्ण रहेगा...",
-  "ॐ पूर्णमदः पूर्णमिदं...",
-];
 
 const CharanKamalCarouselSection = () => {
   return (
-    <section id="charan-vandan" className="bg-gradient-spiritual">
-      <div className="grid min-h-screen w-full grid-cols-1 md:grid-cols-2">
-        <div className="h-[50vh] md:h-screen">
-          <img
-            src={swamijiImage}
-            alt="Pujya Swamiji"
-            className="h-full w-full object-cover"
-            loading="lazy"
-          />
-        </div>
+    <section id="charan-vandan" className="bg-gradient-spiritual py-20">
+      <div className="container mx-auto px-4">
+        <SectionHeading
+          title="Charan-Vandan"
+          subtitle="In endless gratitude at the lotus feet of Gurudev"
+        />
 
-        <div className="flex h-auto items-center justify-center bg-background/95 px-6 py-12 text-center md:h-screen md:px-12 lg:px-16">
-          <p className="font-display text-3xl leading-relaxed text-foreground md:text-4xl lg:text-5xl">
-            {shlokaLines.map((line) => (
-              <span key={line} className="block">
-                {line}
-              </span>
-            ))}
-          </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="rounded-2xl overflow-hidden border border-primary/20 shadow-[0_18px_45px_rgba(110,60,15,0.25)]"
+          >
+            <img
+              src={swamijiImage}
+              alt="Pujya Swamiji"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="rounded-2xl border border-primary/20 bg-background/90 p-6 md:p-8 shadow-[0_15px_35px_rgba(86,46,11,0.14)]"
+          >
+            <p className="font-display text-2xl md:text-3xl leading-relaxed text-foreground text-center md:text-left">
+              गुरुदेव आपके चरणों में नत-शिर, कृतज्ञ-हृदय और समर्पित-जीवन।
+            </p>
+            <p className="mt-4 font-body text-muted-foreground leading-relaxed text-base md:text-lg text-center md:text-left">
+              Your grace is our refuge, your words are our path, and your lotus feet remain our eternal pilgrimage.
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>

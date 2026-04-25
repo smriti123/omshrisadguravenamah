@@ -312,14 +312,14 @@ const Lightbox = ({
             }}
             onClick={onClose}
           >
-            ← Back to Charitra Jhalak
+            ← Back to Charitra-Jhalak
           </button>
 
           <button
             className="text-3xl leading-none"
             style={{ color: "rgba(255,210,120,0.6)" }}
             onClick={onClose}
-            aria-label="Close Charitra Jhalak"
+            aria-label="Close Charitra-Jhalak"
           >
             ×
           </button>
@@ -564,7 +564,7 @@ const GallerySection = () => {
       <div className="max-w-6xl mx-auto px-4">
 
         <SectionHeading
-          sub="Charitra Jhalak"
+          sub="Charitra-Jhalak"
           english="Divine Glimpses"
           hindi="दिव्य दर्शन"
           description="Along with fond memories and heartfelt recollections shared by devotees from time to time."
