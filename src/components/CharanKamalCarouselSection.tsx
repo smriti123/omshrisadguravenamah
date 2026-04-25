@@ -1,64 +1,35 @@
-import { motion } from "framer-motion";
-import SectionHeading from "./SectionHeading";
-import charanKamalImage from "@/assets/01044.jpg";
-import charanKamalImageTwo from "@/assets/IMG-20210324-WA0000.jpg";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import swamijiImage from "@/assets/swamiji-photo.jpg";
 
-const slides = [
-  {
-    image: charanKamalImage,
-    caption: "बंदऊँ गुरु पद पदुम परागा।",
-  },
-  {
-    image: charanKamalImageTwo,
-    caption: "चरण कमल तेरे धोय धोय पीवां मेरे सतगुरु दीन दयाला",
-  },
+const shlokaLines = [
+  "हे शंकर-रूप! हे वेदांत-मूर्ति!",
+  "हे ब्रह्मसूत्र, उपनिषद, भगवद्गीता, रामायण व भागवत के मूर्तिमान स्वरूप!",
+  "हमारे चित्त के परमाश्रय!",
+  "आध्यात्मिक जगत के किसी भी प्रश्न का उत्तर आपके हस्ताक्षर के बिना अपूर्ण रहेगा...",
+  "ॐ पूर्णमदः पूर्णमिदं...",
 ];
 
 const CharanKamalCarouselSection = () => {
   return (
-    <section id="charan-vandan" className="py-20 bg-gradient-spiritual">
-      <div className="container mx-auto px-4">
-        <SectionHeading
-          title="Charan Vandan"
-          subtitle="भावपूर्ण स्मरण"
-        />
+    <section id="charan-vandan" className="bg-gradient-spiritual">
+      <div className="grid min-h-screen w-full grid-cols-1 md:grid-cols-2">
+        <div className="h-[50vh] md:h-screen">
+          <img
+            src={swamijiImage}
+            alt="Pujya Swamiji"
+            className="h-full w-full object-cover"
+            loading="lazy"
+          />
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mx-auto max-w-3xl"
-        >
-          <Carousel opts={{ loop: true }} className="w-full">
-            <CarouselContent>
-              {slides.map((slide) => (
-                <CarouselItem key={slide.caption}>
-                  <div className="overflow-hidden rounded-2xl border border-gold/30 bg-card shadow-gold">
-                    <img
-                      src={slide.image}
-                      alt={slide.caption}
-                      className="h-[520px] w-full object-cover object-center"
-                      loading="lazy"
-                    />
-                    <div className="bg-background/95 px-6 py-4 text-center">
-                      <p className="font-display text-lg text-foreground">{slide.caption}</p>
-                    </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="left-3 bg-background/90" />
-            <CarouselNext className="right-3 bg-background/90" />
-          </Carousel>
-        </motion.div>
+        <div className="flex h-auto items-center justify-center bg-background/95 px-6 py-12 text-center md:h-screen md:px-12 lg:px-16">
+          <p className="font-display text-3xl leading-relaxed text-foreground md:text-4xl lg:text-5xl">
+            {shlokaLines.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
+          </p>
+        </div>
       </div>
     </section>
   );
