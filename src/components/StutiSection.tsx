@@ -1,8 +1,18 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ChevronUp, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import GyannisthaCard from "@/components/GyannisthaCard";
+import swamijiImage from "@/assets/swamiji-photo.jpg";
+
+const hridayLines = [
+  "हे शंकर-रूप!",
+  "हे वेदांत-मूर्ति!",
+  "हे ब्रह्मसूत्र, उपनिषद, भगवद्गीता, रामायण व भागवत के मूर्तिमान स्वरूप!",
+  "हमारे चित्त के परमाश्रय!",
+  "आध्यात्मिक जगत के किसी भी प्रश्न का उत्तर आपके हस्ताक्षर के बिना अपूर्ण रहेगा...",
+  "ॐ पूर्णमदः पूर्णमिदं...",
+];
 
 const stutiNames = [
   "ॐ ॐकाराय नमः ।",
@@ -367,7 +377,38 @@ const shraddhanjaliPoem = `
 
 const shraddhanjaliStanzas = shraddhanjaliPoem.trim().split("\n\n").filter(Boolean);
 
-// ── Card 1: Ashtottara ───────────────────────────────────
+const HridayCard = () => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5 }}
+    className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center max-w-6xl mx-auto mb-10"
+  >
+    <div className="rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(139,69,19,0.22)] border border-primary/20">
+      <img
+        src={swamijiImage}
+        alt="Pujya Swamiji"
+        className="w-full h-full object-cover"
+        loading="lazy"
+      />
+    </div>
+
+    <div className="rounded-2xl p-6 md:p-8 lg:p-10 border border-primary/20 bg-gradient-to-br from-primary/10 via-background to-gold/10 shadow-[0_16px_40px_rgba(133,70,18,0.14)]">
+      <div className="space-y-5 text-center md:text-left">
+        {hridayLines.map((line) => (
+          <p
+            key={line}
+            className="font-display text-2xl md:text-3xl lg:text-4xl leading-relaxed text-transparent bg-clip-text bg-gradient-to-r from-primary via-amber-700 to-orange-700 drop-shadow-[0_2px_10px_rgba(161,98,7,0.20)]"
+          >
+            {line}
+          </p>
+        ))}
+      </div>
+    </div>
+  </motion.div>
+);
+
 const StutiCard = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const visibleNames = isExpanded ? stutiNames : stutiNames.slice(0, 12);
@@ -394,7 +435,6 @@ const StutiCard = () => {
   );
 };
 
-// ── Card 2: Aarti ────────────────────────────────────────
 const AartiCard = () => (
   <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.1 }}
@@ -414,7 +454,6 @@ const AartiCard = () => (
   </motion.div>
 );
 
-// ── Card 3: Shraddhanjali ────────────────────────────────
 const ShraddhanjaliCard = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const visibleStanzas = isExpanded ? shraddhanjaliStanzas : shraddhanjaliStanzas.slice(0, 6);
@@ -439,18 +478,7 @@ const ShraddhanjaliCard = () => {
   );
 };
 
-// ── Pages ────────────────────────────────────────────────
-// Page 1: Stuti + Aarti
-// Page 2: Shraddhanjali + Gyannistha article (replaces स्तवन/भजन placeholders)
-const sectionPages = [
-  [<StutiCard key="stuti" />, <AartiCard key="aarti" />],
-  [<ShraddhanjaliCard key="shraddhanjali" />, <GyannisthaCard key="gyannistha" />],
-];
-
-// ── Main section ─────────────────────────────────────────
 const StutiSection = () => {
-  const [page, setPage] = useState(0);
-
   return (
     <section id="stuti" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -459,35 +487,14 @@ const StutiSection = () => {
           subtitle="108 divine names, Aarti and devotional compositions in reverence to Pujya Swamiji"
         />
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={page}
-            initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -30 }} transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto"
-          >
-            {sectionPages[page].map((card) => card)}
-          </motion.div>
-        </AnimatePresence>
+        <HridayCard />
 
-        {/* Pagination */}
-        <div className="flex items-center justify-center gap-3 mt-8">
-          <button onClick={() => setPage(0)} disabled={page === 0}
-            className="p-2 rounded-full border border-gold/20 text-muted-foreground hover:text-foreground hover:border-gold/40 disabled:opacity-30 disabled:cursor-not-allowed transition-all">
-            <ChevronLeft size={18} />
-          </button>
-          {sectionPages.map((_, i) => (
-            <button key={i} onClick={() => setPage(i)}
-              className={`w-8 h-8 rounded-full text-xs font-medium transition-all ${page === i ? "bg-primary text-primary-foreground" : "bg-card border border-gold/20 text-muted-foreground hover:text-foreground"}`}>
-              {i + 1}
-            </button>
-          ))}
-          <button onClick={() => setPage(1)} disabled={page === 1}
-            className="p-2 rounded-full border border-gold/20 text-muted-foreground hover:text-foreground hover:border-gold/40 disabled:opacity-30 disabled:cursor-not-allowed transition-all">
-            <ChevronRight size={18} />
-          </button>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <StutiCard />
+          <AartiCard />
+          <ShraddhanjaliCard />
+          <GyannisthaCard />
         </div>
-        <p className="text-center text-xs text-muted-foreground mt-2">Page {page + 1} of {sectionPages.length}</p>
       </div>
     </section>
   );
