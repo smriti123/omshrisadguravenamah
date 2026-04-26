@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import GyannisthaCard from "@/components/GyannisthaCard";
-import stutiImage from "@/assets/gallery/stutipic.png";
+import stutiImage from "@/assets/gallery/stuti3.jpg";
 
 const stutiNames = [
   "ॐ ॐकाराय नमः ।",
