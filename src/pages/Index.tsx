@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import PhotoGallery from "@/components/PhotoGallery";
 import RadiantSmileSection from "@/components/RadiantSmileSection";
-import HridaySamraatSection from "@/components/HridaySamraatSection";
 import QuotesSection from "@/components/QuotesSection";
 import ShraddanjaliSection from "@/components/ShraddanjaliSection2";
 
@@ -19,7 +18,6 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
-      <HridaySamraatSection />
       <div className="bg-section-alt">
         <CharanKamalCarouselSection />
       </div>

@@ -25,7 +25,7 @@ const CharanKamalCarouselSection = () => {
   return (
     <section id="charan-vandan" className="py-20 bg-gradient-spiritual">
       <div className="container mx-auto px-4">
-        <SectionHeading title="Charan-Vandan" subtitle="भावपूर्ण स्मरण" />
+        <SectionHeading title="Charan-Vandan" />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

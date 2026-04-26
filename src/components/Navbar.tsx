@@ -4,16 +4,15 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { label: "Home", href: "#hero" },
-  { label: "Hriday-Samraat", href: "#hriday-samraat" },
-  { label: "Charan-Vandan", href: "#charan-vandan" },
-  { label: "Leela", href: "#leela" },
-  { label: "Charitra-Jhalak", href: "#gallery" },
-  { label: "Namami-Chittchorkam", href: "#radiant-smile" },
-  { label: "Virah-Stuti", href: "#shraddanjali" },
+  { label: "Charan-Vandayn", href: "#charan-vandan" },
+  { label: "Leea", href: "#leela" },
+  { label: "Charitra-JHalak", href: "#gallery" },
   { label: "Stuti", href: "#stuti" },
-  { label: "Pravachan", href: "#talks" },
-  { label: "Bhajans", href: "#bhajans" },
-  { label: "Quotes", href: "#quotes" },
+  { label: "Namai-chittchorkam", href: "#radiant-smile" },
+  { label: "Virah-Stui", href: "#shraddanjali" },
+  { label: "Pravacha", href: "#talks" },
+  { label: "Bhajan", href: "#bhajans" },
+  { label: "QUots", href: "#quotes" },
 ];
 
 const Navbar = () => {
