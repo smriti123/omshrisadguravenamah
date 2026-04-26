@@ -399,7 +399,7 @@ const HridayCard = () => (
         {hridayLines.map((line) => (
           <p
             key={line}
-            className="font-display text-2xl md:text-3xl lg:text-4xl leading-relaxed text-transparent bg-clip-text bg-gradient-to-r from-primary via-amber-700 to-orange-700 drop-shadow-[0_2px_10px_rgba(161,98,7,0.20)]"
+            className="pt-1 font-display text-2xl md:text-3xl lg:text-4xl leading-[1.45] text-transparent bg-clip-text bg-gradient-to-r from-primary via-amber-700 to-orange-700 drop-shadow-[0_2px_10px_rgba(161,98,7,0.20)]"
           >
             {line}
           </p>
