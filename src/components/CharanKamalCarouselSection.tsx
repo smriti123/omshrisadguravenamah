@@ -2,8 +2,6 @@ import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import charanKamalImage from "@/assets/01044.jpg";
 import charanKamalImageTwo from "@/assets/IMG-20210324-WA0000.jpg";
-import charanKamalImageThree from "@/assets/charan-vandan-3.jpg";
-import charanKamalImageFour from "@/assets/charan-vandan-4.jpg";
 import {
   Carousel,
   CarouselContent,
@@ -20,14 +18,6 @@ const slides = [
   {
     image: charanKamalImageTwo,
     caption: "चरण कमल तेरे धोय धोय पीवां मेरे सतगुरु दीन दयाला",
-  },
-  {
-    image: charanKamalImageThree,
-    caption: "गुरु चरणों में नित वंदन",
-  },
-  {
-    image: charanKamalImageFour,
-    caption: "श्री गुरु चरण सरोज रज",
   },
 ];
 
