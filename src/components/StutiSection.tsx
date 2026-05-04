@@ -457,6 +457,39 @@ const ShraddhanjaliCard = () => {
   );
 };
 
+const gangeshanandaVerses = [
+  [
+    "शिवं शान्तं शुद्धं सुमतिदातारं शम हरी",
+    "परं पुण्यं अनर्घ्यं, पद्मपत्राभिं स्निग्धम् ।",
+    "विभूतिं भूतीनां परं महनीयं च महत्तम्",
+    "सुबोधानन्दं श्रीगुरुवरमहं, नौमि सततम् ।।१।।",
+  ],
+  [
+    "वैदिकं लौकिकं शास्त्रं, ज्ञान विज्ञान संयुतम् ।",
+    "कथायां पीयूषं प्रवचन कलायां च पटुता ।",
+    "तार्किकं तर्कातीतं तर्कहन्तारं तु तुष्टिदम् ।",
+    "सुबोधानन्दं श्रीगुरुवरमहं नौमि सततम् ।।२।।",
+  ],
+  [
+    "उद्यद्भानुविलसत् काषाय वस्त्रावृतम् ।",
+    "विभूतिभूषितं कार्यं प्रणतजनतापो पशमनम् ।",
+    "सिद्धवाणी निवासिन् भक्ताश्रयं भक्तसुखदं ।",
+    "सुबोधानन्दं श्रीगुरुवरमहं नौमि सततम् ।।३।।",
+  ],
+  [
+    "यदीयं कारुण्यं पतति शरणागतेऽपि मनुजे ।",
+    "यदासगुड़े डभगुड़े गलति भवरंगुड़े रुचिरता,",
+    "जनः सेवीधन्यो भवति कृत्पुण्यो नचिरतः ।",
+    "सुबोधानन्दं गुरुवरमहं नौमि सततम् ।।४।।",
+  ],
+  [
+    "यदालोके लोके भवति नहि शोके क्षणतमः ।",
+    "पदाम्भोज ध्यानं दिशति परमानन्द पदवीं ।।",
+    "दयां कृत्वा नाथ स्वपदशरणं देहि शिवदं ।",
+    "सुबोधानन्दं श्रीगुरुवरमहं नौमि सततम् ।।५।।",
+  ],
+];
+
 const GangeshanandaStutiCard = () => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
@@ -471,13 +504,27 @@ const GangeshanandaStutiCard = () => (
     <p className="text-center text-xs text-muted-foreground mb-4 italic">
       by Brahmaleen Swami Gangeshanandaji
     </p>
-    <div className="rounded-lg overflow-hidden border border-gold/10 bg-cream-dark/30 flex-1 flex items-center justify-center">
+    <div className="rounded-lg overflow-hidden border border-gold/10 bg-cream-dark/30 mb-5 flex items-center justify-center">
       <img
         src={gangeshanandaStuti}
         alt="Stuti by Brahmaleen Swami Gangeshanandaji"
         className="w-full h-auto object-contain max-h-[600px]"
         loading="lazy"
       />
+    </div>
+    <div className="space-y-4">
+      {gangeshanandaVerses.map((verse, vi) => (
+        <div key={vi} className="border-b border-gold/10 last:border-0 pb-3 last:pb-0">
+          {verse.map((line, li) => (
+            <p
+              key={li}
+              className="font-body text-sm leading-relaxed text-center text-foreground"
+            >
+              {line}
+            </p>
+          ))}
+        </div>
+      ))}
     </div>
   </motion.div>
 );
