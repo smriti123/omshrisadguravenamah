@@ -10,6 +10,8 @@ import smile7 from "@/assets/smile7.jpg";
 import smile8 from "@/assets/smile8.jpeg";
 import smile9 from "@/assets/smile9.jpeg";
 import smile10 from "@/assets/smile10.jpg";
+import smile11 from "@/assets/smile11.jpg";
+import smile12 from "@/assets/smile12.jpg";
 
 const photos = [
   { src: smile1, caption: "प्रसन्नाननं नीलकण्ठं दयालम्‌ । प्रिय शंकरं सर्वनाथं भजामि ॥", objectPosition: "top" },
@@ -22,6 +24,8 @@ const photos = [
   { src: smile8, caption: "श्री नन्दनाय नमः। जो अन्य को प्रसन्नचित्त करता है वो नन्दन: ऐसे हमारे प पू श्री गुरुवर्याय नमः।", objectPosition: "center", objectFit: "contain" },
   { src: smile9, caption: "", objectPosition: "center", objectFit: "contain" },
   { src: smile10, caption: "", objectPosition: "top" },
+  { src: smile11, caption: "", objectPosition: "top" },
+  { src: smile12, caption: "", objectPosition: "top" },
 ];
 
 const RadiantSmileSection = () => {
