@@ -39,6 +39,8 @@ import akh1 from "@/assets/gallery/akh1.jpg";
 import akh2 from "@/assets/gallery/akh2.jpg";
 import ma1 from "@/assets/gallery/ma.jpg";
 import kreeda from "@/assets/gallery/kreeda.jpg";
+import cj1 from "@/assets/charan-vandan-3.jpg";
+import cj2 from "@/assets/charan-vandan-4.jpg";
 
 import v1 from "@/assets/gallery/v1.jpg";
 import v2 from "@/assets/gallery/v2.jpg";
@@ -196,6 +198,8 @@ That's why every one of us the  devotees miss him equally n she'd tears equally 
   { src: p18, label: "",   vintage: false },
   
   { src: p21, label: "",     vintage: false },
+  { src: cj1, label: "", vintage: false },
+  { src: cj2, label: "", vintage: false },
 ];
 
 const visheshPhotos: Photo[] = [
