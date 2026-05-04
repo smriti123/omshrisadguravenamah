@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import GyannisthaCard from "@/components/GyannisthaCard";
 import stutiImage from "@/assets/gallery/stuti3.jpg";
+import gangeshanandaStuti from "@/assets/stuti-gangeshananda.jpg";
 
 const stutiNames = [
   "ॐ ॐकाराय नमः ।",
@@ -456,6 +457,31 @@ const ShraddhanjaliCard = () => {
   );
 };
 
+const GangeshanandaStutiCard = () => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.4, delay: 0.1 }}
+    className="p-6 rounded-xl bg-background border border-gold/20 h-full flex flex-col"
+  >
+    <h3 className="font-display text-xl font-bold text-primary text-center mb-2">
+      ।। श्री सद्गुरुवे देवाय नमः ।।
+    </h3>
+    <p className="text-center text-xs text-muted-foreground mb-4 italic">
+      by Brahmaleen Swami Gangeshanandaji
+    </p>
+    <div className="rounded-lg overflow-hidden border border-gold/10 bg-cream-dark/30 flex-1 flex items-center justify-center">
+      <img
+        src={gangeshanandaStuti}
+        alt="Stuti by Brahmaleen Swami Gangeshanandaji"
+        className="w-full h-auto object-contain max-h-[600px]"
+        loading="lazy"
+      />
+    </div>
+  </motion.div>
+);
+
 const StutiSection = () => {
   return (
     <section id="stuti" className="py-20 bg-background">
@@ -472,6 +498,7 @@ const StutiSection = () => {
           <AartiCard />
           <ShraddhanjaliCard />
           <GyannisthaCard />
+          <GangeshanandaStutiCard />
         </div>
       </div>
     </section>

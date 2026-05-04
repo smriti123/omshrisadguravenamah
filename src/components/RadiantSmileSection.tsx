@@ -46,7 +46,7 @@ const RadiantSmileSection = () => {
                   className="w-full h-full hover:scale-105 transition-transform duration-500 bg-primary/5"
                   style={{
                     objectPosition: photo.objectPosition,
-                    objectFit: photo.objectFit ?? "cover",
+                    objectFit: (photo.objectFit ?? "cover") as React.CSSProperties["objectFit"],
                   }}
                 />
               </div>
