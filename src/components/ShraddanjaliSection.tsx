@@ -134,6 +134,8 @@ const tributes = [
 
 const ITEMS_PER_PAGE = 1;
 const MAX_LENGTH = 400;
+const CARD_CONTAINER_CLASSES =
+  "p-5 sm:p-6 rounded-xl bg-background border border-gold/20 max-w-2xl mx-auto h-[520px] flex flex-col";
 
 const TributeCard = ({ tribute, index }: { tribute: { name: string; message: string; isScannedLetter?: boolean }; index: number }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -146,7 +148,7 @@ const TributeCard = ({ tribute, index }: { tribute: { name: string; message: str
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: index * 0.08 }}
-        className="p-6 rounded-xl bg-background border border-gold/20 max-w-3xl mx-auto h-[600px] flex flex-col"
+        className={CARD_CONTAINER_CLASSES}
       >
         <div className="flex items-center gap-3 mb-4">
           <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-display text-lg">
@@ -156,11 +158,11 @@ const TributeCard = ({ tribute, index }: { tribute: { name: string; message: str
             {tribute.name}
           </span>
         </div>
-        <div className="flex-1 overflow-hidden rounded-lg">
+        <div className="flex-1 overflow-hidden rounded-lg bg-muted/20 p-2 sm:p-3">
           <img
             src={scannedLetter}
             alt="Letter from Swami Adhyatmananda"
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain rounded-md"
           />
         </div>
       </motion.div>
@@ -172,7 +174,7 @@ const TributeCard = ({ tribute, index }: { tribute: { name: string; message: str
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
-      className="p-6 rounded-xl bg-background border border-gold/20 max-w-3xl mx-auto h-[600px] flex flex-col"
+      className={CARD_CONTAINER_CLASSES}
     >
       <div className="flex items-center gap-3 mb-4">
         <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-display text-lg">
