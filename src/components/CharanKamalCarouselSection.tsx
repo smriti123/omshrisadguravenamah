@@ -4,6 +4,7 @@ import charanKamalImage from "@/assets/01044.jpg";
 import charanKamalImageTwo from "@/assets/IMG-20210324-WA0000.jpg";
 import charanVandanThree from "@/assets/charan-vandan-3.jpg";
 import charanVandanFour from "@/assets/charan-vandan-4.jpg";
+import charanVandanFeet from "@/assets/h1.jpg";
 import {
   Carousel,
   CarouselContent,
@@ -14,20 +15,29 @@ import {
 
 const slides = [
   {
+    image: charanVandanFeet,
+    caption: "श्री गुरु चरण कमलेभ्यो नमः",
+    objectPosition: "center",
+  },
+  {
     image: charanKamalImage,
     caption: "बंदऊँ गुरु पद पदुम परागा।",
+    objectPosition: "center",
   },
   {
     image: charanKamalImageTwo,
     caption: "चरण कमल तेरे धोय धोय पीवां मेरे सतगुरु दीन दयाला",
+    objectPosition: "center",
   },
   {
     image: charanVandanThree,
-    caption: "गुरु चरणों में नित वंदन",
+    caption: "हे गुरुदेव प्रणाम आपके चरणों में",
+    objectPosition: "bottom",
   },
   {
     image: charanVandanFour,
-    caption: "श्री गुरु चरण सरोज रज",
+    caption: "श्री गुरु चरण कमलेभ्यो नमः",
+    objectPosition: "bottom",
   },
 ];
 
@@ -52,7 +62,8 @@ const CharanKamalCarouselSection = () => {
                     <img
                       src={slide.image}
                       alt={slide.caption}
-                      className="h-[520px] w-full object-cover object-center"
+                      className="h-[520px] w-full object-cover"
+                      style={{ objectPosition: slide.objectPosition }}
                       loading="lazy"
                     />
                     <div className="bg-background/95 px-6 py-4 text-center">
