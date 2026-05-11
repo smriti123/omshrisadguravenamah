@@ -4,7 +4,7 @@ import charanKamalImage from "@/assets/01044.jpg";
 import charanKamalImageTwo from "@/assets/IMG-20210324-WA0000.jpg";
 import charanVandanThree from "@/assets/charan-vandan-3.jpg";
 import charanVandanFour from "@/assets/charan-vandan-4.jpg";
-import charanVandanFeet from "@/assets/h1.jpg";
+import charanVandanFeet from "@/assets/charan-vandan-feet.jpg";
 import {
   Carousel,
   CarouselContent,
