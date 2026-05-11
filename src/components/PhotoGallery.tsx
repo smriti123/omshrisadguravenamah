@@ -43,6 +43,17 @@ import kreeda from "@/assets/gallery/kreeda.jpg";
 import cj1 from "@/assets/charan-vandan-3.jpg";
 import cj2 from "@/assets/charan-vandan-4.jpg";
 
+import upFavSwamiji from "@/assets/gallery/up-favSwamiji.jpg";
+import upMandirAarti from "@/assets/gallery/up-mandir-aarti.jpg";
+import upSigningBook from "@/assets/gallery/up-signing-book.jpg";
+import upSmilePortrait from "@/assets/gallery/up-smile-portrait.jpg";
+import upGarlandMeditation from "@/assets/gallery/up-garland-meditation.jpg";
+import upShawlSmile from "@/assets/gallery/up-shawl-smile.jpg";
+import upSkyPortrait from "@/assets/gallery/up-sky-portrait.jpg";
+import upWithElderSaint from "@/assets/gallery/up-with-elder-saint.jpg";
+import upCloseupSmile from "@/assets/gallery/up-closeup-smile.jpg";
+import upGardenSmile from "@/assets/gallery/up-garden-smile.jpg";
+
 import v1 from "@/assets/gallery/v1.jpg";
 import v2 from "@/assets/gallery/v2.jpg";
 import v3 from "@/assets/gallery/v3.jpg";
@@ -202,6 +213,16 @@ That's why every one of us the  devotees miss him equally n she'd tears equally 
   { src: p21, label: "",     vintage: false },
   { src: cj1, label: "", vintage: false },
   { src: cj2, label: "", vintage: false },
+  { src: upFavSwamiji, label: "", vintage: true },
+  { src: upMandirAarti, label: "", vintage: false },
+  { src: upSigningBook, label: "", vintage: false },
+  { src: upSmilePortrait, label: "", vintage: false },
+  { src: upGarlandMeditation, label: "", vintage: true },
+  { src: upShawlSmile, label: "", vintage: false },
+  { src: upSkyPortrait, label: "", vintage: true },
+  { src: upWithElderSaint, label: "", vintage: true },
+  { src: upCloseupSmile, label: "", vintage: false },
+  { src: upGardenSmile, label: "", vintage: false },
 ];
 
 const visheshPhotos: Photo[] = [
