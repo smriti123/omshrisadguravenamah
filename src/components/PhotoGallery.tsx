@@ -37,6 +37,7 @@ import sh3 from "@/assets/gallery/sh3.jpg";
 import sign from "@/assets/gallery/sign.jpg";
 import akh1 from "@/assets/gallery/akh1.jpg";
 import akh2 from "@/assets/gallery/akh2.jpg";
+import akhProcession from "@/assets/gallery/akh-mandir-procession.jpg";
 import ma1 from "@/assets/gallery/ma.jpg";
 import kreeda from "@/assets/gallery/kreeda.jpg";
 import cj1 from "@/assets/charan-vandan-3.jpg";
@@ -165,6 +166,7 @@ I fondly remember when Swamiji entered the Gaushala how all the cows started get
   },  
    { src: sh2,  label: "",     vintage: false },
    { src: akh2,  label: "Akhileshwar Mahadev Mandir",   vintage: true  },
+  { src: akhProcession, label: "Akhileshwar Mahadev Mandir", vintage: false },
   { src: p3,  label: "",   vintage: true  },
   { src: p4,  label: "", vintage: true  },
   { src: p6,  label: "",         vintage: true, story: `
