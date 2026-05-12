@@ -1,11 +1,11 @@
-import p1 from "@/assets/gallery/photo-1.jpg";
-import p2 from "@/assets/gallery/photo-2.jpg";
-import p3 from "@/assets/gallery/photo-3.jpg";
-import p4 from "@/assets/gallery/photo-4.jpg";
-import p5 from "@/assets/gallery/photo-5.jpg";
-import p6 from "@/assets/gallery/photo-6.jpg";
-import p7 from "@/assets/gallery/photo-7.jpg";
-import p8 from "@/assets/gallery/photo-8.jpg";
+import h1 from "@/assets/h1.jpg";
+import gurudev4 from "@/assets/gallery/Gurudev4.jpg";
+import ph1 from "@/assets/gallery/ph1.jpg";
+import g3 from "@/assets/g3.jpg";
+import gurudev3 from "@/assets/gallery/Gurudev3.jpg";
+import gurudev from "@/assets/Gurudev.jpg";
+import p16 from "@/assets/gallery/photo-16.jpg";
+import lastPhoto from "@/assets/gallery/Last.jpeg";
 
 export type Gallery2Photo = {
   id: string;
@@ -31,59 +31,65 @@ export const gallery2Categories: Gallery2Category[] = [
     photos: [
       {
         id: "with-gurudev-1",
-        src: p1,
-        thumbnailSrc: p1,
+        src: h1,
+        thumbnailSrc: h1,
         alt: "With Gurudev photo 1",
-        caption: "With Gurudev — caption can be edited here.",
+        caption: "ॐ सद्गुरु प्रियाय नमः ।",
       },
       {
         id: "with-gurudev-2",
-        src: p2,
-        thumbnailSrc: p2,
+        src: gurudev4,
+        thumbnailSrc: gurudev4,
         alt: "With Gurudev photo 2",
-        caption: "With Gurudev — add the memory or date here.",
+        caption:
+          "He would be always around Gurudev, on his toes, alert, sharp, vigilant and forever thinking ahead, knowing what to do before he is told.",
       },
       {
         id: "with-gurudev-3",
-        src: p3,
-        thumbnailSrc: p3,
+        src: ph1,
+        thumbnailSrc: ph1,
         alt: "With Gurudev photo 3",
-        caption: "With Gurudev — add a short caption here.",
+        caption:
+          "Whenever Pujya Gurudev came to Sidhbari, it was Swami Subodhanandaji who would push his wheelchair — doing so with such devotion and pride.",
       },
       {
         id: "with-gurudev-4",
-        src: p4,
-        thumbnailSrc: p4,
+        src: g3,
+        thumbnailSrc: g3,
         alt: "With Gurudev photo 4",
-        caption: "With Gurudev — describe this moment here.",
+        caption:
+          "ब्रह्मलीन प पूज्य गुरुदेव सान्निध्य प्राप्त करके आपने गुरुदेवकी अप्रतिम सेवा की एवं गुरु निष्ठाका श्रेष्ठ उदाहरण हमें मिला।",
       },
       {
         id: "with-gurudev-5",
-        src: p5,
-        thumbnailSrc: p5,
+        src: gurudev3,
+        thumbnailSrc: gurudev3,
         alt: "With Gurudev photo 5",
-        caption: "With Gurudev — add location or occasion here.",
+        caption:
+          "Swamiji had given strict instructions for every detail of Gurudev's Samadhi Sthal puja care, always serving with total alertness and devotion.",
       },
       {
         id: "with-gurudev-6",
-        src: p6,
-        thumbnailSrc: p6,
+        src: gurudev,
+        thumbnailSrc: gurudev,
         alt: "With Gurudev photo 6",
-        caption: "With Gurudev — write the final caption here.",
+        caption:
+          "At 3 AM in Sidhbari, Swamiji would suddenly invite devotees for Gurudev darshan, and all would follow Him quietly to the Samadhi in the fragrant night.",
       },
       {
         id: "with-gurudev-7",
-        src: p7,
-        thumbnailSrc: p7,
+        src: p16,
+        thumbnailSrc: p16,
         alt: "With Gurudev photo 7",
-        caption: "With Gurudev — add the devotee memory here.",
+        caption:
+          "One inspiring quality: whenever Swamiji was doing Pooja, He would never pose for the camera; His attention was totally on Puja.",
       },
       {
         id: "with-gurudev-8",
-        src: p8,
-        thumbnailSrc: p8,
+        src: lastPhoto,
+        thumbnailSrc: lastPhoto,
         alt: "With Gurudev photo 8",
-        caption: "With Gurudev — add the blessing or story here.",
+        caption: "Last available picture dated 3rd Aug 2020, on 28th Mahasamadhi diwas of Pujya Gurudev.",
       },
     ],
   },

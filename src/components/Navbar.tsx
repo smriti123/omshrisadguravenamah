@@ -7,6 +7,7 @@ const navLinks = [
   { label: "Charan-Vandan", href: "#charan-vandan" },
   { label: "Leela", href: "#leela" },
   { label: "Charitra-Jhalak", href: "#gallery" },
+  { label: "Photo Gallery2", href: "#photo-gallery2" },
   { label: "Stuti", href: "#stuti" },
   { label: "Namami-Chittchorkam", href: "#radiant-smile" },
   { label: "Virah-Stuti", href: "#shraddanjali" },
@@ -32,12 +33,12 @@ const Navbar = () => {
         </a>
 
         {/* Desktop */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden lg:flex flex-wrap items-center justify-end gap-3 xl:gap-5">
           {navLinks.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className="font-body text-sm transition-colors"
+                className="font-body whitespace-nowrap text-xs xl:text-sm transition-colors"
                 style={{ color: "hsl(40 70% 92%)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "hsl(45 90% 98%)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "hsl(40 70% 92%)")}
@@ -51,7 +52,7 @@ const Navbar = () => {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden"
+          className="lg:hidden"
           style={{ color: "hsl(40 70% 92%)" }}
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
@@ -67,7 +68,7 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden"
+            className="lg:hidden overflow-hidden"
             style={{
               background: "rgba(200,150,60,0.96)",
               borderBottom: "1px solid rgba(160,100,20,0.3)",
