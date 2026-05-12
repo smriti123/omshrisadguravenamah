@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import PhotoGallery from "@/components/PhotoGallery";
+import PhotoGallery2 from "@/components/PhotoGallery2";
 import RadiantSmileSection from "@/components/RadiantSmileSection";
 import QuotesSection from "@/components/QuotesSection";
 import ShraddanjaliSection from "@/components/ShraddanjaliSection2";
@@ -24,6 +25,7 @@ const Index = () => {
       <div className="bg-section-alt">
         <JourneyTimeline />
       </div>
+      <PhotoGallery2 />
       <PhotoGallery />
       <RadiantSmileSection />
       <div className="bg-section-alt">
