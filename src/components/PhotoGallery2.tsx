@@ -1,19 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Pause, Play, X } from "lucide-react";
+import { X } from "lucide-react";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { gallery2Categories, type Gallery2Photo } from "@/data/photoGallery2";
 
-const MUSIC_FILE_PATH = "/music/gallery-soft-background.mp3";
-
 const PhotoGallery2 = () => {
   const [activeCategory, setActiveCategory] = useState(gallery2Categories[0].id);
   const [lightboxPhoto, setLightboxPhoto] = useState<Gallery2Photo | null>(null);
-  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
-  const [musicMessage, setMusicMessage] = useState("Optional soft music is off.");
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
   useEffect(() => {
     if (!lightboxPhoto) return;
 
@@ -25,26 +19,6 @@ const PhotoGallery2 = () => {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [lightboxPhoto]);
 
-  const toggleMusic = async () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    try {
-      if (audio.paused) {
-        await audio.play();
-        setIsMusicPlaying(true);
-        setMusicMessage("Soft music is playing. Tap pause anytime.");
-      } else {
-        audio.pause();
-        setIsMusicPlaying(false);
-        setMusicMessage("Soft music is paused.");
-      }
-    } catch {
-      setIsMusicPlaying(false);
-      setMusicMessage("Place your MP3 at public/music/gallery-soft-background.mp3 to enable music.");
-    }
-  };
-
   return (
     <section
       id="photo-gallery2"
@@ -54,27 +28,10 @@ const PhotoGallery2 = () => {
       <div className="mx-auto max-w-6xl px-4">
         <div className="mb-8 text-center">
           <p className="mb-2 text-xs uppercase tracking-[0.28em] text-amber-800/55">Photo Gallery 2</p>
-          <h2 className="font-serif text-3xl font-bold text-amber-950 md:text-4xl">Photo Gallery</h2>
+          <h2 className="font-serif text-3xl font-bold text-amber-950 md:text-4xl">Photo Gallery2</h2>
           <p className="mx-auto mt-3 max-w-3xl text-sm leading-6 text-amber-950/70 md:text-base">
-            A simple tabbed gallery for organizing photos by occasion. The existing gallery below remains unchanged for now.
+            A simple tabbed gallery for organizing photos by occasion. The existing Charitra-Jhalak gallery below remains unchanged.
           </p>
-        </div>
-
-        <div className="mb-6 flex flex-col items-center justify-between gap-3 rounded-2xl border border-amber-900/15 bg-white/45 p-4 shadow-sm md:flex-row">
-          <div className="text-center text-sm text-amber-950/70 md:text-left">
-            <p className="font-medium text-amber-950">Optional background music</p>
-            <p>{musicMessage}</p>
-          </div>
-          <button
-            type="button"
-            onClick={toggleMusic}
-            className="inline-flex items-center gap-2 rounded-full border border-amber-800/25 bg-amber-100/70 px-4 py-2 text-sm font-medium text-amber-950 transition hover:bg-amber-200/70"
-            aria-pressed={isMusicPlaying}
-          >
-            {isMusicPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-            {isMusicPlaying ? "Pause music" : "Play music"}
-          </button>
-          <audio ref={audioRef} src={MUSIC_FILE_PATH} preload="none" loop />
         </div>
 
         <Tabs value={activeCategory} onValueChange={setActiveCategory} className="w-full">
@@ -131,7 +88,7 @@ const PhotoGallery2 = () => {
                           className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                         />
                       </div>
-                      <p className="min-h-[4rem] px-4 py-3 text-sm leading-5 text-amber-950/75">{photo.caption}</p>
+                      <p className="min-h-[4rem] px-4 py-3 text-sm leading-5 text-amber-950/75 line-clamp-4">{photo.caption}</p>
                     </motion.button>
                   ))}
                 </motion.div>
