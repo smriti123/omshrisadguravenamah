@@ -61,6 +61,7 @@ export const gallery2Categories: Gallery2Category[] = [
         alt: "With Gurudev photo 3",
         caption:
           "Whenever Pujya Gurudev came to Sidhbari, it was Swami Subodhanandaji who would push his wheelchair — doing so with such devotion and pride.",
+        objectFit: "cover",
       },
       {
         id: "with-gurudev-4",
