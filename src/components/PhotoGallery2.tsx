@@ -51,11 +51,6 @@ const PhotoGallery2 = () => {
 
           {gallery2Categories.map((category) => (
             <TabsContent key={category.id} value={category.id} className="mt-6">
-              <div className="mb-5 rounded-2xl border border-amber-900/15 bg-white/45 p-4 text-center shadow-sm">
-                <h3 className="font-serif text-2xl font-semibold text-amber-950">{category.name}</h3>
-                <p className="mt-1 text-sm text-amber-950/65">{category.description}</p>
-              </div>
-
               {category.photos.length > 0 ? (
                 <motion.div
                   key={category.id}

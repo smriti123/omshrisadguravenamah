@@ -7,6 +7,13 @@ import gurudev3 from "@/assets/gallery/Gurudev3.jpg";
 import gurudev from "@/assets/Gurudev.jpg";
 import p16 from "@/assets/gallery/photo-16.jpg";
 import lastPhoto from "@/assets/gallery/Last.jpeg";
+import mahasamadhi1 from "@/assets/gallery/v7.jpeg";
+import mahasamadhi2 from "@/assets/gallery/v9.jpg";
+import mahasamadhi3 from "@/assets/gallery/v8.jpeg";
+import batch1 from "@/assets/gallery/batch-1.jpg";
+import batch2 from "@/assets/gallery/batch-2.jpg";
+import batch3 from "@/assets/gallery/batch-3.jpg";
+import batch4 from "@/assets/gallery/batch-4.jpg";
 
 // Namami-Chittchorkam (mirrors RadiantSmileSection captioned photos)
 import smile1 from "@/assets/smile1.jpg";
@@ -102,6 +109,30 @@ export const gallery2Categories: Gallery2Category[] = [
         alt: "With Gurudev photo 8",
         caption: "Last available picture dated 3rd Aug 2020, on 28th Mahasamadhi diwas of Pujya Gurudev.",
       },
+      {
+        id: "with-gurudev-mahasamadhi-1",
+        src: mahasamadhi1,
+        thumbnailSrc: mahasamadhi1,
+        alt: "Gurudev Mahasamadhi photo 1",
+        caption:
+          "All final rites of Pujya Gurudev were done by Pujya Brahmaleen His Holiness Swami Subodhanandaji immaculately with precision amidst all top Saints present there.",
+      },
+      {
+        id: "with-gurudev-mahasamadhi-2",
+        src: mahasamadhi2,
+        thumbnailSrc: mahasamadhi2,
+        alt: "Gurudev Mahasamadhi photo 2",
+        caption:
+          "जब परम पूज्य गुरुदेव के श्री विग्रह को भू समाधि दी जा रही थी तो पूज्य स्वामीजी नेत्रों में अश्रु होने से उस स्थल पर उपस्थित नहीं हुए। उनको किसी के द्वारा उस समय वहां बुलाया गया, और फिर पूज्य स्वामीजी ने उस भू खंड में उतरकर परम पूज्य गुरुदेव के श्री विग्रह को अपने हाथों में पकड़कर भूमिष्ट किया। ॐ श्री चिन्मय सदगुरवे नमः ।।",
+      },
+      {
+        id: "with-gurudev-mahasamadhi-3",
+        src: mahasamadhi3,
+        thumbnailSrc: mahasamadhi3,
+        alt: "Gurudev Mahasamadhi photo 3",
+        caption:
+          "परम पूज्य गुरुदेव के पंचभौतिक विग्रह को बिलकुल उसी मुद्रा में समाधिस्थ किया गया, जिस मुद्रा में ठीक उसी स्थान के ऊपर उनकी पंच धातु का विग्रह सिद्धबाड़ी में स्थापित है। ॐ श्री चिन्मय सदगुरवे नमः ।।",
+      },
     ],
   },
   {
@@ -166,6 +197,41 @@ export const gallery2Categories: Gallery2Category[] = [
     name: "Kayakal Paalghar ceremony",
     description: "Add Kayakal Paalghar ceremony photos and captions to this category when ready.",
     photos: [],
+  },
+  {
+    id: "batches",
+    name: "Batches",
+    description: "Group photographs from various batches and gatherings.",
+    photos: [
+      {
+        id: "batch-1",
+        src: batch1,
+        thumbnailSrc: batch1,
+        alt: "Batch group photo 1",
+        caption: "",
+      },
+      {
+        id: "batch-2",
+        src: batch2,
+        thumbnailSrc: batch2,
+        alt: "Batch group photo 2",
+        caption: "",
+      },
+      {
+        id: "batch-3",
+        src: batch3,
+        thumbnailSrc: batch3,
+        alt: "Batch group photo 3",
+        caption: "",
+      },
+      {
+        id: "batch-4",
+        src: batch4,
+        thumbnailSrc: batch4,
+        alt: "Batch group photo 4",
+        caption: "",
+      },
+    ],
   },
   {
     id: "others",

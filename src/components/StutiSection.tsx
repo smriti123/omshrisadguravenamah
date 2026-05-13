@@ -544,8 +544,8 @@ const StutiSection = () => {
           <StutiCard />
           <AartiCard />
           <ShraddhanjaliCard />
-          <GyannisthaCard />
           <GangeshanandaStutiCard />
+          <GyannisthaCard />
         </div>
       </div>
     </section>
