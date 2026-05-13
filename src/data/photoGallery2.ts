@@ -22,6 +22,7 @@ export type Gallery2Photo = {
   thumbnailSrc: string;
   alt: string;
   caption: string;
+  objectFit?: "cover" | "contain";
 };
 
 export type Gallery2Category = {
