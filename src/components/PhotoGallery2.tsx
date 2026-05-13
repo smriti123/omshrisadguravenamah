@@ -80,12 +80,12 @@ const PhotoGallery2 = () => {
                       onClick={() => setLightboxPhoto(photo)}
                       className="group overflow-hidden rounded-2xl border border-amber-900/15 bg-white text-left shadow-[0_10px_28px_rgba(120,63,4,0.12)] transition hover:-translate-y-1 hover:shadow-[0_16px_35px_rgba(120,63,4,0.2)] focus:outline-none focus:ring-2 focus:ring-amber-700 focus:ring-offset-2"
                     >
-                      <div className="aspect-[4/3] overflow-hidden bg-amber-100">
+                      <div className="flex h-72 items-center justify-center overflow-hidden bg-amber-100/80 p-2 sm:h-80">
                         <img
                           src={photo.thumbnailSrc}
                           alt={photo.alt}
                           loading="lazy"
-                          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                          className="h-full w-full object-contain object-center transition duration-500"
                         />
                       </div>
                       <p className="min-h-[4rem] px-4 py-3 text-sm leading-5 text-amber-950/75 line-clamp-4">{photo.caption}</p>
