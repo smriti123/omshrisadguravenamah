@@ -3,14 +3,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useIsMobile } from "@/hooks/use-mobile";
 import { gallery2Categories, type Gallery2Photo } from "@/data/photoGallery2";
 
 const PhotoGallery2 = () => {
   const [activeCategory, setActiveCategory] = useState(gallery2Categories[0].id);
   const [lightboxPhoto, setLightboxPhoto] = useState<Gallery2Photo | null>(null);
-  const isMobile = useIsMobile();
   useEffect(() => {
     if (!lightboxPhoto) return;
 
@@ -38,37 +35,22 @@ const PhotoGallery2 = () => {
         </div>
 
         <Tabs value={activeCategory} onValueChange={setActiveCategory} className="w-full">
-          {isMobile ? (
-            <div className="px-1 pb-2">
-              <Select value={activeCategory} onValueChange={setActiveCategory}>
-                <SelectTrigger
-                  aria-label="चित्र-श्रेणी चुनें"
-                  className="h-12 w-full rounded-full border-amber-900/20 bg-white/70 px-5 text-amber-950 shadow-sm"
-                >
-                  <SelectValue placeholder="चित्र-श्रेणी चुनें" />
-                </SelectTrigger>
-                <SelectContent className="rounded-2xl border-amber-900/20 bg-amber-50">
-                  {gallery2Categories.map((category) => (
-                    <SelectItem key={category.id} value={category.id} className="text-amber-950">
-                      {category.name}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-          ) : (
-            <TabsList className="mx-auto flex h-auto w-full max-w-5xl flex-wrap items-center justify-center gap-2 rounded-3xl border border-amber-900/15 bg-white/55 p-2 shadow-sm">
+          <div className="mx-auto max-w-5xl rounded-[1.75rem] border border-amber-900/15 bg-white/45 p-3 shadow-[0_14px_36px_rgba(120,63,4,0.10)] md:p-4">
+            <p className="mb-3 text-center text-lg font-semibold leading-7 text-amber-950 md:text-xl">
+              कृपया चित्र-श्रेणी चुनें
+            </p>
+            <TabsList className="grid h-auto w-full grid-cols-1 gap-3 bg-transparent p-0 sm:grid-cols-2 lg:grid-cols-4">
               {gallery2Categories.map((category) => (
                 <TabsTrigger
                   key={category.id}
                   value={category.id}
-                  className="rounded-full px-4 py-2 text-sm text-amber-950/70 data-[state=active]:bg-amber-800 data-[state=active]:text-amber-50"
+                  className="min-h-[3.75rem] w-full whitespace-normal rounded-2xl border border-amber-700/30 bg-amber-50/90 px-4 py-4 text-center text-base font-semibold leading-6 text-amber-950 shadow-sm transition hover:border-amber-800/45 hover:bg-amber-100 focus-visible:ring-2 focus-visible:ring-amber-800 focus-visible:ring-offset-2 data-[state=active]:border-amber-900/45 data-[state=active]:bg-amber-800 data-[state=active]:text-amber-50 data-[state=active]:shadow-[0_10px_24px_rgba(120,63,4,0.22)] md:min-h-[3.5rem] md:px-5 md:text-[0.98rem]"
                 >
                   {category.name}
                 </TabsTrigger>
               ))}
             </TabsList>
-          )}
+          </div>
 
           {gallery2Categories.map((category) => (
             <TabsContent key={category.id} value={category.id} className="mt-6">
@@ -82,7 +64,7 @@ const PhotoGallery2 = () => {
                     hidden: {},
                     show: { transition: { staggerChildren: category.id === "with-gurudev" ? 0.14 : 0.06 } },
                   }}
-                  className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
+                  className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                 >
                   {category.photos.map((photo) => (
                     <motion.button
@@ -94,9 +76,9 @@ const PhotoGallery2 = () => {
                       }}
                       transition={{ duration: 0.42, ease: "easeOut" }}
                       onClick={() => setLightboxPhoto(photo)}
-                      className={`group overflow-hidden rounded-2xl border border-amber-900/15 bg-white text-left shadow-[0_10px_28px_rgba(120,63,4,0.12)] transition hover:-translate-y-1 hover:shadow-[0_16px_35px_rgba(120,63,4,0.2)] focus:outline-none focus:ring-2 focus:ring-amber-700 focus:ring-offset-2 ${photo.centerWide ? "sm:col-span-2 lg:col-span-2 lg:col-start-2" : photo.wide ? "sm:col-span-2 lg:col-span-2" : ""}`}
+                      className={`group overflow-hidden rounded-3xl border border-amber-700/20 bg-amber-50/95 text-left shadow-[0_12px_30px_rgba(120,63,4,0.13)] transition hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(120,63,4,0.2)] focus:outline-none focus:ring-2 focus:ring-amber-700 focus:ring-offset-2 ${photo.centerWide ? "sm:col-span-2 lg:col-span-2 lg:col-start-2" : photo.wide ? "sm:col-span-2 lg:col-span-2" : ""}`}
                     >
-                      <div className="flex h-72 items-center justify-center overflow-hidden bg-amber-100/80 sm:h-80">
+                      <div className="flex h-72 items-center justify-center overflow-hidden bg-gradient-to-br from-amber-100/90 to-orange-100/70 sm:h-80">
                         <img
                           src={photo.thumbnailSrc}
                           alt={photo.alt}
@@ -104,7 +86,7 @@ const PhotoGallery2 = () => {
                           className={`h-full w-full ${photo.objectFit === "cover" ? "object-cover" : "object-contain"} object-center transition duration-500`}
                         />
                       </div>
-                      <p className="px-4 py-2 text-sm leading-5 text-amber-950/75">{photo.caption}</p>
+                      <p className="px-4 py-3 text-base leading-6 text-amber-950/80 sm:text-sm">{photo.caption}</p>
                     </motion.button>
                   ))}
                 </motion.div>
