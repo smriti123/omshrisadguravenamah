@@ -376,6 +376,59 @@ const TributeCard = ({ tribute }: { tribute: Tribute }) => {
   );
 };
 
+const VIDEO_TRIBUTE_PLAYLIST_URL = "https://www.youtube.com/playlist?list=PLgy41qSqQO42bitLVDIT5sn9EHGtMkrZO";
+const VIDEO_TRIBUTE_EMBED_URL = "https://www.youtube.com/embed/videoseries?list=PLgy41qSqQO42bitLVDIT5sn9EHGtMkrZO";
+
+const VideoTributeCard = () => {
+  const [showFallback, setShowFallback] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="mx-auto mt-[30px] w-full max-w-[850px] px-0 sm:px-2"
+    >
+      <div className="rounded-[22px] border border-[#d8b06a] bg-[#f5ead8] p-[18px] text-center shadow-[0_18px_45px_rgba(139,69,19,0.16)] sm:p-6">
+        <h3 className="font-display text-xl font-bold text-primary sm:text-2xl">
+          वीडियो  भावांजलि
+        </h3>
+        <p className="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+          भक्तों द्वारा पूज्य स्वामीजी के प्रति भावपूर्ण श्रद्धा-सुमन।
+        </p>
+
+        <div className="mt-6">
+          {showFallback ? (
+            <div className="rounded-2xl border border-gold/30 bg-background/70 px-5 py-8 shadow-inner">
+              <p className="mx-auto mb-5 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                यदि वीडियो यहाँ नहीं खुल रहा है, तो कृपया YouTube पर पूरी वीडियो भावांजलि देखें।
+              </p>
+              <a
+                href={VIDEO_TRIBUTE_PLAYLIST_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-[#f5ead8]"
+              >
+                YouTube पर वीडियो  भावांजलिदेखें
+              </a>
+            </div>
+          ) : (
+            <iframe
+              src={VIDEO_TRIBUTE_EMBED_URL}
+              title="वीडियो  भावांजलि"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              onError={() => setShowFallback(true)}
+              className="block w-full rounded-2xl border-0 bg-background shadow-sm [aspect-ratio:16/9]"
+            />
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 const ShraddanjaliSection = () => {
   const [page, setPage] = useState(0);
   const [activeTab, setActiveTab] = useState<"written" | "video">("written");
@@ -399,7 +452,7 @@ const ShraddanjaliSection = () => {
                 : "bg-background/60 text-foreground border-gold/25 hover:border-gold/40 hover:bg-background"
             }`}
           >
-            लिखित श्रद्धांजलि
+            लिखित भावांजलि
           </button>
           <button
             onClick={() => setActiveTab("video")}
@@ -409,7 +462,7 @@ const ShraddanjaliSection = () => {
                 : "bg-background/60 text-foreground border-gold/25 hover:border-gold/40 hover:bg-background"
             }`}
           >
-            वीडियो श्रद्धांजलि
+            वीडियो  भावांजलि
           </button>
         </div>
 
@@ -467,31 +520,7 @@ const ShraddanjaliSection = () => {
           </>
         )}
 
-        {activeTab === "video" && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="max-w-[850px] mx-auto"
-          >
-            <div className="rounded-2xl border border-gold/25 bg-background shadow-[0_10px_30px_rgba(139,69,19,0.12)] overflow-hidden p-5 sm:p-8">
-              <h3 className="font-display text-xl sm:text-2xl font-bold text-primary text-center mb-2">
-                वीडियो श्रद्धांजलि
-              </h3>
-              <p className="text-sm text-muted-foreground text-center mb-6 leading-relaxed">
-                भक्तों द्वारा पूज्य स्वामीजी के प्रति भावपूर्ण श्रद्धा-सुमन।
-              </p>
-              <div className="w-full aspect-video rounded-xl overflow-hidden border border-gold/15 bg-black">
-                <iframe
-                  src="https://www.youtube.com/playlist?list=PLgy41qSqQO42bitLVDIT5sn9EHGtMkrZO"
-                  title="वीडियो श्रद्धांजलि"
-                  allowFullScreen
-                  className="w-full h-full"
-                ></iframe>
-              </div>
-            </div>
-          </motion.div>
-        )}
+        {activeTab === "video" && <VideoTributeCard />}
       </div>
     </section>
   );
