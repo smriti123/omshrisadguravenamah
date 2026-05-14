@@ -33,7 +33,7 @@ import smileMadhurCombinedV2 from "@/assets/smile-madhur-combined-v2.jpg";
 
 // Vedant Moorti tab images
 import vedant1 from "@/assets/gallery/vedant-1.png";
-import vedant2 from "@/assets/PoojyaSwamijiThumnail.PNG";
+import vedant2 from "@/assets/gallery/vedant-2.png";
 import vedant3 from "@/assets/gallery/vedant-3.jpg";
 import vedant4 from "@/assets/gallery/vedant-4.jpg";
 import vedant5 from "@/assets/gallery/vedant-5.jpg";
