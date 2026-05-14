@@ -50,6 +50,48 @@ export type Gallery2Category = {
 
 export const gallery2Categories: Gallery2Category[] = [
   {
+    id: "charan-vandan",
+    name: "Charan-Vandan / चरण वंदन",
+    description: "Charan-Vandan photographs with their captions.",
+    photos: [
+      {
+        id: "charan-vandan-1",
+        src: charanVandanFeet,
+        thumbnailSrc: charanVandanFeet,
+        alt: "Charan Vandan photo 1",
+        caption: "श्री गुरु चरण कमलेभ्यो नमः",
+      },
+      {
+        id: "charan-vandan-2",
+        src: charanKamalImage,
+        thumbnailSrc: charanKamalImage,
+        alt: "Charan Vandan photo 2",
+        caption: "बंदऊँ गुरु पद पदुम परागा।",
+      },
+      {
+        id: "charan-vandan-3",
+        src: charanKamalImageTwo,
+        thumbnailSrc: charanKamalImageTwo,
+        alt: "Charan Vandan photo 3",
+        caption: "चरण कमल तेरे धोय धोय पीवां मेरे सतगुरु दीन दयाला",
+      },
+      {
+        id: "charan-vandan-4",
+        src: charanVandanThree,
+        thumbnailSrc: charanVandanThree,
+        alt: "Charan Vandan photo 4",
+        caption: "हे गुरुदेव प्रणाम आपके चरणों में",
+      },
+      {
+        id: "charan-vandan-5",
+        src: charanVandanFour,
+        thumbnailSrc: charanVandanFour,
+        alt: "Charan Vandan photo 5",
+        caption: "श्री गुरु चरण कमलेभ्यो नमः",
+      },
+    ],
+  },
+  {
     id: "with-gurudev",
     name: "Sadguru Priyaye / सद्गुरु प्रियाय",
     description:
@@ -145,12 +187,6 @@ export const gallery2Categories: Gallery2Category[] = [
     ],
   },
   {
-    id: "akhileshwar-bhagwan-temple",
-    name: "Akhileshwar Bhagwan temple",
-    description: "Add Akhileshwar Bhagwan temple photos to this category when ready.",
-    photos: [],
-  },
-  {
     id: "namami-chittchorkam",
     name: "Namami chittchorkam",
     description: "Photos from the Namami-Chittchorkam section with their captions.",
@@ -203,9 +239,15 @@ export const gallery2Categories: Gallery2Category[] = [
     ],
   },
   {
-    id: "kayakal-paalghar-ceremony",
-    name: "Kayakal Paalghar ceremony",
-    description: "Add Kayakal Paalghar ceremony photos and captions to this category when ready.",
+    id: "vedant-moorti",
+    name: "Vedant Moorti / वेदांत मूर्ति",
+    description: "Add Vedant Moorti photos and captions to this category when ready.",
+    photos: [],
+  },
+  {
+    id: "key-events",
+    name: "Key Events / प्रमुख आयोजन",
+    description: "Add Key Events photos and captions to this category when ready.",
     photos: [],
   },
   {
@@ -247,48 +289,6 @@ export const gallery2Categories: Gallery2Category[] = [
         thumbnailSrc: batch5,
         alt: "Shishya Sangam group photo",
         caption: "",
-      },
-    ],
-  },
-  {
-    id: "charan-vandan",
-    name: "Charan-Vandan / चरण वंदन",
-    description: "Charan-Vandan photographs with their captions.",
-    photos: [
-      {
-        id: "charan-vandan-1",
-        src: charanVandanFeet,
-        thumbnailSrc: charanVandanFeet,
-        alt: "Charan Vandan photo 1",
-        caption: "श्री गुरु चरण कमलेभ्यो नमः",
-      },
-      {
-        id: "charan-vandan-2",
-        src: charanKamalImage,
-        thumbnailSrc: charanKamalImage,
-        alt: "Charan Vandan photo 2",
-        caption: "बंदऊँ गुरु पद पदुम परागा।",
-      },
-      {
-        id: "charan-vandan-3",
-        src: charanKamalImageTwo,
-        thumbnailSrc: charanKamalImageTwo,
-        alt: "Charan Vandan photo 3",
-        caption: "चरण कमल तेरे धोय धोय पीवां मेरे सतगुरु दीन दयाला",
-      },
-      {
-        id: "charan-vandan-4",
-        src: charanVandanThree,
-        thumbnailSrc: charanVandanThree,
-        alt: "Charan Vandan photo 4",
-        caption: "हे गुरुदेव प्रणाम आपके चरणों में",
-      },
-      {
-        id: "charan-vandan-5",
-        src: charanVandanFour,
-        thumbnailSrc: charanVandanFour,
-        alt: "Charan Vandan photo 5",
-        caption: "श्री गुरु चरण कमलेभ्यो नमः",
       },
     ],
   },

@@ -3,11 +3,14 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { gallery2Categories, type Gallery2Photo } from "@/data/photoGallery2";
 
 const PhotoGallery2 = () => {
   const [activeCategory, setActiveCategory] = useState(gallery2Categories[0].id);
   const [lightboxPhoto, setLightboxPhoto] = useState<Gallery2Photo | null>(null);
+  const isMobile = useIsMobile();
   useEffect(() => {
     if (!lightboxPhoto) return;
 
@@ -35,19 +38,37 @@ const PhotoGallery2 = () => {
         </div>
 
         <Tabs value={activeCategory} onValueChange={setActiveCategory} className="w-full">
-          <div className="overflow-x-auto pb-2">
-            <TabsList className="h-auto min-w-max rounded-full border border-amber-900/15 bg-white/55 p-1 shadow-sm">
+          {isMobile ? (
+            <div className="px-1 pb-2">
+              <Select value={activeCategory} onValueChange={setActiveCategory}>
+                <SelectTrigger
+                  aria-label="चित्र-श्रेणी चुनें"
+                  className="h-12 w-full rounded-full border-amber-900/20 bg-white/70 px-5 text-amber-950 shadow-sm"
+                >
+                  <SelectValue placeholder="चित्र-श्रेणी चुनें" />
+                </SelectTrigger>
+                <SelectContent className="rounded-2xl border-amber-900/20 bg-amber-50">
+                  {gallery2Categories.map((category) => (
+                    <SelectItem key={category.id} value={category.id} className="text-amber-950">
+                      {category.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          ) : (
+            <TabsList className="mx-auto flex h-auto w-full max-w-5xl flex-wrap items-center justify-center gap-2 rounded-3xl border border-amber-900/15 bg-white/55 p-2 shadow-sm">
               {gallery2Categories.map((category) => (
                 <TabsTrigger
                   key={category.id}
                   value={category.id}
-                  className="rounded-full px-4 py-2 text-amber-950/70 data-[state=active]:bg-amber-800 data-[state=active]:text-amber-50"
+                  className="rounded-full px-4 py-2 text-sm text-amber-950/70 data-[state=active]:bg-amber-800 data-[state=active]:text-amber-50"
                 >
                   {category.name}
                 </TabsTrigger>
               ))}
             </TabsList>
-          </div>
+          )}
 
           {gallery2Categories.map((category) => (
             <TabsContent key={category.id} value={category.id} className="mt-6">
