@@ -376,11 +376,38 @@ const TributeCard = ({ tribute }: { tribute: Tribute }) => {
   );
 };
 
-const VIDEO_TRIBUTE_PLAYLIST_URL = "https://www.youtube.com/playlist?list=PLgy41qSqQO42bitLVDIT5sn9EHGtMkrZO";
-const VIDEO_TRIBUTE_EMBED_URL = "https://www.youtube.com/embed/videoseries?list=PLgy41qSqQO42bitLVDIT5sn9EHGtMkrZO";
+type VideoTribute = {
+  id: string;
+  title: string;
+  subtitle?: string;
+};
 
-const VideoTributeCard = () => {
+const VIDEO_TRIBUTE_PLAYLIST_URL = "https://www.youtube.com/playlist?list=PLgy41qSqQO42bitLVDIT5sn9EHGtMkrZO";
+
+// Add or reorder individual YouTube video IDs from the playlist here.
+// Replace the empty id values with real playlist video IDs as they become available.
+// The iframe below intentionally embeds each video by ID instead of using the playlist URL.
+const videoTributes: VideoTribute[] = [
+  {
+    id: "",
+    title: "वीडियो स्मरण 1",
+    subtitle: "पूज्य स्वामीजी के प्रति भावपूर्ण श्रद्धा-सुमन",
+  },
+  {
+    id: "",
+    title: "वीडियो स्मरण 2",
+    subtitle: "पूज्य स्वामीजी के प्रति भावपूर्ण श्रद्धा-सुमन",
+  },
+];
+
+const getVideoWatchUrl = (videoId?: string) =>
+  videoId ? `https://www.youtube.com/watch?v=${videoId}` : VIDEO_TRIBUTE_PLAYLIST_URL;
+
+const VideoTributeCard = ({ tribute }: { tribute?: VideoTribute }) => {
   const [showFallback, setShowFallback] = useState(false);
+
+  const hasVideo = Boolean(tribute?.id);
+  const videoUrl = getVideoWatchUrl(tribute?.id);
 
   return (
     <motion.div
@@ -391,37 +418,51 @@ const VideoTributeCard = () => {
     >
       <div className="rounded-[22px] border border-[#d8b06a] bg-[#f5ead8] p-[18px] text-center shadow-[0_18px_45px_rgba(139,69,19,0.16)] sm:p-6">
         <h3 className="font-display text-xl font-bold text-primary sm:text-2xl">
-          वीडियो  भावांजलि
+          {tribute?.title ?? "वीडियो स्मरण"}
         </h3>
         <p className="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-          भक्तों द्वारा पूज्य स्वामीजी के प्रति भावपूर्ण श्रद्धा-सुमन।
+          {tribute?.subtitle ?? "पूज्य स्वामीजी के प्रति भावपूर्ण श्रद्धा-सुमन"}
         </p>
 
         <div className="mt-6">
-          {showFallback ? (
+          {!hasVideo || showFallback ? (
             <div className="rounded-2xl border border-gold/30 bg-background/70 px-5 py-8 shadow-inner">
               <p className="mx-auto mb-5 max-w-xl text-sm leading-relaxed text-muted-foreground">
-                यदि वीडियो यहाँ नहीं खुल रहा है, तो कृपया YouTube पर पूरी वीडियो भावांजलि देखें।
+                {!hasVideo
+                  ? "इस वीडियो स्मरण गैलरी में व्यक्तिगत YouTube वीडियो IDs जोड़ने के बाद प्रत्येक वीडियो अलग कार्ड में दिखाई देगा।"
+                  : "यदि वीडियो यहाँ नहीं खुल रहा है, तो कृपया YouTube पर यह वीडियो देखें।"}
               </p>
               <a
-                href={VIDEO_TRIBUTE_PLAYLIST_URL}
+                href={videoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-[#f5ead8]"
+                className="inline-flex min-h-11 items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary/90 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-[#f5ead8]"
               >
-                YouTube पर वीडियो  भावांजलिदेखें
+                YouTube पर देखें
               </a>
             </div>
           ) : (
-            <iframe
-              src={VIDEO_TRIBUTE_EMBED_URL}
-              title="वीडियो  भावांजलि"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              onError={() => setShowFallback(true)}
-              className="block w-full rounded-2xl border-0 bg-background shadow-sm [aspect-ratio:16/9]"
-            />
+            <>
+              <iframe
+                src={`https://www.youtube.com/embed/${tribute.id}`}
+                title={tribute.title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                onError={() => setShowFallback(true)}
+                className="block w-full rounded-2xl border-0 bg-background shadow-sm [aspect-ratio:16/9]"
+              />
+              <div className="mt-4 flex justify-center">
+                <a
+                  href={videoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-10 items-center justify-center rounded-full border border-gold/30 bg-background/65 px-5 py-2 text-sm font-medium text-primary transition-all hover:-translate-y-0.5 hover:border-gold/50 hover:bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-[#f5ead8]"
+                >
+                  YouTube पर देखें
+                </a>
+              </div>
+            </>
           )}
         </div>
       </div>
@@ -431,8 +472,10 @@ const VideoTributeCard = () => {
 
 const ShraddanjaliSection = () => {
   const [page, setPage] = useState(0);
+  const [videoPage, setVideoPage] = useState(0);
   const [activeTab, setActiveTab] = useState<"written" | "video">("written");
   const total = tributes.length;
+  const videoTotal = videoTributes.length;
 
   return (
     <section id="shraddanjali" className="py-20 bg-gradient-spiritual">
@@ -452,7 +495,7 @@ const ShraddanjaliSection = () => {
                 : "bg-background/60 text-foreground border-gold/25 hover:border-gold/40 hover:bg-background"
             }`}
           >
-            लिखित भावांजलि
+            भाव-सुमन
           </button>
           <button
             onClick={() => setActiveTab("video")}
@@ -462,7 +505,7 @@ const ShraddanjaliSection = () => {
                 : "bg-background/60 text-foreground border-gold/25 hover:border-gold/40 hover:bg-background"
             }`}
           >
-            वीडियो  भावांजलि
+            वीडियो स्मरण
           </button>
         </div>
 
@@ -520,7 +563,65 @@ const ShraddanjaliSection = () => {
           </>
         )}
 
-        {activeTab === "video" && <VideoTributeCard />}
+        {activeTab === "video" && (
+          <>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={videoPage}
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 0.3 }}
+              >
+                <VideoTributeCard tribute={videoTributes[videoPage]} />
+              </motion.div>
+            </AnimatePresence>
+
+            {videoTotal > 0 && (
+              <>
+                <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+                  <button
+                    onClick={() => setVideoPage((p) => Math.max(0, p - 1))}
+                    disabled={videoPage === 0}
+                    aria-label="Previous video tribute"
+                    className="min-h-10 min-w-10 rounded-full border border-gold/20 p-2 text-muted-foreground transition-all hover:border-gold/40 hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30"
+                  >
+                    <ChevronLeft size={18} className="mx-auto" />
+                  </button>
+
+                  <div className="flex flex-wrap justify-center gap-1.5">
+                    {Array.from({ length: videoTotal }, (_, i) => (
+                      <button
+                        key={videoTributes[i].id || i}
+                        onClick={() => setVideoPage(i)}
+                        className={`min-h-9 min-w-9 rounded-full text-xs font-medium transition-all ${
+                          videoPage === i
+                            ? "bg-primary text-primary-foreground"
+                            : "border border-gold/20 bg-card text-muted-foreground hover:text-foreground"
+                        }`}
+                      >
+                        {i + 1}
+                      </button>
+                    ))}
+                  </div>
+
+                  <button
+                    onClick={() => setVideoPage((p) => Math.min(videoTotal - 1, p + 1))}
+                    disabled={videoPage === videoTotal - 1}
+                    aria-label="Next video tribute"
+                    className="min-h-10 min-w-10 rounded-full border border-gold/20 p-2 text-muted-foreground transition-all hover:border-gold/40 hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30"
+                  >
+                    <ChevronRight size={18} className="mx-auto" />
+                  </button>
+                </div>
+
+                <p className="mt-3 text-center text-xs text-muted-foreground">
+                  {videoPage + 1} of {videoTotal} वीडियो स्मरण
+                </p>
+              </>
+            )}
+          </>
+        )}
       </div>
     </section>
   );
