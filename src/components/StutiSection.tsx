@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import GyannisthaCard from "@/components/GyannisthaCard";
-import stutiImage from "@/assets/gallery/stuti3.jpg";
 import gangeshanandaStuti from "@/assets/stuti-gangeshananda.jpg";
 
 const stutiNames = [
@@ -369,24 +368,6 @@ const shraddhanjaliPoem = `
 
 const shraddhanjaliStanzas = shraddhanjaliPoem.trim().split("\n\n").filter(Boolean);
 
-const HridayCard = () => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5 }}
-    className="max-w-6xl mx-auto mb-10"
-  >
-    <div className="rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(139,69,19,0.22)] border border-primary/20">
-      <img
-        src={stutiImage}
-        alt="Stuti"
-        className="w-full h-full object-contain"
-        loading="lazy"
-      />
-    </div>
-  </motion.div>
-);
 
 const StutiCard = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -537,8 +518,6 @@ const StutiSection = () => {
           title="Stuti"
           subtitle="108 divine names, Aarti and devotional compositions in reverence to Pujya Swamiji"
         />
-
-        <HridayCard />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           <StutiCard />

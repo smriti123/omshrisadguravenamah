@@ -84,10 +84,10 @@ const PhotoGallery2 = () => {
     >
       <div className="mx-auto max-w-6xl px-4">
         <div className="mb-8 text-center">
-          <p className="mb-2 text-xs uppercase tracking-[0.28em] text-amber-800/55">Photo Gallery 2</p>
-          <h2 className="font-serif text-3xl font-bold text-amber-950 md:text-4xl">Photo Gallery2</h2>
+          <p className="mb-2 text-xs uppercase tracking-[0.28em] text-amber-800/55">Charitra-Jhalak2</p>
+          <h2 className="font-serif text-3xl font-bold text-amber-950 md:text-4xl">Charitra-Jhalak2</h2>
           <p className="mx-auto mt-3 max-w-3xl text-sm leading-6 text-amber-950/70 md:text-base">
-            A simple accordion gallery for organizing photos by occasion. The existing Charitra-Jhalak gallery below remains unchanged.
+            Along with fond memories and heartfelt recollections shared by devotees from time to time.
           </p>
         </div>
 
