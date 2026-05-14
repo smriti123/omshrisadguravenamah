@@ -378,6 +378,7 @@ const TributeCard = ({ tribute }: { tribute: Tribute }) => {
 
 const ShraddanjaliSection = () => {
   const [page, setPage] = useState(0);
+  const [activeTab, setActiveTab] = useState<"written" | "video">("written");
   const total = tributes.length;
 
   return (
@@ -388,55 +389,109 @@ const ShraddanjaliSection = () => {
           subtitle="Heartfelt tributes from devotees whose lives were touched by Pujya Swamiji's grace"
         />
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={page}
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -30 }}
-            transition={{ duration: 0.3 }}
-          >
-            <TributeCard tribute={tributes[page]} />
-          </motion.div>
-        </AnimatePresence>
-
-        <div className="flex items-center justify-center gap-2 mt-8 flex-wrap">
+        {/* Sub-tabs */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 mb-10 max-w-md mx-auto">
           <button
-            onClick={() => setPage((p) => Math.max(0, p - 1))}
-            disabled={page === 0}
-            className="p-2 rounded-full border border-gold/20 text-muted-foreground hover:text-foreground hover:border-gold/40 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+            onClick={() => setActiveTab("written")}
+            className={`flex-1 px-5 py-3 rounded-full text-sm font-medium transition-all border ${
+              activeTab === "written"
+                ? "bg-primary text-primary-foreground border-primary shadow-md"
+                : "bg-background/60 text-foreground border-gold/25 hover:border-gold/40 hover:bg-background"
+            }`}
           >
-            <ChevronLeft size={18} />
+            लिखित श्रद्धांजलि
           </button>
-
-          <div className="flex gap-1.5 flex-wrap justify-center">
-            {Array.from({ length: total }, (_, i) => (
-              <button
-                key={i}
-                onClick={() => setPage(i)}
-                className={`w-7 h-7 rounded-full text-xs font-medium transition-all ${
-                  page === i
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-card border border-gold/20 text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {i + 1}
-              </button>
-            ))}
-          </div>
-
           <button
-            onClick={() => setPage((p) => Math.min(total - 1, p + 1))}
-            disabled={page === total - 1}
-            className="p-2 rounded-full border border-gold/20 text-muted-foreground hover:text-foreground hover:border-gold/40 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+            onClick={() => setActiveTab("video")}
+            className={`flex-1 px-5 py-3 rounded-full text-sm font-medium transition-all border ${
+              activeTab === "video"
+                ? "bg-primary text-primary-foreground border-primary shadow-md"
+                : "bg-background/60 text-foreground border-gold/25 hover:border-gold/40 hover:bg-background"
+            }`}
           >
-            <ChevronRight size={18} />
+            वीडियो श्रद्धांजलि
           </button>
         </div>
 
-        <p className="text-center text-xs text-muted-foreground mt-3">
-          {page + 1} of {total} tributes
-        </p>
+        {activeTab === "written" && (
+          <>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={page}
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 0.3 }}
+              >
+                <TributeCard tribute={tributes[page]} />
+              </motion.div>
+            </AnimatePresence>
+
+            <div className="flex items-center justify-center gap-2 mt-8 flex-wrap">
+              <button
+                onClick={() => setPage((p) => Math.max(0, p - 1))}
+                disabled={page === 0}
+                className="p-2 rounded-full border border-gold/20 text-muted-foreground hover:text-foreground hover:border-gold/40 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              >
+                <ChevronLeft size={18} />
+              </button>
+
+              <div className="flex gap-1.5 flex-wrap justify-center">
+                {Array.from({ length: total }, (_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setPage(i)}
+                    className={`w-7 h-7 rounded-full text-xs font-medium transition-all ${
+                      page === i
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-card border border-gold/20 text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {i + 1}
+                  </button>
+                ))}
+              </div>
+
+              <button
+                onClick={() => setPage((p) => Math.min(total - 1, p + 1))}
+                disabled={page === total - 1}
+                className="p-2 rounded-full border border-gold/20 text-muted-foreground hover:text-foreground hover:border-gold/40 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
+
+            <p className="text-center text-xs text-muted-foreground mt-3">
+              {page + 1} of {total} tributes
+            </p>
+          </>
+        )}
+
+        {activeTab === "video" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="max-w-[850px] mx-auto"
+          >
+            <div className="rounded-2xl border border-gold/25 bg-background shadow-[0_10px_30px_rgba(139,69,19,0.12)] overflow-hidden p-5 sm:p-8">
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-primary text-center mb-2">
+                वीडियो श्रद्धांजलि
+              </h3>
+              <p className="text-sm text-muted-foreground text-center mb-6 leading-relaxed">
+                भक्तों द्वारा पूज्य स्वामीजी के प्रति भावपूर्ण श्रद्धा-सुमन।
+              </p>
+              <div className="w-full aspect-video rounded-xl overflow-hidden border border-gold/15 bg-black">
+                <iframe
+                  src="https://www.youtube.com/playlist?list=PLgy41qSqQO42bitLVDIT5sn9EHGtMkrZO"
+                  title="वीडियो श्रद्धांजलि"
+                  allowfullscreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+            </div>
+          </motion.div>
+        )}
       </div>
     </section>
   );
