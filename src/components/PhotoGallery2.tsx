@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 
@@ -7,6 +7,64 @@ import { gallery2Categories, type Gallery2Photo } from "@/data/photoGallery2";
 const PhotoGallery2 = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(gallery2Categories[0].id);
   const [lightboxPhoto, setLightboxPhoto] = useState<Gallery2Photo | null>(null);
+  const panelRefs = useRef<Record<string, HTMLElement | null>>({});
+  const scrollFrameRef = useRef<number | null>(null);
+  const scrollTimeoutRef = useRef<number | null>(null);
+  const closePanelTimeoutRef = useRef<number | null>(null);
+  useEffect(() => {
+    return () => {
+      if (scrollFrameRef.current !== null) window.cancelAnimationFrame(scrollFrameRef.current);
+      if (scrollTimeoutRef.current !== null) window.clearTimeout(scrollTimeoutRef.current);
+      if (closePanelTimeoutRef.current !== null) window.clearTimeout(closePanelTimeoutRef.current);
+    };
+  }, []);
+
+  const isMobileViewport = () => typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
+
+  const scrollToPanelTop = (categoryId: string) => {
+    if (!isMobileViewport()) return;
+
+    if (scrollFrameRef.current !== null) window.cancelAnimationFrame(scrollFrameRef.current);
+    if (scrollTimeoutRef.current !== null) window.clearTimeout(scrollTimeoutRef.current);
+
+    scrollTimeoutRef.current = window.setTimeout(() => {
+      scrollFrameRef.current = window.requestAnimationFrame(() => {
+        const panel = panelRefs.current[categoryId];
+        if (!panel) return;
+
+        const stickyHeaderOffset = 96;
+        const panelTop = panel.getBoundingClientRect().top + window.scrollY - stickyHeaderOffset;
+
+        window.scrollTo({
+          top: Math.max(panelTop, 0),
+          behavior: "smooth",
+        });
+      });
+    }, 0);
+  };
+
+  const openCategoryAndScroll = (categoryId: string) => {
+    setActiveCategory(categoryId);
+    scrollToPanelTop(categoryId);
+  };
+
+  const handleCategoryToggle = (categoryId: string, isOpen: boolean) => {
+    if (closePanelTimeoutRef.current !== null) window.clearTimeout(closePanelTimeoutRef.current);
+
+    if (isOpen) {
+      setActiveCategory(null);
+      return;
+    }
+
+    if (activeCategory && isMobileViewport()) {
+      setActiveCategory(null);
+      closePanelTimeoutRef.current = window.setTimeout(() => openCategoryAndScroll(categoryId), 330);
+      return;
+    }
+
+    openCategoryAndScroll(categoryId);
+  };
+
   useEffect(() => {
     if (!lightboxPhoto) return;
 
@@ -47,6 +105,9 @@ const PhotoGallery2 = () => {
               return (
                 <article
                   key={category.id}
+                  ref={(el) => {
+                    panelRefs.current[category.id] = el;
+                  }}
                   className={`overflow-hidden rounded-[1.35rem] border bg-amber-50/90 shadow-[0_12px_30px_rgba(120,63,4,0.12)] transition-all duration-300 ${
                     isOpen ? "border-amber-800/45 shadow-[0_16px_38px_rgba(120,63,4,0.18)]" : "border-amber-700/25"
                   }`}
@@ -56,7 +117,7 @@ const PhotoGallery2 = () => {
                       type="button"
                       aria-expanded={isOpen}
                       aria-controls={panelId}
-                      onClick={() => setActiveCategory(isOpen ? null : category.id)}
+                      onClick={() => handleCategoryToggle(category.id, isOpen)}
                       className={`flex min-h-[4.75rem] w-full items-center gap-4 px-4 py-4 text-left text-lg font-bold leading-7 transition focus:outline-none focus:ring-2 focus:ring-amber-800 focus:ring-inset md:min-h-[4.25rem] md:px-6 md:text-xl ${
                         isOpen
                           ? "bg-amber-800 text-amber-50"
