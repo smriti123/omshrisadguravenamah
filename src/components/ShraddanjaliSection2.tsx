@@ -485,7 +485,7 @@ const ShraddanjaliSection = () => {
                 <iframe
                   src="https://www.youtube.com/playlist?list=PLgy41qSqQO42bitLVDIT5sn9EHGtMkrZO"
                   title="वीडियो श्रद्धांजलि"
-                  allowfullscreen
+                  allowFullScreen
                   className="w-full h-full"
                 ></iframe>
               </div>
