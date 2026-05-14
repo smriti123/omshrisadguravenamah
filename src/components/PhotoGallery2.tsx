@@ -2,11 +2,10 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { gallery2Categories, type Gallery2Photo } from "@/data/photoGallery2";
 
 const PhotoGallery2 = () => {
-  const [activeCategory, setActiveCategory] = useState(gallery2Categories[0].id);
+  const [activeCategory, setActiveCategory] = useState<string | null>(gallery2Categories[0].id);
   const [lightboxPhoto, setLightboxPhoto] = useState<Gallery2Photo | null>(null);
   useEffect(() => {
     if (!lightboxPhoto) return;
@@ -30,74 +29,114 @@ const PhotoGallery2 = () => {
           <p className="mb-2 text-xs uppercase tracking-[0.28em] text-amber-800/55">Photo Gallery 2</p>
           <h2 className="font-serif text-3xl font-bold text-amber-950 md:text-4xl">Photo Gallery2</h2>
           <p className="mx-auto mt-3 max-w-3xl text-sm leading-6 text-amber-950/70 md:text-base">
-            A simple tabbed gallery for organizing photos by occasion. The existing Charitra-Jhalak gallery below remains unchanged.
+            A simple accordion gallery for organizing photos by occasion. The existing Charitra-Jhalak gallery below remains unchanged.
           </p>
         </div>
 
-        <Tabs value={activeCategory} onValueChange={setActiveCategory} className="w-full">
-          <div className="mx-auto max-w-5xl rounded-[1.75rem] border border-amber-900/15 bg-white/45 p-3 shadow-[0_14px_36px_rgba(120,63,4,0.10)] md:p-4">
-            <p className="mb-3 text-center text-lg font-semibold leading-7 text-amber-950 md:text-xl">
-              कृपया चित्र-श्रेणी चुनें
-            </p>
-            <TabsList className="grid h-auto w-full grid-cols-1 gap-3 bg-transparent p-0 sm:grid-cols-2 lg:grid-cols-4">
-              {gallery2Categories.map((category) => (
-                <TabsTrigger
-                  key={category.id}
-                  value={category.id}
-                  className="min-h-[3.75rem] w-full whitespace-normal rounded-2xl border border-amber-700/30 bg-amber-50/90 px-4 py-4 text-center text-base font-semibold leading-6 text-amber-950 shadow-sm transition hover:border-amber-800/45 hover:bg-amber-100 focus-visible:ring-2 focus-visible:ring-amber-800 focus-visible:ring-offset-2 data-[state=active]:border-amber-900/45 data-[state=active]:bg-amber-800 data-[state=active]:text-amber-50 data-[state=active]:shadow-[0_10px_24px_rgba(120,63,4,0.22)] md:min-h-[3.5rem] md:px-5 md:text-[0.98rem]"
-                >
-                  {category.name}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </div>
+        <div className="mx-auto max-w-6xl space-y-4 overflow-x-hidden rounded-[1.75rem] border border-amber-900/15 bg-white/45 p-3 shadow-[0_14px_36px_rgba(120,63,4,0.10)] md:p-5">
+          <p className="px-2 text-center text-lg font-semibold leading-7 text-amber-950 md:text-xl">
+            कृपया चित्र-श्रेणी चुनें
+          </p>
 
-          {gallery2Categories.map((category) => (
-            <TabsContent key={category.id} value={category.id} className="mt-6">
-              {category.photos.length > 0 ? (
-                <motion.div
+          <div className="space-y-4">
+            {gallery2Categories.map((category) => {
+              const isOpen = activeCategory === category.id;
+              const panelId = `gallery2-panel-${category.id}`;
+              const headerId = `gallery2-header-${category.id}`;
+
+              return (
+                <article
                   key={category.id}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.15 }}
-                  variants={{
-                    hidden: {},
-                    show: { transition: { staggerChildren: category.id === "with-gurudev" ? 0.14 : 0.06 } },
-                  }}
-                  className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                  className={`overflow-hidden rounded-[1.35rem] border bg-amber-50/90 shadow-[0_12px_30px_rgba(120,63,4,0.12)] transition-all duration-300 ${
+                    isOpen ? "border-amber-800/45 shadow-[0_16px_38px_rgba(120,63,4,0.18)]" : "border-amber-700/25"
+                  }`}
                 >
-                  {category.photos.map((photo) => (
-                    <motion.button
+                  <h3 id={headerId}>
+                    <button
                       type="button"
-                      key={photo.id}
-                      variants={{
-                        hidden: { opacity: 0, y: 22, scale: 0.98 },
-                        show: { opacity: 1, y: 0, scale: 1 },
-                      }}
-                      transition={{ duration: 0.42, ease: "easeOut" }}
-                      onClick={() => setLightboxPhoto(photo)}
-                      className={`group overflow-hidden rounded-3xl border border-amber-700/20 bg-amber-50/95 text-left shadow-[0_12px_30px_rgba(120,63,4,0.13)] transition hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(120,63,4,0.2)] focus:outline-none focus:ring-2 focus:ring-amber-700 focus:ring-offset-2 ${photo.centerWide ? "sm:col-span-2 lg:col-span-2 lg:col-start-2" : photo.wide ? "sm:col-span-2 lg:col-span-2" : ""}`}
+                      aria-expanded={isOpen}
+                      aria-controls={panelId}
+                      onClick={() => setActiveCategory(isOpen ? null : category.id)}
+                      className={`flex min-h-[4.75rem] w-full items-center gap-4 px-4 py-4 text-left text-lg font-bold leading-7 transition focus:outline-none focus:ring-2 focus:ring-amber-800 focus:ring-inset md:min-h-[4.25rem] md:px-6 md:text-xl ${
+                        isOpen
+                          ? "bg-amber-800 text-amber-50"
+                          : "bg-gradient-to-r from-amber-50 to-orange-50 text-amber-950 hover:bg-amber-100"
+                      }`}
                     >
-                      <div className="flex h-72 items-center justify-center overflow-hidden bg-gradient-to-br from-amber-100/90 to-orange-100/70 sm:h-80">
-                        <img
-                          src={photo.thumbnailSrc}
-                          alt={photo.alt}
-                          loading="lazy"
-                          className={`h-full w-full ${photo.objectFit === "cover" ? "object-cover" : "object-contain"} object-center transition duration-500`}
-                        />
-                      </div>
-                      <p className="px-4 py-3 text-base leading-6 text-amber-950/80 sm:text-sm">{photo.caption}</p>
-                    </motion.button>
-                  ))}
-                </motion.div>
-              ) : (
-                <div className="rounded-2xl border border-dashed border-amber-800/25 bg-white/35 p-8 text-center text-amber-950/65">
-                  Photos for this tab can be added in <code className="rounded bg-amber-100 px-1">src/data/photoGallery2.ts</code>.
-                </div>
-              )}
-            </TabsContent>
-          ))}
-        </Tabs>
+                      <span
+                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border text-xl shadow-sm ${
+                          isOpen ? "border-amber-100/55 bg-amber-50/15 text-amber-50" : "border-amber-700/25 bg-white/60 text-amber-800"
+                        }`}
+                        aria-hidden="true"
+                      >
+                        {isOpen ? "▼" : "▶"}
+                      </span>
+                      <span className="flex-1">{category.name}</span>
+                    </button>
+                  </h3>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        id={panelId}
+                        role="region"
+                        aria-labelledby={headerId}
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.32, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="border-t border-amber-700/20 bg-gradient-to-b from-amber-50/80 to-white/30 p-4 md:p-5">
+                          {category.photos.length > 0 ? (
+                            <motion.div
+                              key={category.id}
+                              initial="hidden"
+                              animate="show"
+                              variants={{
+                                hidden: {},
+                                show: { transition: { staggerChildren: category.id === "with-gurudev" ? 0.14 : 0.06 } },
+                              }}
+                              className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                            >
+                              {category.photos.map((photo) => (
+                                <motion.button
+                                  type="button"
+                                  key={photo.id}
+                                  variants={{
+                                    hidden: { opacity: 0, y: 22, scale: 0.98 },
+                                    show: { opacity: 1, y: 0, scale: 1 },
+                                  }}
+                                  transition={{ duration: 0.42, ease: "easeOut" }}
+                                  onClick={() => setLightboxPhoto(photo)}
+                                  className={`group overflow-hidden rounded-3xl border border-amber-700/20 bg-amber-50/95 text-left shadow-[0_12px_30px_rgba(120,63,4,0.13)] transition hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(120,63,4,0.2)] focus:outline-none focus:ring-2 focus:ring-amber-700 focus:ring-offset-2 ${photo.centerWide ? "sm:col-span-2 lg:col-span-2 lg:col-start-2" : photo.wide ? "sm:col-span-2 lg:col-span-2" : ""}`}
+                                >
+                                  <div className="flex h-72 items-center justify-center overflow-hidden bg-gradient-to-br from-amber-100/90 to-orange-100/70 sm:h-80">
+                                    <img
+                                      src={photo.thumbnailSrc}
+                                      alt={photo.alt}
+                                      loading="lazy"
+                                      className={`h-full w-full ${photo.objectFit === "cover" ? "object-cover" : "object-contain"} object-center transition duration-500`}
+                                    />
+                                  </div>
+                                  <p className="px-4 py-3 text-base leading-6 text-amber-950/80 sm:text-sm">{photo.caption}</p>
+                                </motion.button>
+                              ))}
+                            </motion.div>
+                          ) : (
+                            <div className="rounded-2xl border border-dashed border-amber-800/25 bg-white/35 p-8 text-center text-amber-950/65">
+                              Photos for this panel can be added in <code className="rounded bg-amber-100 px-1">src/data/photoGallery2.ts</code>.
+                            </div>
+                          )}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </article>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
       <AnimatePresence>
