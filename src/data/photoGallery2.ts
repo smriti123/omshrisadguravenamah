@@ -31,6 +31,18 @@ import smile4 from "@/assets/smile4.jpg";
 import smile8 from "@/assets/smile8.jpeg";
 import smileMadhurCombinedV2 from "@/assets/smile-madhur-combined-v2.jpg";
 
+// Vedant Moorti tab images
+import vedant1 from "@/assets/gallery/vedant-1.png";
+import vedant2 from "@/assets/gallery/vedant-2.png";
+import vedant3 from "@/assets/gallery/vedant-3.jpg";
+import vedant4 from "@/assets/gallery/vedant-4.jpg";
+import vedant5 from "@/assets/gallery/vedant-5.jpg";
+import vedant6 from "@/assets/gallery/vedant-6.png";
+import vedant7 from "@/assets/gallery/vedant-7.jpg";
+import vedant8 from "@/assets/gallery/vedant-8.jpg";
+import vedant9 from "@/assets/gallery/vedant-9.jpg";
+import vedant10 from "@/assets/gallery/vedant-10.jpg";
+
 export type Gallery2Photo = {
   id: string;
   src: string;
@@ -39,6 +51,7 @@ export type Gallery2Photo = {
   caption: string;
   objectFit?: "cover" | "contain";
   wide?: boolean;
+  centerWide?: boolean;
 };
 
 export type Gallery2Category = {
@@ -242,7 +255,26 @@ export const gallery2Categories: Gallery2Category[] = [
     id: "vedant-moorti",
     name: "Vedant Moorti / वेदांत मूर्ति",
     description: "Add Vedant Moorti photos and captions to this category when ready.",
-    photos: [],
+    photos: [
+      {
+        id: "vedant-1",
+        src: vedant1,
+        thumbnailSrc: vedant1,
+        alt: "Vedant Moorti featured photo",
+        caption: "हे शंकर-रूप! हे वेदांत-मूर्ति!",
+        objectFit: "contain",
+        centerWide: true,
+      },
+      { id: "vedant-2", src: vedant2, thumbnailSrc: vedant2, alt: "Vedant Moorti photo 2", caption: "" },
+      { id: "vedant-3", src: vedant3, thumbnailSrc: vedant3, alt: "Vedant Moorti photo 3", caption: "" },
+      { id: "vedant-4", src: vedant4, thumbnailSrc: vedant4, alt: "Vedant Moorti photo 4", caption: "" },
+      { id: "vedant-5", src: vedant5, thumbnailSrc: vedant5, alt: "Vedant Moorti photo 5", caption: "अज्ञानतिमिरान्धस्य ज्ञानाञ्जनशालाकया । चक्षुरुन्मीलितं येन तस्मै श्रीगुरवे नमः ॥" },
+      { id: "vedant-6", src: vedant6, thumbnailSrc: vedant6, alt: "Vedant Moorti photo 6", caption: "ॐ अंतः साक्षिणे नमः" },
+      { id: "vedant-7", src: vedant7, thumbnailSrc: vedant7, alt: "Vedant Moorti photo 7", caption: "" },
+      { id: "vedant-8", src: vedant8, thumbnailSrc: vedant8, alt: "Vedant Moorti photo 8", caption: "" },
+      { id: "vedant-9", src: vedant9, thumbnailSrc: vedant9, alt: "Vedant Moorti photo 9", caption: "" },
+      { id: "vedant-10", src: vedant10, thumbnailSrc: vedant10, alt: "Vedant Moorti photo 10", caption: "" },
+    ],
   },
   {
     id: "key-events",
