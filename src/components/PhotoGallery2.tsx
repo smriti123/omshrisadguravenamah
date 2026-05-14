@@ -73,7 +73,7 @@ const PhotoGallery2 = () => {
                       }}
                       transition={{ duration: 0.42, ease: "easeOut" }}
                       onClick={() => setLightboxPhoto(photo)}
-                      className="group overflow-hidden rounded-2xl border border-amber-900/15 bg-white text-left shadow-[0_10px_28px_rgba(120,63,4,0.12)] transition hover:-translate-y-1 hover:shadow-[0_16px_35px_rgba(120,63,4,0.2)] focus:outline-none focus:ring-2 focus:ring-amber-700 focus:ring-offset-2"
+                      className={`group overflow-hidden rounded-2xl border border-amber-900/15 bg-white text-left shadow-[0_10px_28px_rgba(120,63,4,0.12)] transition hover:-translate-y-1 hover:shadow-[0_16px_35px_rgba(120,63,4,0.2)] focus:outline-none focus:ring-2 focus:ring-amber-700 focus:ring-offset-2 ${photo.wide ? "sm:col-span-2 lg:col-span-2" : ""}`}
                     >
                       <div className="flex h-72 items-center justify-center overflow-hidden bg-amber-100/80 sm:h-80">
                         <img

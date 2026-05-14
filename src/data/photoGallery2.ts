@@ -14,6 +14,14 @@ import batch1 from "@/assets/gallery/batch-1.jpg";
 import batch2 from "@/assets/gallery/batch-2.jpg";
 import batch3 from "@/assets/gallery/batch-3.jpg";
 import batch4 from "@/assets/gallery/batch-4.jpg";
+import batch5 from "@/assets/gallery/batch-5.jpg";
+
+// Charan-Vandan slides (mirrors CharanKamalCarouselSection)
+import charanKamalImage from "@/assets/01044.jpg";
+import charanKamalImageTwo from "@/assets/IMG-20210324-WA0000.jpg";
+import charanVandanThree from "@/assets/charan-vandan-3.jpg";
+import charanVandanFour from "@/assets/charan-vandan-4.jpg";
+import charanVandanFeet from "@/assets/charan-vandan-feet.jpg";
 
 // Namami-Chittchorkam (mirrors RadiantSmileSection captioned photos)
 import smile1 from "@/assets/smile1.jpg";
@@ -21,7 +29,7 @@ import smile2 from "@/assets/smile2.jpg";
 import smile3 from "@/assets/smile3.jpg";
 import smile4 from "@/assets/smile4.jpg";
 import smile8 from "@/assets/smile8.jpeg";
-import smileMadhurCombined from "@/assets/smile-madhur-combined.jpg";
+import smileMadhurCombinedV2 from "@/assets/smile-madhur-combined-v2.jpg";
 
 export type Gallery2Photo = {
   id: string;
@@ -30,6 +38,7 @@ export type Gallery2Photo = {
   alt: string;
   caption: string;
   objectFit?: "cover" | "contain";
+  wide?: boolean;
 };
 
 export type Gallery2Category = {
@@ -42,7 +51,7 @@ export type Gallery2Category = {
 export const gallery2Categories: Gallery2Category[] = [
   {
     id: "with-gurudev",
-    name: "With Gurudev",
+    name: "Sadguru Priyaye / सद्गुरु प्रियाय",
     description:
       "The first eight photos from the current gallery are grouped here for easy browsing with captions.",
     photos: [
@@ -184,11 +193,12 @@ export const gallery2Categories: Gallery2Category[] = [
       },
       {
         id: "namami-6",
-        src: smileMadhurCombined,
-        thumbnailSrc: smileMadhurCombined,
+        src: smileMadhurCombinedV2,
+        thumbnailSrc: smileMadhurCombinedV2,
         alt: "Namami Chittchorkam photo 6",
         caption:
           "अधरं मधुरं वदनं मधुरं, नयनं मधुरं हसितं मधुरं । हृदयं मधुरं गमनं मधुरं, मधुराधिपते रखिलं मधुरं ॥",
+        wide: true,
       },
     ],
   },
@@ -200,7 +210,7 @@ export const gallery2Categories: Gallery2Category[] = [
   },
   {
     id: "batches",
-    name: "Batches",
+    name: "Shishya-Sangam / शिष्य संगम",
     description: "Group photographs from various batches and gatherings.",
     photos: [
       {
@@ -230,6 +240,55 @@ export const gallery2Categories: Gallery2Category[] = [
         thumbnailSrc: batch4,
         alt: "Batch group photo 4",
         caption: "",
+      },
+      {
+        id: "batch-5",
+        src: batch5,
+        thumbnailSrc: batch5,
+        alt: "Shishya Sangam group photo",
+        caption: "",
+      },
+    ],
+  },
+  {
+    id: "charan-vandan",
+    name: "Charan-Vandan / चरण वंदन",
+    description: "Charan-Vandan photographs with their captions.",
+    photos: [
+      {
+        id: "charan-vandan-1",
+        src: charanVandanFeet,
+        thumbnailSrc: charanVandanFeet,
+        alt: "Charan Vandan photo 1",
+        caption: "श्री गुरु चरण कमलेभ्यो नमः",
+      },
+      {
+        id: "charan-vandan-2",
+        src: charanKamalImage,
+        thumbnailSrc: charanKamalImage,
+        alt: "Charan Vandan photo 2",
+        caption: "बंदऊँ गुरु पद पदुम परागा।",
+      },
+      {
+        id: "charan-vandan-3",
+        src: charanKamalImageTwo,
+        thumbnailSrc: charanKamalImageTwo,
+        alt: "Charan Vandan photo 3",
+        caption: "चरण कमल तेरे धोय धोय पीवां मेरे सतगुरु दीन दयाला",
+      },
+      {
+        id: "charan-vandan-4",
+        src: charanVandanThree,
+        thumbnailSrc: charanVandanThree,
+        alt: "Charan Vandan photo 4",
+        caption: "हे गुरुदेव प्रणाम आपके चरणों में",
+      },
+      {
+        id: "charan-vandan-5",
+        src: charanVandanFour,
+        thumbnailSrc: charanVandanFour,
+        alt: "Charan Vandan photo 5",
+        caption: "श्री गुरु चरण कमलेभ्यो नमः",
       },
     ],
   },
