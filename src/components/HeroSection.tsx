@@ -8,7 +8,7 @@ import sign from "@/assets/gallery/sign.jpg";
 import ma from "@/assets/gallery/ma.jpeg";
 
 const leftLinks = [
-  { label: "Leela", href: "#leela" },
+  { label: "Sidhbari Leela", href: "#leela" },
   { label: "View Charitra Jhalak", href: "#gallery" },
   { label: "Watch Pravachan", href: "#talks" },
 ];

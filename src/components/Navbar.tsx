@@ -5,11 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [
   { label: "Home", href: "#hero" },
   { label: "Charan-Vandan", href: "#charan-vandan" },
-  { label: "Leela", href: "#leela" },
+  { label: "Sidhbari Leela", href: "#leela" },
   { label: "Charitra-Jhalak", href: "#gallery" },
-  { label: "Photo Gallery2", href: "#photo-gallery2" },
+  { label: "Charitra-Jhalak2", href: "#photo-gallery2" },
   { label: "Stuti", href: "#stuti" },
-  { label: "Namami-Chittchorkam", href: "#radiant-smile" },
   { label: "Virah-Stuti", href: "#shraddanjali" },
   { label: "Pravachan", href: "#talks" },
   { label: "Bhajan", href: "#bhajans" },

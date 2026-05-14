@@ -116,7 +116,7 @@ const JourneyTimeline = () => {
     <section id="leela" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <SectionHeading
-          title="Leela"
+          title="Sidhbari Leela"
           subtitle="Key milestones in Pujya Swamiji's journey at Sidhbari"
         />
 
@@ -132,6 +132,10 @@ const JourneyTimeline = () => {
             <p>
               Param Pujya Swamiji’s association with Sidhbari, from 19 April 1981 to 27 September 2020, spans almost four decades.
               Even after excluding the period of his absence from 31 October 1983 to 13 September 1988, he spent approximately 34½ years in Sidhbari.
+            </p>
+
+            <p className="italic">
+              As another revered Swamiji once expressed so beautifully, “He lives in every leaf and flower of Sidhbari.”
             </p>
 
             <p>
