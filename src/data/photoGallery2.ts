@@ -47,7 +47,7 @@ import vedant10 from "@/assets/gallery/vedant-10.jpg";
 import akh1 from "@/assets/gallery/akh1.jpg";
 import akh2 from "@/assets/gallery/akh2.jpg";
 import akhProcession from "@/assets/gallery/akh-mandir-procession.jpg";
-import akhBhagwanFav from "@/assets/gallery/AkhBhagwanFav.jpg";
+import akhBhagFav2 from "@/assets/gallery/AkhBhagFav2.png";
 import sh1 from "@/assets/gallery/sh1.jpg";
 import sh3 from "@/assets/gallery/sh3.jpg";
 
@@ -368,7 +368,13 @@ export const gallery2Categories: Gallery2Category[] = [
         alt: "Akhileshwar Mahadev Mandir",
         caption: `Swamiji very fondly used to explain the different parts of the temple as representing the parts of the deity's body, perhaps like the "dhwaja" flag on the top representing the hair. Swamiji was also very much concerned for good care of the temple in future and mentioned quite a few times, that he wants that there should be no wear and tear in this temple after him. Below are few pictures from the inauguration of this temple on Mahashivratri 2009.`,
       },
-
+      {
+        id: "key-events-akhileshwar-mahadev-mandir-4",
+        src: akhBhagFav2,
+        thumbnailSrc: akhBhagFav2,
+        alt: "Akhileshwar Mahadev Mandir Shiva form",
+        caption: "ॐ शिवस्वरूपाय नमः।",
+      },
       {
         id: "key-events-sabhaghar-1",
         src: sh3,
@@ -382,13 +388,6 @@ export const gallery2Categories: Gallery2Category[] = [
         thumbnailSrc: sh1,
         alt: "Sabhaghar",
         caption: `Sabhaghar — सभागार के निर्माण के दौरान अक्सर मशीनों से बहुत अधिक शोर हुआ करता था। एक दोपहर जब पूज्य स्वामी जी आराम कर रहे थे, मैंने स्वामी जी से अनुरोध किया कि क्या मैं कुछ समय के लिए मशीन स्विच करने के लिए कह सकता हूँ ताकि स्वामी जी आराम कर सकें। पूज्य स्वामी जी ने उत्तर दिया कि जब तक निर्माण कार्य चल रहा है, वह विश्राम में है। निर्माण कार्य रुक गया तो वह श्रमित हो जायेंगे I जब लिंटर का काम चल रहा होता तो स्वामीजी पैड पर चढ़ जाते थे और फिसलन के कारण निर्माण स्थल पर दो बार गिरे थे, क्योंकि उनके पैरों में संवेदना की शक्ति कम थी।`,
-      },
-      {
-        id: "key-events-akhileshwar-mahadev-mandir-4",
-        src: akhBhagwanFav,
-        thumbnailSrc: akhBhagwanFav,
-        alt: "Akhileshwar Mahadev Mandir Shiva form",
-        caption: "ॐ शिवस्वरूपाय नमः।",
       },
     ],
   },
