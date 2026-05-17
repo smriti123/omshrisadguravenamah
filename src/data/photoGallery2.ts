@@ -43,6 +43,11 @@ import vedant8 from "@/assets/gallery/vedant-8.jpg";
 import vedant9 from "@/assets/gallery/vedant-9.jpg";
 import vedant10 from "@/assets/gallery/vedant-10.jpg";
 
+// Key Events photos from Charitra-Jhalak 1
+import akh1 from "@/assets/gallery/akh1.jpg";
+import akh2 from "@/assets/gallery/akh2.jpg";
+import akhProcession from "@/assets/gallery/akh-mandir-procession.jpg";
+
 export type Gallery2Photo = {
   id: string;
   src: string;
@@ -171,7 +176,8 @@ export const gallery2Categories: Gallery2Category[] = [
         src: lastPhoto,
         thumbnailSrc: lastPhoto,
         alt: "With Gurudev photo 8",
-        caption: "Last available picture dated 3rd Aug 2020, on 28th Mahasamadhi diwas of Pujya Gurudev.",
+        caption:
+          "Last available picture dated 3rd Aug 2020, on 28th Mahasamadhi diwas of Pujya Gurudev.",
       },
       {
         id: "with-gurudev-mahasamadhi-1",
@@ -202,7 +208,8 @@ export const gallery2Categories: Gallery2Category[] = [
   {
     id: "namami-chittchorkam",
     name: "Namami chittchorkam",
-    description: "Photos from the Namami-Chittchorkam section with their captions.",
+    description:
+      "Photos from the Namami-Chittchorkam section with their captions.",
     photos: [
       {
         id: "namami-1",
@@ -254,7 +261,8 @@ export const gallery2Categories: Gallery2Category[] = [
   {
     id: "vedant-moorti",
     name: "Vedant Moorti / वेदांत मूर्ति",
-    description: "Add Vedant Moorti photos and captions to this category when ready.",
+    description:
+      "Add Vedant Moorti photos and captions to this category when ready.",
     photos: [
       {
         id: "vedant-1",
@@ -265,22 +273,99 @@ export const gallery2Categories: Gallery2Category[] = [
         objectFit: "contain",
         centerWide: true,
       },
-      { id: "vedant-2", src: vedant2, thumbnailSrc: vedant2, alt: "Vedant Moorti photo 2", caption: "" },
-      { id: "vedant-3", src: vedant3, thumbnailSrc: vedant3, alt: "Vedant Moorti photo 3", caption: "" },
-      { id: "vedant-4", src: vedant4, thumbnailSrc: vedant4, alt: "Vedant Moorti photo 4", caption: "" },
-      { id: "vedant-5", src: vedant5, thumbnailSrc: vedant5, alt: "Vedant Moorti photo 5", caption: "अज्ञानतिमिरान्धस्य ज्ञानाञ्जनशालाकया । चक्षुरुन्मीलितं येन तस्मै श्रीगुरवे नमः ॥" },
-      { id: "vedant-6", src: vedant6, thumbnailSrc: vedant6, alt: "Vedant Moorti photo 6", caption: "ॐ अंतः साक्षिणे नमः" },
-      { id: "vedant-7", src: vedant7, thumbnailSrc: vedant7, alt: "Vedant Moorti photo 7", caption: "" },
-      { id: "vedant-8", src: vedant8, thumbnailSrc: vedant8, alt: "Vedant Moorti photo 8", caption: "" },
-      { id: "vedant-9", src: vedant9, thumbnailSrc: vedant9, alt: "Vedant Moorti photo 9", caption: "" },
-      { id: "vedant-10", src: vedant10, thumbnailSrc: vedant10, alt: "Vedant Moorti photo 10", caption: "" },
+      {
+        id: "vedant-2",
+        src: vedant2,
+        thumbnailSrc: vedant2,
+        alt: "Vedant Moorti photo 2",
+        caption: "",
+      },
+      {
+        id: "vedant-3",
+        src: vedant3,
+        thumbnailSrc: vedant3,
+        alt: "Vedant Moorti photo 3",
+        caption: "",
+      },
+      {
+        id: "vedant-4",
+        src: vedant4,
+        thumbnailSrc: vedant4,
+        alt: "Vedant Moorti photo 4",
+        caption: "",
+      },
+      {
+        id: "vedant-5",
+        src: vedant5,
+        thumbnailSrc: vedant5,
+        alt: "Vedant Moorti photo 5",
+        caption:
+          "अज्ञानतिमिरान्धस्य ज्ञानाञ्जनशालाकया । चक्षुरुन्मीलितं येन तस्मै श्रीगुरवे नमः ॥",
+      },
+      {
+        id: "vedant-6",
+        src: vedant6,
+        thumbnailSrc: vedant6,
+        alt: "Vedant Moorti photo 6",
+        caption: "ॐ अंतः साक्षिणे नमः",
+      },
+      {
+        id: "vedant-7",
+        src: vedant7,
+        thumbnailSrc: vedant7,
+        alt: "Vedant Moorti photo 7",
+        caption: "",
+      },
+      {
+        id: "vedant-8",
+        src: vedant8,
+        thumbnailSrc: vedant8,
+        alt: "Vedant Moorti photo 8",
+        caption: "",
+      },
+      {
+        id: "vedant-9",
+        src: vedant9,
+        thumbnailSrc: vedant9,
+        alt: "Vedant Moorti photo 9",
+        caption: "",
+      },
+      {
+        id: "vedant-10",
+        src: vedant10,
+        thumbnailSrc: vedant10,
+        alt: "Vedant Moorti photo 10",
+        caption: "",
+      },
     ],
   },
   {
     id: "key-events",
     name: "Key Events / प्रमुख आयोजन",
-    description: "Add Key Events photos and captions to this category when ready.",
-    photos: [],
+    description: "Photos and captions for major events from Charitra-Jhalak 1.",
+    photos: [
+      {
+        id: "key-events-akhileshwar-mahadev-mandir-1",
+        src: akh1,
+        thumbnailSrc: akh1,
+        alt: "Akhileshwar Mahadev Mandir",
+        caption: `Akhileshwar Mahadev Mandir — Om Namah Shivaya.. Pujya Swamiji had informed that once Param Pujya Gurudev mentioned that there should be a Shiva Temple in the ashram at Prayagraj, Hence Swamiji took it as a samkalp and got this temple constructed as per Vedic ordinance. Indeed Swamiji searched for an architect who is very well versed with construction of temples as per the Vedic tradition. Swamiji asked him to make some changes in his given plan. He told Swamiji that if those changes are to be done, then another architect can be selected, as those changes are not in accordance with the Vedas. Swamiji finalised him immediately and told him this is exactly the type of person he wanted, who should have firm resolve to adhere 100% to Vedic tradition. Swamiji very fondly used to explain the different parts of the temple as representing the parts of the deity's body, perhaps like the "dhwaja" flag on the top representing the hair. Swamiji was also very much concerned for good care of the temple in future and mentioned quite a few times, that he wants that there should be no wear and tear in this temple after him. Below are few pictures from the inauguration of this temple on Mahashivratri 2009.`,
+      },
+      {
+        id: "key-events-akhileshwar-mahadev-mandir-2",
+        src: akh2,
+        thumbnailSrc: akh2,
+        alt: "Akhileshwar Mahadev Mandir",
+        caption: "Akhileshwar Mahadev Mandir",
+      },
+      {
+        id: "key-events-akhileshwar-mahadev-mandir-3",
+        src: akhProcession,
+        thumbnailSrc: akhProcession,
+        alt: "Akhileshwar Mahadev Mandir",
+        caption: "Akhileshwar Mahadev Mandir",
+      },
+    ],
   },
   {
     id: "batches",
