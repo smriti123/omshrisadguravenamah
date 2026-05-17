@@ -47,6 +47,7 @@ import vedant10 from "@/assets/gallery/vedant-10.jpg";
 import akh1 from "@/assets/gallery/akh1.jpg";
 import akh2 from "@/assets/gallery/akh2.jpg";
 import akhProcession from "@/assets/gallery/akh-mandir-procession.jpg";
+import akhBhagwanFav from "@/assets/gallery/AkhBhagwanFav.jpg";
 
 export type Gallery2Photo = {
   id: string;
@@ -341,29 +342,36 @@ export const gallery2Categories: Gallery2Category[] = [
   },
   {
     id: "key-events",
-    name: "Key Events / प्रमुख आयोजन",
-    description: "Photos and captions for major events from Charitra-Jhalak 1.",
+    name: "ॐ दृढ़प्रतिज्ञे नमः",
+    description: "Photos and captions for Akhileshwar Mahadev Mandir.",
     photos: [
       {
         id: "key-events-akhileshwar-mahadev-mandir-1",
         src: akh1,
         thumbnailSrc: akh1,
         alt: "Akhileshwar Mahadev Mandir",
-        caption: `Akhileshwar Mahadev Mandir — Om Namah Shivaya.. Pujya Swamiji had informed that once Param Pujya Gurudev mentioned that there should be a Shiva Temple in the ashram at Prayagraj, Hence Swamiji took it as a samkalp and got this temple constructed as per Vedic ordinance. Indeed Swamiji searched for an architect who is very well versed with construction of temples as per the Vedic tradition. Swamiji asked him to make some changes in his given plan. He told Swamiji that if those changes are to be done, then another architect can be selected, as those changes are not in accordance with the Vedas. Swamiji finalised him immediately and told him this is exactly the type of person he wanted, who should have firm resolve to adhere 100% to Vedic tradition. Swamiji very fondly used to explain the different parts of the temple as representing the parts of the deity's body, perhaps like the "dhwaja" flag on the top representing the hair. Swamiji was also very much concerned for good care of the temple in future and mentioned quite a few times, that he wants that there should be no wear and tear in this temple after him. Below are few pictures from the inauguration of this temple on Mahashivratri 2009.`,
+        caption: `Akhileshwar Mahadev Mandir — Om Namah Shivaya.. Pujya Swamiji had informed that once Param Pujya Gurudev mentioned that there should be a Shiva Temple in the ashram at Prayagraj, Hence Swamiji took it as a samkalp and got this temple constructed as per Vedic ordinance. Indeed Swamiji searched for an architect who is very well versed with construction of temples as per the Vedic tradition. Swamiji asked him to make some changes in his given plan.`,
       },
       {
         id: "key-events-akhileshwar-mahadev-mandir-2",
         src: akh2,
         thumbnailSrc: akh2,
         alt: "Akhileshwar Mahadev Mandir",
-        caption: "Akhileshwar Mahadev Mandir",
+        caption: "ॐ शिवभक्ताय नमः।",
       },
       {
         id: "key-events-akhileshwar-mahadev-mandir-3",
         src: akhProcession,
         thumbnailSrc: akhProcession,
         alt: "Akhileshwar Mahadev Mandir",
-        caption: "Akhileshwar Mahadev Mandir",
+        caption: `He told Swamiji that if those changes are to be done, then another architect can be selected, as those changes are not in accordance with the Vedas. Swamiji finalised him immediately and told him this is exactly the type of person he wanted, who should have firm resolve to adhere 100% to Vedic tradition. Swamiji very fondly used to explain the different parts of the temple as representing the parts of the deity's body, perhaps like the "dhwaja" flag on the top representing the hair. Swamiji was also very much concerned for good care of the temple in future and mentioned quite a few times, that he wants that there should be no wear and tear in this temple after him. Below are few pictures from the inauguration of this temple on Mahashivratri 2009.`,
+      },
+      {
+        id: "key-events-akhileshwar-mahadev-mandir-4",
+        src: akhBhagwanFav,
+        thumbnailSrc: akhBhagwanFav,
+        alt: "Akhileshwar Mahadev Mandir Shiva form",
+        caption: "ॐ शिवस्वरूपाय नमः।",
       },
     ],
   },
