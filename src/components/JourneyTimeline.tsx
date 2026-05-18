@@ -135,7 +135,7 @@ const JourneyTimeline = () => {
             </p>
 
             <p className="italic">
-              As another revered Swamiji once expressed so beautifully, “He lives in every leaf and flower of Sidhbari.”
+              As a revered Swamiji once expressed so beautifully, “He lives in every leaf and flower of Sidhbari.”
             </p>
 
             <p>
