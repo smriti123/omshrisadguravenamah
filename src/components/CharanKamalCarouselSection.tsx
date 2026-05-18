@@ -16,7 +16,7 @@ import {
 const slides = [
   {
     image: charanVandanFeet,
-    caption: "श्री गुरु चरण कमलेभ्यो नमः",
+    caption: "श्री गुरुचरणकमलेभ्यो नमः",
     objectPosition: "center",
   },
   {
@@ -36,7 +36,7 @@ const slides = [
   },
   {
     image: charanVandanFour,
-    caption: "श्री गुरु चरण कमलेभ्यो नमः",
+    caption: "तेरे चरणों में स्वामी मेरे कोटि प्रणाम",
     objectPosition: "bottom",
   },
 ];
