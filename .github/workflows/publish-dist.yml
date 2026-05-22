@@ -5,6 +5,9 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,12 +30,35 @@ jobs:
         run: npm run build
 
       - name: Publish dist to deploy branch
+        if: success()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          ls -R
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout --orphan deploy
-          git rm -rf .
+
+          # Use token-based URL for authenticated pushes
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
+
+          git fetch origin
+
+          # Switch to deploy branch if it exists, otherwise create it
+          if git show-ref --verify --quiet refs/heads/deploy; then
+            git switch deploy
+          else
+            git checkout --orphan deploy
+          fi
+
+          # Clean working tree
+          git rm -rf . || true
+          rm -rf ./*
+
+          # Copy built files from dist
           cp -R dist/* .
+
           git add .
-          git commit -m "Deploy from main"
+          git commit -m "Deploy from main" || echo "Nothing to commit"
+
+          # Push to deploy branch
           git push --force origin deploy
