@@ -10,7 +10,7 @@ import ma from "@/assets/gallery/ma.jpeg";
 const leftLinks = [
   { label: "Sidhbari Leela", href: "#leela" },
   { label: "View Charitra Jhalak", href: "#gallery" },
-  { label: "Watch Pravachan", href: "#talks" },
+  { label: "Watch Satsangs", href: "#talks" },
 ];
 
 const rightLinks = [
