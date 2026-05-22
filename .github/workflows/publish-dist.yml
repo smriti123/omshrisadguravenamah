@@ -27,14 +27,28 @@ jobs:
         run: npm ci
 
       - name: Build Vite app
-        run: npm run build
+        run: |
+          npm run build
+          echo "Listing after build:"
+          ls
+          echo "Listing dist:"
+          ls dist || echo "dist does not exist"
 
       - name: Publish dist to deploy branch
         if: success()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ls -R
+          echo "Current dir at start of publish:"
+          pwd
+          echo "Root listing:"
+          ls
+
+          # Copy built files to a temporary folder while we are still on main
+          rm -rf deploy-tmp
+          mkdir deploy-tmp
+          cp -R dist/* deploy-tmp/
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
@@ -50,15 +64,14 @@ jobs:
             git checkout --orphan deploy
           fi
 
-          # Clean working tree
+          # Clean deploy branch contents
           git rm -rf . || true
           rm -rf ./*
 
-          # Copy built files from dist
-          cp -R dist/* .
+          # Copy from temporary folder into deploy branch working tree
+          cp -R ../deploy-tmp/* .
 
           git add .
           git commit -m "Deploy from main" || echo "Nothing to commit"
 
-          # Push to deploy branch
           git push --force origin deploy
