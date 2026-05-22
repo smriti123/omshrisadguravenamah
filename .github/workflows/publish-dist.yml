@@ -29,7 +29,8 @@ jobs:
       - name: Build Vite app
         run: |
           npm run build
-          echo "Listing after build:"
+          echo "Listing after build (root):"
+          pwd
           ls
           echo "Listing dist:"
           ls dist || echo "dist does not exist"
@@ -39,39 +40,38 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "Current dir at start of publish:"
+          echo "Publish step start, root dir:"
           pwd
-          echo "Root listing:"
           ls
 
-          # Copy built files to a temporary folder while we are still on main
-          rm -rf deploy-tmp
-          mkdir deploy-tmp
-          cp -R dist/* deploy-tmp/
-
+          # Configure git and authenticated remote
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          # Use token-based URL for authenticated pushes
           git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
 
+          # Fetch remote branches
           git fetch origin
 
-          # Switch to deploy branch if it exists, otherwise create it
-          if git show-ref --verify --quiet refs/heads/deploy; then
-            git switch deploy
+          # Clean any previous worktree
+          git worktree remove deploy-worktree || true
+          rm -rf deploy-worktree || true
+
+          # Create worktree for deploy branch
+          if git show-ref --verify --quiet refs/remotes/origin/deploy; then
+            git worktree add deploy-worktree origin/deploy
           else
-            git checkout --orphan deploy
+            git worktree add -b deploy deploy-worktree origin/main
           fi
 
-          # Clean deploy branch contents
-          git rm -rf . || true
-          rm -rf ./*
+          echo "Worktree created at:"
+          ls
 
-          # Copy from temporary folder into deploy branch working tree
-          cp -R ../deploy-tmp/* .
+          # Copy built files into worktree
+          cd deploy-worktree
+          pwd
+          rm -rf ./*
+          cp -R ../dist/* .
 
           git add .
           git commit -m "Deploy from main" || echo "Nothing to commit"
-
-          git push --force origin deploy
+          git push origin HEAD:deploy
