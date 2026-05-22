@@ -6,13 +6,14 @@ const navLinks = [
   { label: "Home", href: "#hero" },
   { label: "Charan-Vandan", href: "#charan-vandan" },
   { label: "Sidhbari Leela", href: "#leela" },
-  { label: "Charitra-Jhalak", href: "#gallery" },
-  { label: "Charitra-Jhalak2", href: "#photo-gallery2" },
+  { label: "Charitra-Jhalak", href: "#photo-gallery2" },
   { label: "Stuti", href: "#stuti" },
   { label: "Virah-Stuti", href: "#shraddanjali" },
-  { label: "Pravachan", href: "#talks" },
+  { label: "Satsangs", href: "#talks" },
   { label: "Bhajan", href: "#bhajans" },
   { label: "Quotes", href: "#quotes" },
+  { label: "Temporary", href: "#gallery" },
+  
 ];
 
 const Navbar = () => {
