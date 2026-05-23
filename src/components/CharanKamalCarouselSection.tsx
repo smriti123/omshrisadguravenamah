@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import charanKamalImage from "@/assets/01044.jpg";
@@ -42,6 +43,18 @@ const slides = [
 ];
 
 const CharanKamalCarouselSection = () => {
+  const [api, setApi] = useState<import("@/components/ui/carousel").CarouselApi>();
+
+  useEffect(() => {
+    if (!api) return;
+
+    const autoPlay = setInterval(() => {
+      api.scrollNext();
+    }, 4500);
+
+    return () => clearInterval(autoPlay);
+  }, [api]);
+
   return (
     <section id="charan-vandan" className="py-20 bg-gradient-spiritual">
       <div className="container mx-auto px-4">
@@ -54,7 +67,7 @@ const CharanKamalCarouselSection = () => {
           transition={{ duration: 0.5 }}
           className="mx-auto max-w-3xl"
         >
-          <Carousel opts={{ loop: true }} className="w-full">
+          <Carousel opts={{ loop: true }} setApi={setApi} className="w-full">
             <CarouselContent>
               {slides.map((slide) => (
                 <CarouselItem key={slide.caption}>

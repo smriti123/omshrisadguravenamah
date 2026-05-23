@@ -6,6 +6,7 @@ import SectionHeading from "./SectionHeading";
 const categories = [
   "All",
   "Ramayana",
+  "Others",
   "Bhagwat Geeta",
   "Bhagwatam",
   "Upanishads",
@@ -439,10 +440,38 @@ const talks: Talk[] = [
     youtubeUrl: "https://www.youtube.com/playlist?list=PLgy41qSqQO426yvvDRyn57gyh9Do_czCv",
     category: "Prakaran Granth",
   },
+
+  // === OTHERS ===
+  {
+    title: "संस्मरणीय क्षण - परम पूज्य स्वामीजी के प्रश्नोत्तर सत्र - भाग १/५",
+    youtubeUrl: "https://www.youtube.com/watch?v=QNnvs30ZSWI&list=PLPZZ4rJCboBWn_XKHZdo1Q5XuP77a8h1j&index=5",
+    category: "Others",
+  },
+  {
+    title: "संस्मरणीय क्षण - परम पूज्य स्वामीजी के प्रश्नोत्तर सत्र - भाग २/५",
+    youtubeUrl: "https://www.youtube.com/watch?v=_lUCoYvXfK0&list=PLPZZ4rJCboBWn_XKHZdo1Q5XuP77a8h1j&index=4",
+    category: "Others",
+  },
+  {
+    title: "संस्मरणीय क्षण - परम पूज्य स्वामीजी के प्रश्नोत्तर सत्र - भाग ३/५",
+    youtubeUrl: "https://www.youtube.com/watch?v=iaPj8RaSwzs&list=PLPZZ4rJCboBWn_XKHZdo1Q5XuP77a8h1j&index=3",
+    category: "Others",
+  },
+  {
+    title: "संस्मरणीय क्षण - परम पूज्य स्वामीजी के प्रश्नोत्तर सत्र - भाग ४/५",
+    youtubeUrl: "https://www.youtube.com/watch?v=2XWE_dexkaY&list=PLPZZ4rJCboBWn_XKHZdo1Q5XuP77a8h1j&index=2",
+    category: "Others",
+  },
+  {
+    title: "संस्मरणीय क्षण - परम पूज्य स्वामीजी के प्रश्नोत्तर सत्र - भाग ५/५",
+    youtubeUrl: "https://www.youtube.com/watch?v=ygrcevdjgnY&list=PLPZZ4rJCboBWn_XKHZdo1Q5XuP77a8h1j&index=1",
+    category: "Others",
+  },
+
 ];
 
 const YouTubeTalksSection = () => {
-  const [active, setActive] = useState<Category>("All");
+  const [active, setActive] = useState<Category>("Ramayana");
 
   const filtered = active === "All" ? talks : talks.filter((t) => t.category === active);
 
@@ -486,6 +515,10 @@ const YouTubeTalksSection = () => {
               transition={{ duration: 0.3 }}
               className="space-y-3"
             >
+              {active === "Others" && (
+                <h3 className="font-serif text-2xl text-center text-amber-950 mb-4">संस्मरणीय क्षण</h3>
+              )}
+
               {filtered.length === 0 ? (
                 <p className="text-center text-muted-foreground font-body py-12 italic">
                   No talks in this category yet. More coming soon!
