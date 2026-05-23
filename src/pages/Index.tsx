@@ -9,7 +9,6 @@ import ShraddanjaliSection from "@/components/ShraddanjaliSection2";
 import StutiSection from "@/components/StutiSection";
 import YouTubeTalksSection from "@/components/YouTubeTalksSection";
 import BhajansSection from "@/components/BhajansSection";
-import SansmaraniyaKshanSection from "@/components/SansmaraniyaKshanSection";
 import JourneyTimeline from "@/components/JourneyTimeline";
 import CharanKamalCarouselSection from "@/components/CharanKamalCarouselSection";
 import Footer from "@/components/Footer";
@@ -33,9 +32,6 @@ const Index = () => {
       </div>
       <StutiSection />
       <YouTubeTalksSection />
-      <div className="bg-section-alt">
-        <SansmaraniyaKshanSection />
-      </div>
       <BhajansSection />
       <QuotesSection />
       <Footer />
