@@ -480,7 +480,12 @@ const YouTubeTalksSection = () => {
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Satsangs & Discourses"
+          prefixText={`तव कथामृतं तप्तजीवनं
+कविभिरीडितं कल्मषापहम् ।
+श्रवणमङ्गलं श्रीमदाततं
+भुवि गृणन्ति ये भूरिदा जनाः ॥`}
           subtitle="An indexed collection of Pujya Swamiji's YouTube talks for easy reference"
+          subtitleClassName="text-xs"
         />
 
         {/* Category Tabs */}
