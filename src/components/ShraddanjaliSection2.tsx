@@ -390,12 +390,12 @@ const VIDEO_TRIBUTE_PLAYLIST_URL = "https://www.youtube.com/playlist?list=PLgy41
 const videoTributes: VideoTribute[] = [
   {
     id: "",
-    title: "वीडियो स्मरण 1",
+    title: "भव-सुमन - वीडियो 1",
     subtitle: "पूज्य स्वामीजी के प्रति भावपूर्ण श्रद्धा-सुमन",
   },
   {
     id: "",
-    title: "वीडियो स्मरण 2",
+    title: "भव-सुमन - वीडियो 2",
     subtitle: "पूज्य स्वामीजी के प्रति भावपूर्ण श्रद्धा-सुमन",
   },
 ];
@@ -418,7 +418,7 @@ const VideoTributeCard = ({ tribute }: { tribute?: VideoTribute }) => {
     >
       <div className="rounded-[22px] border border-[#d8b06a] bg-[#f5ead8] p-[18px] text-center shadow-[0_18px_45px_rgba(139,69,19,0.16)] sm:p-6">
         <h3 className="font-display text-xl font-bold text-primary sm:text-2xl">
-          {tribute?.title ?? "वीडियो स्मरण"}
+          {tribute?.title ?? "भव-सुमन - वीडियो"}
         </h3>
         <p className="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
           {tribute?.subtitle ?? "पूज्य स्वामीजी के प्रति भावपूर्ण श्रद्धा-सुमन"}
@@ -429,7 +429,7 @@ const VideoTributeCard = ({ tribute }: { tribute?: VideoTribute }) => {
             <div className="rounded-2xl border border-gold/30 bg-background/70 px-5 py-8 shadow-inner">
               <p className="mx-auto mb-5 max-w-xl text-sm leading-relaxed text-muted-foreground">
                 {!hasVideo
-                  ? "इस वीडियो स्मरण गैलरी में व्यक्तिगत YouTube वीडियो IDs जोड़ने के बाद प्रत्येक वीडियो अलग कार्ड में दिखाई देगा।"
+                  ? "इस भव-सुमन - वीडियो गैलरी में व्यक्तिगत YouTube वीडियो IDs जोड़ने के बाद प्रत्येक वीडियो अलग कार्ड में दिखाई देगा।"
                   : "यदि वीडियो यहाँ नहीं खुल रहा है, तो कृपया YouTube पर यह वीडियो देखें।"}
               </p>
               <a
@@ -495,7 +495,7 @@ const ShraddanjaliSection = () => {
                 : "bg-background/60 text-foreground border-gold/25 hover:border-gold/40 hover:bg-background"
             }`}
           >
-            भाव-सुमन
+            भव-सुमन - लिखित
           </button>
           <button
             onClick={() => setActiveTab("video")}
@@ -505,7 +505,7 @@ const ShraddanjaliSection = () => {
                 : "bg-background/60 text-foreground border-gold/25 hover:border-gold/40 hover:bg-background"
             }`}
           >
-            वीडियो स्मरण
+            भव-सुमन - वीडियो
           </button>
         </div>
 
@@ -616,7 +616,7 @@ const ShraddanjaliSection = () => {
                 </div>
 
                 <p className="mt-3 text-center text-xs text-muted-foreground">
-                  {videoPage + 1} of {videoTotal} वीडियो स्मरण
+                  {videoPage + 1} of {videoTotal} भव-सुमन - वीडियो
                 </p>
               </>
             )}
