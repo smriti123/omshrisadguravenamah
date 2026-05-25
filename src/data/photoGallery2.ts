@@ -28,6 +28,14 @@ import smile1 from "@/assets/smile1.jpg";
 import smile2 from "@/assets/smile2.jpg";
 import smile3 from "@/assets/smile3.jpg";
 import smile4 from "@/assets/smile4.jpg";
+import best from "@/assets/gallery/best.jpg";
+import diw from "@/assets/gallery/diw.jpg";
+import smile7 from "@/assets/smile7.jpg";
+import smile9 from "@/assets/smile9.jpeg";
+import smile10 from "@/assets/smile10.jpg";
+import smile11 from "@/assets/smile11.jpg";
+import smile12 from "@/assets/smile12.jpg";
+import smileMadhur3 from "@/assets/smile-madhur-3.jpg";
 import smile8 from "@/assets/smile8.jpeg";
 import smileMadhurCombinedV2 from "@/assets/smile-madhur-combined-v2.jpg";
 
@@ -252,9 +260,65 @@ export const gallery2Categories: Gallery2Category[] = [
       },
       {
         id: "namami-6",
+        src: best,
+        thumbnailSrc: best,
+        alt: "Namami Chittchorkam photo 6",
+        caption: "",
+      },
+      {
+        id: "namami-7",
+        src: diw,
+        thumbnailSrc: diw,
+        alt: "Namami Chittchorkam photo 7",
+        caption: "",
+      },
+      {
+        id: "namami-8",
+        src: smile7,
+        thumbnailSrc: smile7,
+        alt: "Namami Chittchorkam photo 8",
+        caption: "",
+      },
+      {
+        id: "namami-9",
+        src: smile9,
+        thumbnailSrc: smile9,
+        alt: "Namami Chittchorkam photo 9",
+        caption: "",
+      },
+      {
+        id: "namami-10",
+        src: smile10,
+        thumbnailSrc: smile10,
+        alt: "Namami Chittchorkam photo 10",
+        caption: "",
+      },
+      {
+        id: "namami-11",
+        src: smile11,
+        thumbnailSrc: smile11,
+        alt: "Namami Chittchorkam photo 11",
+        caption: "",
+      },
+      {
+        id: "namami-12",
+        src: smile12,
+        thumbnailSrc: smile12,
+        alt: "Namami Chittchorkam photo 12",
+        caption: "",
+      },
+      {
+        id: "namami-13",
+        src: smileMadhur3,
+        thumbnailSrc: smileMadhur3,
+        alt: "Namami Chittchorkam photo 13",
+        caption: "",
+      },
+      {
+        id: "namami-14",
         src: smileMadhurCombinedV2,
         thumbnailSrc: smileMadhurCombinedV2,
-        alt: "Namami Chittchorkam photo 6",
+        alt: "Namami Chittchorkam photo 14",
         caption:
           "अधरं मधुरं वदनं मधुरं, नयनं मधुरं हसितं मधुरं । हृदयं मधुरं गमनं मधुरं, मधुराधिपते रखिलं मधुरं ॥",
         wide: true,
