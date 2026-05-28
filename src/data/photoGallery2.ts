@@ -277,20 +277,22 @@ export const gallery2Categories: Gallery2Category[] = [
         src: smile7,
         thumbnailSrc: smile7,
         alt: "Namami Chittchorkam photo 8",
-        caption: "",
+        caption: "ॐ स्मित ईक्षणाय नमः।
+",
       },
       {
         id: "namami-9",
         src: smile9,
         thumbnailSrc: smile9,
         alt: "Namami Chittchorkam photo 9",
-        caption: "",
+        caption: "ॐ बहुभक्ताय नमः।
+",
       },
       {
         id: "namami-10",
         src: smile10,
         thumbnailSrc: smile10,
-        alt: "Namami Chittchorkam photo 10",
+        alt: "ॐ मृदु स्वभावाय नमः।",
         caption: "",
       },
       {
@@ -311,7 +313,8 @@ export const gallery2Categories: Gallery2Category[] = [
         id: "namami-13",
         src: smileMadhur3,
         thumbnailSrc: smileMadhur3,
-        alt: "Namami Chittchorkam photo 13",
+        alt: "ॐ विशाल हृदयाय नमः।
+",
         caption: "",
       },
       {
@@ -344,22 +347,23 @@ export const gallery2Categories: Gallery2Category[] = [
         id: "vedant-2",
         src: vedant2,
         thumbnailSrc: vedant2,
-        alt: "Vedant Moorti photo 2",
-        caption: "",
+        alt: "Vedant Moorti photo 2
+",
+        caption: "ॐ शिव प्रियाय नमः।",
       },
       {
         id: "vedant-3",
         src: vedant3,
         thumbnailSrc: vedant3,
         alt: "Vedant Moorti photo 3",
-        caption: "",
+        caption: "ॐ राष्ट्रगौरवाय नमः।",
       },
       {
         id: "vedant-4",
         src: vedant4,
         thumbnailSrc: vedant4,
         alt: "Vedant Moorti photo 4",
-        caption: "",
+        caption: "ॐ संस्कृत भाषा विदुत्तमाय नमः।",
       },
       {
         id: "vedant-5",
@@ -381,21 +385,22 @@ export const gallery2Categories: Gallery2Category[] = [
         src: vedant7,
         thumbnailSrc: vedant7,
         alt: "Vedant Moorti photo 7",
-        caption: "",
+        caption: "ॐ शिष्य हित चिन्तकाय नमः।",
       },
       {
         id: "vedant-8",
         src: vedant8,
         thumbnailSrc: vedant8,
         alt: "Vedant Moorti photo 8",
-        caption: "",
+        caption: "ॐ समाधिशीलाय नमः।",
       },
       {
         id: "vedant-9",
         src: vedant9,
         thumbnailSrc: vedant9,
         alt: "Vedant Moorti photo 9",
-        caption: "",
+        caption: "ॐ भाष्यकार प्रियाय नमः।
+",
       },
       {
         id: "vedant-10",
