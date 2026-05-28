@@ -277,23 +277,21 @@ export const gallery2Categories: Gallery2Category[] = [
         src: smile7,
         thumbnailSrc: smile7,
         alt: "Namami Chittchorkam photo 8",
-        caption: "ॐ स्मित ईक्षणाय नमः।
-",
+        caption: "ॐ स्मित ईक्षणाय नमः।",
       },
       {
         id: "namami-9",
         src: smile9,
         thumbnailSrc: smile9,
         alt: "Namami Chittchorkam photo 9",
-        caption: "ॐ बहुभक्ताय नमः।
-",
+        caption: "ॐ बहुभक्ताय नमः।",
       },
       {
         id: "namami-10",
         src: smile10,
         thumbnailSrc: smile10,
-        alt: "ॐ मृदु स्वभावाय नमः।",
-        caption: "",
+        alt: "Namami Chittchorkam photo 10",
+        caption: "ॐ मृदु स्वभावाय नमः।",
       },
       {
         id: "namami-11",
@@ -313,9 +311,8 @@ export const gallery2Categories: Gallery2Category[] = [
         id: "namami-13",
         src: smileMadhur3,
         thumbnailSrc: smileMadhur3,
-        alt: "ॐ विशाल हृदयाय नमः।
-",
-        caption: "",
+        alt: "Namami Chittchorkam photo 13",
+        caption: "ॐ विशाल हृदयाय नमः।",
       },
       {
         id: "namami-14",
@@ -347,8 +344,7 @@ export const gallery2Categories: Gallery2Category[] = [
         id: "vedant-2",
         src: vedant2,
         thumbnailSrc: vedant2,
-        alt: "Vedant Moorti photo 2
-",
+        alt: "Vedant Moorti photo 2",
         caption: "ॐ शिव प्रियाय नमः।",
       },
       {
@@ -399,8 +395,7 @@ export const gallery2Categories: Gallery2Category[] = [
         src: vedant9,
         thumbnailSrc: vedant9,
         alt: "Vedant Moorti photo 9",
-        caption: "ॐ भाष्यकार प्रियाय नमः।
-",
+        caption: "ॐ भाष्यकार प्रियाय नमः।",
       },
       {
         id: "vedant-10",
