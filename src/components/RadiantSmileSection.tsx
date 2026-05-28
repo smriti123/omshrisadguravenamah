@@ -15,33 +15,45 @@ import smile12 from "@/assets/smile12.jpg";
 import smileMadhurCombined from "@/assets/smile-madhur-combined.jpg";
 import smileMadhur3 from "@/assets/smile-madhur-3.jpg";
 
-const photos = [
-  { src: smile1, caption: "प्रसन्नाननं नीलकण्ठं दयालम्‌ । प्रिय शंकरं सर्वनाथं भजामि ॥", objectPosition: "top" },
-  { src: smile2, caption: "ॐ प्रसन्न चित्ताय नमः ।", objectPosition: "top" },
-  { src: smile3, caption: "🕉️श्री प्रमोदनाय नमः।(जो सदा प्रसन्न हैं वो प्रमोदन: ।)", objectPosition: "top" },
-  { src: smile4, caption: "ॐ आनन्द स्वरूपाय नमः ।", objectPosition: "top" },
-  { src: best, caption: "", objectPosition: "center" },
-  { src: diw, caption: "", objectPosition: "center" },
-  { src: smile7, caption: "", objectPosition: "top" },
-  { src: smile8, caption: "श्री नन्दनाय नमः। जो अन्य को प्रसन्नचित्त करता है वो नन्दन: ऐसे हमारे प पू श्री गुरुवर्याय नमः।", objectPosition: "center", objectFit: "contain" },
-  { src: smile9, caption: "", objectPosition: "center", objectFit: "contain" },
-  { src: smile10, caption: "", objectPosition: "top" },
-  { src: smile11, caption: "", objectPosition: "top" },
-  { src: smile12, caption: "", objectPosition: "top" },
+type RadiantPhoto = {
+  src: string;
+  caption: string;
+  objectPosition: string;
+  objectFit?: React.CSSProperties["objectFit"];
+  wide?: boolean;
+};
+
+const madhurCaption =
+  "अधरं मधुरं वदनं मधुरं, नयनं मधुरं हसितं मधुरं ।\nहृदयं मधुरं गमनं मधुरं, मधुराधिपतेऽखिलं मधुरं ॥";
+
+const photos: RadiantPhoto[] = [
   {
     src: smileMadhurCombined,
-    caption: "अधरं मधुरं वदनं मधुरं, नयनं मधुरं हसितं मधुरं । हृदयं मधुरं गमनं मधुरं, मधुराधिपते रखिलं मधुरं ॥",
+    caption: madhurCaption,
     objectPosition: "center",
     objectFit: "contain",
+    wide: true,
   },
-  { src: smileMadhur3, caption: "", objectPosition: "top" },
+  { src: smile1, caption: "प्रसन्नाननं नीलकण्ठं दयालम्‌ । प्रिय शंकरं सर्वनाथं भजामि ॥", objectPosition: "top" },
+  { src: smile2, caption: "ॐ प्रसन्न चित्ताय नमः ।", objectPosition: "top" },
+  { src: smile3, caption: "🕉️ श्री प्रमोदनाय नमः। (जो सदा प्रसन्न हैं वो प्रमोदन: ।)", objectPosition: "top" },
+  { src: smile4, caption: "ॐ आनन्द स्वरूपाय नमः ।", objectPosition: "top" },
+  { src: best, caption: "सदा खिलती दिव्य मुस्कान — भक्त-हृदय की शान्ति।", objectPosition: "center" },
+  { src: diw, caption: "करुणा, माधुर्य और सहज प्रसन्नता का अनुपम दर्शन।", objectPosition: "center" },
+  { src: smile7, caption: "गुरु-कृपा की मधुर छाया में आनन्द ही आनन्द।", objectPosition: "top" },
+  { src: smile8, caption: "श्री नन्दनाय नमः। जो अन्य को प्रसन्नचित्त करता है वो नन्दन: ऐसे हमारे प पू श्री गुरुवर्याय नमः।", objectPosition: "center", objectFit: "contain" },
+  { src: smile9, caption: "सौम्य दृष्टि, सरल हृदय और वात्सल्य से भरा आशीर्वाद।", objectPosition: "center", objectFit: "contain" },
+  { src: smile10, caption: "हास्य में छिपा निर्मल ज्ञान और सेवा का प्रकाश।", objectPosition: "top" },
+  { src: smile11, caption: "प्रसन्न मुखमण्डल से झरती सद्गुरु-कृपा।", objectPosition: "top" },
+  { src: smile12, caption: "चित्तचोर मुस्कान — श्रद्धा और प्रेम की अविरल धारा।", objectPosition: "top" },
+  { src: smileMadhur3, caption: "मधुर स्मित में प्रभु-प्रेम का दिव्य सन्देश।", objectPosition: "top" },
 ];
 
 const RadiantSmileSection = () => {
   return (
     <section id="radiant-smile" className="py-16 md:py-24">
       <div className="container mx-auto px-4">
-        <SectionHeading title="Namami-Chittchorkam" subtitle="The smile that touched millions of hearts" />
+        <SectionHeading title="Namami-Chittchorkam / नमामि चित्तचोरकम्" subtitle="The smile that touched millions of hearts" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto mt-10">
           {photos.map((photo, i) => (
             <motion.div
@@ -50,9 +62,9 @@ const RadiantSmileSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.5 }}
-              className="overflow-hidden rounded-2xl shadow-lg"
+              className={`overflow-hidden rounded-2xl shadow-lg ${photo.wide ? "col-span-2" : ""}`}
             >
-              <div className="aspect-[3/4] relative">
+              <div className={`${photo.wide ? "aspect-[3/2]" : "aspect-[3/4]"} relative`}>
                 <img
                   src={photo.src}
                   alt={`Radiant smile ${i + 1}`}
@@ -65,7 +77,7 @@ const RadiantSmileSection = () => {
               </div>
               {photo.caption && (
                 <div className="bg-primary/10 px-3 py-2 text-center">
-                  <p className="text-xs md:text-sm text-primary font-medium leading-relaxed">{photo.caption}</p>
+                  <p className="whitespace-pre-line text-xs md:text-sm text-primary font-medium leading-relaxed">{photo.caption}</p>
                 </div>
               )}
             </motion.div>
