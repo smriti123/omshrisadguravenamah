@@ -180,7 +180,7 @@ const PhotoGallery2 = () => {
                                       className={`h-full w-full ${photo.objectFit === "cover" ? "object-cover" : "object-contain"} object-center transition duration-500`}
                                     />
                                   </div>
-                                  <p className="px-4 py-3 text-base leading-6 text-amber-950/80 sm:text-sm">{photo.caption}</p>
+                                  <p className="whitespace-pre-line px-4 py-3 text-base leading-6 text-amber-950/80 sm:text-sm">{photo.caption}</p>
                                 </motion.button>
                               ))}
                             </motion.div>
@@ -229,7 +229,7 @@ const PhotoGallery2 = () => {
                 alt={lightboxPhoto.alt}
                 className="max-h-[76vh] w-full bg-black object-contain"
               />
-              <p className="px-5 py-4 text-center text-sm leading-6 text-amber-950/80 md:text-base">{lightboxPhoto.caption}</p>
+              <p className="whitespace-pre-line px-5 py-4 text-center text-sm leading-6 text-amber-950/80 md:text-base">{lightboxPhoto.caption}</p>
             </motion.div>
           </motion.div>
         )}
