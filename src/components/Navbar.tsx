@@ -12,6 +12,7 @@ const navLinks = [
   { label: "Satsangs", href: "#talks" },
   { label: "Bhajan", href: "#bhajans" },
   { label: "Quotes", href: "#quotes" },
+  { label: "Hommage", href: "#hommage" },
   { label: "Temporary", href: "#gallery" },
   
 ];

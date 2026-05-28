@@ -4,6 +4,7 @@ import PhotoGallery from "@/components/PhotoGallery";
 import PhotoGallery2 from "@/components/PhotoGallery2";
 import RadiantSmileSection from "@/components/RadiantSmileSection";
 import QuotesSection from "@/components/QuotesSection";
+import HommageSection from "@/components/HommageSection";
 import ShraddanjaliSection from "@/components/ShraddanjaliSection2";
 
 import StutiSection from "@/components/StutiSection";
@@ -33,6 +34,7 @@ const Index = () => {
       <StutiSection />
       <YouTubeTalksSection />
       <BhajansSection />
+      <HommageSection />
       <QuotesSection />
       <Footer />
     </div>
