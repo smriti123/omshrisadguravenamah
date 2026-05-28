@@ -35,7 +35,6 @@ import smile9 from "@/assets/smile9.jpeg";
 import smile10 from "@/assets/smile10.jpg";
 import smile11 from "@/assets/smile11.jpg";
 import smile12 from "@/assets/smile12.jpg";
-import smileMadhur3 from "@/assets/smile-madhur-3.jpg";
 import smile8 from "@/assets/smile8.jpeg";
 import smileMadhurCombinedV2 from "@/assets/smile-madhur-combined-v2.jpg";
 
@@ -218,40 +217,49 @@ export const gallery2Categories: Gallery2Category[] = [
   },
   {
     id: "namami-chittchorkam",
-    name: "Namami chittchorkam",
+    name: "Namami chittchorkam / नमामि चित्तचोरकम्",
     description:
       "Photos from the Namami-Chittchorkam section with their captions.",
     photos: [
       {
         id: "namami-1",
+        src: smileMadhurCombinedV2,
+        thumbnailSrc: smileMadhurCombinedV2,
+        alt: "Namami Chittchorkam madhur photo",
+        caption:
+          "अधरं मधुरं वदनं मधुरं, नयनं मधुरं हसितं मधुरं ।\nहृदयं मधुरं गमनं मधुरं, मधुराधिपते रखिलं मधुरं ॥",
+        wide: true,
+      },
+      {
+        id: "namami-2",
         src: smile1,
         thumbnailSrc: smile1,
         alt: "Namami Chittchorkam photo 1",
         caption: "प्रसन्नाननं नीलकण्ठं दयालम्‌ । प्रिय शंकरं सर्वनाथं भजामि ॥",
       },
       {
-        id: "namami-2",
+        id: "namami-3",
         src: smile2,
         thumbnailSrc: smile2,
         alt: "Namami Chittchorkam photo 2",
         caption: "ॐ प्रसन्न चित्ताय नमः ।",
       },
       {
-        id: "namami-3",
+        id: "namami-4",
         src: smile3,
         thumbnailSrc: smile3,
         alt: "Namami Chittchorkam photo 3",
         caption: "🕉️श्री प्रमोदनाय नमः। (जो सदा प्रसन्न हैं वो प्रमोदन: ।)",
       },
       {
-        id: "namami-4",
+        id: "namami-5",
         src: smile4,
         thumbnailSrc: smile4,
         alt: "Namami Chittchorkam photo 4",
         caption: "ॐ आनन्द स्वरूपाय नमः ।",
       },
       {
-        id: "namami-5",
+        id: "namami-6",
         src: smile8,
         thumbnailSrc: smile8,
         alt: "Namami Chittchorkam photo 5",
@@ -259,69 +267,53 @@ export const gallery2Categories: Gallery2Category[] = [
           "श्री नन्दनाय नमः। जो अन्य को प्रसन्नचित्त करता है वो नन्दन: ऐसे हमारे प पू श्री गुरुवर्याय नमः।",
       },
       {
-        id: "namami-6",
+        id: "namami-7",
         src: best,
         thumbnailSrc: best,
         alt: "Namami Chittchorkam photo 6",
         caption: "",
       },
       {
-        id: "namami-7",
+        id: "namami-8",
         src: diw,
         thumbnailSrc: diw,
         alt: "Namami Chittchorkam photo 7",
         caption: "",
       },
       {
-        id: "namami-8",
+        id: "namami-9",
         src: smile7,
         thumbnailSrc: smile7,
         alt: "Namami Chittchorkam photo 8",
         caption: "ॐ स्मित ईक्षणाय नमः।",
       },
       {
-        id: "namami-9",
+        id: "namami-10",
         src: smile9,
         thumbnailSrc: smile9,
         alt: "Namami Chittchorkam photo 9",
         caption: "ॐ बहुभक्ताय नमः।",
       },
       {
-        id: "namami-10",
+        id: "namami-11",
         src: smile10,
         thumbnailSrc: smile10,
         alt: "Namami Chittchorkam photo 10",
         caption: "ॐ मृदु स्वभावाय नमः।",
       },
       {
-        id: "namami-11",
+        id: "namami-12",
         src: smile11,
         thumbnailSrc: smile11,
         alt: "Namami Chittchorkam photo 11",
         caption: "",
       },
       {
-        id: "namami-12",
+        id: "namami-13",
         src: smile12,
         thumbnailSrc: smile12,
         alt: "Namami Chittchorkam photo 12",
         caption: "",
-      },
-      {
-        id: "namami-13",
-        src: smileMadhur3,
-        thumbnailSrc: smileMadhur3,
-        alt: "Namami Chittchorkam photo 13",
-        caption: "ॐ विशाल हृदयाय नमः।",
-      },
-      {
-        id: "namami-14",
-        src: smileMadhurCombinedV2,
-        thumbnailSrc: smileMadhurCombinedV2,
-        alt: "Namami Chittchorkam photo 14",
-        caption:
-          "अधरं मधुरं वदनं मधुरं, नयनं मधुरं हसितं मधुरं । हृदयं मधुरं गमनं मधुरं, मधुराधिपते रखिलं मधुरं ॥",
-        wide: true,
       },
     ],
   },
