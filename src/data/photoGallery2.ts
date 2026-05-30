@@ -77,6 +77,17 @@ import namamiNew4 from "@/assets/gallery/namami-new-4.jpg";
 import namamiNew5 from "@/assets/gallery/namami-new-5.jpg";
 import namamiNew6 from "@/assets/gallery/namami-new-6.jpg";
 
+// New additions
+import newVedantPink from "@/assets/gallery/new-vedant-pink.jpg";
+import newCharanSofa from "@/assets/gallery/new-charan-sofa.jpg";
+import newCharanRose from "@/assets/gallery/new-charan-rose.jpg";
+import newVedantMeditation from "@/assets/gallery/new-vedant-meditation.jpg";
+import newShivpuja from "@/assets/gallery/new-shivpuja.jpg";
+import newKayakalpHawan from "@/assets/gallery/new-kayakalp-hawan.jpg";
+import newKayakalpProcession from "@/assets/gallery/new-kayakalp-procession.jpg";
+import newNamamiTurban from "@/assets/gallery/new-namami-turban.jpg";
+import newVedantMeditateOrange from "@/assets/gallery/new-vedant-meditate-orange.jpg";
+
 export type Gallery2Photo = {
   id: string;
   src: string;
@@ -142,6 +153,20 @@ export const gallery2Categories: Gallery2Category[] = [
         thumbnailSrc: charanVandanKrupasindhu,
         alt: "Charan Vandan photo 6 — Krupasindhu",
         caption: "नमामि पद्मलोचनम्।",
+      },
+      {
+        id: "charan-vandan-7",
+        src: newCharanSofa,
+        thumbnailSrc: newCharanSofa,
+        alt: "Charan Vandan photo 7",
+        caption: "",
+      },
+      {
+        id: "charan-vandan-8",
+        src: newCharanRose,
+        thumbnailSrc: newCharanRose,
+        alt: "Charan Vandan photo 8",
+        caption: "",
       },
     ],
   },
@@ -369,6 +394,13 @@ export const gallery2Categories: Gallery2Category[] = [
         alt: "Namami Chittchorkam new photo 6",
         caption: "",
       },
+      {
+        id: "namami-new-7",
+        src: newNamamiTurban,
+        thumbnailSrc: newNamamiTurban,
+        alt: "Namami Chittchorkam new photo 7",
+        caption: "",
+      },
     ],
   },
   {
@@ -450,6 +482,27 @@ export const gallery2Categories: Gallery2Category[] = [
         alt: "Vedant Moorti photo 10",
         caption: "",
       },
+      {
+        id: "vedant-11",
+        src: newVedantPink,
+        thumbnailSrc: newVedantPink,
+        alt: "Vedant Moorti photo 11",
+        caption: "",
+      },
+      {
+        id: "vedant-12",
+        src: newVedantMeditation,
+        thumbnailSrc: newVedantMeditation,
+        alt: "Vedant Moorti photo 12",
+        caption: "",
+      },
+      {
+        id: "vedant-13",
+        src: newVedantMeditateOrange,
+        thumbnailSrc: newVedantMeditateOrange,
+        alt: "Vedant Moorti photo 13",
+        caption: "",
+      },
     ],
   },
   {
@@ -470,6 +523,13 @@ export const gallery2Categories: Gallery2Category[] = [
         thumbnailSrc: akh2,
         alt: "Akhileshwar Mahadev Mandir",
         caption: "ॐ शिवभक्ताय नमः।",
+      },
+      {
+        id: "key-events-shivpuja",
+        src: newShivpuja,
+        thumbnailSrc: newShivpuja,
+        alt: "Shiv puja with Swamiji",
+        caption: "",
       },
       {
         id: "key-events-akhileshwar-mahadev-mandir-3",
@@ -597,6 +657,20 @@ export const gallery2Categories: Gallery2Category[] = [
         thumbnailSrc: othersToddler,
         alt: "Swamiji with child",
         caption: "",
+      },
+      {
+        id: "others-kayakalp-hawan",
+        src: newKayakalpHawan,
+        thumbnailSrc: newKayakalpHawan,
+        alt: "Kaya Kalp Palampur inauguration — hawan",
+        caption: "Kaya कल्प पालमपुर का उद्घाटन समारोह..",
+      },
+      {
+        id: "others-kayakalp-procession",
+        src: newKayakalpProcession,
+        thumbnailSrc: newKayakalpProcession,
+        alt: "Kaya Kalp Palampur inauguration — procession",
+        caption: "Kaya कल्प पालमपुर का उद्घाटन समारोह..",
       },
     ],
   },
