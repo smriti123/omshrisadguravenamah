@@ -77,6 +77,17 @@ import namamiNew4 from "@/assets/gallery/namami-new-4.jpg";
 import namamiNew5 from "@/assets/gallery/namami-new-5.jpg";
 import namamiNew6 from "@/assets/gallery/namami-new-6.jpg";
 
+// New additions
+import newVedantPink from "@/assets/gallery/new-vedant-pink.jpg";
+import newCharanSofa from "@/assets/gallery/new-charan-sofa.jpg";
+import newCharanRose from "@/assets/gallery/new-charan-rose.jpg";
+import newVedantMeditation from "@/assets/gallery/new-vedant-meditation.jpg";
+import newShivpuja from "@/assets/gallery/new-shivpuja.jpg";
+import newKayakalpHawan from "@/assets/gallery/new-kayakalp-hawan.jpg";
+import newKayakalpProcession from "@/assets/gallery/new-kayakalp-procession.jpg";
+import newNamamiTurban from "@/assets/gallery/new-namami-turban.jpg";
+import newVedantMeditateOrange from "@/assets/gallery/new-vedant-meditate-orange.jpg";
+
 export type Gallery2Photo = {
   id: string;
   src: string;
