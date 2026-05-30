@@ -154,6 +154,20 @@ export const gallery2Categories: Gallery2Category[] = [
         alt: "Charan Vandan photo 6 — Krupasindhu",
         caption: "नमामि पद्मलोचनम्।",
       },
+      {
+        id: "charan-vandan-7",
+        src: newCharanSofa,
+        thumbnailSrc: newCharanSofa,
+        alt: "Charan Vandan photo 7",
+        caption: "",
+      },
+      {
+        id: "charan-vandan-8",
+        src: newCharanRose,
+        thumbnailSrc: newCharanRose,
+        alt: "Charan Vandan photo 8",
+        caption: "",
+      },
     ],
   },
   {
