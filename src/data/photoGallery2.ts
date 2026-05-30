@@ -482,6 +482,27 @@ export const gallery2Categories: Gallery2Category[] = [
         alt: "Vedant Moorti photo 10",
         caption: "",
       },
+      {
+        id: "vedant-11",
+        src: newVedantPink,
+        thumbnailSrc: newVedantPink,
+        alt: "Vedant Moorti photo 11",
+        caption: "",
+      },
+      {
+        id: "vedant-12",
+        src: newVedantMeditation,
+        thumbnailSrc: newVedantMeditation,
+        alt: "Vedant Moorti photo 12",
+        caption: "",
+      },
+      {
+        id: "vedant-13",
+        src: newVedantMeditateOrange,
+        thumbnailSrc: newVedantMeditateOrange,
+        alt: "Vedant Moorti photo 13",
+        caption: "",
+      },
     ],
   },
   {
