@@ -136,6 +136,13 @@ export const gallery2Categories: Gallery2Category[] = [
         alt: "Charan Vandan photo 5",
         caption: "श्री गुरु चरण कमलेभ्यो नमः",
       },
+      {
+        id: "charan-vandan-6",
+        src: charanVandanKrupasindhu,
+        thumbnailSrc: charanVandanKrupasindhu,
+        alt: "Charan Vandan photo 6 — Krupasindhu",
+        caption: "नमामि पद्मलोचनम्।",
+      },
     ],
   },
   {
