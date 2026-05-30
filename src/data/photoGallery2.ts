@@ -658,6 +658,20 @@ export const gallery2Categories: Gallery2Category[] = [
         alt: "Swamiji with child",
         caption: "",
       },
+      {
+        id: "others-kayakalp-hawan",
+        src: newKayakalpHawan,
+        thumbnailSrc: newKayakalpHawan,
+        alt: "Kaya Kalp Palampur inauguration — hawan",
+        caption: "Kaya कल्प पालमपुर का उद्घाटन समारोह..",
+      },
+      {
+        id: "others-kayakalp-procession",
+        src: newKayakalpProcession,
+        thumbnailSrc: newKayakalpProcession,
+        alt: "Kaya Kalp Palampur inauguration — procession",
+        caption: "Kaya कल्प पालमपुर का उद्घाटन समारोह..",
+      },
     ],
   },
 ];
