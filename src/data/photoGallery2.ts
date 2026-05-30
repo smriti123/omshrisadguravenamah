@@ -394,6 +394,13 @@ export const gallery2Categories: Gallery2Category[] = [
         alt: "Namami Chittchorkam new photo 6",
         caption: "",
       },
+      {
+        id: "namami-new-7",
+        src: newNamamiTurban,
+        thumbnailSrc: newNamamiTurban,
+        alt: "Namami Chittchorkam new photo 7",
+        caption: "",
+      },
     ],
   },
   {
