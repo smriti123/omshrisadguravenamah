@@ -66,6 +66,17 @@ import pairSakha from "@/assets/gallery/pair-sakha.jpg";
 import othersGarland from "@/assets/gallery/others-garland.jpg";
 import othersToddler from "@/assets/gallery/others-toddler.jpg";
 
+// Charan-Vandan additional photo
+import charanVandanKrupasindhu from "@/assets/gallery/charan-vandan-krupasindhu.jpg";
+
+// Namami-Chittchorkam additional photos
+import namamiNew1 from "@/assets/gallery/namami-new-1.jpg";
+import namamiNew2 from "@/assets/gallery/namami-new-2.jpg";
+import namamiNew3 from "@/assets/gallery/namami-new-3.jpg";
+import namamiNew4 from "@/assets/gallery/namami-new-4.jpg";
+import namamiNew5 from "@/assets/gallery/namami-new-5.jpg";
+import namamiNew6 from "@/assets/gallery/namami-new-6.jpg";
+
 export type Gallery2Photo = {
   id: string;
   src: string;
@@ -124,6 +135,13 @@ export const gallery2Categories: Gallery2Category[] = [
         thumbnailSrc: charanVandanFour,
         alt: "Charan Vandan photo 5",
         caption: "श्री गुरु चरण कमलेभ्यो नमः",
+      },
+      {
+        id: "charan-vandan-6",
+        src: charanVandanKrupasindhu,
+        thumbnailSrc: charanVandanKrupasindhu,
+        alt: "Charan Vandan photo 6 — Krupasindhu",
+        caption: "नमामि पद्मलोचनम्।",
       },
     ],
   },
@@ -310,17 +328,45 @@ export const gallery2Categories: Gallery2Category[] = [
         caption: "ॐ मृदु स्वभावाय नमः।",
       },
       {
-        id: "namami-12",
-        src: smile11,
-        thumbnailSrc: smile11,
-        alt: "Namami Chittchorkam photo 11",
+        id: "namami-new-1",
+        src: namamiNew1,
+        thumbnailSrc: namamiNew1,
+        alt: "Namami Chittchorkam new photo 1",
+        caption: "He loves out of joy, not for the joy...",
+      },
+      {
+        id: "namami-new-2",
+        src: namamiNew2,
+        thumbnailSrc: namamiNew2,
+        alt: "Namami Chittchorkam new photo 2",
         caption: "",
       },
       {
-        id: "namami-13",
-        src: smile12,
-        thumbnailSrc: smile12,
-        alt: "Namami Chittchorkam photo 12",
+        id: "namami-new-3",
+        src: namamiNew3,
+        thumbnailSrc: namamiNew3,
+        alt: "Namami Chittchorkam new photo 3",
+        caption: "",
+      },
+      {
+        id: "namami-new-4",
+        src: namamiNew4,
+        thumbnailSrc: namamiNew4,
+        alt: "Namami Chittchorkam new photo 4",
+        caption: "",
+      },
+      {
+        id: "namami-new-5",
+        src: namamiNew5,
+        thumbnailSrc: namamiNew5,
+        alt: "Namami Chittchorkam new photo 5",
+        caption: "",
+      },
+      {
+        id: "namami-new-6",
+        src: namamiNew6,
+        thumbnailSrc: namamiNew6,
+        alt: "Namami Chittchorkam new photo 6",
         caption: "",
       },
     ],
