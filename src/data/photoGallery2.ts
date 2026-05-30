@@ -525,6 +525,13 @@ export const gallery2Categories: Gallery2Category[] = [
         caption: "ॐ शिवभक्ताय नमः।",
       },
       {
+        id: "key-events-shivpuja",
+        src: newShivpuja,
+        thumbnailSrc: newShivpuja,
+        alt: "Shiv puja with Swamiji",
+        caption: "",
+      },
+      {
         id: "key-events-akhileshwar-mahadev-mandir-3",
         src: akhProcession,
         thumbnailSrc: akhProcession,
