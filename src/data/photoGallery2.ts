@@ -66,6 +66,17 @@ import pairSakha from "@/assets/gallery/pair-sakha.jpg";
 import othersGarland from "@/assets/gallery/others-garland.jpg";
 import othersToddler from "@/assets/gallery/others-toddler.jpg";
 
+// Charan-Vandan additional photo
+import charanVandanKrupasindhu from "@/assets/gallery/charan-vandan-krupasindhu.jpg";
+
+// Namami-Chittchorkam additional photos
+import namamiNew1 from "@/assets/gallery/namami-new-1.jpg";
+import namamiNew2 from "@/assets/gallery/namami-new-2.jpg";
+import namamiNew3 from "@/assets/gallery/namami-new-3.jpg";
+import namamiNew4 from "@/assets/gallery/namami-new-4.jpg";
+import namamiNew5 from "@/assets/gallery/namami-new-5.jpg";
+import namamiNew6 from "@/assets/gallery/namami-new-6.jpg";
+
 export type Gallery2Photo = {
   id: string;
   src: string;
