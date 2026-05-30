@@ -58,6 +58,14 @@ import akhBhagFav2 from "@/assets/gallery/AkhBhagFav2.png";
 import sh1 from "@/assets/gallery/sh1.jpg";
 import sh3 from "@/assets/gallery/sh3.jpg";
 
+// Others tab — Twameva pairs
+import pairMata from "@/assets/gallery/pair-mata.jpg";
+import pairPita from "@/assets/gallery/pair-pita.jpg";
+import pairBandhu from "@/assets/gallery/pair-bandhu.jpg";
+import pairSakha from "@/assets/gallery/pair-sakha.jpg";
+import othersGarland from "@/assets/gallery/others-garland.jpg";
+import othersToddler from "@/assets/gallery/others-toddler.jpg";
+
 export type Gallery2Photo = {
   id: string;
   src: string;
