@@ -58,6 +58,14 @@ import akhBhagFav2 from "@/assets/gallery/AkhBhagFav2.png";
 import sh1 from "@/assets/gallery/sh1.jpg";
 import sh3 from "@/assets/gallery/sh3.jpg";
 
+// Others tab — Twameva pairs
+import pairMata from "@/assets/gallery/pair-mata.jpg";
+import pairPita from "@/assets/gallery/pair-pita.jpg";
+import pairBandhu from "@/assets/gallery/pair-bandhu.jpg";
+import pairSakha from "@/assets/gallery/pair-sakha.jpg";
+import othersGarland from "@/assets/gallery/others-garland.jpg";
+import othersToddler from "@/assets/gallery/others-toddler.jpg";
+
 export type Gallery2Photo = {
   id: string;
   src: string;
@@ -493,6 +501,57 @@ export const gallery2Categories: Gallery2Category[] = [
     id: "others",
     name: "Others",
     description: "Use this category for photos that do not fit the other tabs.",
-    photos: [],
+    photos: [
+      {
+        id: "others-twameva-mata",
+        src: pairMata,
+        thumbnailSrc: pairMata,
+        alt: "Twameva Mata — pair",
+        caption: "त्वमेव माता",
+        objectFit: "contain",
+        wide: true,
+      },
+      {
+        id: "others-twameva-pita",
+        src: pairPita,
+        thumbnailSrc: pairPita,
+        alt: "Twameva Pita — pair",
+        caption: "च पिता त्वमेव",
+        objectFit: "contain",
+        wide: true,
+      },
+      {
+        id: "others-twameva-bandhu",
+        src: pairBandhu,
+        thumbnailSrc: pairBandhu,
+        alt: "Twameva Bandhu — pair",
+        caption: "त्वमेव बन्धुश्च",
+        objectFit: "contain",
+        wide: true,
+      },
+      {
+        id: "others-twameva-sakha",
+        src: pairSakha,
+        thumbnailSrc: pairSakha,
+        alt: "Twameva Sakha — pair",
+        caption: "च सखा त्वमेव।",
+        objectFit: "contain",
+        wide: true,
+      },
+      {
+        id: "others-garland",
+        src: othersGarland,
+        thumbnailSrc: othersGarland,
+        alt: "Group with garlands",
+        caption: "",
+      },
+      {
+        id: "others-toddler",
+        src: othersToddler,
+        thumbnailSrc: othersToddler,
+        alt: "Swamiji with child",
+        caption: "",
+      },
+    ],
   },
 ];
