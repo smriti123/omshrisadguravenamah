@@ -328,20 +328,6 @@ export const gallery2Categories: Gallery2Category[] = [
         caption: "ॐ मृदु स्वभावाय नमः।",
       },
       {
-        id: "namami-12",
-        src: smile11,
-        thumbnailSrc: smile11,
-        alt: "Namami Chittchorkam photo 11",
-        caption: "",
-      },
-      {
-        id: "namami-13",
-        src: smile12,
-        thumbnailSrc: smile12,
-        alt: "Namami Chittchorkam photo 12",
-        caption: "",
-      },
-      {
         id: "namami-new-1",
         src: namamiNew1,
         thumbnailSrc: namamiNew1,
