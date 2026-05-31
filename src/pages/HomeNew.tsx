@@ -147,11 +147,7 @@ const HomeNew = () => {
           <a className="home-new__button" href="/#gallery">सभी फोटो देखें <Images aria-hidden="true" /></a>
         </section>
 
-        <section className="home-new__section home-new__section--soft" aria-labelledby="explore-title">
-          <div className="home-new__section-heading">
-            <p>Explore</p>
-            <h2 id="explore-title">श्रद्धा के साथ आगे बढ़ें</h2>
-          </div>
+        <section className="home-new__section home-new__section--soft" aria-label="Explore">
           <div className="home-new__card-grid">
             {featureCards.map(({ href, icon: Icon, title, description }) => (
               <a className="home-new__card" href={href} key={title}>

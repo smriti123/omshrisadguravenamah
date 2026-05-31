@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import PhotoGallery from "@/components/PhotoGallery";
@@ -15,6 +16,13 @@ import CharanKamalCarouselSection from "@/components/CharanKamalCarouselSection"
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  useEffect(() => {
+    const targetId = window.location.hash.slice(1);
+    if (!targetId) return;
+
+    document.getElementById(targetId)?.scrollIntoView();
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
