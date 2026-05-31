@@ -1,7 +1,7 @@
 .home-new {
-  --new-cream: #fbf6ea;
-  --new-beige: #f1e4cb;
-  --new-saffron: #e8bd75;
+  --new-cream: #fff5e0;
+  --new-beige: #fde9c8;
+  --new-saffron: #f0c986;
   --new-brown: #714c32;
   --new-deep-brown: #513421;
   --new-gold: #bd8b42;
@@ -29,7 +29,7 @@
 .home-new__eyebrow svg { width: .85rem; height: .85rem; }
 .home-new h1 { margin: .65rem 0 .18rem; color: var(--new-brown); font-size: clamp(1.85rem,7vw,3rem); font-weight: 600; letter-spacing: .04em; }
 .home-new__hero-subtitle { margin: 0 0 1rem; color: rgba(113,76,50,.76); font-size: .88rem; font-style: italic; }
-.home-new__portrait-frame { position: relative; width: min(78vw, 19rem); aspect-ratio: 4/4.65; margin: auto; padding: .38rem; border: 1px solid rgba(189,139,66,.36); border-radius: 9rem 9rem 1.25rem 1.25rem; background: rgba(255,255,255,.48); box-shadow: 0 14px 40px rgba(113,76,50,.13); }
+.home-new__portrait-frame { position: relative; width: min(92vw, 22rem); aspect-ratio: 1/1.05; margin: auto; padding: .4rem; border: 1px solid rgba(189,139,66,.36); border-radius: 10rem 10rem 1.25rem 1.25rem; background: rgba(255,255,255,.48); box-shadow: 0 14px 40px rgba(113,76,50,.13); }
 .home-new__portrait-frame::before { position: absolute; inset: -.55rem; content: ""; border: 1px solid rgba(189,139,66,.16); border-radius: 9.4rem 9.4rem 1.6rem 1.6rem; }
 .home-new__portrait { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: inherit; }
 .home-new__charan-area { position: relative; width: 12.6rem; height: 12.6rem; margin: -2.15rem auto -.3rem; }
@@ -46,7 +46,7 @@
 .home-new__welcome h2 { margin: .55rem 0 .4rem; color: var(--new-brown); font-size: 1.75rem; font-weight: 500; }
 .home-new__welcome p { margin: 0; color: rgba(81,52,33,.7); font-size: .83rem; }
 .home-new__section { scroll-margin-top: 4.5rem; padding: 4.4rem 1rem; text-align: center; }
-.home-new__section--soft { background: #f7edd9; }
+.home-new__section--soft { background: #fce4bd; }
 .home-new__section-heading p { margin: 0 0 .36rem; color: var(--new-gold); font-size: .68rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
 .home-new__section-heading h2 { margin: 0; color: var(--new-brown); font-size: 1.7rem; font-weight: 600; }
 .home-new__section-heading span { display: block; margin-top: .45rem; color: rgba(81,52,33,.65); font-size: .8rem; }
@@ -80,5 +80,5 @@
 @keyframes home-new-spin { to { transform: rotate(360deg); } }
 @keyframes home-new-breathe { 50% { transform: translateY(.3rem); opacity: .55; } }
 @media (min-width: 640px) { .home-new__card-grid { grid-template-columns: repeat(2,1fr); } .home-new__hommages { grid-template-columns: repeat(3,1fr); } .home-new__hommage--empty { grid-column: 1/-1; } .home-new__photo-grid { gap: .8rem; } }
-@media (min-width: 900px) { .home-new { padding-bottom: 0; } .home-new__header { padding: .65rem 2.5rem; } .home-new__menu-button { display: none; } .home-new__menu { position: static; display: flex; gap: .12rem; padding: 0; visibility: visible; opacity: 1; transform: none; border: 0; background: transparent; box-shadow: none; } .home-new__menu a { padding: .55rem .65rem; font-size: .76rem; } .home-new__hero { min-height: auto; padding: 3rem 1rem 2.3rem; } .home-new__portrait-frame { width: 17rem; } .home-new__card-grid { grid-template-columns: repeat(3,1fr); } .home-new__bottom-nav { display: none; } }
+@media (min-width: 900px) { .home-new { padding-bottom: 0; } .home-new__header { padding: .65rem 2.5rem; } .home-new__menu-button { display: none; } .home-new__menu { position: static; display: flex; gap: .12rem; padding: 0; visibility: visible; opacity: 1; transform: none; border: 0; background: transparent; box-shadow: none; } .home-new__menu a { padding: .55rem .65rem; font-size: .76rem; } .home-new__hero { min-height: auto; padding: 3rem 1rem 2.3rem; } .home-new__portrait-frame { width: 20rem; } .home-new__card-grid { grid-template-columns: repeat(3,1fr); } .home-new__bottom-nav { display: none; } }
 @media (prefers-reduced-motion: reduce) { .home-new { scroll-behavior: auto; } .home-new__charan-orbit, .home-new__enter svg { animation: none; } .home-new__menu, .home-new__charan-button, .home-new__card { transition: none; } }

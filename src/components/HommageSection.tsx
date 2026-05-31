@@ -23,7 +23,7 @@ const HommageSection = () => {
 
   useEffect(() => {
     getPublicHommages()
-      .then((data) => setMessages(data.messages))
+      .then((data) => setMessages(data?.messages ?? []))
       .catch(() => setMessages([]));
   }, []);
 
