@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { label: "Home", href: "#hero" },
+  { label: "New Homepage", href: "/home-new" },
   { label: "Charan-Vandan", href: "#charan-vandan" },
   { label: "Sidhbari Leela", href: "#leela" },
   { label: "Charitra-Jhalak", href: "#photo-gallery2" },
