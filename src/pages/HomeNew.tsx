@@ -14,39 +14,39 @@ import {
   Sparkles,
   X,
 } from "lucide-react";
-import swamijiPhoto from "@/assets/swamiji-photo.jpg";
+import swamijiPhoto from "@/assets/swamiji-new-portrait.jpg";
 import charanPhoto from "@/assets/charan-vandan-feet.jpg";
-import galleryPhotoOne from "@/assets/gallery/up-garden-smile.jpg";
-import galleryPhotoTwo from "@/assets/gallery/up-mandir-aarti.jpg";
-import galleryPhotoThree from "@/assets/gallery/up-with-elder-saint.jpg";
+import galleryPhotoOne from "@/assets/gallery/up-smile-portrait.jpg";
+import galleryPhotoTwo from "@/assets/gallery/up-garland-meditation.jpg";
+import galleryPhotoThree from "@/assets/gallery/up-shawl-smile.jpg";
 import { getPublicHommages, HommageMessage } from "@/lib/hommageApi";
 import "./HomeNew.css";
 
 const navItems = [
   { label: "Home", href: "#home" },
-  { label: "Photos", href: "#photos" },
-  { label: "Stuti / Shlokas", href: "#stuti" },
-  { label: "Bhajan / Audio", href: "#bhajan" },
-  { label: "Video / Pravachan", href: "#video" },
-  { label: "Hommage / समर्पण", href: "#hommage" },
-  { label: "About", href: "#about" },
+  { label: "Photos", href: "/#photo-gallery2" },
+  { label: "Stuti / Shlokas", href: "/#stuti" },
+  { label: "Bhajan / Audio", href: "/#bhajans" },
+  { label: "Video / Pravachan", href: "/#talks" },
+  { label: "Hommage / समर्पण", href: "/#hommage" },
+  { label: "About", href: "/#leela" },
 ];
 
 const featureCards = [
-  { id: "photos", icon: Images, title: "Photo Gallery", description: "Darshan photos and sacred memories" },
-  { id: "stuti", icon: BookOpenText, title: "Stuti / Shlokas", description: "Guru Stuti, Sanskrit texts and meanings" },
-  { id: "bhajan", icon: Music2, title: "Bhajan / Audio", description: "Bhajans and devotional recordings" },
-  { id: "video", icon: CirclePlay, title: "Video / Pravachan", description: "Satsang and pravachan videos" },
-  { id: "hommage", icon: HeartHandshake, title: "Hommage / समर्पण", description: "Devotees can write a short message" },
-  { id: "about", icon: Info, title: "About", description: "Purpose of this sacred space" },
+  { href: "/#photo-gallery2", icon: Images, title: "Photo Gallery", description: "Darshan photos and sacred memories" },
+  { href: "/#stuti", icon: BookOpenText, title: "Stuti / Shlokas", description: "Guru Stuti, Sanskrit texts and meanings" },
+  { href: "/#bhajans", icon: Music2, title: "Bhajan / Audio", description: "Bhajans and devotional recordings" },
+  { href: "/#talks", icon: CirclePlay, title: "Video / Pravachan", description: "Satsang and pravachan videos" },
+  { href: "/#hommage", icon: HeartHandshake, title: "Hommage / समर्पण", description: "Devotees can write a short message" },
+  { href: "/#leela", icon: Info, title: "About", description: "Purpose of this sacred space" },
 ];
 
 const bottomNav = [
   { label: "Home", href: "#home", icon: Home },
-  { label: "Photos", href: "#photos", icon: Images },
-  { label: "Stuti", href: "#stuti", icon: BookOpenText },
-  { label: "Bhajan", href: "#bhajan", icon: Music2 },
-  { label: "Hommage", href: "#hommage", icon: HeartHandshake },
+  { label: "Photos", href: "/#photo-gallery2", icon: Images },
+  { label: "Stuti", href: "/#stuti", icon: BookOpenText },
+  { label: "Bhajan", href: "/#bhajans", icon: Music2 },
+  { label: "Hommage", href: "/#hommage", icon: HeartHandshake },
 ];
 
 const HomeNew = () => {
@@ -144,8 +144,8 @@ const HomeNew = () => {
             <h2 id="explore-title">श्रद्धा के साथ आगे बढ़ें</h2>
           </div>
           <div className="home-new__card-grid">
-            {featureCards.map(({ id, icon: Icon, title, description }) => (
-              <a className="home-new__card" href={`#${id}`} key={title}>
+            {featureCards.map(({ href, icon: Icon, title, description }) => (
+              <a className="home-new__card" href={href} key={title}>
                 <span className="home-new__card-icon"><Icon aria-hidden="true" /></span>
                 <span><strong>{title}</strong><small>{description}</small></span>
               </a>
@@ -153,7 +153,7 @@ const HomeNew = () => {
           </div>
         </section>
 
-        <section className="home-new__section" id="hommage" aria-labelledby="hommage-title">
+        <section className="home-new__section" id="hommage-preview" aria-labelledby="hommage-title">
           <div className="home-new__section-heading">
             <p>With gratitude</p>
             <h2 id="hommage-title">समर्पण</h2>
