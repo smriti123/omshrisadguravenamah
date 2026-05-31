@@ -118,14 +118,14 @@ const PhotoGallery2 = () => {
                       aria-expanded={isOpen}
                       aria-controls={panelId}
                       onClick={() => handleCategoryToggle(category.id, isOpen)}
-                      className={`flex min-h-[4.75rem] w-full items-center gap-4 px-4 py-4 text-left text-lg font-bold leading-7 transition focus:outline-none focus:ring-2 focus:ring-amber-800 focus:ring-inset md:min-h-[4.25rem] md:px-6 md:text-xl ${
+                      className={`flex min-h-[6.25rem] w-full items-center gap-5 px-5 py-5 text-left text-xl font-bold leading-7 transition focus:outline-none focus:ring-2 focus:ring-amber-800 focus:ring-inset md:min-h-[4.25rem] md:px-6 md:text-xl ${
                         isOpen
                           ? "bg-amber-800 text-amber-50"
                           : "bg-gradient-to-r from-amber-50 to-orange-50 text-amber-950 hover:bg-amber-100"
                       }`}
                     >
                       <span
-                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border text-xl shadow-sm ${
+                        className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full border text-2xl shadow-sm ${
                           isOpen ? "border-amber-100/55 bg-amber-50/15 text-amber-50" : "border-amber-700/25 bg-white/60 text-amber-800"
                         }`}
                         aria-hidden="true"
