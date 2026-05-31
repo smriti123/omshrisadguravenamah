@@ -39,7 +39,7 @@ const Navbar = () => {
         <ul className="hidden lg:flex flex-wrap items-center justify-end gap-3 xl:gap-5">
           {navLinks.map((l) => (
             <li key={l.href}>
-              {l.href.startsWith("/") ? (
+              {l.href.startsWith("/") && !l.href.includes("#") ? (
                 <Link
                   to={l.href}
                   className="font-body whitespace-nowrap text-xs xl:text-sm transition-colors"
@@ -92,7 +92,7 @@ const Navbar = () => {
             <ul className="flex flex-col items-center gap-4 py-4">
               {navLinks.map((l) => (
                 <li key={l.href}>
-                  {l.href.startsWith("/") ? (
+                  {l.href.startsWith("/") && !l.href.includes("#") ? (
                     <Link
                       to={l.href}
                       className="font-body text-muted-foreground hover:text-primary transition-colors"
