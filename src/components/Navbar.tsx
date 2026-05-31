@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const navLinks = [
   { label: "Home", href: "#hero" },
@@ -38,15 +39,27 @@ const Navbar = () => {
         <ul className="hidden lg:flex flex-wrap items-center justify-end gap-3 xl:gap-5">
           {navLinks.map((l) => (
             <li key={l.href}>
-              <a
-                href={l.href}
+              {l.href.startsWith("/") ? (
+                <Link
+                  to={l.href}
+                  className="font-body whitespace-nowrap text-xs xl:text-sm transition-colors"
+                  style={{ color: "hsl(40 70% 92%)" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "hsl(45 90% 98%)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "hsl(40 70% 92%)")}
+                >
+                  {l.label}
+                </Link>
+              ) : (
+                <a
+                  href={l.href}
                 className="font-body whitespace-nowrap text-xs xl:text-sm transition-colors"
                 style={{ color: "hsl(40 70% 92%)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "hsl(45 90% 98%)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "hsl(40 70% 92%)")}
-              >
-                {l.label}
-              </a>
+                >
+                  {l.label}
+                </a>
+              )}
             </li>
           ))}
         </ul>
@@ -79,13 +92,23 @@ const Navbar = () => {
             <ul className="flex flex-col items-center gap-4 py-4">
               {navLinks.map((l) => (
                 <li key={l.href}>
-                  <a
-                    href={l.href}
-                    className="font-body text-muted-foreground hover:text-primary transition-colors"
-                    onClick={() => setOpen(false)}
-                  >
-                    {l.label}
-                  </a>
+                  {l.href.startsWith("/") ? (
+                    <Link
+                      to={l.href}
+                      className="font-body text-muted-foreground hover:text-primary transition-colors"
+                      onClick={() => setOpen(false)}
+                    >
+                      {l.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={l.href}
+                      className="font-body text-muted-foreground hover:text-primary transition-colors"
+                      onClick={() => setOpen(false)}
+                    >
+                      {l.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
