@@ -6,43 +6,43 @@
 
 @layer base {
   :root {
-    --background: 36 55% 88%;
+    --background: 38 100% 94%;
     --foreground: 25 40% 15%;
 
-    --card: 34 50% 84%;
+    --card: 37 82% 91%;
     --card-foreground: 25 40% 15%;
 
-    --popover: 36 55% 88%;
+    --popover: 38 100% 96%;
     --popover-foreground: 25 40% 15%;
 
     --primary: 32 70% 40%;
     --primary-foreground: 40 60% 96%;
 
-    --secondary: 28 45% 78%;
+    --secondary: 34 70% 88%;
     --secondary-foreground: 25 45% 20%;
 
-    --muted: 34 40% 82%;
+    --muted: 36 62% 90%;
     --muted-foreground: 25 20% 42%;
 
-    --accent: 36 55% 72%;
+    --accent: 34 72% 84%;
     --accent-foreground: 25 40% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 32 40% 75%;
-    --input: 32 40% 75%;
+    --border: 34 48% 82%;
+    --input: 34 48% 82%;
     --ring: 32 70% 40%;
 
     --radius: 0.5rem;
 
     --gold: 38 65% 55%;
-    --gold-light: 36 50% 80%;
+    --gold-light: 38 82% 91%;
     --saffron: 30 65% 48%;
-    --saffron-light: 32 50% 75%;
+    --saffron-light: 34 72% 84%;
     --maroon: 350 30% 35%;
-    --cream: 36 55% 88%;
-    --cream-dark: 34 45% 82%;
+    --cream: 38 100% 94%;
+    --cream-dark: 36 72% 89%;
     --warm-brown: 25 35% 22%;
 
     --sidebar-background: 0 0% 98%;
@@ -105,7 +105,7 @@
   }
 
   .bg-section-alt {
-    background: linear-gradient(180deg, hsl(34 50% 82%) 0%, hsl(32 55% 72%) 50%, hsl(34 50% 82%) 100%);
+    background: linear-gradient(180deg, hsl(var(--cream)) 0%, hsl(var(--saffron-light)) 50%, hsl(var(--cream)) 100%);
   }
 
   .shadow-gold {
