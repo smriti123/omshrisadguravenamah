@@ -4,41 +4,50 @@ import {
   ChevronDown,
   CirclePlay,
   Flower2,
+  Footprints,
   HeartHandshake,
   Home,
   Images,
-  Info,
   Menu,
+  MessageCircleHeart,
   Music2,
   PenLine,
+  Quote,
   Sparkles,
   X,
 } from "lucide-react";
 import swamijiPhoto from "@/assets/swamiji-new-portrait.jpg";
 import charanPhoto from "@/assets/charan-vandan-feet.jpg";
-import galleryPhotoOne from "@/assets/gallery/up-smile-portrait.jpg";
-import galleryPhotoTwo from "@/assets/gallery/up-garland-meditation.jpg";
-import galleryPhotoThree from "@/assets/gallery/up-shawl-smile.jpg";
+import galleryPhotoOne from "@/assets/mandir.jpg";
+import galleryPhotoTwo from "@/assets/h1.jpg";
+import galleryPhotoThree from "@/assets/pic5.jpg";
 import { getPublicHommages, HommageMessage } from "@/lib/hommageApi";
 import "./HomeNew.css";
 
 const navItems = [
   { label: "Home", href: "#home" },
-  { label: "Photos", href: "/#photo-gallery2" },
-  { label: "Stuti / Shlokas", href: "/#stuti" },
-  { label: "Bhajan / Audio", href: "/#bhajans" },
-  { label: "Video / Pravachan", href: "/#talks" },
-  { label: "Hommage / समर्पण", href: "/#hommage" },
-  { label: "About", href: "/#leela" },
+  { label: "Main Homepage", href: "/#hero" },
+  { label: "Charan-Vandan", href: "/#charan-vandan" },
+  { label: "Sidhbari Leela", href: "/#leela" },
+  { label: "Charitra-Jhalak", href: "/#photo-gallery2" },
+  { label: "Stuti", href: "/#stuti" },
+  { label: "Virah-Stuti", href: "/#shraddanjali" },
+  { label: "Satsangs", href: "/#talks" },
+  { label: "Bhajan", href: "/#bhajans" },
+  { label: "Quotes", href: "/#quotes" },
+  { label: "Hommage", href: "/#hommage" },
 ];
 
 const featureCards = [
-  { href: "/#photo-gallery2", icon: Images, title: "Photo Gallery", description: "Darshan photos and sacred memories" },
-  { href: "/#stuti", icon: BookOpenText, title: "Stuti / Shlokas", description: "Guru Stuti, Sanskrit texts and meanings" },
-  { href: "/#bhajans", icon: Music2, title: "Bhajan / Audio", description: "Bhajans and devotional recordings" },
-  { href: "/#talks", icon: CirclePlay, title: "Video / Pravachan", description: "Satsang and pravachan videos" },
-  { href: "/#hommage", icon: HeartHandshake, title: "Hommage / समर्पण", description: "Devotees can write a short message" },
-  { href: "/#leela", icon: Info, title: "About", description: "Purpose of this sacred space" },
+  { href: "/#charan-vandan", icon: Footprints, title: "Charan-Vandan", description: "Reverence at Pujya Swamiji’s lotus feet" },
+  { href: "/#leela", icon: Sparkles, title: "Sidhbari Leela", description: "A journey through sacred memories" },
+  { href: "/#photo-gallery2", icon: Images, title: "Charitra-Jhalak", description: "Glimpses of a luminous life" },
+  { href: "/#stuti", icon: BookOpenText, title: "Stuti", description: "Sacred verses offered with devotion" },
+  { href: "/#shraddanjali", icon: Flower2, title: "Virah-Stuti", description: "A heartfelt tribute in remembrance" },
+  { href: "/#talks", icon: CirclePlay, title: "Satsangs", description: "Listen to pravachans and teachings" },
+  { href: "/#bhajans", icon: Music2, title: "Bhajan", description: "Devotional songs and sacred audio" },
+  { href: "/#quotes", icon: Quote, title: "Quotes", description: "Words of wisdom for reflection" },
+  { href: "/#hommage", icon: MessageCircleHeart, title: "Hommage", description: "Offer a devotional message" },
 ];
 
 const bottomNav = [
@@ -92,7 +101,7 @@ const HomeNew = () => {
         <section className="home-new__hero" aria-labelledby="home-new-title">
           <p className="home-new__eyebrow"><Sparkles aria-hidden="true" /> A sacred space for remembrance</p>
           <h1 id="home-new-title">ॐ श्री सद्गुरवे नमः</h1>
-          <p className="home-new__hero-subtitle">In the grace of Pujya Swamiji</p>
+          <p className="home-new__hero-subtitle">Param Pujya Swami Subodhananda ji Maharaj</p>
           <div className="home-new__portrait-frame">
             <img src={swamijiPhoto} alt="Pujya Swamiji" className="home-new__portrait" />
           </div>
@@ -131,9 +140,9 @@ const HomeNew = () => {
             <span>Three gentle glimpses from the gallery</span>
           </div>
           <div className="home-new__photo-grid">
-            <img src={galleryPhotoOne} alt="Pujya Swamiji smiling in a garden" />
-            <img src={galleryPhotoTwo} alt="Sacred mandir aarti" />
-            <img src={galleryPhotoThree} alt="Pujya Swamiji with an elder saint" />
+            <img src={galleryPhotoOne} alt="Shivji in the mandir" />
+            <img src={galleryPhotoTwo} alt="Pujya Swamiji’s charan" />
+            <img src={galleryPhotoThree} alt="Param Pujya Swami Subodhananda ji Maharaj" />
           </div>
           <a className="home-new__button" href="/#gallery">सभी फोटो देखें <Images aria-hidden="true" /></a>
         </section>
