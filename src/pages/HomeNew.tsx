@@ -71,8 +71,9 @@ const HomeNew = () => {
   return (
     <div className="home-new" id="home">
       <header className="home-new__header">
-        <a className="home-new__brand" href="#home" aria-label="Home">
+        <a className="home-new__brand" href="#home" aria-label="Home — ॐ श्री सद्गुरवे नमः">
           <span className="home-new__brand-om">ॐ</span>
+          <strong>श्री सद्गुरवे नमः</strong>
         </a>
         <button
           className="home-new__menu-button"
@@ -92,8 +93,7 @@ const HomeNew = () => {
       </header>
 
       <main>
-        <section className="home-new__hero" aria-labelledby="home-new-title">
-          <h1 id="home-new-title" className="home-new__hero-om">ॐ श्री सद्गुरवे नमः</h1>
+        <section className="home-new__hero" aria-label="Param Pujya Swami Subodhananda ji Maharaj">
           <div className="home-new__portrait-frame">
             <img src={swamijiPhoto} alt="Pujya Swamiji" className="home-new__portrait" />
           </div>
@@ -102,8 +102,6 @@ const HomeNew = () => {
           <div className="home-new__shloka">
             <p>यस्य स्मरणमात्रेण नयनेऽश्रुपूरिते भवेताम्।</p>
             <p>यस्य नामस्मरणेन हृदयं आनन्दपूर्णं भवेत्।</p>
-            <p className="home-new__shloka-placeholder">{"\u00A0"}</p>
-            <p className="home-new__shloka-placeholder">{"\u00A0"}</p>
           </div>
           <div className="home-new__charan-area">
             <div className="home-new__charan-orbit" aria-hidden="true">
@@ -125,9 +123,8 @@ const HomeNew = () => {
           </button>
         </section>
 
-        <section className="home-new__welcome" id="welcome" aria-labelledby="welcome-title">
+        <section className="home-new__welcome" id="welcome" aria-label="Welcome">
           <Flower2 aria-hidden="true" />
-          <h2 id="welcome-title">यस्य स्मरणमात्रेण ।</h2>
           <p>भक्ति, स्मरण और कृतज्ञता का एक पावन स्थान।</p>
         </section>
 
@@ -145,7 +142,7 @@ const HomeNew = () => {
           <a className="home-new__button" href="/#photo-gallery2"><Images aria-hidden="true" /> सभी फोटो देखें</a>
         </section>
 
-        <section className="home-new__section home-new__section--cards" aria-labelledby="explore-title">
+        <section className="home-new__section home-new__section--cards" id="explore" aria-labelledby="explore-title">
           <div className="home-new__section-heading">
             <p>Explore</p>
             <h2 id="explore-title">भक्ति के पावन द्वार</h2>

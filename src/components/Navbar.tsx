@@ -31,8 +31,8 @@ const Navbar = () => {
       }}
     >
       <div className="container mx-auto flex items-center justify-between py-3 px-4">
-        <a href="#hero" className="font-display text-2xl font-bold" style={{ color: "hsl(40 80% 94%)" }}>
-          {"\n"}
+        <a href="#hero" className="font-display text-lg sm:text-2xl font-bold" style={{ color: "hsl(40 80% 94%)" }}>
+          ॐ श्री सद्गुरवे नमः
         </a>
 
         {/* Desktop */}
