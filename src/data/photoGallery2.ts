@@ -77,6 +77,15 @@ import namamiNew4 from "@/assets/gallery/namami-new-4.jpg";
 import namamiNew5 from "@/assets/gallery/namami-new-5.jpg";
 import namamiNew6 from "@/assets/gallery/namami-new-6.jpg";
 
+// Namami additions (writer/devotee photos)
+import namamiAdd1 from "@/assets/gallery/namami-add-1.jpg";
+import namamiAdd2 from "@/assets/gallery/namami-add-2.jpg";
+import namamiAdd3 from "@/assets/gallery/namami-add-3.jpg";
+import namamiAdd4 from "@/assets/gallery/namami-add-4.jpg";
+
+// Others — Twameva Dravinam
+import othersDravinam from "@/assets/gallery/others-dravinam.jpg";
+
 // New additions
 import newVedantPink from "@/assets/gallery/new-vedant-pink.jpg";
 import newCharanSofa from "@/assets/gallery/new-charan-sofa.jpg";
@@ -401,6 +410,34 @@ export const gallery2Categories: Gallery2Category[] = [
         alt: "Namami Chittchorkam new photo 7",
         caption: "",
       },
+      {
+        id: "namami-add-1",
+        src: namamiAdd1,
+        thumbnailSrc: namamiAdd1,
+        alt: "Namami Chittchorkam additional photo 1",
+        caption: "",
+      },
+      {
+        id: "namami-add-2",
+        src: namamiAdd2,
+        thumbnailSrc: namamiAdd2,
+        alt: "Namami Chittchorkam additional photo 2",
+        caption: "",
+      },
+      {
+        id: "namami-add-3",
+        src: namamiAdd3,
+        thumbnailSrc: namamiAdd3,
+        alt: "Namami Chittchorkam additional photo 3",
+        caption: "",
+      },
+      {
+        id: "namami-add-4",
+        src: namamiAdd4,
+        thumbnailSrc: namamiAdd4,
+        alt: "Namami Chittchorkam additional photo 4",
+        caption: "",
+      },
     ],
   },
   {
@@ -671,6 +708,13 @@ export const gallery2Categories: Gallery2Category[] = [
         thumbnailSrc: newKayakalpProcession,
         alt: "Kaya Kalp Palampur inauguration — procession",
         caption: "Kaya कल्प पालमपुर का उद्घाटन समारोह..",
+      },
+      {
+        id: "others-twameva-dravinam",
+        src: othersDravinam,
+        thumbnailSrc: othersDravinam,
+        alt: "Twameva Dravinam",
+        caption: "त्वमेव द्रविणं",
       },
     ],
   },
