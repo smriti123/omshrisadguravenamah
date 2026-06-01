@@ -69,9 +69,8 @@ const HomeNew = () => {
   return (
     <div className="home-new" id="home">
       <header className="home-new__header">
-        <a className="home-new__brand" href="#home" aria-label="ॐ श्री सद्गुरवे नमः home">
+        <a className="home-new__brand" href="#home" aria-label="Home">
           <span className="home-new__brand-om">ॐ</span>
-          <span>श्री सद्गुरवे नमः</span>
         </a>
         <button
           className="home-new__menu-button"
@@ -92,17 +91,17 @@ const HomeNew = () => {
 
       <main>
         <section className="home-new__hero" aria-labelledby="home-new-title">
-          <p className="home-new__eyebrow"><Sparkles aria-hidden="true" /> A sacred space for remembrance</p>
-          <h1 id="home-new-title">ॐ श्री सद्गुरवे नमः</h1>
-          <p className="home-new__hero-subtitle">Param Pujya Swami Subodhananda ji Maharaj</p>
+          <h1 id="home-new-title" className="home-new__hero-om">ॐ श्री सद्गुरवे नमः</h1>
           <div className="home-new__portrait-frame">
             <img src={swamijiPhoto} alt="Pujya Swamiji" className="home-new__portrait" />
           </div>
+          <p className="home-new__hero-subtitle">Param Pujya Swami Subodhananda ji Maharaj</p>
 
-          <div className="home-new__charan-intro">
-            <span aria-hidden="true" />
-            <p>गुरु चरणों में श्रद्धा-सुमन</p>
-            <span aria-hidden="true" />
+          <div className="home-new__shloka">
+            <p>यस्य स्मरणमात्रेण नयनेऽश्रुपूरिते भवेताम्।</p>
+            <p>यस्य नामस्मरणेन हृदयं आनन्दपूर्णं भवेत्।</p>
+            <p className="home-new__shloka-placeholder">{"\u00A0"}</p>
+            <p className="home-new__shloka-placeholder">{"\u00A0"}</p>
           </div>
           <div className="home-new__charan-area">
             <div className="home-new__charan-orbit" aria-hidden="true">
@@ -171,7 +170,7 @@ const HomeNew = () => {
               <article className="home-new__hommage" key={hommage.id}>
                 <Flower2 aria-hidden="true" />
                 <p>{hommage.message}</p>
-                <footer><span>{hommage.name}</span><time dateTime={hommage.createdAt}>{new Date(hommage.createdAt).toLocaleDateString()}</time></footer>
+                <footer><span>{hommage.name}</span><time dateTime={hommage.created_at}>{new Date(hommage.created_at).toLocaleDateString()}</time></footer>
               </article>
             )) : (
               <article className="home-new__hommage home-new__hommage--empty">

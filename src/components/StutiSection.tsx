@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import GyannisthaCard from "@/components/GyannisthaCard";
 import gangeshanandaStuti from "@/assets/stuti-gangeshananda.jpg";
+import gangeshanandaWriter from "@/assets/stuti-gangeshananda-writer.jpg";
 
 const stutiNames = [
   "ॐ ॐकाराय नमः ।",
@@ -482,9 +483,17 @@ const GangeshanandaStutiCard = () => (
     <h3 className="font-display text-xl font-bold text-primary text-center mb-2">
       ।। श्री सद्गुरुवे देवाय नमः ।।
     </h3>
-    <p className="text-center text-xs text-muted-foreground mb-4 italic">
-      by Brahmaleen Swami Gangeshanandaji
-    </p>
+    <div className="flex flex-col items-center mb-4">
+      <img
+        src={gangeshanandaWriter}
+        alt="Brahmaleen Swami Gangeshanandaji"
+        className="w-20 h-20 rounded-full object-cover border-2 border-gold/40 shadow-gold mb-2"
+        loading="lazy"
+      />
+      <p className="text-center text-xs text-muted-foreground italic">
+        by Brahmaleen Swami Gangeshanandaji
+      </p>
+    </div>
     <div className="rounded-lg overflow-hidden border border-gold/10 bg-cream-dark/30 mb-5 flex items-center justify-center">
       <img
         src={gangeshanandaStuti}
