@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 40 55% 88%;
+    --background: 33 70% 78%;
     --foreground: 25 40% 15%;
 
     --card: 37 82% 91%;
@@ -41,7 +41,7 @@
     --saffron: 30 65% 48%;
     --saffron-light: 34 72% 84%;
     --maroon: 350 30% 35%;
-    --cream: 40 55% 88%;
+    --cream: 33 70% 78%;
     --cream-dark: 36 72% 89%;
     --warm-brown: 25 35% 22%;
 

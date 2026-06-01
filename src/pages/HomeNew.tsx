@@ -36,13 +36,15 @@ const navItems = [
 ];
 
 const featureCards = [
-  { href: "/#photo-gallery2", icon: Images, title: "Photo Gallery", description: "Darshan photos and sacred memories" },
-  { href: "/#stuti", icon: BookOpenText, title: "Stuti / Shlokas", description: "Guru Stuti, Sanskrit texts and meanings" },
-  { href: "/#bhajans", icon: Music2, title: "Bhajan / Audio", description: "Bhajans and devotional recordings" },
-  { href: "/#talks", icon: CirclePlay, title: "Video / Pravachan", description: "Satsang and pravachan videos" },
   { href: "/#charan-vandan", icon: Footprints, title: "Charan-Vandan", description: "Devotional remembrance at Guru Charan" },
-  { href: "/#hommage", icon: MessageCircleHeart, title: "Hommage / समर्पण", description: "Offer a short devotional message" },
-  { href: "#about", icon: Info, title: "About", description: "The purpose of this sacred space" },
+  { href: "/#leela", icon: Sparkles, title: "Sidhbari Leela", description: "Divine leelas at Sidhbari" },
+  { href: "/#photo-gallery2", icon: Images, title: "Charitra-Jhalak", description: "Glimpses from Pujya Swamiji's life" },
+  { href: "/#stuti", icon: BookOpenText, title: "Stuti", description: "Guru Stuti and Sanskrit shlokas" },
+  { href: "/#shraddanjali", icon: Flower2, title: "Virah-Stuti", description: "Verses of longing and shraddhanjali" },
+  { href: "/#talks", icon: CirclePlay, title: "Satsangs", description: "Pravachan and satsang videos" },
+  { href: "/#bhajans", icon: Music2, title: "Bhajan", description: "Devotional bhajans and audio" },
+  { href: "/#quotes", icon: PenLine, title: "Quotes", description: "Words of wisdom from Pujya Swamiji" },
+  { href: "/#hommage", icon: MessageCircleHeart, title: "Hommage", description: "Offer a short devotional message" },
 ];
 
 const bottomNav = [
