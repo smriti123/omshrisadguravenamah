@@ -8,11 +8,11 @@ import {
   HeartHandshake,
   Home,
   Images,
+  Info,
   Menu,
   MessageCircleHeart,
   Music2,
   PenLine,
-  Quote,
   Sparkles,
   X,
 } from "lucide-react";
@@ -26,36 +26,31 @@ import "./HomeNew.css";
 
 const navItems = [
   { label: "Home", href: "#home" },
-  { label: "Main Homepage", href: "/#hero" },
+  { label: "Photo Gallery", href: "#photos" },
   { label: "Charan-Vandan", href: "/#charan-vandan" },
-  { label: "Sidhbari Leela", href: "/#leela" },
-  { label: "Charitra-Jhalak", href: "/#photo-gallery2" },
-  { label: "Stuti", href: "/#stuti" },
-  { label: "Virah-Stuti", href: "/#shraddanjali" },
-  { label: "Satsangs", href: "/#talks" },
-  { label: "Bhajan", href: "/#bhajans" },
-  { label: "Quotes", href: "/#quotes" },
-  { label: "Hommage", href: "/#hommage" },
+  { label: "Stuti / Shlokas", href: "/#stuti" },
+  { label: "Bhajan / Audio", href: "/#bhajans" },
+  { label: "Video / Pravachan", href: "/#talks" },
+  { label: "Hommage / समर्पण", href: "#hommage-preview" },
+  { label: "About", href: "#about" },
 ];
 
 const featureCards = [
-  { href: "/#charan-vandan", icon: Footprints, title: "Charan-Vandan", description: "Reverence at Pujya Swamiji’s lotus feet" },
-  { href: "/#leela", icon: Sparkles, title: "Sidhbari Leela", description: "A journey through sacred memories" },
-  { href: "/#photo-gallery2", icon: Images, title: "Charitra-Jhalak", description: "Glimpses of a luminous life" },
-  { href: "/#stuti", icon: BookOpenText, title: "Stuti", description: "Sacred verses offered with devotion" },
-  { href: "/#shraddanjali", icon: Flower2, title: "Virah-Stuti", description: "A heartfelt tribute in remembrance" },
-  { href: "/#talks", icon: CirclePlay, title: "Satsangs", description: "Listen to pravachans and teachings" },
-  { href: "/#bhajans", icon: Music2, title: "Bhajan", description: "Devotional songs and sacred audio" },
-  { href: "/#quotes", icon: Quote, title: "Quotes", description: "Words of wisdom for reflection" },
-  { href: "/#hommage", icon: MessageCircleHeart, title: "Hommage", description: "Offer a devotional message" },
+  { href: "/#photo-gallery2", icon: Images, title: "Photo Gallery", description: "Darshan photos and sacred memories" },
+  { href: "/#stuti", icon: BookOpenText, title: "Stuti / Shlokas", description: "Guru Stuti, Sanskrit texts and meanings" },
+  { href: "/#bhajans", icon: Music2, title: "Bhajan / Audio", description: "Bhajans and devotional recordings" },
+  { href: "/#talks", icon: CirclePlay, title: "Video / Pravachan", description: "Satsang and pravachan videos" },
+  { href: "/#charan-vandan", icon: Footprints, title: "Charan-Vandan", description: "Devotional remembrance at Guru Charan" },
+  { href: "/#hommage", icon: MessageCircleHeart, title: "Hommage / समर्पण", description: "Offer a short devotional message" },
+  { href: "#about", icon: Info, title: "About", description: "The purpose of this sacred space" },
 ];
 
 const bottomNav = [
   { label: "Home", href: "#home", icon: Home },
-  { label: "Photos", href: "/#photo-gallery2", icon: Images },
+  { label: "Photos", href: "#photos", icon: Images },
   { label: "Stuti", href: "/#stuti", icon: BookOpenText },
   { label: "Bhajan", href: "/#bhajans", icon: Music2 },
-  { label: "Hommage", href: "/#hommage", icon: HeartHandshake },
+  { label: "Hommage", href: "#hommage-preview", icon: HeartHandshake },
 ];
 
 const HomeNew = () => {
@@ -90,9 +85,7 @@ const HomeNew = () => {
         </button>
         <nav className={`home-new__menu ${menuOpen ? "home-new__menu--open" : ""}`} id="home-new-menu" aria-label="Main navigation">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} onClick={closeMenu}>
-              {item.label}
-            </a>
+            <a key={item.label} href={item.href} onClick={closeMenu}>{item.label}</a>
           ))}
         </nav>
       </header>
@@ -106,15 +99,18 @@ const HomeNew = () => {
             <img src={swamijiPhoto} alt="Pujya Swamiji" className="home-new__portrait" />
           </div>
 
+          <div className="home-new__charan-intro">
+            <span aria-hidden="true" />
+            <p>गुरु चरणों में श्रद्धा-सुमन</p>
+            <span aria-hidden="true" />
+          </div>
           <div className="home-new__charan-area">
             <div className="home-new__charan-orbit" aria-hidden="true">
-              <svg viewBox="0 0 300 300">
+              <svg viewBox="0 0 320 320">
                 <defs>
-                  <path id="home-new-orbit-path" d="M 150,150 m -116,0 a 116,116 0 1,1 232,0 a 116,116 0 1,1 -232,0" />
+                  <path id="home-new-orbit-path" d="M 160,160 m -134,0 a 134,134 0 1,1 268,0 a 134,134 0 1,1 -268,0" />
                 </defs>
-                <text>
-                  <textPath href="#home-new-orbit-path">ॐ श्री सद्गुरवे नमः · श्री सद्गुरु चरणारविन्दाभ्यां नमः · </textPath>
-                </text>
+                <text><textPath href="#home-new-orbit-path">ॐ श्री सद्गुरवे नमः · श्री सद्गुरु चरणारविन्दाभ्यां नमः · </textPath></text>
               </svg>
             </div>
             <button className="home-new__charan-button" type="button" onClick={enterPage} aria-label="चरण स्पर्श करें — enter the page">
@@ -123,6 +119,7 @@ const HomeNew = () => {
           </div>
           <button className="home-new__enter" type="button" onClick={enterPage}>
             <span>चरण स्पर्श करें</span>
+            <small>Touch to enter</small>
             <ChevronDown aria-hidden="true" />
           </button>
         </section>
@@ -130,24 +127,29 @@ const HomeNew = () => {
         <section className="home-new__welcome" id="welcome" aria-labelledby="welcome-title">
           <Flower2 aria-hidden="true" />
           <h2 id="welcome-title">यस्य स्मरणमात्रेण ।</h2>
-          <p>A sacred space for remembrance, devotion and gratitude.</p>
+          <p>भक्ति, स्मरण और कृतज्ञता का एक पावन स्थान।</p>
         </section>
 
-        <section className="home-new__section" id="photos" aria-labelledby="photos-title">
+        <section className="home-new__section home-new__section--photos" id="photos" aria-labelledby="photos-title">
           <div className="home-new__section-heading">
             <p>Darshan</p>
             <h2 id="photos-title">पावन स्मृतियाँ</h2>
-            <span>Three gentle glimpses from the gallery</span>
+            <span>A few glimpses from the photo gallery</span>
           </div>
           <div className="home-new__photo-grid">
-            <img src={galleryPhotoOne} alt="Shivji in the mandir" />
-            <img src={galleryPhotoTwo} alt="Pujya Swamiji’s charan" />
-            <img src={galleryPhotoThree} alt="Param Pujya Swami Subodhananda ji Maharaj" />
+            <img src={galleryPhotoOne} alt="Sacred mandir darshan" />
+            <img src={galleryPhotoTwo} alt="Pujya Swamiji darshan" />
+            <img src={galleryPhotoThree} alt="A sacred memory with Pujya Swamiji" />
           </div>
-          <a className="home-new__button" href="/#gallery">सभी फोटो देखें <Images aria-hidden="true" /></a>
+          <a className="home-new__button" href="/#photo-gallery2"><Images aria-hidden="true" /> सभी फोटो देखें</a>
         </section>
 
-        <section className="home-new__section home-new__section--soft" aria-label="Explore">
+        <section className="home-new__section home-new__section--cards" aria-labelledby="explore-title">
+          <div className="home-new__section-heading">
+            <p>Explore</p>
+            <h2 id="explore-title">भक्ति के पावन द्वार</h2>
+            <span>Choose a quiet path for remembrance</span>
+          </div>
           <div className="home-new__card-grid">
             {featureCards.map(({ href, icon: Icon, title, description }) => (
               <a className="home-new__card" href={href} key={title}>
@@ -158,42 +160,41 @@ const HomeNew = () => {
           </div>
         </section>
 
-        <section className="home-new__section" id="hommage-preview" aria-labelledby="hommage-title">
+        <section className="home-new__section home-new__section--hommage" id="hommage-preview" aria-labelledby="hommage-title">
           <div className="home-new__section-heading">
-            <p>With gratitude</p>
+            <p>Hommage</p>
             <h2 id="hommage-title">समर्पण</h2>
-            <span>Approved messages are shared here for 7 days.</span>
+            <span>Recent offerings from devotees</span>
           </div>
           <div className="home-new__hommages">
-            {hommages.length > 0 ? hommages.map((item) => (
-              <article className="home-new__hommage" key={item.id}>
-                <HeartHandshake aria-hidden="true" />
-                <p>“{item.message}”</p>
-                <footer><strong>{item.name}</strong><time dateTime={item.created_at}>{new Date(`${item.created_at}Z`).toLocaleDateString()}</time></footer>
+            {hommages.length ? hommages.map((hommage) => (
+              <article className="home-new__hommage" key={hommage.id}>
+                <Flower2 aria-hidden="true" />
+                <p>{hommage.message}</p>
+                <footer><span>{hommage.name}</span><time dateTime={hommage.createdAt}>{new Date(hommage.createdAt).toLocaleDateString()}</time></footer>
               </article>
             )) : (
               <article className="home-new__hommage home-new__hommage--empty">
                 <Flower2 aria-hidden="true" />
-                <p>Approved devotional messages will appear here.</p>
-                <small>Messages may be up to 300 characters and are reviewed before they are shared.</small>
+                <p>Offer a few words at Pujya Gurudev’s lotus feet.</p>
+                <small>Messages are kept brief and shared after approval.</small>
               </article>
             )}
           </div>
-          <a className="home-new__button" href="/#hommage">समर्पण लिखें <PenLine aria-hidden="true" /></a>
+          <a className="home-new__button" href="/#hommage"><PenLine aria-hidden="true" /> समर्पण लिखें</a>
+          <p className="home-new__hommage-note">Up to 300 characters · displayed for 7 days after approval</p>
         </section>
 
         <section className="home-new__about" id="about" aria-labelledby="about-title">
           <Flower2 aria-hidden="true" />
-          <h2 id="about-title">About this sacred space</h2>
-          <p>A quiet digital mandir to remember, reflect and remain connected with the grace and teachings of Pujya Swamiji.</p>
-          <span>ॐ शान्तिः शान्तिः शान्तिः</span>
+          <h2 id="about-title">ॐ श्री सद्गुरवे नमः</h2>
+          <p>A peaceful digital space created for darshan, remembrance and gratitude at the lotus feet of Pujya Swamiji.</p>
+          <span>श्री गुरु चरणारविन्दाभ्यां नमः</span>
         </section>
       </main>
 
       <nav className="home-new__bottom-nav" aria-label="Mobile navigation">
-        {bottomNav.map(({ label, href, icon: Icon }) => (
-          <a href={href} key={href}><Icon aria-hidden="true" /><span>{label}</span></a>
-        ))}
+        {bottomNav.map(({ label, href, icon: Icon }) => <a href={href} key={label}><Icon aria-hidden="true" /><span>{label}</span></a>)}
       </nav>
     </div>
   );
