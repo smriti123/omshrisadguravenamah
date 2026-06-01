@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Languages, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Expand, Languages, X } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import scannedLetter from "@/assets/Swamiji.jpg.jpg";
 
@@ -274,6 +274,23 @@ const CHAR_LIMIT = CHARS_PER_LINE * LINE_LIMIT;
 const TributeCard = ({ tribute }: { tribute: Tribute }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [showTranslation, setShowTranslation] = useState(false);
+  const [showScannedLetter, setShowScannedLetter] = useState(false);
+
+  useEffect(() => {
+    if (!showScannedLetter) return;
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setShowScannedLetter(false);
+    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [showScannedLetter]);
 
   const needsTruncation = tribute.message.length > CHAR_LIMIT;
   const displayText = isExpanded || !needsTruncation
@@ -291,11 +308,20 @@ const TributeCard = ({ tribute }: { tribute: Tribute }) => {
           <div className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center text-primary text-base flex-shrink-0">🙏</div>
           <span className="font-display text-base font-semibold text-foreground">{tribute.name}</span>
         </div>
-        <div className="p-6">
-          <div className="rounded-xl overflow-hidden border border-gold/15">
-            <img src={scannedLetter} alt="Letter from Swami Adhyatmananda" className="w-full h-auto object-contain" />
-          </div>
+        <div className="p-4 sm:p-6">
+          <button type="button" onClick={() => setShowScannedLetter(true)} className="group relative block w-full cursor-zoom-in overflow-hidden rounded-xl border border-gold/20 bg-amber-50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" aria-label="Enlarge tribute letter from Swami Adhyatmananda">
+            <img src={scannedLetter} alt="Letter from Swami Adhyatmananda" className="h-auto w-full object-contain" />
+            <span className="absolute bottom-3 right-3 inline-flex min-h-11 items-center gap-2 rounded-full border border-gold/30 bg-amber-50/95 px-3 py-2 text-xs font-semibold text-primary shadow-md"><Expand className="h-4 w-4" aria-hidden="true" /> Tap to enlarge</span>
+          </button>
         </div>
+        <AnimatePresence>
+          {showScannedLetter && (
+            <motion.div className="fixed inset-0 z-[100] flex items-center justify-center bg-stone-950/90 p-2 sm:p-5" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setShowScannedLetter(false)} role="dialog" aria-modal="true" aria-label="Enlarged tribute letter">
+              <button type="button" onClick={() => setShowScannedLetter(false)} className="absolute right-3 top-3 z-10 grid min-h-12 min-w-12 place-items-center rounded-full border border-amber-100/30 bg-stone-900/80 text-amber-50 shadow-lg transition hover:bg-stone-900 focus:outline-none focus:ring-2 focus:ring-amber-100" aria-label="Close enlarged tribute letter"><X className="h-6 w-6" aria-hidden="true" /></button>
+              <motion.img src={scannedLetter} alt="Letter from Swami Adhyatmananda" className="max-h-[96svh] max-w-full object-contain" initial={{ scale: 0.96 }} animate={{ scale: 1 }} exit={{ scale: 0.96 }} onClick={(event) => event.stopPropagation()} />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     );
   }
@@ -326,7 +352,7 @@ const TributeCard = ({ tribute }: { tribute: Tribute }) => {
         </div>
         <div className="mx-6 border-t border-gold/10 mb-5" />
         <div className="px-6 pb-6">
-          <p className="font-body text-[15px] text-foreground/80 leading-8 whitespace-pre-line">
+          <p className="whitespace-pre-line font-body text-base leading-8 text-foreground/80 md:text-[17px] md:leading-9">
             "{displayText}"
           </p>
           {needsTruncation && (
@@ -364,7 +390,7 @@ const TributeCard = ({ tribute }: { tribute: Tribute }) => {
                 </button>
               </div>
               <div className="px-6 pb-6 pt-3 border-t border-primary/10 mt-2">
-                <p className="font-body text-[15px] text-foreground/75 leading-8 whitespace-pre-line">
+                <p className="whitespace-pre-line font-body text-base leading-8 text-foreground/75 md:text-[17px] md:leading-9">
                   "{tribute.translation}"
                 </p>
               </div>
@@ -527,7 +553,8 @@ const ShraddanjaliSection = () => {
               <button
                 onClick={() => setPage((p) => Math.max(0, p - 1))}
                 disabled={page === 0}
-                className="p-2 rounded-full border border-gold/20 text-muted-foreground hover:text-foreground hover:border-gold/40 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                aria-label="Previous written tribute"
+                className="grid min-h-11 min-w-11 place-items-center rounded-full border border-gold/30 bg-card p-2 text-muted-foreground shadow-sm transition-all hover:border-gold/50 hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30"
               >
                 <ChevronLeft size={18} />
               </button>
@@ -537,7 +564,9 @@ const ShraddanjaliSection = () => {
                   <button
                     key={i}
                     onClick={() => setPage(i)}
-                    className={`w-7 h-7 rounded-full text-xs font-medium transition-all ${
+                    aria-label={`Show written tribute ${i + 1}`}
+                    aria-current={page === i ? "page" : undefined}
+                    className={`min-h-11 min-w-11 rounded-full text-sm font-semibold shadow-sm transition-all ${
                       page === i
                         ? "bg-primary text-primary-foreground"
                         : "bg-card border border-gold/20 text-muted-foreground hover:text-foreground"
@@ -551,7 +580,8 @@ const ShraddanjaliSection = () => {
               <button
                 onClick={() => setPage((p) => Math.min(total - 1, p + 1))}
                 disabled={page === total - 1}
-                className="p-2 rounded-full border border-gold/20 text-muted-foreground hover:text-foreground hover:border-gold/40 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                aria-label="Next written tribute"
+                className="grid min-h-11 min-w-11 place-items-center rounded-full border border-gold/30 bg-card p-2 text-muted-foreground shadow-sm transition-all hover:border-gold/50 hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30"
               >
                 <ChevronRight size={18} />
               </button>

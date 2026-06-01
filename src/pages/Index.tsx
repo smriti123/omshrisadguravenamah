@@ -14,6 +14,7 @@ import BhajansSection from "@/components/BhajansSection";
 import JourneyTimeline from "@/components/JourneyTimeline";
 import CharanKamalCarouselSection from "@/components/CharanKamalCarouselSection";
 import Footer from "@/components/Footer";
+import BhaktiDwarBackButton from "@/components/BhaktiDwarBackButton";
 
 const Index = () => {
   useEffect(() => {
@@ -26,6 +27,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      <BhaktiDwarBackButton />
       <HeroSection />
       <div className="bg-section-alt">
         <CharanKamalCarouselSection />
