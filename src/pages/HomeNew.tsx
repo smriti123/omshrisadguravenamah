@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import {
   BookOpenText,
-  ChevronDown,
   CirclePlay,
   Flower2,
   Footprints,
   HeartHandshake,
   Home,
   Images,
-  Info,
   Menu,
   MessageCircleHeart,
   Music2,
