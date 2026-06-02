@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import {
   BookOpenText,
-  ChevronDown,
   CirclePlay,
   Flower2,
   Footprints,
   HeartHandshake,
   Home,
   Images,
-  Info,
   Menu,
   MessageCircleHeart,
   Music2,
@@ -18,9 +16,12 @@ import {
 } from "lucide-react";
 import swamijiPhoto from "@/assets/swamiji-new-portrait.jpg";
 import charanPhoto from "@/assets/charan-vandan-feet.jpg";
-import galleryPhotoOne from "@/assets/mandir.jpg";
-import galleryPhotoTwo from "@/assets/h1.jpg";
-import galleryPhotoThree from "@/assets/pic5.jpg";
+import collage1 from "@/assets/home-new-collage/c1.jpg";
+import collage2 from "@/assets/home-new-collage/c2.jpg";
+import collage3 from "@/assets/home-new-collage/c3.png";
+import collage4 from "@/assets/home-new-collage/c4.webp";
+import collage5 from "@/assets/home-new-collage/c5.webp";
+import collage6 from "@/assets/swamiji-new-portrait.jpg";
 import { getPublicHommages, HommageMessage } from "@/lib/hommageApi";
 import "./HomeNew.css";
 
@@ -99,11 +100,13 @@ const HomeNew = () => {
           </div>
           <p className="home-new__hero-subtitle">Param Pujya Swami Subodhananda ji Maharaj</p>
 
-          <div className="home-new__shloka">
-            <p>यस्य स्मरणमात्रेण नयनेऽश्रुपूरिते भवेताम्।</p>
-            <p>यस्य नामस्मरणेन हृदयं आनन्दपूर्णं भवेत्।</p>
-          </div>
           <div className="home-new__charan-area">
+            <span className="home-new__charan-arrow" aria-hidden="true">
+              <svg viewBox="0 0 40 80" fill="none">
+                <path d="M20 4 V62" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                <path d="M8 50 L20 64 L32 50" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              </svg>
+            </span>
             <div className="home-new__charan-orbit" aria-hidden="true">
               <svg viewBox="0 0 320 320">
                 <defs>
@@ -116,11 +119,6 @@ const HomeNew = () => {
               <img src={charanPhoto} alt="Pujya Swamiji's charan — touch to enter" />
             </button>
           </div>
-          <button className="home-new__enter" type="button" onClick={enterPage}>
-            <span>चरण स्पर्श करें</span>
-            <small>Touch to enter</small>
-            <ChevronDown aria-hidden="true" />
-          </button>
         </section>
 
         <section className="home-new__welcome" id="welcome" aria-label="Welcome">
@@ -129,30 +127,35 @@ const HomeNew = () => {
         </section>
 
         <section className="home-new__section home-new__section--photos" id="photos" aria-labelledby="photos-title">
-          <div className="home-new__section-heading">
-            <p>Darshan</p>
-            <h2 id="photos-title">पावन स्मृतियाँ</h2>
-            <span>A few glimpses from the photo gallery</span>
-          </div>
-          <div className="home-new__photo-grid">
-            <img src={galleryPhotoOne} alt="Sacred mandir darshan" />
-            <img src={galleryPhotoTwo} alt="Pujya Swamiji darshan" />
-            <img src={galleryPhotoThree} alt="A sacred memory with Pujya Swamiji" />
+          <h2 id="photos-title" className="sr-only">पावन स्मृतियाँ</h2>
+          <div className="home-new__collage">
+            <img src={collage1} alt="" />
+            <img src={collage2} alt="" />
+            <img src={collage3} alt="" />
+            <img src={collage4} alt="" />
+            <img src={collage5} alt="" />
+            <img src={collage6} alt="" />
           </div>
           <a className="home-new__button" href="/#photo-gallery2"><Images aria-hidden="true" /> सभी फोटो देखें</a>
         </section>
 
         <section className="home-new__section home-new__section--cards" id="explore" aria-labelledby="explore-title">
           <div className="home-new__section-heading">
-            <p>Explore</p>
-            <h2 id="explore-title">भक्ति के पावन द्वार</h2>
-            <span>Choose a quiet path for remembrance</span>
+            <h2 id="explore-title" className="home-new__shloka-heading">
+              यस्य स्मरणमात्रेण नयनेऽश्रुपूरिते भवेताम्।<br />
+              यस्य नामस्मरणेन हृदयं आनन्दपूर्णं भवेत्।
+            </h2>
+            <span>कृपया card click करें</span>
           </div>
           <div className="home-new__card-grid">
             {featureCards.map(({ href, icon: Icon, title, description }) => (
               <a className="home-new__card" href={href} key={title}>
                 <span className="home-new__card-icon"><Icon aria-hidden="true" /></span>
-                <span><strong>{title}</strong><small>{description}</small></span>
+                <span className="home-new__card-body">
+                  <strong>{title}</strong>
+                  <small>{description}</small>
+                  <em>देखें →</em>
+                </span>
               </a>
             ))}
           </div>
