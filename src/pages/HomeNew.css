@@ -16,9 +16,9 @@
 .home-new__portrait-frame { width:min(78vw,18rem); padding:.35rem; border:1px solid rgba(189,139,66,.33); border-radius:6.5rem 6.5rem 1.15rem 1.15rem; background:rgba(255,255,255,.45); box-shadow:0 12px 30px rgba(104,66,41,.11); }
 .home-new__portrait { display:block; width:100%; aspect-ratio:.84; object-fit:cover; object-position:center top; border-radius:6.1rem 6.1rem .9rem .9rem; }
 .home-new__charan-area { position:relative; display:grid; width:min(72vw,15rem); aspect-ratio:1; margin-top:-.2rem; place-items:center; }
-.home-new__charan-arrow { position:absolute; top:-2.3rem; left:50%; transform:translateX(-50%); width:1.7rem; color:var(--new-gold); animation:home-new-arrow 1.4s ease-in-out infinite; pointer-events:none; z-index:2; }
+.home-new__charan-arrow { position:absolute; top:50%; left:-2.6rem; transform:translateY(-50%); width:2.2rem; color:var(--new-gold); animation:home-new-arrow 1.4s ease-in-out infinite; pointer-events:none; z-index:2; }
 .home-new__charan-arrow svg { width:100%; height:auto; display:block; filter:drop-shadow(0 2px 4px rgba(104,66,41,.25)); }
-@keyframes home-new-arrow { 0%,100%{transform:translate(-50%,0); opacity:.55;} 50%{transform:translate(-50%,.5rem); opacity:1;} }
+@keyframes home-new-arrow { 0%,100%{transform:translate(0,-50%); opacity:.55;} 50%{transform:translate(.5rem,-50%); opacity:1;} }
 .home-new__charan-orbit { position:absolute; inset:0; animation:home-new-spin 38s linear infinite; }
 .home-new__charan-orbit svg { width:100%; height:100%; overflow:visible; }
 .home-new__charan-orbit text { fill:rgba(104,66,41,.78); font-size:14px; letter-spacing:1px; }

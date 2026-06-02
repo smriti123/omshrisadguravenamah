@@ -102,9 +102,9 @@ const HomeNew = () => {
 
           <div className="home-new__charan-area">
             <span className="home-new__charan-arrow" aria-hidden="true">
-              <svg viewBox="0 0 40 80" fill="none">
-                <path d="M20 4 V62" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-                <path d="M8 50 L20 64 L32 50" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              <svg viewBox="0 0 80 40" fill="none">
+                <path d="M4 20 H62" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                <path d="M50 8 L64 20 L50 32" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
               </svg>
             </span>
             <div className="home-new__charan-orbit" aria-hidden="true">
@@ -112,7 +112,7 @@ const HomeNew = () => {
                 <defs>
                   <path id="home-new-orbit-path" d="M 160,160 m -134,0 a 134,134 0 1,1 268,0 a 134,134 0 1,1 -268,0" />
                 </defs>
-                <text><textPath href="#home-new-orbit-path">ॐ श्री सद्गुरवे नमः · श्री सद्गुरु चरणारविन्दाभ्यां नमः · </textPath></text>
+                <text><textPath href="#home-new-orbit-path">ॐ श्री सद्गुरवे नमः · ॐ श्री सद्गुरुचरणकमलेभ्यो नमः · </textPath></text>
               </svg>
             </div>
             <button className="home-new__charan-button" type="button" onClick={enterPage} aria-label="चरण स्पर्श करें — enter the page">
@@ -131,8 +131,8 @@ const HomeNew = () => {
           <div className="home-new__collage">
             <img src={collage6} alt="" />
             <img src={collage1} alt="" />
-            <img src={collage2} alt="" />
             <img src={collage3} alt="" />
+            <img src={collage2} alt="" />
             <img src={collage4} alt="" />
             <img src={collage5} alt="" />
           </div>
