@@ -21,7 +21,7 @@ import collage2 from "@/assets/home-new-collage/c2.jpg";
 import collage3 from "@/assets/home-new-collage/c3.png";
 import collage4 from "@/assets/home-new-collage/c4.webp";
 import collage5 from "@/assets/home-new-collage/c5.webp";
-import collage6 from "@/assets/swamiji-new-portrait.jpg";
+import collage6 from "@/assets/home-new-collage/c6.jpg";
 import { getPublicHommages, HommageMessage } from "@/lib/hommageApi";
 import "./HomeNew.css";
 
@@ -129,12 +129,12 @@ const HomeNew = () => {
         <section className="home-new__section home-new__section--photos" id="photos" aria-labelledby="photos-title">
           <h2 id="photos-title" className="sr-only">पावन स्मृतियाँ</h2>
           <div className="home-new__collage">
+            <img src={collage6} alt="" />
             <img src={collage1} alt="" />
             <img src={collage2} alt="" />
             <img src={collage3} alt="" />
             <img src={collage4} alt="" />
             <img src={collage5} alt="" />
-            <img src={collage6} alt="" />
           </div>
           <a className="home-new__button" href="/#photo-gallery2"><Images aria-hidden="true" /> सभी फोटो देखें</a>
         </section>
