@@ -376,7 +376,13 @@ const StutiCard = () => {
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }} transition={{ duration: 0.4 }}
-      className="p-6 rounded-xl bg-background border border-gold/20 h-full">
+      className="p-6 rounded-xl h-full"
+      style={{
+        background: "rgba(255,250,240,.93)",
+        border: "1px solid rgba(189,139,66,.24)",
+        borderLeft: "4px solid #bd8b42",
+        boxShadow: "0 6px 18px rgba(104,66,41,.10)",
+      }}>
       <h3 className="font-display text-xl font-bold text-primary text-center mb-6">अष्टोत्तरशतनामावली</h3>
       <div className="grid grid-cols-1 gap-1">
         {visibleNames.map((name, index) => (
@@ -399,7 +405,13 @@ const StutiCard = () => {
 const AartiCard = () => (
   <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.1 }}
-    className="p-6 rounded-xl bg-background border border-gold/20 h-full">
+    className="p-6 rounded-xl h-full"
+    style={{
+      background: "rgba(255,250,240,.93)",
+      border: "1px solid rgba(189,139,66,.24)",
+      borderLeft: "4px solid #bd8b42",
+      boxShadow: "0 6px 18px rgba(104,66,41,.10)",
+    }}>
     <h3 className="font-display text-xl font-bold text-primary text-center mb-2">आरती</h3>
     <p className="text-center text-xs text-muted-foreground mb-6">।। ॐ श्री सदगुरुवे नमः ।।</p>
     <div className="space-y-5">
@@ -421,7 +433,13 @@ const ShraddhanjaliCard = () => {
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.1 }}
-      className="p-6 rounded-xl bg-background border border-gold/20 h-full">
+      className="p-6 rounded-xl h-full"
+      style={{
+        background: "rgba(255,250,240,.93)",
+        border: "1px solid rgba(189,139,66,.24)",
+        borderLeft: "4px solid #bd8b42",
+        boxShadow: "0 6px 18px rgba(104,66,41,.10)",
+      }}>
       <h3 className="font-display text-xl font-bold text-primary text-center mb-3">श्रद्धांजलि काव्य</h3>
       <p className="text-xs text-muted-foreground text-center leading-relaxed mb-6">{shraddhanjaliIntro}</p>
       <div className="space-y-4">
@@ -478,7 +496,13 @@ const GangeshanandaStutiCard = () => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.4, delay: 0.1 }}
-    className="p-6 rounded-xl bg-background border border-gold/20 h-full flex flex-col"
+    className="p-6 rounded-xl h-full flex flex-col"
+    style={{
+      background: "rgba(255,250,240,.93)",
+      border: "1px solid rgba(189,139,66,.24)",
+      borderLeft: "4px solid #bd8b42",
+      boxShadow: "0 6px 18px rgba(104,66,41,.10)",
+    }}
   >
     <h3 className="font-display text-xl font-bold text-primary text-center mb-2">
       ।। श्री सद्गुरुवे देवाय नमः ।।
@@ -521,7 +545,14 @@ const GangeshanandaStutiCard = () => (
 
 const StutiSection = () => {
   return (
-    <section id="stuti" className="py-20 bg-background">
+    <section
+      id="stuti"
+      className="py-20"
+      style={{
+        background:
+          "linear-gradient(155deg,#fffdf6 0%,#fdf2d6 52%,#f6d5aa 100%)",
+      }}
+    >
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Stuti"
