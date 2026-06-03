@@ -152,10 +152,10 @@ const JourneyTimeline = () => {
           </div>
         </motion.div>
 
-        <div className="max-w-3xl mx-auto relative">
+        <div className="max-w-3xl mx-auto relative px-2 sm:px-4">
           {/* Vertical diya rail */}
           <div
-            className="absolute left-4 md:left-8 top-0 bottom-0"
+            className="absolute left-3 sm:left-5 md:left-8 top-0 bottom-0"
             style={{
               width: "3px",
               borderRadius: "3px",
@@ -169,7 +169,8 @@ const JourneyTimeline = () => {
             {events.map((event, index) => (
               <motion.div
                 key={index}
-                className="relative pl-12 md:pl-20"
+                tabIndex={0}
+                className="timeline-item relative pl-10 sm:pl-14 md:pl-20 outline-none"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -177,7 +178,7 @@ const JourneyTimeline = () => {
               >
                 {/* Diya dot */}
                 <div
-                  className="absolute left-2 md:left-[1.5rem] top-1.5 w-3.5 h-3.5 rounded-full"
+                  className="timeline-dot absolute left-[0.4rem] sm:left-[0.85rem] md:left-[1.55rem] top-2 w-3.5 h-3.5 rounded-full"
                   style={{
                     background: event.highlight
                       ? "radial-gradient(circle at 35% 35%,#fff3c4 0%,#edbd79 45%,#bd8b42 100%)"
@@ -190,7 +191,7 @@ const JourneyTimeline = () => {
 
                 {/* Content */}
                 <div
-                  className="rounded-xl p-4 md:p-5"
+                  className="timeline-card rounded-xl p-3 sm:p-4 md:p-5"
                   style={{
                     background: "rgba(255,250,240,.93)",
                     border: "1px solid rgba(189,139,66,.24)",
@@ -201,19 +202,19 @@ const JourneyTimeline = () => {
                   }}
                 >
                   <time
-                    className="text-xs uppercase tracking-widest font-medium font-body"
+                    className="text-[0.68rem] sm:text-xs uppercase tracking-widest font-medium font-body"
                     style={{ color: "#bd8b42" }}
                   >
                     {event.date}
                   </time>
                   <h3
-                    className="mt-1 text-xl md:text-2xl font-semibold font-display"
+                    className="mt-1 text-lg sm:text-xl md:text-2xl font-semibold font-display"
                     style={{ color: event.highlight ? "#3d2817" : "#684229" }}
                   >
                     {event.title}
                   </h3>
                   <p
-                    className="mt-2 leading-relaxed text-[0.95rem] font-body"
+                    className="mt-2 leading-relaxed text-[0.88rem] sm:text-[0.95rem] font-body"
                     style={{ color: "rgba(104,66,41,.78)" }}
                   >
                     {event.description}
@@ -226,13 +227,13 @@ const JourneyTimeline = () => {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: 0.15 }}
-                      className="mt-4 rounded-lg overflow-hidden border"
+                      className="mt-4 rounded-lg overflow-hidden border w-full"
                       style={{
                         borderColor: "rgba(189,139,66,.35)",
                         background: "#fdf6e6",
                         padding: "4px",
                         boxShadow: "0 8px 20px rgba(104,66,41,.15)",
-                        maxWidth: "320px",
+                        maxWidth: "min(100%, 320px)",
                       }}
                     >
                       <img
