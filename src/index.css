@@ -127,3 +127,26 @@
     background: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.4), transparent);
   }
 }
+
+/* Diya timeline interactions */
+.timeline-item .timeline-dot {
+  transition: box-shadow .35s ease, transform .35s ease;
+}
+.timeline-item .timeline-card {
+  transition: box-shadow .35s ease, transform .35s ease, border-color .35s ease;
+}
+.timeline-item:hover .timeline-dot,
+.timeline-item:focus-within .timeline-dot {
+  transform: scale(1.18);
+  box-shadow:
+    0 0 0 3px #fffaf0,
+    0 0 0 4px #bd8b42,
+    0 0 18px 4px rgba(237, 189, 121, .85),
+    0 0 36px 10px rgba(189, 139, 66, .35) !important;
+}
+.timeline-item:hover .timeline-card,
+.timeline-item:focus-within .timeline-card {
+  transform: translateY(-2px);
+  border-color: rgba(189,139,66,.45);
+  box-shadow: 0 10px 26px rgba(104,66,41,.18), 0 0 0 1px rgba(189,139,66,.18);
+}
