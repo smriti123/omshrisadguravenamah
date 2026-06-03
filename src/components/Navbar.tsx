@@ -22,16 +22,19 @@ const navLinks = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
+  const linkBase = "#684229";
+  const linkHover = "#bd8b42";
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b"
       style={{
-        background: "rgba(200,150,60,0.92)",
-        backdropFilter: "blur(12px)",
-        borderColor: "rgba(160,100,20,0.3)",
+        background: "rgba(255,250,240,0.92)",
+        backdropFilter: "blur(14px)",
+        borderColor: "rgba(189,139,66,0.28)",
+        boxShadow: "0 3px 18px rgba(104,66,41,.05)",
       }}
     >
       <div className="container mx-auto flex items-center justify-between py-3 px-4">
-        <a href="#hero" className="font-display text-lg sm:text-2xl font-bold" style={{ color: "hsl(40 80% 94%)" }}>
+        <a href="#hero" className="font-display text-lg sm:text-2xl font-bold" style={{ color: "#684229" }}>
           ॐ श्री सद्गुरवे नमः
         </a>
 
@@ -43,9 +46,9 @@ const Navbar = () => {
                 <Link
                   to={l.href}
                   className="font-body whitespace-nowrap text-xs xl:text-sm transition-colors"
-                  style={{ color: "hsl(40 70% 92%)" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "hsl(45 90% 98%)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "hsl(40 70% 92%)")}
+                  style={{ color: linkBase }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = linkHover)}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = linkBase)}
                 >
                   {l.label}
                 </Link>
@@ -53,9 +56,9 @@ const Navbar = () => {
                 <a
                   href={l.href}
                 className="font-body whitespace-nowrap text-xs xl:text-sm transition-colors"
-                style={{ color: "hsl(40 70% 92%)" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "hsl(45 90% 98%)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "hsl(40 70% 92%)")}
+                style={{ color: linkBase }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = linkHover)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = linkBase)}
                 >
                   {l.label}
                 </a>
@@ -68,7 +71,7 @@ const Navbar = () => {
         {/* Mobile toggle */}
         <button
           className="lg:hidden"
-          style={{ color: "hsl(40 70% 92%)" }}
+          style={{ color: "#684229" }}
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -85,8 +88,8 @@ const Navbar = () => {
             exit={{ height: 0, opacity: 0 }}
             className="lg:hidden overflow-hidden"
             style={{
-              background: "rgba(200,150,60,0.96)",
-              borderBottom: "1px solid rgba(160,100,20,0.3)",
+              background: "rgba(255,250,240,0.97)",
+              borderBottom: "1px solid rgba(189,139,66,0.28)",
             }}
           >
             <ul className="flex flex-col items-center gap-4 py-4">
@@ -95,7 +98,8 @@ const Navbar = () => {
                   {l.href.startsWith("/") && !l.href.includes("#") ? (
                     <Link
                       to={l.href}
-                      className="font-body text-muted-foreground hover:text-primary transition-colors"
+                      className="font-body transition-colors"
+                      style={{ color: "#684229" }}
                       onClick={() => setOpen(false)}
                     >
                       {l.label}
@@ -103,7 +107,8 @@ const Navbar = () => {
                   ) : (
                     <a
                       href={l.href}
-                      className="font-body text-muted-foreground hover:text-primary transition-colors"
+                      className="font-body transition-colors"
+                      style={{ color: "#684229" }}
                       onClick={() => setOpen(false)}
                     >
                       {l.label}
