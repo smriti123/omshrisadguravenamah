@@ -159,29 +159,37 @@ const PhotoGallery2 = () => {
                               }}
                               className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                             >
-                              {category.photos.map((photo) => (
-                                <motion.button
-                                  type="button"
-                                  key={photo.id}
-                                  variants={{
-                                    hidden: { opacity: 0, y: 22, scale: 0.98 },
-                                    show: { opacity: 1, y: 0, scale: 1 },
-                                  }}
-                                  transition={{ duration: 0.42, ease: "easeOut" }}
-                                  onClick={() => setLightboxPhoto(photo)}
-                                  className={`group overflow-hidden rounded-3xl border border-amber-700/20 bg-amber-50/95 text-left shadow-[0_12px_30px_rgba(120,63,4,0.13)] transition hover:-translate-y-1 hover:shadow-[0_18px_38px_rgba(120,63,4,0.2)] focus:outline-none focus:ring-2 focus:ring-amber-700 focus:ring-offset-2 ${photo.centerWide ? "sm:col-span-2 lg:col-span-2 lg:col-start-2" : photo.wide ? "sm:col-span-2 lg:col-span-2" : ""}`}
-                                >
-                                  <div className="flex h-72 items-center justify-center overflow-hidden bg-gradient-to-br from-amber-100/90 to-orange-100/70 sm:h-80">
-                                    <img
-                                      src={photo.thumbnailSrc}
-                                      alt={photo.alt}
-                                      loading="lazy"
-                                      className={`h-full w-full ${photo.objectFit === "cover" ? "object-cover" : "object-contain"} object-center transition duration-500`}
-                                    />
-                                  </div>
-                                  <p className="whitespace-pre-line px-4 py-3 text-base leading-6 text-amber-950/80 sm:text-sm">{photo.caption}</p>
-                                </motion.button>
-                              ))}
+                              {category.photos.map((photo) => {
+                                const shouldContainImage = photo.objectFit === "contain";
+
+                                return (
+                                  <motion.button
+                                    type="button"
+                                    key={photo.id}
+                                    variants={{
+                                      hidden: { opacity: 0, y: 22, scale: 0.98 },
+                                      show: { opacity: 1, y: 0, scale: 1 },
+                                    }}
+                                    transition={{ duration: 0.42, ease: "easeOut" }}
+                                    onClick={() => setLightboxPhoto(photo)}
+                                    className={`group overflow-hidden rounded-[1.35rem] border border-amber-600/25 bg-amber-50/70 text-left shadow-[0_10px_24px_rgba(120,63,4,0.11)] transition hover:-translate-y-1 hover:border-amber-600/35 hover:shadow-[0_16px_34px_rgba(120,63,4,0.17)] focus:outline-none focus:ring-2 focus:ring-amber-700 focus:ring-offset-2 ${photo.centerWide ? "sm:col-span-2 lg:col-span-2 lg:col-start-2" : photo.wide ? "sm:col-span-2 lg:col-span-2" : ""}`}
+                                  >
+                                    <div
+                                      className={`flex h-72 items-center justify-center overflow-hidden rounded-[1.2rem] border border-amber-500/20 shadow-inner sm:h-80 ${
+                                        shouldContainImage ? "bg-amber-50/80 p-1" : "bg-amber-50/40 p-0"
+                                      }`}
+                                    >
+                                      <img
+                                        src={photo.thumbnailSrc}
+                                        alt={photo.alt}
+                                        loading="lazy"
+                                        className={`h-full w-full rounded-[1rem] ${shouldContainImage ? "object-contain" : "object-cover"} object-center transition duration-500 group-hover:scale-[1.015]`}
+                                      />
+                                    </div>
+                                    <p className="whitespace-pre-line px-4 py-3 text-base leading-6 text-amber-950/80 sm:text-sm">{photo.caption}</p>
+                                  </motion.button>
+                                );
+                              })}
                             </motion.div>
                           ) : (
                             <div className="rounded-2xl border border-dashed border-amber-800/25 bg-white/35 p-8 text-center text-amber-950/65">
