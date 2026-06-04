@@ -82,6 +82,8 @@ import namamiAdd1 from "@/assets/gallery/namami-add-1.jpg";
 import namamiAdd2 from "@/assets/gallery/namami-add-2.jpg";
 import namamiAdd3 from "@/assets/gallery/namami-add-3.jpg";
 import namamiAdd4 from "@/assets/gallery/namami-add-4.jpg";
+import namamiChittNew from "@/assets/gallery/namami-chitt-new.jpg.asset.json";
+import othersArunUncle from "@/assets/gallery/others-arun-uncle.jpg.asset.json";
 
 // Others — Twameva Dravinam
 import othersDravinam from "@/assets/gallery/others-dravinam.jpg";
@@ -438,6 +440,13 @@ export const gallery2Categories: Gallery2Category[] = [
         alt: "Namami Chittchorkam additional photo 4",
         caption: "",
       },
+      {
+        id: "namami-chitt-new",
+        src: namamiChittNew.url,
+        thumbnailSrc: namamiChittNew.url,
+        alt: "Pujya Swamiji seated, smiling — Namami Chittchorkam",
+        caption: "",
+      },
     ],
   },
   {
@@ -715,6 +724,13 @@ export const gallery2Categories: Gallery2Category[] = [
         thumbnailSrc: othersDravinam,
         alt: "Twameva Dravinam",
         caption: "त्वमेव द्रविणं",
+      },
+      {
+        id: "others-arun-uncle",
+        src: othersArunUncle.url,
+        thumbnailSrc: othersArunUncle.url,
+        alt: "Pujya Swamiji with devotees",
+        caption: "",
       },
     ],
   },
