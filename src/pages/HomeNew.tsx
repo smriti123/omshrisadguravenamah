@@ -173,8 +173,8 @@ const HomeNew = () => {
         <section className="home-new__welcome home-new__welcome--secondary" aria-label="Smaran shloka">
           <Flower2 aria-hidden="true" />
           <p className="home-new__welcome-shloka">
-            यस्य स्मरणमात्रेण नयनेऽश्रुपूरिते भवेताम्।<br />
-            यस्य नामस्मरणेन हृदयं आनन्दपूर्णं भवेत्॥
+            यस्य स्मरणमात्रेण आनन्दं भवति ध्रुवम्।<br />
+            सद्गुरवे नमस्तस्मै करुणावरुणालये।।
           </p>
         </section>
 
