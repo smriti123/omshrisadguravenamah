@@ -129,39 +129,35 @@ const HomeNew = () => {
 
         <section className="home-new__welcome" id="welcome" aria-label="Welcome">
           <Flower2 aria-hidden="true" />
-          <p>भक्ति, स्मरण और कृतज्ञता का एक पावन स्थान।</p>
+          <p className="home-new__welcome-shloka">
+            ध्यानमूलं गुरोर्मूर्तिः<br />
+            पूजामूलं गुरोः पदम्।
+          </p>
         </section>
 
         <section className="home-new__section home-new__section--photos" id="photos" aria-labelledby="photos-title">
           <div className="home-new__section-heading home-new__section-heading--photos">
             <h2 id="photos-title" className="home-new__photo-heading">
-              ध्यानमूलं गुरोर्मूर्तिः<br />
-              पूजामूलं गुरोः पदम्।
-            </h2>
-            <p className="home-new__photo-subtitle">
               अज्ञानतिमिरान्धस्य<br />
               ज्ञानाञ्जनशलाकया।<br />
               चक्षुरुन्मीलितं येन<br />
               तस्मै श्रीगुरवे नमः॥
-            </p>
+            </h2>
           </div>
-          <div className="home-new__mobile-slideshow" aria-label="पावन स्मृतियाँ slideshow">
-            <img src={collage6} alt="Pujya Gurudev remembrance 1" />
-            <img src={collage1} alt="Pujya Gurudev remembrance 2" />
-            <img src={collage3} alt="Pujya Gurudev remembrance 3" />
-            <img src={collage2} alt="Pujya Gurudev remembrance 4" />
-            <img src={collage4} alt="Pujya Gurudev remembrance 5" />
-            <img src={collage5} alt="Pujya Gurudev remembrance 6" />
-          </div>
-          <div className="home-new__collage" aria-label="पावन स्मृतियाँ photo grid">
-            <img src={collage6} alt="Pujya Gurudev remembrance 1" />
-            <img src={collage1} alt="Pujya Gurudev remembrance 2" />
-            <img src={collage3} alt="Pujya Gurudev remembrance 3" />
-            <img src={collage2} alt="Pujya Gurudev remembrance 4" />
-            <img src={collage4} alt="Pujya Gurudev remembrance 5" />
-            <img src={collage5} alt="Pujya Gurudev remembrance 6" />
-          </div>
-          <a className="home-new__button" href="/#photo-gallery2"><Images aria-hidden="true" /> सभी फोटो देखें</a>
+          <a
+            className="home-new__slideshow-link"
+            href="/#photo-gallery2"
+            aria-label="पावन स्मृतियाँ — सभी फोटो देखें"
+          >
+            <div className="home-new__mobile-slideshow" aria-label="पावन स्मृतियाँ slideshow">
+              <img src={collage6} alt="Pujya Gurudev remembrance 1" />
+              <img src={collage1} alt="Pujya Gurudev remembrance 2" />
+              <img src={collage3} alt="Pujya Gurudev remembrance 3" />
+              <img src={collage2} alt="Pujya Gurudev remembrance 4" />
+              <img src={collage4} alt="Pujya Gurudev remembrance 5" />
+              <img src={collage5} alt="Pujya Gurudev remembrance 6" />
+            </div>
+          </a>
         </section>
 
         <section className="home-new__section home-new__section--cards" id="explore" aria-labelledby="explore-title">
