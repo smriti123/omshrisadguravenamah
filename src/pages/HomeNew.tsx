@@ -134,6 +134,7 @@ const HomeNew = () => {
 
           <div className="home-new__guru-lines home-new__guru-lines--charan" aria-label="Guru kripa verse">
             <span className="entry-main-line devotional-line-charan">ऐसे गुरु को बलि-बलि जाऊँ॥</span>
+            <div className="devotional-line-divider" aria-hidden="true" />
           </div>
         </section>
 
