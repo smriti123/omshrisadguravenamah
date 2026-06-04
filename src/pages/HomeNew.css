@@ -18,6 +18,7 @@
 .home-new__guru-lines { display:grid; justify-items:center; gap:.34rem; margin:.9rem 0 .15rem; line-height:1.42; text-align:center; --devotional-font:"Tiro Devanagari Sanskrit","Noto Serif Devanagari",serif; --devotional-gold:#C8953C; }
 .home-new__guru-lines span { display:block; }
 .home-new__guru-lines--entry { margin:1.08rem auto .3rem; }
+.home-new__guru-lines--charan { margin:.72rem auto 0; }
 .home-new__guru-lines--section { margin:1.65rem auto 0; }
 .home-new__guru-lines--emotional { margin-top:1.78rem; }
 .home-new__guru-lines--pranam { margin-top:1.78rem; gap:.4rem; }
@@ -29,6 +30,9 @@
 .devotional-line-main { color:#7A5634; font-size:clamp(24px,6.2vw,38px); font-weight:500; letter-spacing:.015em; line-height:1.45; text-shadow:0 2px 12px rgba(200,149,60,.16),0 0 20px rgba(255,226,160,.14); animation:softFadeUp 1.4s ease both; }
 .devotional-line-main::before,
 .devotional-line-main::after { content:"❀"; flex:0 0 auto; color:var(--devotional-gold); font-family:Georgia,"Times New Roman",serif; font-size:.74em; font-style:normal; font-weight:400; line-height:1; margin:0 .08rem; opacity:.65; text-shadow:0 2px 10px rgba(200,149,60,.15); }
+.devotional-line-charan { color:#8A5A2B; font-size:clamp(18px,4.9vw,29px); font-weight:500; letter-spacing:.012em; line-height:1.5; opacity:.88; text-shadow:0 2px 12px rgba(200,149,60,.13),0 0 18px rgba(255,226,160,.12); animation:softFadeUp 1.45s ease both; }
+.devotional-line-charan::before,
+.devotional-line-charan::after { content:"❧"; flex:0 0 auto; color:#C8953C; font-family:Georgia,"Times New Roman",serif; font-size:.78em; font-style:normal; font-weight:400; line-height:1; margin:0 .08rem; opacity:.7; text-shadow:0 2px 10px rgba(200,149,60,.14); }
 .devotional-line-emotional { color:#8A5A2B; font-size:clamp(22px,6vw,36px); font-weight:500; letter-spacing:.012em; line-height:1.5; text-shadow:0 2px 12px rgba(200,149,60,.16),0 0 20px rgba(255,226,160,.13); animation:softFadeUp 1.6s ease both; }
 .devotional-line-emotional::before,
 .devotional-line-emotional::after { content:"❧"; flex:0 0 auto; color:var(--devotional-gold); font-family:Georgia,"Times New Roman",serif; font-size:.78em; font-style:normal; font-weight:400; line-height:1; margin:0 .08rem; opacity:.68; text-shadow:0 2px 10px rgba(200,149,60,.14); }
@@ -39,7 +43,7 @@
 .home-new__portrait { display:block; width:100%; aspect-ratio:.84; object-fit:cover; object-position:center top; border-radius:6.1rem 6.1rem .9rem .9rem; }
 .home-new__charan-instruction { position:absolute; top:50%; right:calc(100% - .35rem); z-index:2; display:inline-flex; align-items:center; gap:.3rem; width:max-content; margin:0; color:#8A5A2B; opacity:.82; font-size:.72rem; font-weight:500; line-height:1.35; letter-spacing:.025em; transform:translateY(-50%); text-shadow:0 1px 8px rgba(255,250,240,.8); }
 .home-new__charan-instruction::after { content:"→"; color:var(--new-gold); font-size:1.02rem; line-height:1; opacity:.78; transform:translateY(-.02rem); }
-.home-new__charan-area { position:relative; display:grid; width:min(70vw,14.6rem); aspect-ratio:1; margin-top:.35rem; place-items:center; }
+.home-new__charan-area { position:relative; display:grid; width:min(70vw,14.6rem); aspect-ratio:1; margin-top:.85rem; place-items:center; }
 .home-new__charan-orbit { position:absolute; inset:0; animation:home-new-spin 56s linear infinite; }
 .home-new__charan-orbit svg { width:100%; height:100%; overflow:visible; }
 .home-new__charan-orbit text { fill:rgba(104,66,41,.74); font-size:13px; letter-spacing:1px; }
@@ -113,4 +117,4 @@
 @media (max-width:420px) { .home-new__guru-lines .entry-main-line,.home-new__guru-lines .entry-emotional-line { gap:.38rem; letter-spacing:.01em; } .home-new__guru-lines .entry-main-line::before,.home-new__guru-lines .entry-main-line::after,.home-new__guru-lines .entry-emotional-line::before,.home-new__guru-lines .entry-emotional-line::after { font-size:.7em; } .home-new__charan-instruction { right:calc(100% - .9rem); font-size:.66rem; } }
 @media (min-width:640px) { .home-new__card-grid { grid-template-columns:repeat(4,1fr); } .home-new__hommages { grid-template-columns:repeat(3,1fr); } .home-new__hommage--empty { grid-column:1/-1; } }
 @media (min-width:1000px) { .home-new { padding-bottom:0; } .home-new__header { padding:.65rem 2.2rem; } .home-new__menu-button { display:none; } .home-new__menu { position:static; display:flex; gap:.08rem; padding:0; visibility:visible; opacity:1; transform:none; border:0; background:transparent; box-shadow:none; } .home-new__menu a { padding:.55rem .5rem; font-size:.72rem; } .home-new__hero { min-height:auto; padding:3rem 1rem 2.5rem; } .home-new__portrait-frame { width:18rem; } .home-new__guru-lines--entry { margin-top:1.25rem; } .home-new__charan-area { width:17rem; } .home-new__card-grid { grid-template-columns:repeat(4,1fr); } .home-new__bottom-nav { display:none; } }
-@media (prefers-reduced-motion:reduce) { .home-new { scroll-behavior:auto; } .home-new__charan-orbit,.devotional-line-main,.devotional-line-emotional,.devotional-line-pranam,.devotional-om-small,.home-new__mobile-slideshow img { animation:none; } .devotional-line-main,.devotional-line-emotional,.devotional-line-pranam,.home-new__mobile-slideshow img:first-child { opacity:1; transform:none; } .devotional-om-small { opacity:.78; transform:none; } .home-new__menu,.home-new__charan-button,.home-new__card { transition:none; } }
+@media (prefers-reduced-motion:reduce) { .home-new { scroll-behavior:auto; } .home-new__charan-orbit,.devotional-line-main,.devotional-line-charan,.devotional-line-emotional,.devotional-line-pranam,.devotional-om-small,.home-new__mobile-slideshow img { animation:none; } .devotional-line-main,.devotional-line-charan,.devotional-line-emotional,.devotional-line-pranam,.home-new__mobile-slideshow img:first-child { opacity:1; transform:none; } .devotional-om-small { opacity:.78; transform:none; } .home-new__menu,.home-new__charan-button,.home-new__card { transition:none; } }

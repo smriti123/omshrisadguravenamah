@@ -117,10 +117,6 @@ const HomeNew = () => {
           </div>
           <p className="home-new__hero-subtitle swamiji-name">Param Pujya Swami Subodhananda ji Maharaj</p>
 
-          <div className="home-new__guru-lines home-new__guru-lines--entry" aria-label="Guru kripa verse">
-            <span className="entry-main-line devotional-line-main">ऐसे गुरु को बलि-बलि जाऊँ॥</span>
-          </div>
-
           <div className="home-new__charan-area">
             <div className="home-new__charan-orbit" aria-hidden="true">
               <svg viewBox="0 0 320 320">
@@ -134,6 +130,10 @@ const HomeNew = () => {
             <button className="home-new__charan-button" type="button" onClick={enterPage} aria-label="चरण स्पर्श करें — enter the page">
               <img src={charanPhoto} alt="Pujya Swamiji's charan — touch to enter" />
             </button>
+          </div>
+
+          <div className="home-new__guru-lines home-new__guru-lines--charan" aria-label="Guru kripa verse">
+            <span className="entry-main-line devotional-line-charan">ऐसे गुरु को बलि-बलि जाऊँ॥</span>
           </div>
         </section>
 
