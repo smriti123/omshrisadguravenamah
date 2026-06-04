@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { X } from "lucide-react";
+import { ChevronDown, ChevronRight, Lamp, X } from "lucide-react";
 
 import { gallery2Categories, type Gallery2Photo } from "@/data/photoGallery2";
 
@@ -107,8 +107,8 @@ const PhotoGallery2 = () => {
                   ref={(el) => {
                     panelRefs.current[category.id] = el;
                   }}
-                  className={`overflow-hidden rounded-[1.35rem] border bg-amber-50/90 shadow-[0_12px_30px_rgba(120,63,4,0.12)] transition-all duration-300 ${
-                    isOpen ? "border-amber-800/45 shadow-[0_16px_38px_rgba(120,63,4,0.18)]" : "border-amber-700/25"
+                  className={`overflow-hidden rounded-[1.35rem] border bg-[#fffaf0]/95 shadow-[0_10px_26px_rgba(120,63,4,0.10)] transition-all duration-300 ${
+                    isOpen ? "border-amber-700/45 shadow-[0_16px_34px_rgba(120,63,4,0.15)]" : "border-amber-600/25 hover:border-amber-600/35 hover:shadow-[0_14px_30px_rgba(120,63,4,0.13)]"
                   }`}
                 >
                   <h3 id={headerId}>
@@ -117,21 +117,29 @@ const PhotoGallery2 = () => {
                       aria-expanded={isOpen}
                       aria-controls={panelId}
                       onClick={() => handleCategoryToggle(category.id, isOpen)}
-                      className={`flex min-h-[6.25rem] w-full items-center gap-5 px-5 py-5 text-left text-xl font-bold leading-7 transition focus:outline-none focus:ring-2 focus:ring-amber-800 focus:ring-inset md:min-h-[4.25rem] md:px-6 md:text-xl ${
+                      className={`flex min-h-[5.5rem] w-full items-center gap-4 px-4 py-4 text-left text-lg font-bold leading-7 transition focus:outline-none focus:ring-2 focus:ring-amber-800 focus:ring-inset md:min-h-[4.5rem] md:gap-5 md:px-6 md:text-xl ${
                         isOpen
-                          ? "bg-amber-800 text-amber-50"
-                          : "bg-gradient-to-r from-amber-50 to-orange-50 text-amber-950 hover:bg-amber-100"
+                          ? "bg-[#8a5a2b] text-amber-50"
+                          : "bg-[#fffaf0] text-[#6f421f] hover:bg-[#fff4dc]"
                       }`}
                     >
                       <span
-                        className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full border text-2xl shadow-sm ${
-                          isOpen ? "border-amber-100/55 bg-amber-50/15 text-amber-50" : "border-amber-700/25 bg-white/60 text-amber-800"
+                        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border shadow-sm md:h-12 md:w-12 ${
+                          isOpen ? "border-amber-100/55 bg-amber-50/15 text-amber-50" : "border-amber-600/20 bg-[#f6d79f]/45 text-[#a66a24]"
                         }`}
                         aria-hidden="true"
                       >
-                        {isOpen ? "▼" : "▶"}
+                        <Lamp size={22} strokeWidth={1.7} />
                       </span>
-                      <span className="flex-1">{category.name}</span>
+                      <span className={isOpen ? "flex-1 text-amber-50" : "flex-1 text-[#6f421f]"}>{category.name}</span>
+                      <span
+                        className={`ml-auto flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition ${
+                          isOpen ? "bg-amber-50/15 text-amber-50" : "bg-amber-100/70 text-[#a66a24]"
+                        }`}
+                        aria-hidden="true"
+                      >
+                        {isOpen ? <ChevronDown size={18} strokeWidth={1.8} /> : <ChevronRight size={18} strokeWidth={1.8} />}
+                      </span>
                     </button>
                   </h3>
 

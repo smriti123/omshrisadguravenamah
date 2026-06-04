@@ -651,7 +651,7 @@ export const gallery2Categories: Gallery2Category[] = [
   },
   {
     id: "others",
-    name: "Others",
+    name: "अन्य पावन झलकियाँ",
     description: "Use this category for photos that do not fit the other tabs.",
     photos: [
       {
