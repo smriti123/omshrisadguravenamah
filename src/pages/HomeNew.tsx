@@ -130,19 +130,14 @@ const HomeNew = () => {
         <section className="home-new__welcome" id="welcome" aria-label="Welcome">
           <Flower2 aria-hidden="true" />
           <p className="home-new__welcome-shloka">
-            ध्यानमूलं गुरोर्मूर्तिः<br />
-            पूजामूलं गुरोः पदम्।
+            अज्ञानतिमिरान्धस्य ज्ञानाञ्जनशलाकया।<br />
+            चक्षुरुन्मीलितं येन तस्मै श्रीगुरवे नमः॥
           </p>
         </section>
 
         <section className="home-new__section home-new__section--photos" id="photos" aria-labelledby="photos-title">
           <div className="home-new__section-heading home-new__section-heading--photos">
-            <h2 id="photos-title" className="home-new__photo-heading">
-              अज्ञानतिमिरान्धस्य<br />
-              ज्ञानाञ्जनशलाकया।<br />
-              चक्षुरुन्मीलितं येन<br />
-              तस्मै श्रीगुरवे नमः॥
-            </h2>
+            <h2 id="photos-title" className="sr-only">पावन स्मृतियाँ</h2>
           </div>
           <a
             className="home-new__slideshow-link"
@@ -160,12 +155,17 @@ const HomeNew = () => {
           </a>
         </section>
 
+        <section className="home-new__welcome home-new__welcome--secondary" aria-label="Smaran shloka">
+          <Flower2 aria-hidden="true" />
+          <p className="home-new__welcome-shloka">
+            यस्य स्मरणमात्रेण नयनेऽश्रुपूरिते भवेताम्।<br />
+            यस्य नामस्मरणेन हृदयं आनन्दपूर्णं भवेत्॥
+          </p>
+        </section>
+
         <section className="home-new__section home-new__section--cards" id="explore" aria-labelledby="explore-title">
           <div className="home-new__section-heading">
-            <h2 id="explore-title" className="home-new__shloka-heading">
-              यस्य स्मरणमात्रेण नयनेऽश्रुपूरिते भवेताम्।<br />
-              यस्य नामस्मरणेन हृदयं आनन्दपूर्णं भवेत्।
-            </h2>
+            <h2 id="explore-title" className="sr-only">Explore</h2>
             <span>कृपया card click करें</span>
           </div>
           <div className="home-new__card-grid">
