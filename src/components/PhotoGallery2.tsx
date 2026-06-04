@@ -1,8 +1,99 @@
-import { useEffect, useRef, useState } from "react";
+import { type SVGProps, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, ChevronRight, Lamp, X } from "lucide-react";
+import { ChevronDown, ChevronRight, X } from "lucide-react";
 
 import { gallery2Categories, type Gallery2Photo } from "@/data/photoGallery2";
+
+
+type DevotionalIconProps = SVGProps<SVGSVGElement> & {
+  size?: number;
+  strokeWidth?: number;
+};
+
+type DevotionalIcon = (props: DevotionalIconProps) => JSX.Element;
+
+const devotionalIconDefaults = {
+  size: 24,
+  strokeWidth: 1.55,
+};
+
+const iconStrokeProps = {
+  fill: "none",
+  stroke: "currentColor",
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+};
+
+const LotusIcon: DevotionalIcon = ({ size = devotionalIconDefaults.size, strokeWidth = devotionalIconDefaults.strokeWidth, ...props }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...props}>
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M12 18.5c-2.7-2.2-4-4.7-4-7.2 0-2.1 1.5-4.1 4-6.3 2.5 2.2 4 4.2 4 6.3 0 2.5-1.3 5-4 7.2Z" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M8.5 17.2c-2.8-.5-5-2.2-6.2-5.1 2.4-.7 4.4-.5 6 .7" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M15.5 17.2c2.8-.5 5-2.2 6.2-5.1-2.4-.7-4.4-.5-6 .7" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M5.8 20h12.4" />
+  </svg>
+);
+
+const OmIcon: DevotionalIcon = ({ size = devotionalIconDefaults.size, ...props }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...props}>
+    <text x="12" y="17" textAnchor="middle" fontSize="15" fontFamily="serif" fontWeight="400" fill="currentColor">ॐ</text>
+  </svg>
+);
+
+const FluteIcon: DevotionalIcon = ({ size = devotionalIconDefaults.size, strokeWidth = devotionalIconDefaults.strokeWidth, ...props }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...props}>
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M4.5 17.5 17.8 4.2" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="m16.5 3.4 2.1 2.1" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M8.2 13.8h.01" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M11.2 10.8h.01" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M14.2 7.8h.01" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M7 19.2c3.2.8 6.2-.2 8.8-3" />
+  </svg>
+);
+
+const ScriptureIcon: DevotionalIcon = ({ size = devotionalIconDefaults.size, strokeWidth = devotionalIconDefaults.strokeWidth, ...props }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...props}>
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M4.5 5.8c2.7-.9 5.2-.5 7.5 1.2v13c-2.3-1.7-4.8-2.1-7.5-1.2V5.8Z" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M12 7c2.3-1.7 4.8-2.1 7.5-1.2v13c-2.7-.9-5.2-.5-7.5 1.2" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M7.1 9.3h2.4M7.1 12.2h2.1M14.5 9.3h2.4M14.5 12.2h2.1" />
+  </svg>
+);
+
+const HeartDiyaIcon: DevotionalIcon = ({ size = devotionalIconDefaults.size, strokeWidth = devotionalIconDefaults.strokeWidth, ...props }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...props}>
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M12 19.2S5.2 15.1 5.2 9.6c0-1.9 1.4-3.4 3.2-3.4 1.1 0 2.2.6 2.8 1.6.6-1 1.7-1.6 2.8-1.6 1.8 0 3.2 1.5 3.2 3.4 0 1.7-.7 3.3-1.7 4.7" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M9 15.7c1.9 1.2 4.1 1.2 6 0-.5 1.8-1.6 2.9-3 2.9s-2.5-1.1-3-2.9Z" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M12 14.8c-.8-.9-.8-1.8 0-2.8.8 1 .8 1.9 0 2.8Z" />
+  </svg>
+);
+
+const TrishulIcon: DevotionalIcon = ({ size = devotionalIconDefaults.size, strokeWidth = devotionalIconDefaults.strokeWidth, ...props }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...props}>
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M12 3v18" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M8.2 4.8v4.4c0 2 1.5 3.4 3.8 3.4s3.8-1.4 3.8-3.4V4.8" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M5.8 7.6c.6 1.8 1.7 2.8 3.2 3M18.2 7.6c-.6 1.8-1.7 2.8-3.2 3" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M9 21h6" />
+  </svg>
+);
+
+const DiyaIcon: DevotionalIcon = ({ size = devotionalIconDefaults.size, strokeWidth = devotionalIconDefaults.strokeWidth, ...props }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...props}>
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M5 14.5c2.4 1.6 5 2.4 7 2.4s4.6-.8 7-2.4c-.6 3.3-3.1 5.1-7 5.1s-6.4-1.8-7-5.1Z" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M12 13.5c-1.4-1.5-1.4-3.2 0-5 1.4 1.8 1.4 3.5 0 5Z" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M17.8 8.2 19.4 7M4.6 7l1.6 1.2M12 3.4v2" />
+  </svg>
+);
+
+const galleryCategoryIcons: Record<string, DevotionalIcon> = {
+  "charan-vandan": LotusIcon,
+  "with-gurudev": OmIcon,
+  "namami-chittchorkam": FluteIcon,
+  "vedant-moorti": ScriptureIcon,
+  "key-events": HeartDiyaIcon,
+  batches: TrishulIcon,
+  others: DiyaIcon,
+};
+
+const getGalleryCategoryIcon = (categoryId: string) => galleryCategoryIcons[categoryId] ?? DiyaIcon;
 
 const PhotoGallery2 = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
@@ -100,6 +191,7 @@ const PhotoGallery2 = () => {
               const isOpen = activeCategory === category.id;
               const panelId = `gallery2-panel-${category.id}`;
               const headerId = `gallery2-header-${category.id}`;
+              const CategoryIcon = getGalleryCategoryIcon(category.id);
 
               return (
                 <article
@@ -119,22 +211,22 @@ const PhotoGallery2 = () => {
                       onClick={() => handleCategoryToggle(category.id, isOpen)}
                       className={`flex min-h-[5.5rem] w-full items-center gap-4 px-4 py-4 text-left text-lg font-bold leading-7 transition focus:outline-none focus:ring-2 focus:ring-amber-800 focus:ring-inset md:min-h-[4.5rem] md:gap-5 md:px-6 md:text-xl ${
                         isOpen
-                          ? "bg-[#8a5a2b] text-amber-50"
+                          ? "bg-[#fff4dc] text-[#5f3419]"
                           : "bg-[#fffaf0] text-[#6f421f] hover:bg-[#fff4dc]"
                       }`}
                     >
                       <span
                         className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border shadow-sm md:h-12 md:w-12 ${
-                          isOpen ? "border-amber-100/55 bg-amber-50/15 text-amber-50" : "border-amber-600/20 bg-[#f6d79f]/45 text-[#a66a24]"
+                          isOpen ? "border-amber-700/25 bg-[#fff8e8] text-[#8f5a20]" : "border-amber-600/20 bg-[#f6d79f]/45 text-[#9a6426]"
                         }`}
                         aria-hidden="true"
                       >
-                        <Lamp size={22} strokeWidth={1.7} />
+                        <CategoryIcon size={25} strokeWidth={1.55} />
                       </span>
-                      <span className={isOpen ? "flex-1 text-amber-50" : "flex-1 text-[#6f421f]"}>{category.name}</span>
+                      <span className={isOpen ? "flex-1 text-[#5f3419]" : "flex-1 text-[#6f421f]"}>{category.name}</span>
                       <span
                         className={`ml-auto flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition ${
-                          isOpen ? "bg-amber-50/15 text-amber-50" : "bg-amber-100/70 text-[#a66a24]"
+                          isOpen ? "bg-amber-100/80 text-[#8f5a20]" : "bg-amber-100/70 text-[#a66a24]"
                         }`}
                         aria-hidden="true"
                       >
