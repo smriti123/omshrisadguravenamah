@@ -120,7 +120,7 @@ export type Gallery2Category = {
 export const gallery2Categories: Gallery2Category[] = [
   {
     id: "charan-vandan",
-    name: "Charan-Vandan / चरण वंदन",
+    name: "नमामि पद्मलोचनम्।",
     description: "Charan-Vandan photographs with their captions.",
     photos: [
       {
@@ -183,7 +183,7 @@ export const gallery2Categories: Gallery2Category[] = [
   },
   {
     id: "with-gurudev",
-    name: "Sadguru Priyaye / सद्गुरु प्रियाय",
+    name: "ॐ सद्गुरु प्रियाय नमः ।",
     description:
       "The first eight photos from the current gallery are grouped here for easy browsing with captions.",
     photos: [
@@ -451,7 +451,7 @@ export const gallery2Categories: Gallery2Category[] = [
   },
   {
     id: "vedant-moorti",
-    name: "Vedant Moorti / वेदांत मूर्ति",
+    name: "ॐ वेदान्तवेद्याय नमः।",
     description:
       "Add Vedant Moorti photos and captions to this category when ready.",
     photos: [
@@ -609,7 +609,7 @@ export const gallery2Categories: Gallery2Category[] = [
   },
   {
     id: "batches",
-    name: "Shishya-Sangam / शिष्य संगम",
+    name: "ॐ शिष्यप्रियाय नमः।",
     description: "Group photographs from various batches and gatherings.",
     photos: [
       {
