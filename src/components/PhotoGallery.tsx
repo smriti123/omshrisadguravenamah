@@ -438,17 +438,17 @@ const PhotoCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.3 }}
-      className={`cursor-pointer rounded-xl overflow-hidden border border-amber-900/20 bg-amber-50/35 shadow-[0_8px_24px_rgba(92,42,8,0.08)] transition-all duration-200 hover:shadow-[0_12px_30px_rgba(92,42,8,0.16)] ${
+      className={`cursor-pointer rounded-xl overflow-hidden border border-amber-700/25 bg-amber-50/50 shadow-[0_7px_20px_rgba(92,42,8,0.08)] transition-all duration-200 hover:border-amber-700/35 hover:shadow-[0_12px_28px_rgba(92,42,8,0.14)] ${
         hasStory ? "md:col-span-2" : "md:col-span-1"
       }`}
       onClick={() => onOpen(globalIndex)}
     >
       <div className={hasStory ? "grid grid-cols-1 md:grid-cols-[minmax(220px,34%)_1fr]" : "relative"}>
-        <div className="bg-[#f4dfc2] relative">
+        <div className={`relative overflow-hidden ${photo.showFullImage ? "m-1 rounded-lg bg-[#fff7ea]" : "bg-[#f4dfc2]"}`}>
           <img
             src={photo.src}
             alt={photo.label}
-            className={`w-full h-full ${photo.showFullImage ? "object-contain p-2" : "object-cover object-center"} ${hasStory ? "min-h-[250px] max-h-[380px]" : "min-h-[240px] max-h-[340px]"}`}
+            className={`w-full h-full ${photo.showFullImage ? "object-contain object-center p-0.5" : "object-cover object-center"} ${hasStory ? "min-h-[250px] max-h-[380px]" : "min-h-[240px] max-h-[340px]"}`}
             style={photo.vintage ? { filter: "sepia(55%) contrast(1.05) brightness(0.93)" } : {}}
           />
 
