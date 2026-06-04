@@ -115,10 +115,10 @@ const HomeNew = () => {
           <div className="home-new__portrait-frame">
             <img src={swamijiPhoto} alt="Pujya Swamiji" className="home-new__portrait" />
           </div>
-          <p className="home-new__hero-subtitle">Param Pujya Swami Subodhananda ji Maharaj</p>
+          <p className="home-new__hero-subtitle swamiji-name">Param Pujya Swami Subodhananda ji Maharaj</p>
 
           <div className="home-new__guru-lines home-new__guru-lines--entry" aria-label="Guru kripa verse">
-            <span className="entry-main-line">गुरुकृपा ही केवलम्॥</span>
+            <span className="entry-main-line devotional-line-main">गुरुकृपा ही केवलम्॥</span>
           </div>
 
           <p className="home-new__charan-instruction">चरण स्पर्श करें ↓</p>
@@ -165,7 +165,7 @@ const HomeNew = () => {
             </div>
           </HomeNewLink>
           <div className="home-new__guru-lines home-new__guru-lines--section home-new__guru-lines--emotional" aria-label="Guru kripa verse">
-            <span className="entry-emotional-line">ऐसे गुरु को बलि-बलि जाऊँ॥</span>
+            <span className="entry-emotional-line devotional-line-emotional">ऐसे गुरु को बलि-बलि जाऊँ॥</span>
           </div>
         </section>
 
@@ -195,8 +195,8 @@ const HomeNew = () => {
             ))}
           </div>
           <div className="home-new__guru-lines home-new__guru-lines--section home-new__guru-lines--pranam" aria-label="Guru kripa verse">
-            <span className="entry-pranam-line">नमामि सन्त दुर्लभम्॥</span>
-            <div className="entry-ornament" aria-hidden="true">ॐ</div>
+            <span className="entry-pranam-line devotional-line-pranam">नमामि सन्त दुर्लभम्॥</span>
+            <div className="entry-ornament devotional-om-small" aria-hidden="true">ॐ</div>
           </div>
         </section>
 
