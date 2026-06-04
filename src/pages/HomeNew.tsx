@@ -166,6 +166,7 @@ const HomeNew = () => {
           </HomeNewLink>
           <div className="home-new__guru-lines home-new__guru-lines--section home-new__guru-lines--emotional" aria-label="Guru kripa verse">
             <span className="entry-emotional-line devotional-line-emotional">गुरुकृपा ही केवलम्॥</span>
+            <div className="devotional-line-divider" aria-hidden="true" />
           </div>
         </section>
 
@@ -196,7 +197,7 @@ const HomeNew = () => {
           </div>
           <div className="home-new__guru-lines home-new__guru-lines--section home-new__guru-lines--pranam" aria-label="Guru kripa verse">
             <span className="entry-pranam-line devotional-line-pranam">नमामि सन्त दुर्लभम्॥</span>
-            <div className="entry-ornament devotional-om-small" aria-hidden="true">ॐ</div>
+            <div className="devotional-line-divider" aria-hidden="true" />
           </div>
         </section>
 
