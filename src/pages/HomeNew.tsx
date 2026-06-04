@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { type ReactNode, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   BookOpenText,
   CirclePlay,
@@ -48,6 +49,22 @@ const featureCards = [
   { href: "/old-home#hommage", icon: MessageCircleHeart, title: "Hommage", description: "Offer a short devotional message" },
 ];
 
+type HomeNewLinkProps = {
+  className?: string;
+  href: string;
+  children: ReactNode;
+  onClick?: () => void;
+  ariaLabel?: string;
+};
+
+const HomeNewLink = ({ className, href, children, onClick, ariaLabel }: HomeNewLinkProps) => {
+  if (href.startsWith("/")) {
+    return <Link className={className} to={href} onClick={onClick} aria-label={ariaLabel}>{children}</Link>;
+  }
+
+  return <a className={className} href={href} onClick={onClick} aria-label={ariaLabel}>{children}</a>;
+};
+
 const bottomNav = [
   { label: "Home", href: "#home", icon: Home },
   { label: "Photos", href: "#photos", icon: Images },
@@ -88,7 +105,7 @@ const HomeNew = () => {
         </button>
         <nav className={`home-new__menu ${menuOpen ? "home-new__menu--open" : ""}`} id="home-new-menu" aria-label="Main navigation">
           {navItems.map((item) => (
-            <a key={item.label} href={item.href} onClick={closeMenu}>{item.label}</a>
+            <HomeNewLink key={item.label} href={item.href} onClick={closeMenu}>{item.label}</HomeNewLink>
           ))}
         </nav>
       </header>
@@ -135,10 +152,10 @@ const HomeNew = () => {
           <div className="home-new__section-heading home-new__section-heading--photos">
             <h2 id="photos-title" className="sr-only">पावन स्मृतियाँ</h2>
           </div>
-          <a
+          <HomeNewLink
             className="home-new__slideshow-link"
             href="/old-home#photo-gallery2"
-            aria-label="पावन स्मृतियाँ — सभी फोटो देखें"
+            ariaLabel="पावन स्मृतियाँ — सभी फोटो देखें"
           >
             <div className="home-new__mobile-slideshow" aria-label="पावन स्मृतियाँ slideshow">
               <img src={collage6} alt="Pujya Gurudev remembrance 1" />
@@ -148,7 +165,7 @@ const HomeNew = () => {
               <img src={collage4} alt="Pujya Gurudev remembrance 5" />
               <img src={collage5} alt="Pujya Gurudev remembrance 6" />
             </div>
-          </a>
+          </HomeNewLink>
         </section>
 
         <section className="home-new__welcome home-new__welcome--secondary" aria-label="Smaran shloka">
@@ -166,14 +183,14 @@ const HomeNew = () => {
           </div>
           <div className="home-new__card-grid">
             {featureCards.map(({ href, icon: Icon, title, description }) => (
-              <a className="home-new__card" href={href} key={title}>
+              <HomeNewLink className="home-new__card" href={href} key={title}>
                 <span className="home-new__card-icon"><Icon aria-hidden="true" /></span>
                 <span className="home-new__card-body">
                   <strong>{title}</strong>
                   <small>{description}</small>
                   <em>देखें →</em>
                 </span>
-              </a>
+              </HomeNewLink>
             ))}
           </div>
         </section>
@@ -199,7 +216,7 @@ const HomeNew = () => {
               </article>
             )}
           </div>
-          <a className="home-new__button" href="/old-home#hommage"><PenLine aria-hidden="true" /> समर्पण लिखें</a>
+          <HomeNewLink className="home-new__button" href="/old-home#hommage"><PenLine aria-hidden="true" /> समर्पण लिखें</HomeNewLink>
           <p className="home-new__hommage-note">Up to 300 characters · displayed for 7 days after approval</p>
         </section>
 
@@ -212,7 +229,7 @@ const HomeNew = () => {
       </main>
 
       <nav className="home-new__bottom-nav" aria-label="Mobile navigation">
-        {bottomNav.map(({ label, href, icon: Icon }) => <a href={href} key={label}><Icon aria-hidden="true" /><span>{label}</span></a>)}
+        {bottomNav.map(({ label, href, icon: Icon }) => <HomeNewLink href={href} key={label}><Icon aria-hidden="true" /><span>{label}</span></HomeNewLink>)}
       </nav>
     </div>
   );
