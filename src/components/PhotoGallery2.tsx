@@ -39,14 +39,11 @@ const OmIcon: DevotionalIcon = ({ size = devotionalIconDefaults.size, ...props }
   </svg>
 );
 
-const FluteIcon: DevotionalIcon = ({ size = devotionalIconDefaults.size, strokeWidth = devotionalIconDefaults.strokeWidth, ...props }) => (
+const HeartSparkleIcon: DevotionalIcon = ({ size = devotionalIconDefaults.size, strokeWidth = devotionalIconDefaults.strokeWidth, ...props }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...props}>
-    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M4.5 17.5 17.8 4.2" />
-    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="m16.5 3.4 2.1 2.1" />
-    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M8.2 13.8h.01" />
-    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M11.2 10.8h.01" />
-    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M14.2 7.8h.01" />
-    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M7 19.2c3.2.8 6.2-.2 8.8-3" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M11.2 19.1S4.8 15.2 4.8 10.1c0-1.8 1.3-3.3 3.1-3.3 1.2 0 2.3.7 2.9 1.8.6-1.1 1.7-1.8 2.9-1.8 1.8 0 3.1 1.5 3.1 3.3 0 .9-.2 1.8-.7 2.7" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="m17.6 14 .5 1.4 1.4.5-1.4.5-.5 1.4-.5-1.4-1.4-.5 1.4-.5.5-1.4Z" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="m19.7 8.1.35.95.95.35-.95.35-.35.95-.35-.95-.95-.35.95-.35.35-.95Z" />
   </svg>
 );
 
@@ -58,20 +55,23 @@ const ScriptureIcon: DevotionalIcon = ({ size = devotionalIconDefaults.size, str
   </svg>
 );
 
-const HeartDiyaIcon: DevotionalIcon = ({ size = devotionalIconDefaults.size, strokeWidth = devotionalIconDefaults.strokeWidth, ...props }) => (
+const VajraIcon: DevotionalIcon = ({ size = devotionalIconDefaults.size, strokeWidth = devotionalIconDefaults.strokeWidth, ...props }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...props}>
-    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M12 19.2S5.2 15.1 5.2 9.6c0-1.9 1.4-3.4 3.2-3.4 1.1 0 2.2.6 2.8 1.6.6-1 1.7-1.6 2.8-1.6 1.8 0 3.2 1.5 3.2 3.4 0 1.7-.7 3.3-1.7 4.7" />
-    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M9 15.7c1.9 1.2 4.1 1.2 6 0-.5 1.8-1.6 2.9-3 2.9s-2.5-1.1-3-2.9Z" />
-    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M12 14.8c-.8-.9-.8-1.8 0-2.8.8 1 .8 1.9 0 2.8Z" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="m12 2.8 4.6 5.1-2.7 2.8 3.7 3.5L12 21.2l-5.6-7 3.7-3.5-2.7-2.8L12 2.8Z" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M7.4 7.9h9.2" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="m10.1 10.7 3.8 3.5" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="m13.9 10.7-3.8 3.5" />
   </svg>
 );
 
-const TrishulIcon: DevotionalIcon = ({ size = devotionalIconDefaults.size, strokeWidth = devotionalIconDefaults.strokeWidth, ...props }) => (
+const AnjaliIcon: DevotionalIcon = ({ size = devotionalIconDefaults.size, strokeWidth = devotionalIconDefaults.strokeWidth, ...props }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...props}>
-    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M12 3v18" />
-    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M8.2 4.8v4.4c0 2 1.5 3.4 3.8 3.4s3.8-1.4 3.8-3.4V4.8" />
-    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M5.8 7.6c.6 1.8 1.7 2.8 3.2 3M18.2 7.6c-.6 1.8-1.7 2.8-3.2 3" />
-    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M9 21h6" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M10.4 3.7v8.1c0 2.4-1.1 4.7-3 6.2l-1.2 1" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M13.6 3.7v8.1c0 2.4 1.1 4.7 3 6.2l1.2 1" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M8.2 5.6c-1 1.1-1.5 2.5-1.5 4v4.2" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M15.8 5.6c1 1.1 1.5 2.5 1.5 4v4.2" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M10.4 11.9h3.2" />
+    <path {...iconStrokeProps} strokeWidth={strokeWidth} d="M8.8 20.2c1-.8 2.1-1.2 3.2-1.2s2.2.4 3.2 1.2" />
   </svg>
 );
 
@@ -86,10 +86,10 @@ const DiyaIcon: DevotionalIcon = ({ size = devotionalIconDefaults.size, strokeWi
 const galleryCategoryIcons: Record<string, DevotionalIcon> = {
   "charan-vandan": LotusIcon,
   "with-gurudev": OmIcon,
-  "namami-chittchorkam": FluteIcon,
+  "namami-chittchorkam": HeartSparkleIcon,
   "vedant-moorti": ScriptureIcon,
-  "key-events": HeartDiyaIcon,
-  batches: TrishulIcon,
+  "key-events": VajraIcon,
+  batches: AnjaliIcon,
   others: DiyaIcon,
 };
 
@@ -182,9 +182,14 @@ const PhotoGallery2 = () => {
         </div>
 
         <div className="mx-auto max-w-6xl space-y-4 overflow-x-hidden rounded-[1.75rem] border border-amber-900/15 bg-white/45 p-3 shadow-[0_14px_36px_rgba(120,63,4,0.10)] md:p-5">
-          <p className="px-2 text-center text-lg font-semibold leading-7 text-amber-950 md:text-xl">
-            कृपया चित्र-श्रेणी चुनें
-          </p>
+          <div className="space-y-1 px-2 text-center">
+            <p className="text-lg font-semibold leading-7 text-amber-950 md:text-xl">
+              पावन चरित्र-झलकियाँ
+            </p>
+            <p className="text-sm leading-6 text-amber-950/65 md:text-base">
+              कृपया एक पावन झलक चुनें
+            </p>
+          </div>
 
           <div className="space-y-4">
             {gallery2Categories.map((category) => {

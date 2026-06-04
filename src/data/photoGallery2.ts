@@ -120,7 +120,7 @@ export type Gallery2Category = {
 export const gallery2Categories: Gallery2Category[] = [
   {
     id: "charan-vandan",
-    name: "नमामि पद्मलोचनम्।",
+    name: "नमामि पदलोचनम्।",
     description: "Charan-Vandan photographs with their captions.",
     photos: [
       {
