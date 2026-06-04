@@ -17,6 +17,7 @@
 .home-new__guru-lines span { display:block; opacity:0; transform:translateY(.45rem); animation:home-new-line-blessing 1.4s ease-out forwards; }
 .home-new__guru-lines span:nth-child(2) { color:#7A5634; opacity:.85; animation-delay:.55s; }
 .home-new__guru-lines span:nth-child(3) { animation-delay:1.1s; }
+.home-new__guru-lines--section { margin:1.35rem auto 0; }
 .home-new__portrait-frame { width:min(74vw,17rem); padding:.35rem; border:1px solid rgba(189,139,66,.33); border-radius:6.5rem 6.5rem 1.15rem 1.15rem; background:rgba(255,255,255,.45); box-shadow:0 12px 30px rgba(104,66,41,.11); }
 .home-new__portrait { display:block; width:100%; aspect-ratio:.84; object-fit:cover; object-position:center top; border-radius:6.1rem 6.1rem .9rem .9rem; }
 .home-new__charan-instruction { margin:.18rem 0 .05rem; color:#7A5634; opacity:.85; font-size:.78rem; font-weight:600; letter-spacing:.03em; }
