@@ -28,31 +28,31 @@ import "./HomeNew.css";
 const navItems = [
   { label: "Home", href: "#home" },
   { label: "Photo Gallery", href: "#photos" },
-  { label: "Charan-Vandan", href: "/#charan-vandan" },
-  { label: "Stuti / Shlokas", href: "/#stuti" },
-  { label: "Bhajan / Audio", href: "/#bhajans" },
-  { label: "Video / Pravachan", href: "/#talks" },
+  { label: "Charan-Vandan", href: "/old-home#charan-vandan" },
+  { label: "Stuti / Shlokas", href: "/old-home#stuti" },
+  { label: "Bhajan / Audio", href: "/old-home#bhajans" },
+  { label: "Video / Pravachan", href: "/old-home#talks" },
   { label: "Hommage / समर्पण", href: "#hommage-preview" },
   { label: "About", href: "#about" },
 ];
 
 const featureCards = [
-  { href: "/#charan-vandan", icon: Footprints, title: "Charan-Vandan", description: "Devotional remembrance at Guru Charan" },
-  { href: "/#leela", icon: Sparkles, title: "Sidhbari Leela", description: "Divine leelas at Sidhbari" },
-  { href: "/#photo-gallery2", icon: Images, title: "Charitra-Jhalak", description: "Glimpses from Pujya Swamiji's life" },
-  { href: "/#stuti", icon: BookOpenText, title: "Stuti", description: "Guru Stuti and Sanskrit shlokas" },
-  { href: "/#shraddanjali", icon: Flower2, title: "Virah-Stuti", description: "Verses of longing and shraddhanjali" },
-  { href: "/#talks", icon: CirclePlay, title: "Satsangs", description: "Pravachan and satsang videos" },
-  { href: "/#bhajans", icon: Music2, title: "Bhajan", description: "Devotional bhajans and audio" },
-  { href: "/#quotes", icon: PenLine, title: "Quotes", description: "Words of wisdom from Pujya Swamiji" },
-  { href: "/#hommage", icon: MessageCircleHeart, title: "Hommage", description: "Offer a short devotional message" },
+  { href: "/old-home#charan-vandan", icon: Footprints, title: "Charan-Vandan", description: "Devotional remembrance at Guru Charan" },
+  { href: "/old-home#leela", icon: Sparkles, title: "Sidhbari Leela", description: "Divine leelas at Sidhbari" },
+  { href: "/old-home#photo-gallery2", icon: Images, title: "Charitra-Jhalak", description: "Glimpses from Pujya Swamiji's life" },
+  { href: "/old-home#stuti", icon: BookOpenText, title: "Stuti", description: "Guru Stuti and Sanskrit shlokas" },
+  { href: "/old-home#shraddanjali", icon: Flower2, title: "Virah-Stuti", description: "Verses of longing and shraddhanjali" },
+  { href: "/old-home#talks", icon: CirclePlay, title: "Satsangs", description: "Pravachan and satsang videos" },
+  { href: "/old-home#bhajans", icon: Music2, title: "Bhajan", description: "Devotional bhajans and audio" },
+  { href: "/old-home#quotes", icon: PenLine, title: "Quotes", description: "Words of wisdom from Pujya Swamiji" },
+  { href: "/old-home#hommage", icon: MessageCircleHeart, title: "Hommage", description: "Offer a short devotional message" },
 ];
 
 const bottomNav = [
   { label: "Home", href: "#home", icon: Home },
   { label: "Photos", href: "#photos", icon: Images },
-  { label: "Stuti", href: "/#stuti", icon: BookOpenText },
-  { label: "Bhajan", href: "/#bhajans", icon: Music2 },
+  { label: "Stuti", href: "/old-home#stuti", icon: BookOpenText },
+  { label: "Bhajan", href: "/old-home#bhajans", icon: Music2 },
   { label: "Hommage", href: "#hommage-preview", icon: HeartHandshake },
 ];
 
@@ -102,17 +102,13 @@ const HomeNew = () => {
 
           <div className="home-new__guru-lines" aria-label="Guru kripa verses">
             <span>गुरुकृपा ही केवलम्॥</span>
-            <span>ऐसे गुरुदेव को बलि-बलि जाऊँ॥</span>
+            <span>ऐसे गुरु को बलि-बलि जाऊँ॥</span>
             <span>नमामि सन्त दुर्लभम्॥</span>
           </div>
 
+          <p className="home-new__charan-instruction">चरण स्पर्श करें ↓</p>
+
           <div className="home-new__charan-area">
-            <span className="home-new__charan-arrow" aria-hidden="true">
-              <svg viewBox="0 0 80 40" fill="none">
-                <path d="M4 20 H62" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-                <path d="M50 8 L64 20 L50 32" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-              </svg>
-            </span>
             <div className="home-new__charan-orbit" aria-hidden="true">
               <svg viewBox="0 0 320 320">
                 <defs>
@@ -141,7 +137,7 @@ const HomeNew = () => {
           </div>
           <a
             className="home-new__slideshow-link"
-            href="/#photo-gallery2"
+            href="/old-home#photo-gallery2"
             aria-label="पावन स्मृतियाँ — सभी फोटो देखें"
           >
             <div className="home-new__mobile-slideshow" aria-label="पावन स्मृतियाँ slideshow">
@@ -203,7 +199,7 @@ const HomeNew = () => {
               </article>
             )}
           </div>
-          <a className="home-new__button" href="/#hommage"><PenLine aria-hidden="true" /> समर्पण लिखें</a>
+          <a className="home-new__button" href="/old-home#hommage"><PenLine aria-hidden="true" /> समर्पण लिखें</a>
           <p className="home-new__hommage-note">Up to 300 characters · displayed for 7 days after approval</p>
         </section>
 
