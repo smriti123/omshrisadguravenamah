@@ -19,7 +19,9 @@
 .home-new__guru-lines--section { margin:1.55rem auto 0; }
 .home-new__guru-lines--emotional { margin-top:1.7rem; }
 .home-new__guru-lines--pranam { margin-top:1.7rem; gap:.35rem; }
-.entry-main-line { color:#5A3A1F; font-size:clamp(26px,7vw,44px); font-weight:700; letter-spacing:.02em; text-shadow:0 3px 14px rgba(200,149,60,.22); animation:softFadeUp 1.4s ease both; }
+.home-new__guru-lines .entry-main-line { display:inline-flex; align-items:center; justify-content:center; gap:clamp(.42rem,2.4vw,.72rem); max-width:min(92vw,44rem); color:#8A5A2B; font-family:"Noto Serif Devanagari","Kohinoor Devanagari","Mangal",Georgia,serif; font-size:clamp(22px,6vw,36px); font-weight:500; font-style:italic; letter-spacing:.015em; line-height:1.45; text-wrap:balance; text-shadow:0 2px 12px rgba(200,149,60,.16),0 0 18px rgba(255,213,128,.12); animation:softFadeUp 1.8s cubic-bezier(.22,.8,.28,1) both; }
+.home-new__guru-lines .entry-main-line::before,
+.home-new__guru-lines .entry-main-line::after { content:"❧"; flex:0 0 auto; color:#C8953C; font-family:Georgia,"Times New Roman",serif; font-size:.78em; font-style:normal; font-weight:400; line-height:1; opacity:.65; text-shadow:0 2px 10px rgba(200,149,60,.14); }
 .entry-emotional-line { color:#7A5634; font-size:clamp(24px,6.5vw,40px); font-weight:600; letter-spacing:.02em; text-shadow:0 2px 12px rgba(200,149,60,.2); animation:softFadeUp 1.6s ease both; }
 .entry-emotional-line::before,
 .entry-emotional-line::after { content:"❧"; color:#C8953C; margin:0 10px; opacity:.75; text-shadow:0 2px 10px rgba(200,149,60,.16); }
@@ -99,6 +101,7 @@
 .home-new__welcome + .home-new__section::before,
 .home-new__section + .home-new__about::before { content:"✦"; display:block; margin:-2.6rem auto 1.8rem; color:var(--new-gold); font-size:1.15rem; text-align:center; opacity:.7; letter-spacing:.5em; }
 .home-new__section + .home-new__section::before { background:linear-gradient(90deg,transparent,rgba(189,139,66,.0) 18%,rgba(189,139,66,.45) 50%,rgba(189,139,66,.0) 82%,transparent) no-repeat center 50%/100% 1px; padding:1rem 0; }
+@media (max-width:420px) { .home-new__guru-lines .entry-main-line { gap:.38rem; letter-spacing:.01em; } .home-new__guru-lines .entry-main-line::before,.home-new__guru-lines .entry-main-line::after { font-size:.7em; } }
 @media (min-width:640px) { .home-new__card-grid { grid-template-columns:repeat(4,1fr); } .home-new__hommages { grid-template-columns:repeat(3,1fr); } .home-new__hommage--empty { grid-column:1/-1; } }
 @media (min-width:1000px) { .home-new { padding-bottom:0; } .home-new__header { padding:.65rem 2.2rem; } .home-new__menu-button { display:none; } .home-new__menu { position:static; display:flex; gap:.08rem; padding:0; visibility:visible; opacity:1; transform:none; border:0; background:transparent; box-shadow:none; } .home-new__menu a { padding:.55rem .5rem; font-size:.72rem; } .home-new__hero { min-height:auto; padding:3rem 1rem 2.5rem; } .home-new__portrait-frame { width:18rem; } .home-new__guru-lines--entry { margin-top:1.25rem; } .home-new__charan-instruction { margin-top:.35rem; } .home-new__charan-area { width:17rem; } .home-new__card-grid { grid-template-columns:repeat(4,1fr); } .home-new__bottom-nav { display:none; } }
 @media (prefers-reduced-motion:reduce) { .home-new { scroll-behavior:auto; } .home-new__charan-orbit,.entry-main-line,.entry-emotional-line,.entry-pranam-line,.entry-ornament,.home-new__mobile-slideshow img { animation:none; } .entry-main-line,.entry-emotional-line,.entry-pranam-line,.home-new__mobile-slideshow img:first-child { opacity:1; transform:none; } .entry-ornament { opacity:.8; transform:none; } .home-new__menu,.home-new__charan-button,.home-new__card { transition:none; } }
