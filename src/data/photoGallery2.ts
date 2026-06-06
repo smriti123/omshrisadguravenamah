@@ -82,9 +82,7 @@ import namamiAdd1 from "@/assets/gallery/namami-add-1.jpg";
 import namamiAdd2 from "@/assets/gallery/namami-add-2.jpg";
 import namamiAdd3 from "@/assets/gallery/namami-add-3.jpg";
 import namamiAdd4 from "@/assets/gallery/namami-add-4.jpg";
-import namamiChittNew from "@/assets/gallery/namami-chitt-new.jpg.asset.json";
-import othersArunUncle from "@/assets/gallery/others-arun-uncle.jpg.asset.json";
-import gurudevWheelchairWithSwamiji from "@/assets/gallery/gurudev-wheelchair-with-swamiji.jpg.asset.json";
+import othersGroup from "@/assets/gallery/others-group.jpg";
 
 // Others — Twameva Dravinam
 import othersDravinam from "@/assets/gallery/others-dravinam.jpg";
@@ -205,8 +203,8 @@ export const gallery2Categories: Gallery2Category[] = [
       },
       {
         id: "with-gurudev-3",
-        src: gurudevWheelchairWithSwamiji.url,
-        thumbnailSrc: gurudevWheelchairWithSwamiji.url,
+        src: gurudev3,
+        thumbnailSrc: gurudev3,
         alt: "With Gurudev photo 3",
         caption:
           "Whenever Pujya Gurudev came to Sidhbari, it was Swami Subodhanandaji who would push his wheelchair — doing so with such devotion and pride.",
@@ -291,6 +289,7 @@ export const gallery2Categories: Gallery2Category[] = [
         alt: "Namami Chittchorkam madhur photo",
         caption:
           "अधरं मधुरं वदनं मधुरं, नयनं मधुरं हसितं मधुरं ।\nहृदयं मधुरं गमनं मधुरं, मधुराधिपते रखिलं मधुरं ॥",
+        objectFit: "contain",
         wide: true,
       },
       {
@@ -443,8 +442,8 @@ export const gallery2Categories: Gallery2Category[] = [
       },
       {
         id: "namami-chitt-new",
-        src: namamiChittNew.url,
-        thumbnailSrc: namamiChittNew.url,
+        src: smile11,
+        thumbnailSrc: smile11,
         alt: "Pujya Swamiji seated, smiling — Namami Chittchorkam",
         caption: "",
       },
@@ -462,8 +461,6 @@ export const gallery2Categories: Gallery2Category[] = [
         thumbnailSrc: vedant1,
         alt: "Vedant Moorti featured photo",
         caption: "हे शंकर-रूप! हे वेदांत-मूर्ति!",
-        objectFit: "contain",
-        centerWide: true,
       },
       {
         id: "vedant-2",
@@ -707,8 +704,8 @@ export const gallery2Categories: Gallery2Category[] = [
       },
       {
         id: "others-arun-uncle",
-        src: othersArunUncle.url,
-        thumbnailSrc: othersArunUncle.url,
+        src: othersGroup,
+        thumbnailSrc: othersGroup,
         alt: "Pujya Swamiji with devotees",
         caption: "",
       },

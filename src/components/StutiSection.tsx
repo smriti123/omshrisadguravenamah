@@ -5,7 +5,6 @@ import SectionHeading from "./SectionHeading";
 import GyannisthaCard from "@/components/GyannisthaCard";
 import gangeshanandaStuti from "@/assets/stuti-gangeshananda.jpg";
 import gangeshanandaWriter from "@/assets/stuti-gangeshananda-writer.jpg";
-import gangeshanandaPortrait from "@/assets/stuti-gangeshananda-portrait.png.asset.json";
 
 const stutiNames = [
   "ॐ ॐकाराय नमः ।",
@@ -510,7 +509,7 @@ const GangeshanandaStutiCard = () => (
     </h3>
     <div className="flex flex-col items-center mb-4">
       <img
-        src={gangeshanandaPortrait.url}
+        src={gangeshanandaWriter}
         alt="Brahmaleen Swami Gangeshanandaji"
         className="w-20 h-20 rounded-full object-cover border-2 border-gold/40 shadow-gold mb-2"
         loading="lazy"
