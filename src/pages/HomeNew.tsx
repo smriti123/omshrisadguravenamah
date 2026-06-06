@@ -23,17 +23,6 @@ import collage5 from "@/assets/home-new-collage/c5.webp";
 import collage6 from "@/assets/home-new-collage/c6.jpg";
 import "./HomeNew.css";
 
-const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "Gallery", href: "#photos" },
-  { label: "Charan-Vandan", href: "/old-home#charan-vandan" },
-  { label: "Charitra-Jhalak", href: "/old-home#photo-gallery2" },
-  { label: "Stuti", href: "/old-home#stuti" },
-  { label: "Bhajan", href: "/old-home#bhajans" },
-  { label: "Hommage", href: "/old-home#hommage" },
-  { label: "About", href: "#about" },
-];
-
 const featureCards = [
   {
     href: "/old-home#charan-vandan",
@@ -89,6 +78,11 @@ const featureCards = [
     title: "Hommage",
     description: "Offer a short devotional message",
   },
+];
+
+const navItems = [
+  { label: "Home", href: "#home" },
+  ...featureCards.map(({ href, title }) => ({ label: title, href })),
 ];
 
 type HomeNewLinkProps = {

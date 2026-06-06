@@ -879,9 +879,10 @@
   .home-new__menu {
     position: static;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: flex-end;
-    gap: 0.28rem;
+    gap: 0.18rem;
     padding: 0;
     visibility: visible;
     opacity: 1;
@@ -892,10 +893,10 @@
   }
   .home-new__menu a {
     position: relative;
-    padding: 0.55rem 0.72rem;
+    padding: 0.5rem 0.42rem;
     color: #6a4526;
-    font-size: 0.74rem;
-    letter-spacing: 0.035em;
+    font-size: 0.68rem;
+    letter-spacing: 0.025em;
   }
   .home-new__menu a + a::before {
     content: "";
@@ -922,6 +923,16 @@
   }
   .home-new__card-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1280px) {
+  .home-new__menu {
+    gap: 0.28rem;
+  }
+  .home-new__menu a {
+    padding: 0.55rem 0.72rem;
+    font-size: 0.74rem;
+    letter-spacing: 0.035em;
   }
 }
 @media (prefers-reduced-motion: reduce) {
