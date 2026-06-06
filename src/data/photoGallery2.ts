@@ -656,13 +656,6 @@ export const gallery2Categories: Gallery2Category[] = [
     description: "Use this category for photos that do not fit the other tabs.",
     photos: [
       {
-        id: "others-arun-uncle",
-        src: othersArunUncle.url,
-        thumbnailSrc: othersArunUncle.url,
-        alt: "Pujya Swamiji with devotees",
-        caption: "",
-      },
-      {
         id: "others-twameva-mata",
         src: pairMata,
         thumbnailSrc: pairMata,
@@ -710,6 +703,13 @@ export const gallery2Categories: Gallery2Category[] = [
         src: othersToddler,
         thumbnailSrc: othersToddler,
         alt: "Swamiji with child",
+        caption: "",
+      },
+      {
+        id: "others-arun-uncle",
+        src: othersArunUncle.url,
+        thumbnailSrc: othersArunUncle.url,
+        alt: "Pujya Swamiji with devotees",
         caption: "",
       },
       {
