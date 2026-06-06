@@ -1,4 +1,4 @@
-import { type ComponentType, type ReactNode, useState } from "react";
+import { type ReactNode, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   BookOpenText,
@@ -131,81 +131,16 @@ type NamamiVariant =
   | "sarvahit"
   | "sant-durlabham";
 
-type NamamiIconProps = {
-  className?: string;
-};
-
-const HeartBhavIcon = ({ className = "" }: NamamiIconProps) => (
-  <span className={`namami-icon ${className}`} aria-hidden="true">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M12 19.2C8.2 16.1 5 13.4 5 9.8C5 7.7 6.55 6 8.55 6C9.8 6 10.95 6.68 11.58 7.72C12.2 6.68 13.35 6 14.6 6C16.6 6 18.15 7.7 18.15 9.8C18.15 13.4 15 16.1 12 19.2Z"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.45"
-      />
-      <path
-        d="M18.9 4.3L19.55 5.7L21 6.35L19.55 7L18.9 8.4L18.25 7L16.8 6.35L18.25 5.7L18.9 4.3Z"
-        stroke="currentColor"
-        strokeLinejoin="round"
-        strokeWidth="1.15"
-      />
+const LotusDividerSymbol = () => (
+  <span className="divider-symbol" aria-hidden="true">
+    <svg viewBox="0 0 34 18" role="presentation" focusable="false">
+      <path d="M17 15.4C12.8 12.9 10.7 9.5 11.2 5.4C14 6.5 16.1 9.5 17 15.4Z" />
+      <path d="M17 15.4C21.2 12.9 23.3 9.5 22.8 5.4C20 6.5 17.9 9.5 17 15.4Z" />
+      <path d="M17 15.4C14.8 11.3 14.8 6.5 17 2.6C19.2 6.5 19.2 11.3 17 15.4Z" />
+      <path d="M8.8 15.3H25.2" className="divider-symbol__base" />
     </svg>
   </span>
 );
-
-const LotusIcon = ({ className = "" }: NamamiIconProps) => (
-  <span className={`namami-icon ${className}`} aria-hidden="true">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M12 20C8 17 6 14 6 10C9 11 11 14 12 20Z"
-        stroke="currentColor"
-        strokeWidth="1.45"
-      />
-      <path
-        d="M12 20C16 17 18 14 18 10C15 11 13 14 12 20Z"
-        stroke="currentColor"
-        strokeWidth="1.45"
-      />
-      <path
-        d="M12 20C10 15 10 10 12 5C14 10 14 15 12 20Z"
-        stroke="currentColor"
-        strokeWidth="1.45"
-      />
-      <path
-        d="M5 20H19"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeWidth="1.45"
-      />
-      <path
-        d="M4.8 8.2L3.8 7.2M19.2 8.2L20.2 7.2M12 3.2V2"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeWidth="1.2"
-        opacity="0.58"
-      />
-    </svg>
-  </span>
-);
-
-const ScriptureIcon = ({ className = "" }: NamamiIconProps) => (
-  <BookOpenText
-    className={`namami-icon ${className}`}
-    aria-hidden="true"
-    size={22}
-    strokeWidth={1.5}
-  />
-);
-
-const namamiIcons: Partial<
-  Record<NamamiVariant, ComponentType<NamamiIconProps>>
-> = {
-  chittchorkam: HeartBhavIcon,
-  jnanamurti: ScriptureIcon,
-  sarvahit: LotusIcon,
-};
 
 const NamamiLine = ({
   children,
@@ -215,25 +150,21 @@ const NamamiLine = ({
   children: ReactNode;
   className?: string;
   variant: NamamiVariant;
-}) => {
-  const Ornament = namamiIcons[variant];
-
-  return (
-    <div
-      className={`namami-block home-new__guru-lines ${className}`}
-      aria-label={
-        typeof children === "string" ? children : "Namami devotional line"
-      }
-    >
-      <span className={`namami-line ${variant}`}>
-        {Ornament ? <Ornament /> : null}
-        <span className="namami-text">{children}</span>
-        {Ornament ? <Ornament className="namami-icon--after" /> : null}
-      </span>
-      <div className="devotional-line-divider" aria-hidden="true" />
+}) => (
+  <div
+    className={`namami-block home-new__guru-lines ${className}`}
+    aria-label={
+      typeof children === "string" ? children : "Namami devotional line"
+    }
+  >
+    <span className={`namami-line ${variant}`}>
+      <span className="namami-text">{children}</span>
+    </span>
+    <div className="devotional-line-divider" aria-hidden="true">
+      <LotusDividerSymbol />
     </div>
-  );
-};
+  </div>
+);
 
 const HomeNew = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -421,7 +352,7 @@ const HomeNew = () => {
             className="home-new__guru-lines--cards"
             variant="sarvahit"
           >
-            नमामि सर्वहितचिन्तकम्॥
+            नमामि सर्वभूतसुहृदम्॥
           </NamamiLine>
         </section>
 
@@ -440,9 +371,9 @@ const HomeNew = () => {
             className="home-new__guru-lines--closing"
             variant="sant-durlabham"
           >
-            नमामि सन्त दुर्लभम्॥
+            नमामि सन्तदुर्लभम्॥
           </NamamiLine>
-          <span className="devotional-om-small" aria-hidden="true">
+          <span className="devotional-om-small namami-om" aria-hidden="true">
             ॐ
           </span>
         </section>
