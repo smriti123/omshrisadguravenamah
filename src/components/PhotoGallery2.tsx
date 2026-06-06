@@ -258,7 +258,7 @@ const PhotoGallery2 = () => {
                                 hidden: {},
                                 show: { transition: { staggerChildren: category.id === "with-gurudev" ? 0.14 : 0.06 } },
                               }}
-                              className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                              className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                             >
                               {category.photos.map((photo) => {
                                 const shouldContainImage = photo.objectFit === "contain";
@@ -287,7 +287,7 @@ const PhotoGallery2 = () => {
                                         className={`h-full w-full rounded-[1rem] ${shouldContainImage ? "object-contain" : "object-cover"} object-top sm:object-center transition duration-500 group-hover:scale-[1.015]`}
                                       />
                                     </div>
-                                    <p className="whitespace-pre-line px-4 py-3 text-base leading-6 text-amber-950/80 sm:text-sm">{photo.caption}</p>
+                                    <p className="whitespace-pre-line px-4 py-2 text-base leading-6 text-amber-950/80 sm:text-sm">{photo.caption}</p>
                                   </motion.button>
                                 );
                               })}
