@@ -281,9 +281,9 @@
 }
 .home-new__guru-lines--closing .namami-line,
 .namami-line.sant-durlabham {
-  color: #6f5032;
-  font-size: clamp(22px, 5.5vw, 34px);
-  opacity: 0.95;
+  color: #8a5a2b;
+  font-size: clamp(23px, 5.8vw, 36px);
+  opacity: 0.98;
 }
 .namami-line.sant-durlabham::before,
 .namami-line.sant-durlabham::after {
@@ -321,17 +321,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 18px;
-  padding: 0 8px;
+  padding: 0 11px;
   color: #c8953c;
+  font-size: 21px;
   line-height: 1;
-  opacity: 0.85;
+  opacity: 0.9;
   filter: drop-shadow(0 2px 8px rgba(200, 149, 60, 0.12));
 }
 .devotional-line-divider .divider-symbol svg {
   display: block;
-  width: 26px;
+  width: 1.45em;
   height: 18px;
   fill: none;
   stroke: currentColor;
@@ -935,8 +934,11 @@
     margin-top: 0.78rem;
   }
   .devotional-line-divider {
-    width: 150px;
+    width: 155px;
     margin-top: 9px;
+  }
+  .devotional-line-divider .divider-symbol {
+    font-size: 19px;
   }
   .home-new__charan-instruction {
     right: calc(100% - 0.92rem);
