@@ -4,18 +4,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const navLinks = [
-  { label: "Home", href: "/#hero" },
+  { label: "Home", href: "/old-home#hero" },
   { label: "New Homepage", href: "/home-new" },
-  { label: "Charan-Vandan", href: "/#charan-vandan" },
-  { label: "Sidhbari Leela", href: "/#leela" },
-  { label: "Charitra-Jhalak", href: "/#photo-gallery2" },
-  { label: "Stuti", href: "/#stuti" },
-  { label: "Virah-Stuti", href: "/#shraddanjali" },
-  { label: "Satsangs", href: "/#talks" },
-  { label: "Bhajan", href: "/#bhajans" },
-  { label: "Quotes", href: "/#quotes" },
-  { label: "Hommage", href: "/#hommage" },
-  { label: "Temporary", href: "/#gallery" },
+  { label: "Charan-Vandan", href: "/old-home#charan-vandan" },
+  { label: "Sidhbari Leela", href: "/old-home#leela" },
+  { label: "Charitra-Jhalak", href: "/old-home#photo-gallery2" },
+  { label: "Stuti", href: "/old-home#stuti" },
+  { label: "Virah-Stuti", href: "/old-home#shraddanjali" },
+  { label: "Satsangs", href: "/old-home#talks" },
+  { label: "Bhajan", href: "/old-home#bhajans" },
+  { label: "Quotes", href: "/old-home#quotes" },
+  { label: "Hommage", href: "/old-home#hommage" },
+  { label: "Temporary", href: "/old-home#gallery" },
 ];
 
 const mantra = "ॐ श्री सद्गुरवे नमः";
@@ -40,7 +40,7 @@ const Navbar = () => {
       onClick,
     };
 
-    return link.href.startsWith("/") && !link.href.includes("#") ? (
+    return link.href.startsWith("/") ? (
       <Link to={link.href} {...commonProps}>
         {link.label}
       </Link>
@@ -62,14 +62,14 @@ const Navbar = () => {
       }}
     >
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <a
-          href="/#hero"
+        <Link
+          to="/old-home#hero"
           className="font-display text-xl font-bold tracking-wide transition-colors sm:text-2xl lg:flex-shrink-0"
           style={{ color: linkBase }}
           onClick={() => setOpen(false)}
         >
           {mantra}
-        </a>
+        </Link>
 
         {/* Desktop */}
         <ul className="ml-8 hidden items-center justify-end lg:flex">
