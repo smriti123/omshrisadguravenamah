@@ -110,11 +110,7 @@ const PhotoGallery2 = () => {
     };
   }, []);
 
-  const isMobileViewport = () => typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
-
   const scrollToPanelTop = (categoryId: string) => {
-    if (!isMobileViewport()) return;
-
     if (scrollFrameRef.current !== null) window.cancelAnimationFrame(scrollFrameRef.current);
     if (scrollTimeoutRef.current !== null) window.clearTimeout(scrollTimeoutRef.current);
 
@@ -131,7 +127,7 @@ const PhotoGallery2 = () => {
           behavior: "smooth",
         });
       });
-    }, 0);
+    }, 60);
   };
 
   const openCategoryAndScroll = (categoryId: string) => {
@@ -147,7 +143,7 @@ const PhotoGallery2 = () => {
       return;
     }
 
-    if (activeCategory && isMobileViewport()) {
+    if (activeCategory) {
       setActiveCategory(null);
       closePanelTimeoutRef.current = window.setTimeout(() => openCategoryAndScroll(categoryId), 330);
       return;
@@ -280,7 +276,7 @@ const PhotoGallery2 = () => {
                                     className={`group overflow-hidden rounded-[1.35rem] border border-amber-600/25 bg-amber-50/70 text-left shadow-[0_10px_24px_rgba(120,63,4,0.11)] transition hover:-translate-y-1 hover:border-amber-600/35 hover:shadow-[0_16px_34px_rgba(120,63,4,0.17)] focus:outline-none focus:ring-2 focus:ring-amber-700 focus:ring-offset-2 ${photo.centerWide ? "sm:col-span-2 lg:col-span-2 lg:col-start-2" : photo.wide ? "sm:col-span-2 lg:col-span-2" : ""}`}
                                   >
                                     <div
-                                      className={`flex h-72 items-center justify-center overflow-hidden rounded-[1.2rem] border border-amber-500/20 shadow-inner sm:h-80 ${
+                                      className={`flex aspect-[4/5] w-full items-center justify-center overflow-hidden rounded-[1.2rem] border border-amber-500/20 shadow-inner sm:aspect-auto sm:h-80 ${
                                         shouldContainImage ? "bg-amber-50/80 p-1" : "bg-amber-50/40 p-0"
                                       }`}
                                     >
@@ -288,7 +284,7 @@ const PhotoGallery2 = () => {
                                         src={photo.thumbnailSrc}
                                         alt={photo.alt}
                                         loading="lazy"
-                                        className={`h-full w-full rounded-[1rem] ${shouldContainImage ? "object-contain" : "object-cover"} object-center transition duration-500 group-hover:scale-[1.015]`}
+                                        className={`h-full w-full rounded-[1rem] ${shouldContainImage ? "object-contain" : "object-cover"} object-top sm:object-center transition duration-500 group-hover:scale-[1.015]`}
                                       />
                                     </div>
                                     <p className="whitespace-pre-line px-4 py-3 text-base leading-6 text-amber-950/80 sm:text-sm">{photo.caption}</p>
