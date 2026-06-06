@@ -20,8 +20,8 @@ const photos = [
   {
     src: smileMadhurCombined,
     caption: madhurCaption,
-    objectPosition: "center",
-    objectFit: "contain",
+    objectPosition: "top",
+    objectFit: "cover",
     wide: true,
   },
   { src: smile1, caption: "प्रसन्नाननं नीलकण्ठं दयालम्‌ । प्रिय शंकरं सर्वनाथं भजामि ॥", objectPosition: "top" },
@@ -31,8 +31,8 @@ const photos = [
   { src: best, caption: "", objectPosition: "center" },
   { src: diw, caption: "", objectPosition: "center" },
   { src: smile7, caption: "", objectPosition: "top" },
-  { src: smile8, caption: "श्री नन्दनाय नमः। जो अन्य को प्रसन्नचित्त करता है वो नन्दन: ऐसे हमारे प पू श्री गुरुवर्याय नमः।", objectPosition: "center", objectFit: "contain" },
-  { src: smile9, caption: "", objectPosition: "center", objectFit: "contain" },
+  { src: smile8, caption: "श्री नन्दनाय नमः। जो अन्य को प्रसन्नचित्त करता है वो नन्दन: ऐसे हमारे प पू श्री गुरुवर्याय नमः।", objectPosition: "center" },
+  { src: smile9, caption: "", objectPosition: "center" },
   { src: smile10, caption: "", objectPosition: "top" },
   { src: smile11, caption: "", objectPosition: "top" },
   { src: smile12, caption: "", objectPosition: "top" },
@@ -53,11 +53,14 @@ const RadiantSmileSection = () => {
               transition={{ delay: i * 0.15, duration: 0.5 }}
               className={`overflow-hidden rounded-2xl shadow-lg ${photo.wide ? "col-span-2 md:col-span-2" : ""}`}
             >
-              <div className={`${photo.wide ? "aspect-[1353/806]" : "aspect-[3/4]"} relative`}>
+              <div
+                className="relative overflow-hidden"
+                style={{ aspectRatio: photo.wide ? "1353 / 806" : "3 / 4" }}
+              >
                 <img
                   src={photo.src}
                   alt={`Radiant smile ${i + 1}`}
-                  className="w-full h-full hover:scale-105 transition-transform duration-500 bg-primary/5"
+                  className="h-full w-full bg-primary/5 object-top transition-transform duration-500 hover:scale-105"
                   style={{
                     objectPosition: photo.objectPosition,
                     objectFit: (photo.objectFit ?? "cover") as React.CSSProperties["objectFit"],
@@ -65,8 +68,8 @@ const RadiantSmileSection = () => {
                 />
               </div>
               {photo.caption && (
-                <div className="bg-primary/10 px-3 py-2 text-center">
-                  <p className="whitespace-pre-line text-xs md:text-sm text-primary font-medium leading-relaxed">{photo.caption}</p>
+                <div className="bg-primary/10 px-3 py-1.5 text-center">
+                  <p className="whitespace-pre-line text-xs md:text-sm text-primary font-medium leading-snug">{photo.caption}</p>
                 </div>
               )}
             </motion.div>

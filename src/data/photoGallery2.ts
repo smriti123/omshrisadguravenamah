@@ -289,7 +289,7 @@ export const gallery2Categories: Gallery2Category[] = [
         alt: "Namami Chittchorkam madhur photo",
         caption:
           "अधरं मधुरं वदनं मधुरं, नयनं मधुरं हसितं मधुरं ।\nहृदयं मधुरं गमनं मधुरं, मधुराधिपते रखिलं मधुरं ॥",
-        objectFit: "contain",
+        objectFit: "cover",
         wide: true,
       },
       {
