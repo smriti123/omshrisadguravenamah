@@ -156,9 +156,11 @@
   display: block;
 }
 .namami-block {
-  text-align: center;
+  max-width: 92%;
   margin: 18px auto 24px;
   padding: 0 16px;
+  overflow-wrap: break-word;
+  text-align: center;
 }
 .home-new__guru-lines--entry {
   margin: 1.08rem auto 0.3rem;
@@ -217,64 +219,135 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(0.44rem, 2.7vw, 0.62rem);
   max-width: min(92vw, 44rem);
   color: #8a5a2b;
-  font-family: var(--devotional-font);
+  font-family: "Tiro Devanagari Sanskrit", "Noto Serif Devanagari", serif;
   font-size: clamp(24px, 6vw, 38px);
   font-weight: 500;
   font-style: italic;
-  letter-spacing: 0.015em;
+  letter-spacing: 0.012em;
   line-height: 1.45;
   text-align: center;
   text-wrap: balance;
+  overflow-wrap: break-word;
   text-shadow: 0 2px 10px rgba(200, 149, 60, 0.12);
   animation: softFadeUp 1.4s ease both;
   -webkit-font-smoothing: antialiased;
 }
 .home-new__guru-lines .namami-line,
-.namami-line .namami-text,
-.namami-line .namami-icon {
+.namami-line .namami-text {
   display: inline-flex;
 }
 .namami-line .namami-text {
   align-items: center;
   justify-content: center;
 }
-.namami-icon {
-  align-items: center;
-  justify-content: center;
+.namami-line::before,
+.namami-line::after {
+  flex: 0 0 auto;
   color: #c8953c;
-  opacity: 0.68;
-  flex-shrink: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.74em;
   font-style: normal;
+  font-weight: 400;
   line-height: 1;
-  filter: drop-shadow(0 2px 8px rgba(200, 149, 60, 0.12));
+  opacity: 0.65;
+  text-shadow: 0 2px 10px rgba(200, 149, 60, 0.12);
 }
-.namami-icon svg {
-  width: clamp(18px, 4.8vw, 24px);
-  height: clamp(18px, 4.8vw, 24px);
+.namami-line::before {
+  margin-right: 10px;
 }
-.namami-icon--after {
-  transform: scaleX(-1);
+.namami-line::after {
+  margin-left: 10px;
 }
 .namami-line.chittchorkam {
-  color: #845327;
-  text-shadow:
-    0 2px 12px rgba(200, 149, 60, 0.16),
-    0 0 20px rgba(255, 226, 160, 0.12);
+  color: #8a5a2b;
 }
-.namami-line.jnanamurti .namami-icon {
-  opacity: 0.64;
+.namami-line.chittchorkam::before {
+  content: "♡✦";
 }
-.namami-line.sarvahit .namami-icon {
-  opacity: 0.7;
+.namami-line.chittchorkam::after {
+  content: "✦♡";
+}
+.namami-line.jnanamurti::before,
+.namami-line.jnanamurti::after {
+  content: "✧";
+  font-size: 0.75em;
+}
+.namami-line.sarvahit::before,
+.namami-line.sarvahit::after {
+  content: "✥";
+  font-size: 0.75em;
 }
 .home-new__guru-lines--closing .namami-line,
 .namami-line.sant-durlabham {
-  font-size: clamp(22px, 5.5vw, 34px);
   color: #6f5032;
+  font-size: clamp(22px, 5.5vw, 34px);
   opacity: 0.95;
+}
+.namami-line.sant-durlabham::before,
+.namami-line.sant-durlabham::after {
+  content: none;
+}
+.devotional-line-divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 190px;
+  height: 18px;
+  margin: 10px auto 0;
+  opacity: 0.92;
+}
+.devotional-line-divider::before,
+.devotional-line-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(200, 149, 60, 0.65)
+  );
+}
+.devotional-line-divider::after {
+  background: linear-gradient(
+    90deg,
+    rgba(200, 149, 60, 0.65),
+    transparent
+  );
+}
+.devotional-line-divider .divider-symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 18px;
+  padding: 0 8px;
+  color: #c8953c;
+  line-height: 1;
+  opacity: 0.85;
+  filter: drop-shadow(0 2px 8px rgba(200, 149, 60, 0.12));
+}
+.devotional-line-divider .divider-symbol svg {
+  display: block;
+  width: 26px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.25;
+}
+.devotional-line-divider .divider-symbol__base {
+  opacity: 0.68;
+}
+.namami-om,
+.home-new__about .namami-om {
+  color: #c8953c;
+  font-size: 24px;
+  margin-top: 8px;
+  opacity: 0.78;
 }
 .devotional-line-main {
   color: #7a5634;
@@ -326,33 +399,6 @@
   margin: 0 0.08rem;
   opacity: 0.7;
   text-shadow: 0 2px 10px rgba(200, 149, 60, 0.14);
-}
-.devotional-line-divider {
-  position: relative;
-  width: 160px;
-  height: 1px;
-  margin: 12px auto 0;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(200, 149, 60, 0.65),
-    transparent
-  );
-  opacity: 0.9;
-}
-.devotional-line-divider::after {
-  content: "❦";
-  position: absolute;
-  left: 50%;
-  top: -12px;
-  transform: translateX(-50%);
-  padding: 0 10px;
-  color: #c8953c;
-  background: var(--devotional-divider-bg);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 17px;
-  line-height: 1;
-  text-shadow: 0 2px 10px rgba(200, 149, 60, 0.12);
 }
 .devotional-line-emotional {
   color: #8a5a2b;
@@ -882,14 +928,14 @@
     no-repeat center 50%/100% 1px;
   padding: 1rem 0;
 }
-@media (max-width: 420px) {
+@media (max-width: 480px) {
   .home-new__guru-lines--namami {
     width: min(94vw, 22rem);
     gap: 0.34rem;
     margin-top: 0.78rem;
   }
   .devotional-line-divider {
-    width: 128px;
+    width: 150px;
     margin-top: 9px;
   }
   .home-new__charan-instruction {
@@ -899,7 +945,13 @@
     font-size: 1.16rem;
   }
   .namami-line {
-    gap: 0.38rem;
+    font-size: clamp(22px, 7vw, 30px);
+  }
+  .namami-line::before {
+    margin-right: 8px;
+  }
+  .namami-line::after {
+    margin-left: 8px;
   }
 }
 @media (min-width: 640px) {
