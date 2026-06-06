@@ -21,10 +21,25 @@ const HashScrollToElement = () => {
     }
 
     const targetId = decodeURIComponent(hash.slice(1));
-    const scrollToTarget = () => document.getElementById(targetId)?.scrollIntoView({ behavior: "auto" });
+    const retryDelays = [0, 50, 150, 350];
+    const timeoutIds: ReturnType<typeof window.setTimeout>[] = [];
 
-    scrollToTarget();
-    window.setTimeout(scrollToTarget, 100);
+    const scrollToTarget = () => {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      target.scrollIntoView({ behavior: "auto" });
+    };
+
+    const frameId = window.requestAnimationFrame(scrollToTarget);
+    retryDelays.forEach((delay) => {
+      timeoutIds.push(window.setTimeout(scrollToTarget, delay));
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+      timeoutIds.forEach(window.clearTimeout);
+    };
   }, [hash, pathname]);
 
   return null;
