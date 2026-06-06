@@ -155,14 +155,19 @@
 .home-new__guru-lines span {
   display: block;
 }
+.namami-block {
+  text-align: center;
+  margin: 18px auto 24px;
+  padding: 0 16px;
+}
 .home-new__guru-lines--entry {
   margin: 1.08rem auto 0.3rem;
 }
 .home-new__guru-lines--namami {
   width: min(92vw, 46rem);
-  margin: 1rem auto 0.7rem;
+  margin: 0.82rem auto 0.7rem;
   gap: 0.46rem;
-  padding: 0.35rem 0 0.15rem;
+  padding: 0.18rem 0 0.15rem;
 }
 .home-new__guru-lines--photos {
   --devotional-divider-bg: #f8edda;
@@ -209,6 +214,10 @@
   gap: clamp(0.45rem, 2.5vw, 0.72rem);
 }
 .namami-line {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.44rem, 2.7vw, 0.62rem);
   max-width: min(92vw, 44rem);
   color: #8a5a2b;
   font-family: var(--devotional-font);
@@ -223,9 +232,49 @@
   animation: softFadeUp 1.4s ease both;
   -webkit-font-smoothing: antialiased;
 }
-.home-new__guru-lines--closing .namami-line {
-  font-size: clamp(22px, 5.3vw, 34px);
-  color: #7f562f;
+.home-new__guru-lines .namami-line,
+.namami-line .namami-text,
+.namami-line .namami-icon {
+  display: inline-flex;
+}
+.namami-line .namami-text {
+  align-items: center;
+  justify-content: center;
+}
+.namami-icon {
+  align-items: center;
+  justify-content: center;
+  color: #c8953c;
+  opacity: 0.68;
+  flex-shrink: 0;
+  font-style: normal;
+  line-height: 1;
+  filter: drop-shadow(0 2px 8px rgba(200, 149, 60, 0.12));
+}
+.namami-icon svg {
+  width: clamp(18px, 4.8vw, 24px);
+  height: clamp(18px, 4.8vw, 24px);
+}
+.namami-icon--after {
+  transform: scaleX(-1);
+}
+.namami-line.chittchorkam {
+  color: #845327;
+  text-shadow:
+    0 2px 12px rgba(200, 149, 60, 0.16),
+    0 0 20px rgba(255, 226, 160, 0.12);
+}
+.namami-line.jnanamurti .namami-icon {
+  opacity: 0.64;
+}
+.namami-line.sarvahit .namami-icon {
+  opacity: 0.7;
+}
+.home-new__guru-lines--closing .namami-line,
+.namami-line.sant-durlabham {
+  font-size: clamp(22px, 5.5vw, 34px);
+  color: #6f5032;
+  opacity: 0.95;
 }
 .devotional-line-main {
   color: #7a5634;
@@ -384,29 +433,26 @@
 .home-new__charan-instruction {
   position: absolute;
   top: 50%;
-  right: calc(100% - 0.15rem);
+  right: calc(100% - 0.36rem);
   z-index: 2;
   display: inline-flex;
   align-items: center;
-  gap: 0.28rem;
-  width: max-content;
+  justify-content: center;
+  width: 1.95rem;
+  height: 1.95rem;
   margin: 0;
-  color: #7f4f25;
-  opacity: 0.94;
-  font-size: 0.78rem;
-  font-weight: 600;
-  line-height: 1.35;
-  letter-spacing: 0.025em;
-  transform: translateY(-50%);
-  text-shadow: 0 1px 8px rgba(255, 250, 240, 0.9);
-}
-.home-new__charan-instruction::after {
-  content: "→";
-  color: var(--new-gold);
-  font-size: 1.02rem;
+  border: 1px solid rgba(200, 149, 60, 0.42);
+  border-radius: 999px;
+  color: #b57824;
+  background: rgba(255, 247, 232, 0.74);
+  opacity: 0.9;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.42rem;
+  font-weight: 700;
   line-height: 1;
-  opacity: 0.78;
-  transform: translateY(-0.02rem);
+  transform: translateY(-50%);
+  box-shadow: 0 4px 16px rgba(104, 66, 41, 0.08);
+  text-shadow: 0 1px 8px rgba(255, 250, 240, 0.9);
 }
 .home-new__charan-area {
   position: relative;
@@ -847,8 +893,13 @@
     margin-top: 9px;
   }
   .home-new__charan-instruction {
-    right: calc(100% - 0.72rem);
-    font-size: 0.68rem;
+    right: calc(100% - 0.92rem);
+    width: 1.68rem;
+    height: 1.68rem;
+    font-size: 1.16rem;
+  }
+  .namami-line {
+    gap: 0.38rem;
   }
 }
 @media (min-width: 640px) {
