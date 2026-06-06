@@ -237,7 +237,7 @@ const HeroSection = () => {
           className="text-[9px] sm:text-base md:text-lg tracking-widest mt-6 sm:mt-8 md:mt-4 mb-0 uppercase font-body text-center leading-tight"
           style={{ color: "hsl(38 50% 88%)" }}
         >
-          Param Pujya Swami Subodhananda ji Maharaj
+          परम पूज्य स्वामी सुबोधानन्द जी महाराज
         </motion.p>
       </motion.div>
 
