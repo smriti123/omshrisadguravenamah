@@ -733,13 +733,6 @@ export const gallery2Categories: Gallery2Category[] = [
         alt: "Twameva Dravinam",
         caption: "त्वमेव द्रविणं",
       },
-      {
-        id: "others-arun-uncle",
-        src: othersArunUncle.url,
-        thumbnailSrc: othersArunUncle.url,
-        alt: "Pujya Swamiji with devotees",
-        caption: "",
-      },
     ],
   },
 ];
