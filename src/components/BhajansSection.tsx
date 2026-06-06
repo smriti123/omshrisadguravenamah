@@ -11,7 +11,7 @@ interface Bhajan {
 const bhajans: Bhajan[] = [
   {
     titleEn: "Om Namo Bhagavate & Rudrashtakam chanting by Pujya Swami Subodhanandaji",
-    titleHi: "ॐ नमो भगवते एवं रुद्राष्टकम जप — पूज्य स्वामी सुबोधानंदजी",
+    titleHi: "ॐ नमो भगवते एवं रुद्राष्टकम जप — परम पूज्य स्वामी सुबोधानन्द जी महाराज",
     youtubeUrl: "https://www.youtube.com/watch?v=hQ-B0TN6q-k&list=PLgy41qSqQO40hg3OZCoQwbh23rEy1beIy&index=1",
   },
   {
@@ -21,7 +21,7 @@ const bhajans: Bhajan[] = [
   },
   {
     titleEn: "Ramcharit Manas Path by Pujya Swami Subodhanandaji",
-    titleHi: "रामचरित मानस पाठ — पूज्य स्वामी सुबोधानंदजी",
+    titleHi: "रामचरित मानस पाठ — परम पूज्य स्वामी सुबोधानन्द जी महाराज",
     youtubeUrl: "https://www.youtube.com/watch?v=7iB5OSBq4p8&list=PLgy41qSqQO40hg3OZCoQwbh23rEy1beIy&index=3",
   },
   {

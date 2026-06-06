@@ -121,7 +121,7 @@ export type Gallery2Category = {
 export const gallery2Categories: Gallery2Category[] = [
   {
     id: "charan-vandan",
-    name: "नमामि पदलोचनम्।",
+    name: "ॐ श्री गुरुचरणकमलेभ्यो नमः।",
     description: "Charan-Vandan photographs with their captions.",
     photos: [
       {
@@ -129,7 +129,7 @@ export const gallery2Categories: Gallery2Category[] = [
         src: charanVandanFeet,
         thumbnailSrc: charanVandanFeet,
         alt: "Charan Vandan photo 1",
-        caption: "श्री गुरु चरण कमलेभ्यो नमः",
+        caption: "नमामि पदलोचनम्।",
       },
       {
         id: "charan-vandan-2",
@@ -184,7 +184,7 @@ export const gallery2Categories: Gallery2Category[] = [
   },
   {
     id: "with-gurudev",
-    name: "ॐ सद्गुरु प्रियाय नमः ।",
+    name: "ॐ सद्गुरुप्रियाय नमः।",
     description:
       "The first eight photos from the current gallery are grouped here for easy browsing with captions.",
     photos: [
@@ -280,7 +280,7 @@ export const gallery2Categories: Gallery2Category[] = [
   },
   {
     id: "namami-chittchorkam",
-    name: "Namami chittchorkam / नमामि चित्तचोरकम्",
+    name: "ॐ आनन्दवर्धकाय नमः।",
     description:
       "Photos from the Namami-Chittchorkam section with their captions.",
     photos: [
@@ -554,7 +554,7 @@ export const gallery2Categories: Gallery2Category[] = [
   },
   {
     id: "key-events",
-    name: "ॐ दृढ़प्रतिज्ञे नमः",
+    name: "ॐ दृढ़प्रतिज्ञे नमः।",
     description: "Photos and captions for Akhileshwar Mahadev Mandir.",
     photos: [
       {
@@ -652,7 +652,7 @@ export const gallery2Categories: Gallery2Category[] = [
   },
   {
     id: "others",
-    name: "अन्य पावन झलकियाँ",
+    name: "ॐ अद्वितीयाय नमः।",
     description: "Use this category for photos that do not fit the other tabs.",
     photos: [
       {

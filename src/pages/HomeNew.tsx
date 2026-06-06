@@ -210,7 +210,7 @@ const HomeNew = () => {
       <main>
         <section
           className="home-new__hero"
-          aria-label="Param Pujya Swami Subodhananda ji Maharaj"
+          aria-label="परम पूज्य स्वामी सुबोधानन्द जी महाराज"
         >
           <div className="home-new__portrait-frame">
             <img
@@ -220,7 +220,7 @@ const HomeNew = () => {
             />
           </div>
           <p className="home-new__hero-subtitle swamiji-name">
-            Param Pujya Swami Subodhananda ji Maharaj
+            परम पूज्य स्वामी सुबोधानन्द जी महाराज
           </p>
 
           <div className="home-new__charan-area">
@@ -307,7 +307,7 @@ const HomeNew = () => {
             className="home-new__guru-lines--photos"
             variant="jnanamurti"
           >
-            नमामि ज्ञानमूर्तिम्॥
+            नमामि वाङ्मयीं मूर्तिम्॥
           </NamamiLine>
         </section>
 
