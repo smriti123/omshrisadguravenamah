@@ -84,6 +84,7 @@ import namamiAdd3 from "@/assets/gallery/namami-add-3.jpg";
 import namamiAdd4 from "@/assets/gallery/namami-add-4.jpg";
 import namamiChittNew from "@/assets/gallery/namami-chitt-new.jpg.asset.json";
 import othersArunUncle from "@/assets/gallery/others-arun-uncle.jpg.asset.json";
+import gurudevWheelchairWithSwamiji from "@/assets/gallery/gurudev-wheelchair-with-swamiji.jpg.asset.json";
 
 // Others — Twameva Dravinam
 import othersDravinam from "@/assets/gallery/others-dravinam.jpg";
@@ -189,8 +190,8 @@ export const gallery2Categories: Gallery2Category[] = [
     photos: [
       {
         id: "with-gurudev-1",
-        src: h1,
-        thumbnailSrc: h1,
+        src: gurudevWheelchairWithSwamiji.url,
+        thumbnailSrc: gurudevWheelchairWithSwamiji.url,
         alt: "With Gurudev photo 1",
         caption: "ॐ सद्गुरु प्रियाय नमः ।",
       },
@@ -654,6 +655,13 @@ export const gallery2Categories: Gallery2Category[] = [
     name: "अन्य पावन झलकियाँ",
     description: "Use this category for photos that do not fit the other tabs.",
     photos: [
+      {
+        id: "others-arun-uncle",
+        src: othersArunUncle.url,
+        thumbnailSrc: othersArunUncle.url,
+        alt: "Pujya Swamiji with devotees",
+        caption: "",
+      },
       {
         id: "others-twameva-mata",
         src: pairMata,
