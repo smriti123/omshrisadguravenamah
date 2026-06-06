@@ -190,8 +190,8 @@ export const gallery2Categories: Gallery2Category[] = [
     photos: [
       {
         id: "with-gurudev-1",
-        src: gurudevWheelchairWithSwamiji.url,
-        thumbnailSrc: gurudevWheelchairWithSwamiji.url,
+        src: h1,
+        thumbnailSrc: h1,
         alt: "With Gurudev photo 1",
         caption: "ॐ सद्गुरु प्रियाय नमः ।",
       },
@@ -205,8 +205,8 @@ export const gallery2Categories: Gallery2Category[] = [
       },
       {
         id: "with-gurudev-3",
-        src: ph1,
-        thumbnailSrc: ph1,
+        src: gurudevWheelchairWithSwamiji.url,
+        thumbnailSrc: gurudevWheelchairWithSwamiji.url,
         alt: "With Gurudev photo 3",
         caption:
           "Whenever Pujya Gurudev came to Sidhbari, it was Swami Subodhanandaji who would push his wheelchair — doing so with such devotion and pride.",
