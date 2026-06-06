@@ -5,8 +5,6 @@ import {
   CirclePlay,
   Flower2,
   Footprints,
-  HeartHandshake,
-  Home,
   Images,
   Menu,
   MessageCircleHeart,
@@ -28,12 +26,14 @@ import "./HomeNew.css";
 
 const navItems = [
   { label: "Home", href: "#home" },
-  { label: "Photo Gallery", href: "#photos" },
   { label: "Charan-Vandan", href: "/old-home#charan-vandan" },
-  { label: "Stuti / Shlokas", href: "/old-home#stuti" },
-  { label: "Bhajan / Audio", href: "/old-home#bhajans" },
-  { label: "Video / Pravachan", href: "/old-home#talks" },
-  { label: "Hommage / समर्पण", href: "#hommage-preview" },
+  { label: "Charitra-Jhalak", href: "/old-home#photo-gallery2" },
+  { label: "Stuti", href: "/old-home#stuti" },
+  { label: "Virah Stuti", href: "/old-home#shraddanjali" },
+  { label: "Satsang", href: "/old-home#talks" },
+  { label: "Bhajan", href: "/old-home#bhajans" },
+  { label: "Quotes", href: "/old-home#quotes" },
+  { label: "Hommage", href: "/old-home#hommage" },
   { label: "About", href: "#about" },
 ];
 
@@ -64,14 +64,6 @@ const HomeNewLink = ({ className, href, children, onClick, ariaLabel }: HomeNewL
 
   return <a className={className} href={href} onClick={onClick} aria-label={ariaLabel}>{children}</a>;
 };
-
-const bottomNav = [
-  { label: "Home", href: "#home", icon: Home },
-  { label: "Photos", href: "#photos", icon: Images },
-  { label: "Stuti", href: "/old-home#stuti", icon: BookOpenText },
-  { label: "Bhajan", href: "/old-home#bhajans", icon: Music2 },
-  { label: "Hommage", href: "#hommage-preview", icon: HeartHandshake },
-];
 
 const HomeNew = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -233,10 +225,6 @@ const HomeNew = () => {
           <span>श्री गुरु चरणारविन्दाभ्यां नमः</span>
         </section>
       </main>
-
-      <nav className="home-new__bottom-nav" aria-label="Mobile navigation">
-        {bottomNav.map(({ label, href, icon: Icon }) => <HomeNewLink href={href} key={label}><Icon aria-hidden="true" /><span>{label}</span></HomeNewLink>)}
-      </nav>
     </div>
   );
 };
