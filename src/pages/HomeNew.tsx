@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect, useState } from "react";
+import { type CSSProperties, type ReactNode, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   BookOpenText,
@@ -35,6 +35,13 @@ const navItems = [
   { label: "Video / Pravachan", href: "/old-home#talks" },
   { label: "Hommage / समर्पण", href: "#hommage-preview" },
   { label: "About", href: "#about" },
+];
+
+const namamiRotatingLines = [
+  "नमामि भक्तवत्सलम्॥",
+  "नमामि सर्वहितचिन्तकम्॥",
+  "नमामि ज्ञानमूर्तिम्॥",
+  "नमामि सन्त दुर्लभम्॥",
 ];
 
 const featureCards = [
@@ -117,6 +124,22 @@ const HomeNew = () => {
           </div>
           <p className="home-new__hero-subtitle swamiji-name">Param Pujya Swami Subodhananda ji Maharaj</p>
 
+          <div className="home-new__guru-lines home-new__guru-lines--namami" aria-label="Namami devotional verses">
+            <span className="entry-main-line devotional-line-main">नमामि चित्तचोरकम्॥</span>
+            <div className="devotional-line-divider" aria-hidden="true" />
+            <div className="devotional-line-rotator" aria-label="Rotating Namami verses">
+              {namamiRotatingLines.map((line, index) => (
+                <span
+                  className="devotional-line-rotator-item"
+                  key={line}
+                  style={{ "--line-index": index } as CSSProperties}
+                >
+                  {line}
+                </span>
+              ))}
+            </div>
+          </div>
+
           <div className="home-new__charan-area">
             <div className="home-new__charan-orbit" aria-hidden="true">
               <svg viewBox="0 0 320 320">
@@ -194,10 +217,6 @@ const HomeNew = () => {
                 </span>
               </HomeNewLink>
             ))}
-          </div>
-          <div className="home-new__guru-lines home-new__guru-lines--section home-new__guru-lines--pranam" aria-label="Guru kripa verse">
-            <span className="entry-pranam-line devotional-line-pranam">नमामि सन्त दुर्लभम्॥</span>
-            <div className="devotional-line-divider" aria-hidden="true" />
           </div>
         </section>
 
