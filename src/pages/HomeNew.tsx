@@ -1,4 +1,4 @@
-import { type ReactNode, useState } from "react";
+import { type ComponentType, type ReactNode, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   BookOpenText,
@@ -125,23 +125,115 @@ const HomeNewLink = ({
   );
 };
 
+type NamamiVariant =
+  | "chittchorkam"
+  | "jnanamurti"
+  | "sarvahit"
+  | "sant-durlabham";
+
+type NamamiIconProps = {
+  className?: string;
+};
+
+const HeartBhavIcon = ({ className = "" }: NamamiIconProps) => (
+  <span className={`namami-icon ${className}`} aria-hidden="true">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M12 19.2C8.2 16.1 5 13.4 5 9.8C5 7.7 6.55 6 8.55 6C9.8 6 10.95 6.68 11.58 7.72C12.2 6.68 13.35 6 14.6 6C16.6 6 18.15 7.7 18.15 9.8C18.15 13.4 15 16.1 12 19.2Z"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.45"
+      />
+      <path
+        d="M18.9 4.3L19.55 5.7L21 6.35L19.55 7L18.9 8.4L18.25 7L16.8 6.35L18.25 5.7L18.9 4.3Z"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="1.15"
+      />
+    </svg>
+  </span>
+);
+
+const LotusIcon = ({ className = "" }: NamamiIconProps) => (
+  <span className={`namami-icon ${className}`} aria-hidden="true">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M12 20C8 17 6 14 6 10C9 11 11 14 12 20Z"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+      <path
+        d="M12 20C16 17 18 14 18 10C15 11 13 14 12 20Z"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+      <path
+        d="M12 20C10 15 10 10 12 5C14 10 14 15 12 20Z"
+        stroke="currentColor"
+        strokeWidth="1.45"
+      />
+      <path
+        d="M5 20H19"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeWidth="1.45"
+      />
+      <path
+        d="M4.8 8.2L3.8 7.2M19.2 8.2L20.2 7.2M12 3.2V2"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeWidth="1.2"
+        opacity="0.58"
+      />
+    </svg>
+  </span>
+);
+
+const ScriptureIcon = ({ className = "" }: NamamiIconProps) => (
+  <BookOpenText
+    className={`namami-icon ${className}`}
+    aria-hidden="true"
+    size={22}
+    strokeWidth={1.5}
+  />
+);
+
+const namamiIcons: Partial<
+  Record<NamamiVariant, ComponentType<NamamiIconProps>>
+> = {
+  chittchorkam: HeartBhavIcon,
+  jnanamurti: ScriptureIcon,
+  sarvahit: LotusIcon,
+};
+
 const NamamiLine = ({
   children,
   className = "",
+  variant,
 }: {
   children: ReactNode;
   className?: string;
-}) => (
-  <div
-    className={`home-new__guru-lines ${className}`}
-    aria-label={
-      typeof children === "string" ? children : "Namami devotional line"
-    }
-  >
-    <span className="namami-line">{children}</span>
-    <div className="devotional-line-divider" aria-hidden="true" />
-  </div>
-);
+  variant: NamamiVariant;
+}) => {
+  const Ornament = namamiIcons[variant];
+
+  return (
+    <div
+      className={`namami-block home-new__guru-lines ${className}`}
+      aria-label={
+        typeof children === "string" ? children : "Namami devotional line"
+      }
+    >
+      <span className={`namami-line ${variant}`}>
+        {Ornament ? <Ornament /> : null}
+        <span className="namami-text">{children}</span>
+        {Ornament ? <Ornament className="namami-icon--after" /> : null}
+      </span>
+      <div className="devotional-line-divider" aria-hidden="true" />
+    </div>
+  );
+};
 
 const HomeNew = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -200,10 +292,6 @@ const HomeNew = () => {
             Param Pujya Swami Subodhananda ji Maharaj
           </p>
 
-          <NamamiLine className="home-new__guru-lines--namami">
-            नमामि चित्तचोरकम्॥
-          </NamamiLine>
-
           <div className="home-new__charan-area">
             <div className="home-new__charan-orbit" aria-hidden="true">
               <svg viewBox="0 0 320 320">
@@ -220,7 +308,9 @@ const HomeNew = () => {
                 </text>
               </svg>
             </div>
-            <p className="home-new__charan-instruction">चरण स्पर्श करें</p>
+            <p className="home-new__charan-instruction" aria-hidden="true">
+              →
+            </p>
             <button
               className="home-new__charan-button"
               type="button"
@@ -233,6 +323,13 @@ const HomeNew = () => {
               />
             </button>
           </div>
+
+          <NamamiLine
+            className="home-new__guru-lines--namami"
+            variant="chittchorkam"
+          >
+            नमामि चित्तचोरकम्॥
+          </NamamiLine>
         </section>
 
         <section
@@ -275,7 +372,10 @@ const HomeNew = () => {
               <img src={collage5} alt="Pujya Gurudev remembrance 6" />
             </div>
           </HomeNewLink>
-          <NamamiLine className="home-new__guru-lines--photos">
+          <NamamiLine
+            className="home-new__guru-lines--photos"
+            variant="jnanamurti"
+          >
             नमामि ज्ञानमूर्तिम्॥
           </NamamiLine>
         </section>
@@ -317,7 +417,10 @@ const HomeNew = () => {
               </HomeNewLink>
             ))}
           </div>
-          <NamamiLine className="home-new__guru-lines--cards">
+          <NamamiLine
+            className="home-new__guru-lines--cards"
+            variant="sarvahit"
+          >
             नमामि सर्वहितचिन्तकम्॥
           </NamamiLine>
         </section>
@@ -333,7 +436,10 @@ const HomeNew = () => {
             A peaceful digital space created for darshan, remembrance and
             gratitude at the lotus feet of Pujya Swamiji.
           </p>
-          <NamamiLine className="home-new__guru-lines--closing">
+          <NamamiLine
+            className="home-new__guru-lines--closing"
+            variant="sant-durlabham"
+          >
             नमामि सन्त दुर्लभम्॥
           </NamamiLine>
           <span className="devotional-om-small" aria-hidden="true">
