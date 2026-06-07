@@ -5,7 +5,11 @@ import g3 from "@/assets/g3.jpg";
 import g2Replace4 from "@/assets/gallery/g2-replace-4.jpg";
 import gurudev3 from "@/assets/gallery/Gurudev3.jpg";
 import gurudev from "@/assets/Gurudev.jpg";
+import p10 from "@/assets/gallery/photo-10.jpg";
 import p16 from "@/assets/gallery/photo-16.jpg";
+import gp from "@/assets/gallery/GP.jpeg";
+import kreeda from "@/assets/gallery/kreeda.jpg";
+import gaumata from "@/assets/Gaumata.jpg";
 import lastPhoto from "@/assets/gallery/Last.jpeg";
 import mahasamadhi1 from "@/assets/gallery/v7.jpeg";
 import mahasamadhi2 from "@/assets/gallery/v9.jpg";
@@ -594,7 +598,8 @@ export const gallery2Categories: Gallery2Category[] = [
         src: sh3,
         thumbnailSrc: sh3,
         alt: "Sabhaghar",
-        caption: "Sabhaghar — Pujya Swamiji reviewing construction of Chinmaya Shatabdi Sabhagreh at Siddhbari",
+        caption:
+          "Sabhaghar — Pujya Swamiji reviewing construction of Chinmaya Shatabdi Sabhagreh at Siddhbari",
       },
       {
         id: "key-events-sabhaghar-2",
@@ -729,6 +734,40 @@ export const gallery2Categories: Gallery2Category[] = [
         thumbnailSrc: othersDravinam,
         alt: "Twameva Dravinam",
         caption: "त्वमेव द्रविणं",
+      },
+      {
+        id: "others-dhenu-priyay",
+        src: gaumata,
+        thumbnailSrc: gaumata,
+        alt: "Pujya Swamiji with Gaumata",
+        caption:
+          "ॐ धेनु प्रियाय नमः। एक बार पूज्य गुरु जी ने राममन्दिर के बाहर भी विधिवत् गैया मैया की पूजा की थी । I fondly remember when Swamiji entered the Gaushala how all the cows started getting restless and impatient for Swamiji’s touch and love and cuddle!! Swamiji called few names of cows so lovingly... Parvati... Nandini... and a few others, and they all poured their love for Swamiji the moment he came near each one of them.....💐",
+        objectFit: "contain",
+      },
+      {
+        id: "others-siddhbari-cottage-july-2020",
+        src: gp,
+        thumbnailSrc: gp,
+        alt: "Pujya Swamiji at Siddhbari cottage in July 2020",
+        caption: "at Siddhbari cottage : July 2020,'",
+        objectFit: "contain",
+      },
+      {
+        id: "others-vintage-portrait",
+        src: p10,
+        thumbnailSrc: p10,
+        alt: "Vintage portrait of Pujya Swamiji",
+        caption: "",
+        objectFit: "contain",
+      },
+      {
+        id: "others-kreeda-priyay",
+        src: kreeda,
+        thumbnailSrc: kreeda,
+        alt: "Pujya Swamiji playing at Siddhbari",
+        caption:
+          "ॐ क्रीडा प्रियाय नमः । एकदम सार्थक है यह नाम। विद्यार्थी काल में क्रिकेट 🏏 के लिए जयंत क्लब की स्थापना। ब्रह्मचारी काल में और आचार्य काल में सिद्धबारी में 🏸 बैडमिंटन, कब्बडी। A lot of Volleyball too until early 2005 before valve replacement surgery! Later Pujya Swamiji adopted doing regular yogasanas in His cottage instead of outdoor games. He was a very good badminton player in his time. During my batch (1998), I was blessed enough that he used to play with me in a very well steady manner and also taught me the same.",
+        objectFit: "contain",
       },
     ],
   },
