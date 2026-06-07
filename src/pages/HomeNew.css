@@ -181,7 +181,8 @@
 }
 .home-new__guru-lines--closing {
   --devotional-divider-bg: #fffaf0;
-  margin: 1.35rem auto 0.4rem;
+  margin: 1.45rem auto 0.38rem;
+  gap: 0.56rem;
 }
 .home-new__guru-lines--charan {
   margin: 0.72rem auto 0;
@@ -282,12 +283,31 @@
 .home-new__guru-lines--closing .namami-line,
 .namami-line.sant-durlabham {
   color: #8a5a2b;
-  font-size: clamp(23px, 5.8vw, 36px);
+  font-size: clamp(28px, 6.6vw, 44px);
   opacity: 0.98;
+  animation: finalPranamSettle 1.55s cubic-bezier(0.22, 0.8, 0.32, 1) both;
 }
 .namami-line.sant-durlabham::before,
 .namami-line.sant-durlabham::after {
   content: none;
+}
+.home-new__guru-lines--closing .namami-text {
+  font-size: inherit;
+}
+.home-new__guru-lines--closing .devotional-line-divider {
+  width: 230px;
+  height: 24px;
+  margin-top: 4px;
+  opacity: 0;
+  animation: finalOfferingReveal 1.25s ease 0.55s both;
+}
+.home-new__guru-lines--closing .devotional-line-divider .divider-symbol {
+  font-size: 27px;
+  opacity: 0.94;
+}
+.home-new__guru-lines--closing .devotional-line-divider .divider-symbol svg {
+  height: 22px;
+  stroke-width: 1.18;
 }
 .devotional-line-divider {
   position: relative;
@@ -458,6 +478,14 @@
   opacity: 0.78;
   text-shadow: 0 2px 10px rgba(200, 149, 60, 0.18);
   animation: softFadeUp 1.8s ease both;
+}
+.home-new__about .devotional-om-small {
+  display: inline-block;
+  margin-top: 0.1rem;
+  font-size: 28px;
+  letter-spacing: 0;
+  opacity: 0;
+  animation: finalOfferingReveal 1.2s ease 0.75s both;
 }
 .home-new__portrait-frame {
   width: min(74vw, 17rem);
@@ -875,6 +903,26 @@
     transform: translateY(0);
   }
 }
+@keyframes finalPranamSettle {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes finalOfferingReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-7px);
+  }
+  to {
+    opacity: 0.82;
+    transform: translateY(0);
+  }
+}
 @keyframes home-new-photo-slide {
   0% {
     opacity: 0;
@@ -929,6 +977,12 @@
   }
   .devotional-line-divider .divider-symbol {
     font-size: 19px;
+  }
+  .home-new__guru-lines--closing .devotional-line-divider {
+    width: 205px;
+  }
+  .home-new__guru-lines--closing .devotional-line-divider .divider-symbol {
+    font-size: 25px;
   }
   .home-new__charan-instruction {
     right: calc(100% - 0.92rem);
@@ -1036,6 +1090,7 @@
   }
   .home-new__charan-orbit,
   .namami-line,
+  .devotional-line-divider,
   .devotional-om-small {
     animation: none;
   }
@@ -1045,6 +1100,10 @@
   }
   .devotional-om-small {
     opacity: 0.78;
+    transform: none;
+  }
+  .home-new__guru-lines--closing .devotional-line-divider {
+    opacity: 0.92;
     transform: none;
   }
   .home-new__menu,
