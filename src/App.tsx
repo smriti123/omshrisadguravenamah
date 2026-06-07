@@ -22,7 +22,7 @@ const HashScrollToElement = () => {
 
     const targetId = decodeURIComponent(hash.slice(1));
     const retryDelays = [0, 50, 150, 350];
-    const timeoutIds: ReturnType<typeof setTimeout>[] = [];
+    const timeoutIds: number[] = [];
 
     const scrollToTarget = () => {
       const target = document.getElementById(targetId);
@@ -38,7 +38,7 @@ const HashScrollToElement = () => {
 
     return () => {
       window.cancelAnimationFrame(frameId);
-      timeoutIds.forEach(window.clearTimeout);
+      timeoutIds.forEach((id) => window.clearTimeout(id));
     };
   }, [hash, pathname]);
 
