@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, ChevronUp, X } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import GyannisthaCard from "@/components/GyannisthaCard";
 import gangeshanandaStuti from "@/assets/stuti-gangeshananda.jpg";
@@ -491,7 +491,9 @@ const gangeshanandaVerses = [
   ],
 ];
 
-const GangeshanandaStutiCard = () => (
+const GangeshanandaStutiCard = () => {
+  const [zoomed, setZoomed] = useState(false);
+  return (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -509,12 +511,19 @@ const GangeshanandaStutiCard = () => (
       ।। श्री सद्गुरुवे देवाय नमः ।।
     </h3>
     <div className="flex flex-col items-center mb-4">
+      <button
+        type="button"
+        onClick={() => setZoomed(true)}
+        aria-label="Enlarge photo of Brahmaleen Swami Gangeshanandaji"
+        className="focus:outline-none focus:ring-2 focus:ring-gold/60 rounded-full"
+      >
       <img
         src={gangeshanandaWriter}
         alt="Brahmaleen Swami Gangeshanandaji"
-        className="w-20 h-20 rounded-full object-cover border-2 border-gold/40 shadow-gold mb-2"
+        className="w-20 h-20 rounded-full object-cover border-2 border-gold/40 shadow-gold mb-2 cursor-zoom-in transition hover:scale-105"
         loading="lazy"
       />
+      </button>
       <p className="text-center text-xs text-muted-foreground italic">
         by Brahmaleen Swami Gangeshanandaji
       </p>
@@ -541,8 +550,38 @@ const GangeshanandaStutiCard = () => (
         </div>
       ))}
     </div>
+    <AnimatePresence>
+      {zoomed && (
+        <motion.div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setZoomed(false)}
+        >
+          <button
+            type="button"
+            onClick={() => setZoomed(false)}
+            className="absolute right-4 top-4 rounded-full bg-black/60 p-2 text-white hover:bg-black/80"
+            aria-label="Close"
+          >
+            <X className="h-5 w-5" />
+          </button>
+          <motion.img
+            src={gangeshanandaWriter}
+            alt="Brahmaleen Swami Gangeshanandaji"
+            className="max-h-[90vh] max-w-[92vw] rounded-lg object-contain shadow-2xl"
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0.9 }}
+            onClick={(e) => e.stopPropagation()}
+          />
+        </motion.div>
+      )}
+    </AnimatePresence>
   </motion.div>
-);
+  );
+};
 
 const StutiSection = () => {
   return (
