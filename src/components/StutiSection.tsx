@@ -4,7 +4,8 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import GyannisthaCard from "@/components/GyannisthaCard";
 import gangeshanandaStuti from "@/assets/stuti-gangeshananda.jpg";
-import gangeshanandaWriter from "@/assets/stuti-gangeshananda-writer.jpg";
+import gangeshanandaWriterAsset from "@/assets/stuti-gangeshananda-new.png.asset.json";
+const gangeshanandaWriter = gangeshanandaWriterAsset.url;
 
 const stutiNames = [
   "ॐ ॐकाराय नमः ।",
