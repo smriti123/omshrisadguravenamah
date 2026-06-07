@@ -261,7 +261,7 @@ const PhotoGallery2 = () => {
                               className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                             >
                               {category.photos.map((photo) => {
-                                const shouldContainImage = photo.objectFit === "contain";
+                                const shouldContainImage = photo.objectFit !== "cover";
 
                                 return (
                                   <motion.button
@@ -278,13 +278,13 @@ const PhotoGallery2 = () => {
                                     <div
                                       className={`flex w-full items-center justify-center overflow-hidden rounded-[1.2rem] border border-amber-500/20 shadow-inner ${
                                         photo.wide ? "aspect-[1353/806]" : "aspect-[4/5] sm:aspect-auto sm:h-80"
-                                      } ${shouldContainImage ? "bg-amber-50/80 p-1" : "bg-amber-50/40 p-0"}`}
+                                      } ${shouldContainImage ? "bg-amber-50/80 p-2" : "bg-amber-50/40 p-0"}`}
                                     >
                                       <img
                                         src={photo.thumbnailSrc}
                                         alt={photo.alt}
                                         loading="lazy"
-                                        className={`h-full w-full rounded-[1rem] ${shouldContainImage ? "object-contain" : "object-cover"} object-top sm:object-center transition duration-500 group-hover:scale-[1.015]`}
+                                        className={`h-full w-full rounded-[1rem] ${shouldContainImage ? "object-contain" : "object-cover object-top sm:object-center transition duration-500 group-hover:scale-[1.015]"}`}
                                       />
                                     </div>
                                     <p className="whitespace-pre-line px-4 py-2 text-base leading-6 text-amber-950/80 sm:text-sm">{photo.caption}</p>
