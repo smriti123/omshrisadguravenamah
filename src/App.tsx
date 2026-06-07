@@ -21,7 +21,7 @@ const HashScrollToElement = () => {
     }
 
     const targetId = decodeURIComponent(hash.slice(1));
-    const retryDelays = [0, 50, 150, 350];
+    const retryDelays = [0, 50, 150, 350, 800, 1400, 2200];
     const timeoutIds: number[] = [];
 
     const scrollToTarget = () => {
