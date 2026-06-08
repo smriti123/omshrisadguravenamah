@@ -21,6 +21,7 @@ import collage3 from "@/assets/home-new-collage/c3.png";
 import collage4 from "@/assets/home-new-collage/c4.webp";
 import collage5 from "@/assets/home-new-collage/c5.webp";
 import collage6 from "@/assets/home-new-collage/c6.jpg";
+import HommageSection from "@/components/HommageSection";
 import "./HomeNew.css";
 
 const featureCards = [
@@ -73,7 +74,7 @@ const featureCards = [
     description: "Words of wisdom from Pujya Swamiji",
   },
   {
-    href: "/old-home#hommage",
+    href: "#hommage",
     icon: MessageCircleHeart,
     title: "Hommage",
     description: "Offer a short devotional message",
@@ -355,6 +356,8 @@ const HomeNew = () => {
             नमामि सर्वभूतसुहृदम्॥
           </NamamiLine>
         </section>
+
+        <HommageSection />
 
         <section
           className="home-new__about"

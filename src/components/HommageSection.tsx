@@ -48,6 +48,9 @@ const HommageSection = () => {
       const response = await submitHommage({ name, message, consent, website });
       setStatus("success");
       setFeedback(response.message);
+      if (response.homage) {
+        setMessages((currentMessages) => [response.homage, ...currentMessages]);
+      }
       setName("");
       setMessage("");
       setConsent(false);
@@ -63,7 +66,7 @@ const HommageSection = () => {
       <div className="container mx-auto max-w-6xl">
         <SectionHeading
           title="Hommage / श्रद्धांजलि संदेश"
-          subtitle="Share a short devotional remembrance. Approved messages remain visible for 7 days."
+          subtitle="Share a short devotional remembrance. Messages are saved and shown to all visitors for 7 days."
         />
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)]">
@@ -81,7 +84,7 @@ const HommageSection = () => {
               </span>
               <div>
                 <h3 className="font-display text-2xl font-semibold text-foreground">Submit your homage</h3>
-                <p className="text-sm text-muted-foreground">New messages are reviewed before they appear publicly.</p>
+                <p className="text-sm text-muted-foreground">New messages appear publicly after submission.</p>
               </div>
             </div>
 
@@ -156,8 +159,8 @@ const HommageSection = () => {
           <div className="grid content-start gap-4 sm:grid-cols-2">
             {messages.length === 0 ? (
               <div className="rounded-2xl border border-dashed border-gold/50 bg-card/60 p-6 text-center shadow-gold sm:col-span-2">
-                <p className="font-display text-2xl text-foreground">Approved messages will appear here.</p>
-                <p className="mt-2 text-sm text-muted-foreground">Each approved homage is shown newest first for 7 days.</p>
+                <p className="font-display text-2xl text-foreground">Messages will appear here.</p>
+                <p className="mt-2 text-sm text-muted-foreground">Each homage is shown newest first for 7 days.</p>
               </div>
             ) : (
               messages.map((item, index) => (

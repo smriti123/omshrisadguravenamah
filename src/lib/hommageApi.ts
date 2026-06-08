@@ -33,7 +33,7 @@ export const submitHommage = (payload: {
   message: string;
   consent: boolean;
   website?: string;
-}) => apiRequest<{ message: string }>("/api/hommages", { method: "POST", body: JSON.stringify(payload) });
+}) => apiRequest<{ message: string; homage?: HommageMessage }>("/api/hommages", { method: "POST", body: JSON.stringify(payload) });
 
 export const getAdminHommages = (password: string, status: string) =>
   apiRequest<{ messages: HommageMessage[] }>(`/api/admin/hommages?status=${encodeURIComponent(status)}`, {
