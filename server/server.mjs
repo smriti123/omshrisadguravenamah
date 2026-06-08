@@ -43,7 +43,8 @@ const publicStmt = db.prepare(`
 `);
 const insertStmt = db.prepare(`
   INSERT INTO hommages (name, message, approved, rejected, ip_hash)
-  VALUES (?, ?, 0, 0, ?)
+  VALUES (?, ?, 1, 0, ?)
+  RETURNING id, name, message, created_at
 `);
 const countRecentStmt = db.prepare(`
   SELECT COUNT(*) AS count
@@ -135,8 +136,11 @@ async function handleApi(req, res, url) {
       return json(res, 429, { error: "Too many submissions. Please try again later." });
     }
 
-    insertStmt.run(validation.data.name, validation.data.message, ipHash);
-    return json(res, 201, { message: "Thank you. Your message will be displayed after review." });
+    const savedMessage = insertStmt.get(validation.data.name, validation.data.message, ipHash);
+    return json(res, 201, {
+      message: "Thank you. Your message is now visible to all visitors.",
+      homage: savedMessage,
+    });
   }
 
   if (url.pathname.startsWith("/api/admin/")) {
