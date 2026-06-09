@@ -123,7 +123,7 @@ PORT=3000
 PUBLIC_DIR="dist"
 ```
 
-For local frontend development against a separately running backend, set `VITE_API_BASE_URL` to the backend origin. In production on the same domain, leave it unset.
+For local frontend development, `npm run dev` includes the homage API through Vite middleware, so form submissions to `/api/hommages` work without starting a separate backend. If you intentionally use a separately running backend, set `VITE_API_BASE_URL` to that backend origin. In production on the same domain, leave it unset.
 
 ### Build and run
 
@@ -139,13 +139,13 @@ Open the public site at `http://localhost:3000/`. Open moderation at:
 http://localhost:3000/admin/hommages
 ```
 
-New submissions are saved with `approved = 0` and do not appear publicly until approved from the moderation page.
+New submissions are saved as approved immediately and appear publicly for 7 days.
 
 ### Short testing instructions
 
 1. Run `npm test` to check the homage validation rules.
 2. Run `npm run build` to verify the React/Vite application compiles.
-3. Start the server with the environment variables above.
-4. Submit a message from the Hommage section and confirm the success message: “Thank you. Your message will be displayed after review.”
-5. Visit `/admin/hommages`, enter `HOMMAGE_ADMIN_PASSWORD`, approve the message, and confirm it appears publicly.
+3. For local development, run `npm run dev`; the Vite development server handles `/api/hommages` automatically.
+4. For a production-like run, start the server with the environment variables above.
+5. Submit a message from the Hommage section and confirm the success message: “Thank you. Your message is now visible to all visitors.”
 6. To verify 7-day expiry manually, update a test row's `created_at` to more than 7 days ago and confirm it no longer appears in `/api/hommages`.
