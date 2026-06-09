@@ -2,7 +2,7 @@ import { createServer } from "node:http";
 import { stat } from "node:fs/promises";
 import { createReadStream, existsSync } from "node:fs";
 import { extname, join, resolve } from "node:path";
-import { DB_PATH, handleApi, json } from "./hommage-api.mjs";
+import { DB_HOST, DB_NAME, DB_PORT, DB_USER, handleApi, initDb, json } from "./hommage-api.mjs";
 
 const PORT = Number(process.env.PORT || 3000);
 const PUBLIC_DIR = resolve(process.env.PUBLIC_DIR || "dist");
@@ -63,7 +63,13 @@ const server = createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, () => {
-  console.log(`Hommage website server listening on http://localhost:${PORT}`);
-  console.log(`SQLite database: ${DB_PATH}`);
-});
+try {
+  await initDb();
+  server.listen(PORT, () => {
+    console.log(`Hommage website server listening on http://localhost:${PORT}`);
+    console.log(`MySQL database: ${DB_USER}@${DB_HOST}:${DB_PORT}/${DB_NAME}`);
+  });
+} catch (error) {
+  console.error("Failed to initialize hommage MySQL database:", error);
+  process.exit(1);
+}
