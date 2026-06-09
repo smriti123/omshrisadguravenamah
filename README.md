@@ -74,30 +74,34 @@ Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/c
 
 ## Visitor Hommage / श्रद्धांजलि संदेश feature
 
-This project includes a backend-powered visitor homage section. Messages are stored in SQLite on the server, not in browser `localStorage`, so approved messages are visible to all visitors.
+This project includes a backend-powered visitor homage section. Messages are stored in the hosting MySQL database, so approved messages are visible to all visitors.
 
 ### Database and schema setup
 
-The Node server uses the built-in `node:sqlite` module and creates the SQLite database and schema automatically on startup. Use a Node.js runtime that includes `node:sqlite` (Node 22.5+ or newer is recommended; Node 24+ was used for validation). By default it stores the database at:
+The Node server connects to MySQL using the `mysql2` driver and creates the `hommages` table automatically on startup. The production defaults match the Plesk database shown for this site:
 
-```sh
-data/hommage.sqlite
+```text
+Host: 10.243.11.128
+Port: 3306
+Database: smriti_gupta_om
+User: smriti_gupta_om
 ```
 
-Keep this file outside any public/static web folder. The default `data/` path is not served by the app and is ignored by Git.
-
-The server creates this table:
+Set `HOMMAGE_DB_PASSWORD` to the MySQL password for that user before starting the server. The server creates this table if it does not already exist:
 
 ```sql
 CREATE TABLE IF NOT EXISTS hommages (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL,
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  name VARCHAR(120) NOT NULL,
   message TEXT NOT NULL,
-  created_at TEXT NOT NULL DEFAULT (datetime('now')),
-  approved INTEGER NOT NULL DEFAULT 0,
-  rejected INTEGER NOT NULL DEFAULT 0,
-  ip_hash TEXT
-);
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  approved TINYINT(1) NOT NULL DEFAULT 0,
+  rejected TINYINT(1) NOT NULL DEFAULT 0,
+  ip_hash CHAR(64),
+  PRIMARY KEY (id),
+  INDEX idx_hommages_public (approved, rejected, created_at),
+  INDEX idx_hommages_ip_created (ip_hash, created_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ```
 
 Public display only returns rows where `approved = 1`, `rejected = 0`, and `created_at` is within the last 7 days. Results are sorted newest first.
@@ -110,11 +114,18 @@ Set these variables in production before starting the server:
 # Required: password used by the protected moderation page/API.
 HOMMAGE_ADMIN_PASSWORD="replace-with-a-long-private-password"
 
+# Required: MySQL password for the smriti_gupta_om user.
+HOMMAGE_DB_PASSWORD="replace-with-the-plesk-mysql-password"
+
 # Strongly recommended: private salt used to hash submitter IP addresses for rate limiting.
 HOMMAGE_IP_HASH_SALT="replace-with-a-long-random-secret"
 
-# Optional: SQLite file location. Keep it outside the public web root.
-HOMMAGE_DB_PATH="/absolute/private/path/hommage.sqlite"
+# Optional: MySQL connection settings. Defaults are shown here.
+HOMMAGE_DB_HOST="10.243.11.128"
+HOMMAGE_DB_PORT=3306
+HOMMAGE_DB_NAME="smriti_gupta_om"
+HOMMAGE_DB_USER="smriti_gupta_om"
+HOMMAGE_DB_CONNECTION_LIMIT=5
 
 # Optional: server port. Hosting providers often set this automatically.
 PORT=3000
@@ -130,7 +141,7 @@ For local frontend development against a separately running backend, set `VITE_A
 ```sh
 npm install
 npm run build
-HOMMAGE_ADMIN_PASSWORD="change-me" HOMMAGE_IP_HASH_SALT="local-dev-salt" npm run server
+HOMMAGE_ADMIN_PASSWORD="change-me" HOMMAGE_DB_PASSWORD="mysql-password" HOMMAGE_IP_HASH_SALT="local-dev-salt" npm run server
 ```
 
 Open the public site at `http://localhost:3000/`. Open moderation at:
