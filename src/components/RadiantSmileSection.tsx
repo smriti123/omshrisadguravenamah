@@ -32,7 +32,7 @@ const photos = [
   { src: diw, caption: "", objectPosition: "center" },
   { src: smile7, caption: "", objectPosition: "top" },
   { src: smile8, caption: "श्री नन्दनाय नमः। जो अन्य को प्रसन्नचित्त करता है वो नन्दन: ऐसे हमारे प पू श्री गुरुवर्याय नमः।", objectPosition: "center" },
-  { src: smile9, caption: "", objectPosition: "center" },
+  { src: smile9, caption: "प्रसन्नभानुशोभनम्।", objectPosition: "center" },
   { src: smile10, caption: "", objectPosition: "top" },
   { src: smile11, caption: "", objectPosition: "top" },
   { src: smile12, caption: "", objectPosition: "top" },
