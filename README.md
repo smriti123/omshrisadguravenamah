@@ -74,58 +74,18 @@ Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/c
 
 ## Visitor Hommage / श्रद्धांजलि संदेश feature
 
-This project includes a backend-powered visitor homage section. Messages are stored in the hosting MySQL database, not in browser `localStorage`, so approved messages are visible to all visitors.
-
-### Database and schema setup
-
-The Node server connects to MySQL using the `mysql2` driver and creates the `hommages` table automatically on startup. The production defaults match the Plesk database shown for this site:
-
-```text
-Host: 10.243.11.128
-Port: 3306
-Database: smriti_gupta_om
-User: smriti_gupta_om
-```
-
-Set `HOMMAGE_DB_PASSWORD` to the MySQL password for that user before starting the server. The server creates this table if it does not already exist:
-
-```sql
-CREATE TABLE IF NOT EXISTS hommages (
-  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  name VARCHAR(120) NOT NULL,
-  message TEXT NOT NULL,
-  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  approved TINYINT(1) NOT NULL DEFAULT 0,
-  rejected TINYINT(1) NOT NULL DEFAULT 0,
-  ip_hash CHAR(64),
-  PRIMARY KEY (id),
-  INDEX idx_hommages_public (approved, rejected, created_at),
-  INDEX idx_hommages_ip_created (ip_hash, created_at)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-```
-
-Public display only returns rows where `approved = 1`, `rejected = 0`, and `created_at` is within the last 7 days. Results are sorted newest first.
+This project includes a lightweight backend-powered visitor homage section. Messages are stored in server memory, so they are visible to all visitors while the Node process is running and reset whenever the server restarts. No MySQL database or database credentials are required.
 
 ### Required environment variables
 
-Set these variables in production before starting the server:
+Set these variables before starting the server if you need admin moderation access:
 
 ```sh
-# Required: password used by the protected moderation page/API.
+# Required only for the protected moderation page/API.
 HOMMAGE_ADMIN_PASSWORD="replace-with-a-long-private-password"
-
-# Required: MySQL password for the smriti_gupta_om user.
-HOMMAGE_DB_PASSWORD="replace-with-the-plesk-mysql-password"
 
 # Strongly recommended: private salt used to hash submitter IP addresses for rate limiting.
 HOMMAGE_IP_HASH_SALT="replace-with-a-long-random-secret"
-
-# Optional: MySQL connection settings. Defaults are shown here.
-HOMMAGE_DB_HOST="10.243.11.128"
-HOMMAGE_DB_PORT=3306
-HOMMAGE_DB_NAME="smriti_gupta_om"
-HOMMAGE_DB_USER="smriti_gupta_om"
-HOMMAGE_DB_CONNECTION_LIMIT=5
 
 # Optional: server port. Hosting providers often set this automatically.
 PORT=3000
@@ -141,7 +101,7 @@ For local frontend development, `npm run dev` includes the homage API through Vi
 ```sh
 npm install
 npm run build
-HOMMAGE_ADMIN_PASSWORD="change-me" HOMMAGE_DB_PASSWORD="mysql-password" HOMMAGE_IP_HASH_SALT="local-dev-salt" npm run server
+HOMMAGE_ADMIN_PASSWORD="change-me" HOMMAGE_IP_HASH_SALT="local-dev-salt" npm run server
 ```
 
 Open the public site at `http://localhost:3000/`. Open moderation at:
@@ -150,7 +110,7 @@ Open the public site at `http://localhost:3000/`. Open moderation at:
 http://localhost:3000/admin/hommages
 ```
 
-New submissions are saved as approved immediately and appear publicly for 7 days.
+New submissions are approved immediately and appear publicly for 7 days while the process remains running.
 
 ### Short testing instructions
 
@@ -159,4 +119,4 @@ New submissions are saved as approved immediately and appear publicly for 7 days
 3. For local development, run `npm run dev`; the Vite development server handles `/api/hommages` automatically.
 4. For a production-like run, start the server with the environment variables above.
 5. Submit a message from the Hommage section and confirm the success message: “Thank you. Your message is now visible to all visitors.”
-6. To verify 7-day expiry manually, update a test row's `created_at` to more than 7 days ago and confirm it no longer appears in `/api/hommages`.
+6. Restart the server to confirm in-memory homage messages are cleared.
