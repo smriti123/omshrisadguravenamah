@@ -6,137 +6,91 @@ import {
   validateHommageSubmission,
 } from "./hommage-utils.mjs";
 
-export const DB_HOST = process.env.HOMMAGE_DB_HOST || "10.243.11.128";
-export const DB_PORT = Number(process.env.HOMMAGE_DB_PORT || 3306);
-export const DB_NAME = process.env.HOMMAGE_DB_NAME || "smriti_gupta_om";
-export const DB_USER = process.env.HOMMAGE_DB_USER || "smriti_gupta_om";
-const DB_PASSWORD = process.env.HOMMAGE_DB_PASSWORD || "";
-const DB_CONNECTION_LIMIT = Number(process.env.HOMMAGE_DB_CONNECTION_LIMIT || 5);
 const ADMIN_PASSWORD = process.env.HOMMAGE_ADMIN_PASSWORD || "";
 const IP_HASH_SALT = process.env.HOMMAGE_IP_HASH_SALT || "change-this-salt-before-production";
+const HOMMAGE_RETENTION_DAYS = 7;
 
-let db;
-let initPromise;
-
-async function getDb() {
-  if (!db) {
-    const { default: mysql } = await import("mysql2/promise");
-    db = mysql.createPool({
-      host: DB_HOST,
-      port: DB_PORT,
-      user: DB_USER,
-      password: DB_PASSWORD,
-      database: DB_NAME,
-      waitForConnections: true,
-      connectionLimit: DB_CONNECTION_LIMIT,
-      queueLimit: 0,
-      namedPlaceholders: false,
-      dateStrings: true,
-    });
-  }
-
-  return db;
-}
+let nextId = 1;
+const hommages = [];
 
 export async function initDb() {
-  const pool = await getDb();
-  initPromise ||= pool.execute(`
-    CREATE TABLE IF NOT EXISTS hommages (
-      id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-      name VARCHAR(120) NOT NULL,
-      message TEXT NOT NULL,
-      created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-      approved TINYINT(1) NOT NULL DEFAULT 0,
-      rejected TINYINT(1) NOT NULL DEFAULT 0,
-      ip_hash CHAR(64),
-      PRIMARY KEY (id),
-      INDEX idx_hommages_public (approved, rejected, created_at),
-      INDEX idx_hommages_ip_created (ip_hash, created_at)
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
-  `);
-  await initPromise;
+  return undefined;
+}
+
+function toApiMessage(message) {
+  return {
+    id: message.id,
+    name: message.name,
+    message: message.message,
+    created_at: message.created_at,
+    approved: message.approved,
+    rejected: message.rejected,
+    ip_hash: message.ip_hash,
+  };
+}
+
+function getRetentionCutoff() {
+  return Date.now() - HOMMAGE_RETENTION_DAYS * 24 * 60 * 60 * 1000;
 }
 
 async function getPublicHommages() {
-  const pool = await getDb();
-  const [rows] = await pool.execute(`
-    SELECT id, name, message, created_at
-    FROM hommages
-    WHERE approved = 1
-      AND rejected = 0
-      AND created_at >= DATE_SUB(NOW(), INTERVAL 7 DAY)
-    ORDER BY created_at DESC, id DESC
-  `);
-  return rows;
+  const cutoff = getRetentionCutoff();
+  return hommages
+    .filter((message) => message.approved && !message.rejected && new Date(message.created_at).getTime() >= cutoff)
+    .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime() || b.id - a.id)
+    .map(toApiMessage);
 }
 
 async function countRecentSubmissions(ipHash) {
-  const pool = await getDb();
-  const [rows] = await pool.execute(
-    `
-      SELECT COUNT(*) AS count
-      FROM hommages
-      WHERE ip_hash = ?
-        AND created_at >= DATE_SUB(NOW(), INTERVAL ? MINUTE)
-    `,
-    [ipHash, SUBMISSION_WINDOW_MINUTES],
-  );
-  return Number(rows[0]?.count || 0);
+  const cutoff = Date.now() - SUBMISSION_WINDOW_MINUTES * 60 * 1000;
+  return hommages.filter((message) => message.ip_hash === ipHash && new Date(message.created_at).getTime() >= cutoff).length;
 }
 
 async function insertHommage({ name, message, ipHash }) {
-  const pool = await getDb();
-  const [result] = await pool.execute(
-    `
-      INSERT INTO hommages (name, message, approved, rejected, ip_hash)
-      VALUES (?, ?, 1, 0, ?)
-    `,
-    [name, message, ipHash],
-  );
-  const [rows] = await pool.execute(
-    `
-      SELECT id, name, message, created_at
-      FROM hommages
-      WHERE id = ?
-    `,
-    [result.insertId],
-  );
-  return rows[0];
+  const savedMessage = {
+    id: nextId,
+    name,
+    message,
+    created_at: new Date().toISOString(),
+    approved: true,
+    rejected: false,
+    ip_hash: ipHash,
+  };
+  nextId += 1;
+  hommages.push(savedMessage);
+  return toApiMessage(savedMessage);
 }
 
 async function getAdminHommages(status) {
-  const pool = await getDb();
-  const [rows] = await pool.execute(
-    `
-      SELECT id, name, message, created_at, approved, rejected, ip_hash
-      FROM hommages
-      WHERE
-        (? = 'pending' AND approved = 0 AND rejected = 0)
-        OR (? = 'approved' AND approved = 1 AND rejected = 0)
-        OR (? = 'rejected' AND rejected = 1)
-        OR (? = 'all')
-      ORDER BY created_at DESC, id DESC
-      LIMIT 200
-    `,
-    [status, status, status, status],
-  );
-  return rows;
+  return hommages
+    .filter((message) => {
+      if (status === "pending") return !message.approved && !message.rejected;
+      if (status === "approved") return message.approved && !message.rejected;
+      if (status === "rejected") return message.rejected;
+      return true;
+    })
+    .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime() || b.id - a.id)
+    .slice(0, 200)
+    .map(toApiMessage);
 }
 
 async function updateHommageStatus(id, action) {
-  const pool = await getDb();
+  const index = hommages.findIndex((message) => message.id === id);
+  if (index === -1) return;
 
   if (action === "approve") {
-    await pool.execute("UPDATE hommages SET approved = 1, rejected = 0 WHERE id = ?", [id]);
+    hommages[index].approved = true;
+    hommages[index].rejected = false;
     return;
   }
 
   if (action === "reject") {
-    await pool.execute("UPDATE hommages SET approved = 0, rejected = 1 WHERE id = ?", [id]);
+    hommages[index].approved = false;
+    hommages[index].rejected = true;
     return;
   }
 
-  await pool.execute("DELETE FROM hommages WHERE id = ?", [id]);
+  hommages.splice(index, 1);
 }
 
 export function json(res, status, body) {
