@@ -24,7 +24,7 @@ const photos = [
     objectFit: "cover",
     wide: true,
   },
-  { src: smile1, caption: ""प्रसन्नभानुशोभनम्प्र सन्नाननं नीलकण्ठं दयालम्‌ । प्रिय शंकरं सर्वनाथं भजामि ॥", objectPosition: "top" },
+  { src: smile1, caption: "प्रसन्नभानुशोभनम्प्र सन्नाननं नीलकण्ठं दयालम्‌ । प्रिय शंकरं सर्वनाथं भजामि ॥", objectPosition: "top" },
   { src: smile2, caption: "ॐ प्रसन्न चित्ताय नमः ।", objectPosition: "top" },
   { src: smile3, caption: "🕉️श्री प्रमोदनाय नमः।(जो सदा प्रसन्न हैं वो प्रमोदन: ।)", objectPosition: "top" },
   { src: smile4, caption: "ॐ आनन्द स्वरूपाय नमः ।", objectPosition: "top" },
