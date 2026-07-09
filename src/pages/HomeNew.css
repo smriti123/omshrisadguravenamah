@@ -488,12 +488,24 @@
   animation: finalOfferingReveal 1.2s ease 0.75s both;
 }
 .home-new__portrait-frame {
-  width: min(74vw, 17rem);
-  padding: 0.35rem;
-  border: 1px solid rgba(189, 139, 66, 0.33);
+  position: relative;
+  width: min(82vw, 20rem);
   border-radius: 6.5rem 6.5rem 1.15rem 1.15rem;
-  background: rgba(255, 255, 255, 0.45);
-  box-shadow: 0 12px 30px rgba(104, 66, 41, 0.11);
+}
+.home-new__portrait-frame::before {
+  content: "";
+  position: absolute;
+  inset: -2.5rem;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(
+    ellipse at 50% 45%,
+    rgba(237, 189, 121, 0.38) 0%,
+    rgba(255, 220, 160, 0.2) 35%,
+    transparent 68%
+  );
+  filter: blur(22px);
+  pointer-events: none;
 }
 .home-new__portrait {
   display: block;
@@ -502,6 +514,12 @@
   object-fit: cover;
   object-position: center top;
   border-radius: 6.1rem 6.1rem 0.9rem 0.9rem;
+  box-shadow: 0 20px 60px rgba(104, 66, 41, 0.16), 0 0 0 1px rgba(189, 139, 66, 0.06);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.home-new__portrait-frame:hover .home-new__portrait {
+  transform: scale(1.025);
+  box-shadow: 0 28px 70px rgba(104, 66, 41, 0.2), 0 0 0 1px rgba(189, 139, 66, 0.1);
 }
 .home-new__charan-instruction {
   position: absolute;
@@ -1062,7 +1080,7 @@
     padding: 3rem 1rem 2.5rem;
   }
   .home-new__portrait-frame {
-    width: 18rem;
+    width: 21.5rem;
   }
   .home-new__guru-lines--entry {
     margin-top: 1.25rem;
