@@ -151,23 +151,23 @@
   box-shadow: 0 10px 26px rgba(104,66,41,.18), 0 0 0 1px rgba(189,139,66,.18);
 }
 
-/* Mahasamadhi diya — a gently pulsing flame-like glow */
+/* Mahasamadhi diya — a slow, steady, reverent flame-like glow */
 @keyframes diya-pulse {
   0%, 100% {
     box-shadow:
       0 0 0 4px #fffaf0,
       0 0 0 5px #bd8b42,
-      0 0 14px 4px rgba(237, 189, 121, .65),
-      0 0 34px 8px rgba(189, 139, 66, .35);
+      0 0 18px 4px rgba(237, 189, 121, .55),
+      0 0 40px 10px rgba(189, 139, 66, .22);
     transform: scale(1);
   }
   50% {
     box-shadow:
       0 0 0 4px #fffaf0,
       0 0 0 5px #bd8b42,
-      0 0 22px 8px rgba(237, 189, 121, .9),
-      0 0 50px 16px rgba(189, 139, 66, .5);
-    transform: scale(1.08);
+      0 0 26px 7px rgba(237, 189, 121, .72),
+      0 0 54px 14px rgba(189, 139, 66, .32);
+    transform: scale(1.04);
   }
 }
 
@@ -176,7 +176,7 @@
   height: 1.25rem !important;
   background: radial-gradient(circle at 35% 35%, #fffce8 0%, #fde9a3 35%, #edbd79 55%, #c68a3a 100%) !important;
   border-radius: 9999px;
-  animation: diya-pulse 3s ease-in-out infinite;
+  animation: diya-pulse 5s ease-in-out infinite;
 }
 
 .mahasamadhi-dot::after {
