@@ -1,4 +1,4 @@
-declare module "./server/hommage-api.mjs" {
+declare module "./hommage-api.mjs" {
   import type { ServerResponse, IncomingMessage } from "http";
 
   export function handleApi(
