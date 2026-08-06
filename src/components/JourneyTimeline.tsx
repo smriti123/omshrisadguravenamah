@@ -15,6 +15,7 @@ interface TimelineEvent {
   title: string;
   description: string;
   highlight?: boolean;
+  mahasamadhi?: boolean;
   image?: string;
 }
 
@@ -107,7 +108,7 @@ const events: TimelineEvent[] = [
     date: "27 September 2020",
     title: "End of an Era",
     description: "Mahasamadhi",
-    highlight: true,
+    mahasamadhi: true,
   },
 ];
 
