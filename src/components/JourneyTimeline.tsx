@@ -179,15 +179,23 @@ const JourneyTimeline = () => {
               >
                 {/* Diya dot */}
                 <div
-                  className="timeline-dot absolute left-[0.4rem] sm:left-[0.85rem] md:left-[1.55rem] top-2 w-3.5 h-3.5 rounded-full"
-                  style={{
-                    background: event.highlight
-                      ? "radial-gradient(circle at 35% 35%,#fff3c4 0%,#edbd79 45%,#bd8b42 100%)"
-                      : "#fffaf0",
-                    boxShadow: event.highlight
-                      ? "0 0 0 3px #fffaf0, 0 0 0 4px #bd8b42, 0 0 10px rgba(189,139,66,.55)"
-                      : "0 0 0 3px #fffaf0, 0 0 0 4px rgba(189,139,66,.55)",
-                  }}
+                  className={`timeline-dot absolute ${
+                    event.mahasamadhi
+                      ? "mahasamadhi-dot left-[0.15rem] sm:left-[0.6rem] md:left-[1.25rem] top-1.5"
+                      : "left-[0.4rem] sm:left-[0.85rem] md:left-[1.55rem] top-2 w-3.5 h-3.5"
+                  } rounded-full`}
+                  style={
+                    event.mahasamadhi
+                      ? {}
+                      : {
+                          background: event.highlight
+                            ? "radial-gradient(circle at 35% 35%,#fff3c4 0%,#edbd79 45%,#bd8b42 100%)"
+                            : "#fffaf0",
+                          boxShadow: event.highlight
+                            ? "0 0 0 3px #fffaf0, 0 0 0 4px #bd8b42, 0 0 10px rgba(189,139,66,.55)"
+                            : "0 0 0 3px #fffaf0, 0 0 0 4px rgba(189,139,66,.55)",
+                        }
+                  }
                 />
 
                 {/* Content */}
