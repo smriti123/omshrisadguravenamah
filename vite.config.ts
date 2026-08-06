@@ -1,4 +1,3 @@
-/// <reference path="./server/hommage-api.d.ts" />
 import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
@@ -8,7 +7,10 @@ const hommageDevApi = (): Plugin => ({
   name: "hommage-dev-api",
   apply: "serve",
   async configureServer(server) {
-    const { handleApi, json } = await import("./server/hommage-api.mjs");
+    const { handleApi, json } = await import("./server/hommage-api.mjs") as {
+      handleApi: (req: any, res: any, url: URL) => Promise<unknown>;
+      json: (res: any, status: number, data: unknown) => void;
+    };
 
     server.middlewares.use(async (req, res, next) => {
       const host = req.headers.host || "localhost";
