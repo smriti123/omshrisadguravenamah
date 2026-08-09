@@ -112,6 +112,11 @@ const events: TimelineEvent[] = [
   },
 ];
 
+// Events belonging to the final year are grouped into a special closing block
+const isFinalYear = (e: TimelineEvent) => e.date.includes("2020");
+const earlierEvents = events.filter((e) => !isFinalYear(e));
+const finalYearEvents = events.filter(isFinalYear);
+
 const JourneyTimeline = () => {
   return (
     <section
