@@ -202,14 +202,31 @@ const JourneyTimeline = () => {
                 <div
                   className="timeline-card rounded-xl p-3 sm:p-4 md:p-5"
                   style={{
-                    background: "rgba(255,250,240,.93)",
+                    background: event.mahasamadhi
+                      ? "linear-gradient(135deg,#fffaf0 0%,#fde8c8 100%)"
+                      : "rgba(255,250,240,.93)",
                     border: "1px solid rgba(189,139,66,.24)",
-                    borderLeft: `4px solid ${
-                      event.highlight ? "#bd8b42" : "rgba(189,139,66,.45)"
+                    borderLeft: `${event.mahasamadhi ? 6 : 4}px solid ${
+                      event.mahasamadhi
+                        ? "#ea580c"
+                        : event.highlight
+                        ? "#bd8b42"
+                        : "rgba(189,139,66,.45)"
                     }`,
-                    boxShadow: "0 6px 16px rgba(104,66,41,.10)",
+                    boxShadow: event.mahasamadhi
+                      ? "0 10px 30px rgba(234,88,12,.18)"
+                      : "0 6px 16px rgba(104,66,41,.10)",
                   }}
                 >
+                  {event.mahasamadhi && (
+                    <div
+                      className="mb-1 text-2xl leading-none"
+                      style={{ color: "#c2410c" }}
+                      aria-hidden="true"
+                    >
+                      ॐ
+                    </div>
+                  )}
                   <time
                     className="text-[0.68rem] sm:text-xs uppercase tracking-widest font-medium font-body"
                     style={{ color: "#bd8b42" }}
