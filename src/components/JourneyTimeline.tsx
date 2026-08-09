@@ -293,112 +293,57 @@ const JourneyTimeline = () => {
           />
 
           <div className="space-y-10">
-            {events.map((event, index) => (
-              <motion.div
-                key={index}
-                tabIndex={0}
-                className="timeline-item relative pl-10 sm:pl-14 md:pl-20 outline-none"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-              >
-                {/* Diya dot */}
-                <div
-                  className={`timeline-dot absolute ${
-                    event.mahasamadhi
-                      ? "mahasamadhi-dot left-[0.15rem] sm:left-[0.6rem] md:left-[1.25rem] top-1.5"
-                      : "left-[0.4rem] sm:left-[0.85rem] md:left-[1.55rem] top-2 w-3.5 h-3.5"
-                  } rounded-full`}
-                  style={
-                    event.mahasamadhi
-                      ? {}
-                      : {
-                          background: event.highlight
-                            ? "radial-gradient(circle at 35% 35%,#fff3c4 0%,#edbd79 45%,#bd8b42 100%)"
-                            : "#fffaf0",
-                          boxShadow: event.highlight
-                            ? "0 0 0 3px #fffaf0, 0 0 0 4px #bd8b42, 0 0 10px rgba(189,139,66,.55)"
-                            : "0 0 0 3px #fffaf0, 0 0 0 4px rgba(189,139,66,.55)",
-                        }
-                  }
-                />
-
-                {/* Content */}
-                <div
-                  className="timeline-card rounded-xl p-3 sm:p-4 md:p-5"
-                  style={{
-                    background: event.mahasamadhi
-                      ? "linear-gradient(135deg,#fffaf0 0%,#fde8c8 100%)"
-                      : "rgba(255,250,240,.93)",
-                    border: "1px solid rgba(189,139,66,.24)",
-                    borderLeft: `${event.mahasamadhi ? 6 : 4}px solid ${
-                      event.mahasamadhi
-                        ? "#ea580c"
-                        : event.highlight
-                        ? "#bd8b42"
-                        : "rgba(189,139,66,.45)"
-                    }`,
-                    boxShadow: event.mahasamadhi
-                      ? "0 10px 30px rgba(234,88,12,.18)"
-                      : "0 6px 16px rgba(104,66,41,.10)",
-                  }}
-                >
-                  {event.mahasamadhi && (
-                    <div
-                      className="mb-1 text-2xl leading-none"
-                      style={{ color: "#c2410c" }}
-                      aria-hidden="true"
-                    >
-                      ॐ
-                    </div>
-                  )}
-                  <time
-                    className="text-[0.68rem] sm:text-xs uppercase tracking-widest font-medium font-body"
-                    style={{ color: "#bd8b42" }}
-                  >
-                    {event.date}
-                  </time>
-                  <h3
-                    className="mt-1 text-lg sm:text-xl md:text-2xl font-semibold font-display"
-                    style={{ color: event.highlight ? "#3d2817" : "#684229" }}
-                  >
-                    {event.title}
-                  </h3>
-                  <p
-                    className="mt-2 leading-relaxed text-[0.88rem] sm:text-[0.95rem] font-body"
-                    style={{ color: "rgba(104,66,41,.78)" }}
-                  >
-                    {event.description}
-                  </p>
-
-                  {/* Photo for select milestones */}
-                  {event.image && (
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: 0.15 }}
-                      className="mt-4 rounded-lg overflow-hidden border w-full"
-                      style={{
-                        borderColor: "rgba(189,139,66,.35)",
-                        background: "#fdf6e6",
-                        padding: "4px",
-                        boxShadow: "0 8px 20px rgba(104,66,41,.15)",
-                        maxWidth: "min(100%, 320px)",
-                      }}
-                    >
-                      <img
-                        src={event.image}
-                        alt={event.title}
-                        className="w-full h-auto rounded-md"
-                        style={{ filter: "sepia(35%) contrast(1.02) brightness(0.97)" }}
-                      />
-                    </motion.div>
-                  )}
-                </div>
-              </motion.div>
+            {earlierEvents.map((event, index) => (
+              <TimelineRow key={index} event={event} index={index} />
             ))}
+
+            {/* Final year — 2020 */}
+            {finalYearEvents.length > 0 && (
+              <div className="relative pt-6">
+                {/* Gold divider marking the final year */}
+                <div className="pl-10 sm:pl-14 md:pl-20 mb-6">
+                  <div
+                    className="flex items-center gap-3"
+                    style={{ color: "#c2410c" }}
+                  >
+                    <span
+                      className="h-px flex-1"
+                      style={{
+                        background:
+                          "linear-gradient(90deg,rgba(189,139,66,0),#d97706)",
+                      }}
+                    />
+                    <span className="font-display text-xl sm:text-2xl tracking-widest">
+                      ✦ 2020 ✦
+                    </span>
+                    <span
+                      className="h-px flex-1"
+                      style={{
+                        background:
+                          "linear-gradient(90deg,#d97706,rgba(189,139,66,0))",
+                      }}
+                    />
+                  </div>
+                  <p
+                    className="mt-2 text-center font-body text-sm sm:text-base italic"
+                    style={{ color: "rgba(104,66,41,.75)" }}
+                  >
+                    अंतिम वर्ष — the final year in Sidhbari
+                  </p>
+                </div>
+
+                <div className="space-y-8">
+                  {finalYearEvents.map((event, index) => (
+                    <TimelineRow
+                      key={`f-${index}`}
+                      event={event}
+                      index={index}
+                      finalYear
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
