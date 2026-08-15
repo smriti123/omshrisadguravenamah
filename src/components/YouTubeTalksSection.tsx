@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Play } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 
-const categories = [
+export const categories = [
   "All",
   "Ramayana",
   "Others",
@@ -13,9 +13,9 @@ const categories = [
   "Prakaran Granth",
 ] as const;
 
-type Category = (typeof categories)[number];
+export type Category = (typeof categories)[number];
 
-interface Talk {
+export interface Talk {
   title: string;
   location?: string;
   year?: string;
@@ -23,7 +23,7 @@ interface Talk {
   category: Exclude<Category, "All">;
 }
 
-const talks: Talk[] = [
+export const talks: Talk[] = [
   // === RAMAYANA ===
   {
     title: "उत्तरकाण्ड - भाग १/७",
