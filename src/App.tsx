@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import HommageAdmin from "./pages/HommageAdmin";
 import HomeNew from "./pages/HomeNew";
+import SatsangVani from "./pages/SatsangVani";
 
 const queryClient = new QueryClient();
 
@@ -57,6 +58,7 @@ const App = () => (
           <Route path="/old-home" element={<Index />} />
           <Route path="/admin/hommages" element={<HommageAdmin />} />
           <Route path="/home-new" element={<HomeNew />} />
+          <Route path="/satsang-vani" element={<SatsangVani />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

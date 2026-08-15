@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Play } from "lucide-react";
+import { ChevronRight, ExternalLink, Play } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 
-const categories = [
+export const categories = [
   "All",
   "Ramayana",
   "Others",
@@ -13,9 +14,9 @@ const categories = [
   "Prakaran Granth",
 ] as const;
 
-type Category = (typeof categories)[number];
+export type Category = (typeof categories)[number];
 
-interface Talk {
+export interface Talk {
   title: string;
   location?: string;
   year?: string;
@@ -23,7 +24,7 @@ interface Talk {
   category: Exclude<Category, "All">;
 }
 
-const talks: Talk[] = [
+export const talks: Talk[] = [
   // === RAMAYANA ===
   {
     title: "उत्तरकाण्ड - भाग १/७",
@@ -487,6 +488,16 @@ const YouTubeTalksSection = () => {
           subtitle="An indexed collection of Pujya Swamiji's YouTube talks for easy reference"
           subtitleClassName="text-xs"
         />
+
+        <div className="mb-8 flex justify-center">
+          <Link
+            to="/satsang-vani"
+            className="inline-flex items-center gap-2 rounded-full border border-primary bg-card px-6 py-3 font-body text-base text-primary transition-all hover:shadow-gold"
+          >
+            सत्संग वाणी — बड़े अक्षरों में सरल सूची
+            <ChevronRight size={18} />
+          </Link>
+        </div>
 
         {/* Category Tabs */}
         <div className="flex flex-wrap justify-center gap-2 mb-10 max-w-4xl mx-auto">
