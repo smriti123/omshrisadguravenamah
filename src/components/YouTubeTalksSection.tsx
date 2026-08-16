@@ -489,13 +489,14 @@ const YouTubeTalksSection = () => {
           subtitleClassName="text-xs"
         />
 
-        <div className="mb-8 flex justify-center">
+        <div className="mb-6 flex justify-center">
           <Link
             to="/satsang-vani"
-            className="inline-flex items-center gap-2 rounded-full border border-primary bg-card px-6 py-3 font-body text-base text-primary transition-all hover:shadow-gold"
+            className="inline-flex max-w-md items-center gap-2 rounded-full border border-gold/40 bg-card/60 px-5 py-2.5 font-body text-sm text-primary transition-all hover:border-gold/70 hover:bg-card hover:shadow-gold"
           >
-            सत्संग वाणी — बड़े अक्षरों में सरल सूची
-            <ChevronRight size={18} />
+            <span aria-hidden="true">ॐ</span>
+            सत्संग वाणी — बड़े अक्षरों में
+            <ChevronRight size={16} />
           </Link>
         </div>
 
