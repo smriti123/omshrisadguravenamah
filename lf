@@ -1,0 +1,1030 @@
+
+FUNCTION Z_GETEXAVAILABILITY.
+*"----------------------------------------------------------------------
+*"*"Lokale Schnittstelle:
+*"  IMPORTING
+*"     VALUE(STRCUSTOMERGLN) TYPE  STRING
+*"     VALUE(STRBRANCHGLN) TYPE  STRING OPTIONAL
+*"     VALUE(STRDEHAITEMNUMBER) TYPE  STRING OPTIONAL
+*"     VALUE(STRSELECTIVEDISTRIBUTION) TYPE  STRING OPTIONAL
+*"     VALUE(STRITEMGTIN) TYPE  STRING OPTIONAL
+*"     VALUE(STRITEMSUPPLIER) TYPE  STRING OPTIONAL
+*"     VALUE(STRITEMTYPE) TYPE  STRING OPTIONAL
+*"     VALUE(DBLAMOUNT) TYPE  FLOAT OPTIONAL
+*"     VALUE(STRAMOUNTUNIT) TYPE  STRING OPTIONAL
+*"  EXPORTING
+*"     VALUE(GETEXAVAILABILITYRESULT) TYPE  INTEGER
+*"     VALUE(STR_DEHAITEMNUMBER) TYPE  STRING
+*"     VALUE(STR_SELECTIVEDISTRIBUTION) TYPE  STRING
+*"     VALUE(STR_ITEMGTIN) TYPE  STRING
+*"     VALUE(STR_ITEMSUPPLIER) TYPE  STRING
+*"     VALUE(STR_ITEMTYPE) TYPE  STRING
+*"     VALUE(DBL_AMOUNT) TYPE  FLOAT
+*"     VALUE(STR_AMOUNTUNIT) TYPE  STRING
+*"     VALUE(STR_ITEMDESCRIPTION) TYPE  STRING
+*"     VALUE(STR_ITEMSTATE) TYPE  STRING
+*"     VALUE(STR_REMARK) TYPE  STRING
+*"     VALUE(DBL_PRICE) TYPE  FLOAT
+*"     VALUE(STR_PRICEUNIT) TYPE  STRING
+*"----------------------------------------------------------------------
+
+*
+* 27.03.2015 - MurgiaAn - Ticket 420699 Anpassen der gemeldeten Menge
+*20190226/Loewener el#498659 Umbauen der Materialbestandsprüfung für den Werkswechsel
+*20200324/Loewener el#4142168: Echter Bestand unterdrücken ausser bei der DEHA selbst
+*-----------------------------------------------------------------------
+* Anpassung E.Sarac                             17.04.2015
+* neue Felder: DBL_PRICE
+*              STR_PRICEUNIT
+* KZ: "ES17042015
+*-----------------------------------------------------------------------
+
+    CONSTANTS: lc_pruefregel TYPE bapit441v-prreg VALUE 'A',
+*               lc_plant      TYPE werks_d         VALUE '1100',"20190226/Loewener el#498659
+               lc_unit       TYPE meinh           VALUE 'ST'.
+
+    TABLES: zel_egate_anfpro.
+
+    DATA: lv_plant          TYPE bapimatvp-werks,
+          lv_material       TYPE bapimatvp-matnr,
+          lv_werksbestand   TYPE bapicm61v-wkbst,
+          lv_unit           TYPE bapiadmm-unit.
+    DATA: lv_dialogflag     TYPE bapicm61v-diafl,
+          ls_return         TYPE bapireturn.
+    DATA: lt_wmdvsx         TYPE TABLE OF bapiwmdvs,
+          wa_wmdvsx         LIKE LINE OF lt_wmdvsx,
+          lt_wmdvex         TYPE TABLE OF bapiwmdve,
+          wa_wmdvex         LIKE LINE OF lt_wmdvex,
+          lt_t006           TYPE TABLE OF t006,
+          wa_t006           LIKE LINE OF lt_t006.
+    DATA: wa_marm           TYPE marm,
+          wa_marc           TYPE marc,
+          wa_mara           TYPE mara,
+          wa_makt           TYPE makt,
+          wa_eina           TYPE eina,
+          wa_t141t          TYPE t141t,
+          lv_ean11          TYPE ean11,
+          lv_werks          TYPE werks_d,
+          lv_matnr          TYPE matnr,
+          lv_bismt          TYPE mara-bismt,
+          lv_meinh          TYPE meinh,
+          lv_msehi          TYPE msehi,
+          lv_isocode        TYPE t006-isocode,
+          lv_idnlf          TYPE idnlf,
+          lv_check_menge    TYPE char1,
+          lv_verfuegbarkeit TYPE bapiwmdve-com_qty.
+    DATA: lv_zz_freivn      TYPE mara-zz_freivn,
+          lv_schalter(1)    TYPE c.
+
+    DATA: entscheidung(2)   TYPE c,
+          price             TYPE  float,
+          priceunit         TYPE  string.
+
+    DATA: lwa_shop_prices_out         TYPE ztrade_shop_prices_out.
+    DATA: lt_shop_prices_out          TYPE TABLE OF ztrade_shop_prices_out.
+    DATA: lwa_kalsm                   TYPE kalsm.
+    DATA: lt_komv                     TYPE TABLE OF komv.
+    DATA: t_ztrade_shop_material_mara TYPE TABLE OF ztrade_shop_material_mara.
+
+    DATA: zeit              LIKE sy-datum.
+
+**************************************
+*#### BEGIN Validierung #########
+    IF strcustomergln IS INITIAL.
+*     Fehler! Pflichtfeld strcustomergln ist leer. Abbruch Verarbeitung
+      MESSAGE e101(zwebservice) INTO str_remark.
+      getexavailabilityresult = 512.
+      str_itemstate           = getexavailabilityresult.
+      dbl_amount              = 0.         "Menge
+      EXIT.
+    ENDIF.
+
+* 11.05.2015 - MurgiaAn Inhalt nicht erforderlich.
+
+*    IF strbranchgln IS INITIAL.
+***     Fehler! Pflichtfeld strbranchgln ist leer. Abbruch Verarbeitung
+**      MESSAGE e102(zwebservice) INTO str_remark.
+**      EXIT.
+*    ELSE.
+*      IF strlen( strbranchgln ) > 4.
+**       Fehler! Pflichtfeld strbranchgln ist ungültig. Abbruch Verarbeitung
+*        MESSAGE e103(zwebservice) WITH strbranchgln INTO str_remark.
+*        getexavailabilityresult = 512.
+*        str_itemstate           = getexavailabilityresult.
+*        dbl_amount              = 0.         "Menge
+*        EXIT.
+*      ENDIF.
+*      lv_werks = strbranchgln.
+**     Prüfe Werk
+*      SELECT COUNT( * )
+*      FROM t001w
+*      WHERE werks = lv_werks.
+*      IF sy-subrc <> 0.
+**       Fehler! strBranchGLN &1 ist ungültig. Abbruch Verarbeitung
+*        MESSAGE e103(zwebservice) WITH strbranchgln INTO str_remark.
+*        getexavailabilityresult = 512.
+*        str_itemstate           = getexavailabilityresult.
+*        dbl_amount              = 0.         "Menge
+*        EXIT.
+*      ENDIF.
+*    ENDIF.
+
+    IF NOT stramountunit IS INITIAL.
+      IF stramountunit = 'INH' OR "Zoll
+         stramountunit = 'DAY' OR " Tage
+         stramountunit = 'AMP' OR "Ampere
+         stramountunit = 'DR'  OR " Bund/Trommel
+         stramountunit = 'DMQ' OR " Kubikdezimeter
+         stramountunit = 'CMT' OR " Zentimeter
+         stramountunit = 'DMT' OR " Dezimeter
+         stramountunit = 'GRM' OR " Gramm
+         stramountunit = 'HUR' OR " Stunde
+         stramountunit = 'HLT' OR " Hektoliter
+         stramountunit = 'ANN' OR " Jahre
+         stramountunit = 'CA'  OR " Kanister
+         stramountunit = 'CT'  OR " Karton
+         stramountunit = 'KGM' OR " Kilogramm
+         stramountunit = 'CR'  OR " Kiste
+         stramountunit = 'LE'  OR " Leistungseinheit
+         stramountunit = 'LTR' OR " Liter
+         stramountunit = 'MTR' OR " Meter
+         stramountunit = 'MTK' OR " Quadratmeter
+         stramountunit = 'MTQ' OR " Kubikmeter
+         stramountunit = 'MIN' OR " Minute
+         stramountunit = 'MTR' OR " Millimeter
+         stramountunit = 'MON' OR " Monate
+         stramountunit = 'PR'  OR " Paar
+         stramountunit = 'PK'  OR " Pack
+         stramountunit = 'PF'  OR " Palette
+         stramountunit = 'RO'  OR " Rolle
+         stramountunit = 'SEC' OR " Sekunde
+         stramountunit = 'PCE' OR " Stück
+         stramountunit = 'TNE' OR " Tonne
+         stramountunit = 'WEE'.   " Wochen
+      ELSE.
+*       fehler! feld stramountunit &1 unbekannt. abbruch verarbeitung
+        MESSAGE e105(zwebservice) WITH stramountunit INTO str_remark.
+        getexavailabilityresult = 1024.
+        str_itemstate           = getexavailabilityresult.
+        dbl_amount              = 0.         "Menge
+        EXIT.
+      ENDIF.
+    ENDIF.
+
+*   Prüfe DEHA-Nummer
+    IF NOT strdehaitemnumber IS INITIAL.
+      lv_bismt = strdehaitemnumber.
+      SELECT SINGLE * FROM mara
+             INTO wa_mara
+             WHERE bismt = lv_bismt.
+
+      IF sy-subrc = 0.
+        lv_matnr = wa_mara-matnr.
+      ELSE.
+*       Fehler! Feld strDEHAItemNumber: &1 unbekannt. Abbruch Verarbeitung
+        MESSAGE e113(zwebservice) WITH strdehaitemnumber INTO str_remark.
+        getexavailabilityresult = 256.
+        str_itemstate           = getexavailabilityresult.
+        dbl_amount              = 0.         "Menge
+        EXIT.
+      ENDIF.
+    ELSE.
+*     Von den drei Feldern "Artikelnr. EAN", "Artikelnr. des Herstellers"
+*     und "Artikeltype" muß mindestens eines gefüllt sein.
+      IF stritemgtin     IS INITIAL AND
+         stritemsupplier IS INITIAL AND
+         stritemtype     IS INITIAL.
+*       Fehler! Pflichtfeldgr. &1, &2 oder &3 nicht gefüllt. Abbruch Verarbeitung
+        MESSAGE e104(zwebservice) WITH 'stritemsupplier' 'stritemtype' 'stritemgtin' INTO str_remark.
+        getexavailabilityresult = 512.
+        str_itemstate           = getexavailabilityresult.
+        dbl_amount              = 0.         "Menge
+        EXIT.
+      ENDIF.
+    ENDIF.
+
+*   Prüfung wenn Menge übergeben wurde
+    IF NOT dblamount IS INITIAL.
+*     Mengeneinheit
+      IF NOT stramountunit IS INITIAL.
+        lv_isocode = stramountunit.
+        TRANSLATE lv_isocode TO UPPER CASE.
+*       Mengeneinheit
+        SELECT * FROM t006
+            INTO TABLE lt_t006
+            WHERE isocode = lv_isocode.
+        IF sy-subrc = 0.
+          lv_check_menge = 'X'.
+          IF lines( lt_t006 ) = 1.
+            READ TABLE lt_t006 INTO wa_t006 INDEX 1.
+            lv_msehi = wa_t006-msehi.
+          ELSE.
+            LOOP AT lt_t006 INTO wa_t006.
+              IF wa_t006-primary = 'X'.
+                lv_msehi = wa_t006-msehi.
+                EXIT.
+              ELSE.
+                lv_msehi = wa_t006-msehi.
+              ENDIF.
+            ENDLOOP.
+          ENDIF.
+        ELSE.
+*         Fehler! Menge ohne Mengeneinheit. Abbruch Verarbeitung
+          MESSAGE e106(zwebservice) INTO str_remark.
+          getexavailabilityresult = 512.
+          str_itemstate           = getexavailabilityresult.
+          dbl_amount              = 0.         "Menge
+          EXIT.
+        ENDIF.
+      ENDIF.
+    ENDIF.
+
+*#### ENDE Validierung #########
+**************************************
+
+    IF NOT stritemgtin IS INITIAL.
+*     Ermittle Materialnummer anhand der ILN
+      lv_ean11 = stritemgtin.
+
+*     Suche über MARM da ein Index existiert
+      SELECT SINGLE * FROM marm
+             INTO wa_marm
+             WHERE ean11 = lv_ean11.
+
+      IF sy-subrc = 0.
+        lv_matnr = wa_marm-matnr.
+        lv_meinh = wa_marm-meinh.
+      ELSE.
+*       Fehler! Feld stritemgtin &1 ist ungültig. Abbruch Verarbeitung
+        MESSAGE e108(zwebservice) WITH stritemgtin INTO str_remark.
+        getexavailabilityresult = 512.
+        str_itemstate           = getexavailabilityresult.
+        dbl_amount              = 0.         "Menge
+        EXIT.
+      ENDIF.
+**     Die Suche nur über MARA dauert zu lange da kein Index angelegt wurde
+*      SELECT SINGLE matnr meins
+*      FROM mara
+*      INTO (lv_matnr, lv_meinh)
+*      WHERE ean11 = lv_ean11.
+*      IF sy-subrc <> 0.
+**       Fehler! Feld stritemgtin &1 ist ungültig. Abbruch Verarbeitung
+*        MESSAGE e108(zwebservice) WITH stritemgtin INTO str_remark.
+*        EXIT.
+*      ENDIF.
+    ENDIF.
+
+*   Artikelnr. des Herstellers aus Einkaufsinfosatz lesen
+    IF ( NOT stritemsupplier IS INITIAL ) AND ( lv_matnr IS INITIAL ).
+
+      lv_idnlf = stritemsupplier."Materialnummer beim Lieferanten
+*     Lese aus Einkausfsinfosatz mit Materialnummer beim Lieferanten
+      SELECT SINGLE matnr lmein FROM eina
+             INTO (lv_matnr, lv_meinh)
+             WHERE idnlf = lv_idnlf.
+
+      IF sy-subrc <> 0.
+*     Fehler! Feld stritemsupplier &1 ungültig. Abbruch Verarbeitung
+        MESSAGE e109(zwebservice) WITH stritemsupplier INTO str_remark.
+        getexavailabilityresult = 512.
+        str_itemstate           = getexavailabilityresult.
+        dbl_amount              = 0.         "Menge
+        EXIT.
+      ENDIF.
+    ENDIF.
+
+*   Artikeltype ist die (Deha-)Artikelnummer
+    IF ( NOT stritemtype IS INITIAL ) AND ( lv_matnr IS INITIAL ).
+
+      lv_matnr = stritemtype.
+      SHIFT lv_matnr RIGHT DELETING TRAILING ' '.
+      OVERLAY lv_matnr WITH '000000000000000000'.
+
+*   Lese Einkausfsinfosatz
+      SELECT SINGLE matnr lmein FROM eina
+             INTO (lv_matnr, lv_meinh)
+             WHERE matnr = lv_matnr.
+
+      IF sy-subrc <> 0.
+*     Fehler! Feld stritemtype &1 ungültig. Abbruch Verarbeitung
+        MESSAGE e110(zwebservice) WITH stritemtype INTO str_remark.
+        getexavailabilityresult = 512.
+        str_itemstate           = getexavailabilityresult.
+        dbl_amount              = 0.         "Menge
+        EXIT.
+      ENDIF.
+    ENDIF.
+
+*   Folgeprüfung des Artikels
+
+    CLEAR wa_mara.
+*   Bestimme Artikelstatus und Beschreibung
+    SELECT SINGLE * FROM mara
+           INTO wa_mara
+           WHERE matnr = lv_matnr AND
+                 lvorm = ' '.
+
+    IF sy-subrc = 0.
+*   Lese Artikelbezeichnung
+      SELECT SINGLE * FROM makt
+             INTO wa_makt
+             WHERE matnr = lv_matnr AND
+                   spras = sy-langu.
+
+      IF sy-subrc = 0.
+        str_itemdescription = wa_makt-zzmakttx3.
+      ENDIF.
+
+*   Lese Materialstatus aus Mat-/PPS-Sicht
+      SELECT SINGLE * FROM t141t
+             INTO wa_t141t
+             WHERE mmsta = wa_mara-mstae AND
+                   spras = sy-langu.
+
+      IF sy-subrc = 0.
+        str_itemstate = wa_t141t-mtstb.
+      ENDIF.
+    ELSE.
+*     Fehler! Artikel &1 ungültig oder Material zum Löschen vorgemerkt.
+      MESSAGE e111(zwebservice) WITH lv_matnr INTO str_remark.
+      getexavailabilityresult = 256.
+      str_itemstate           = getexavailabilityresult.
+      dbl_amount              = 0.         "Menge
+*     str_remark = 'Fehler! Artikel ungültig oder Material auf Mandantenebene zum Löschen vorgemerkt. Abbruch Verarbeitung'.
+      EXIT.
+    ENDIF.
+
+    IF lv_werks IS NOT INITIAL.
+*     Folgeprüfung des Artikels auf Werksdaten
+      SELECT SINGLE * FROM marc
+             INTO wa_marc
+             WHERE matnr = lv_matnr AND
+                   werks = lv_werks.
+
+      IF sy-subrc <> 0.
+*       Fehler! Filiale &1 für diesen Artikel &2 ungültig. Abbruch Verarbeitung
+        MESSAGE e112(zwebservice) WITH lv_werks lv_matnr INTO str_remark.
+        getexavailabilityresult = 512.
+        str_itemstate           = getexavailabilityresult.
+        dbl_amount              = 0.         "Menge
+        EXIT.
+      ELSE.
+*       Übergabe Werte an BAPI Felder
+        lv_plant  = lv_werks.
+      ENDIF.
+    ENDIF.
+
+*   Übergabe Werte an BAPI Felder
+    lv_material = lv_matnr.
+    IF lv_check_menge = 'X'.
+      lv_unit = lv_msehi.
+    ELSE.
+      lv_unit = lv_meinh.
+    ENDIF.
+
+* 26.09.2012 - MurgiaAn Gesteuerte Antwort an Partner abhängig vom im materialstamm
+*                       hinterlegten kennzeichen.
+* 10.09.2013 - MurgiaAn Neues kennzeichen aus dem kundenstamm
+
+    CLEAR lv_zz_freivn.
+    CLEAR lv_schalter.
+
+    SELECT SINGLE zz_freivn FROM mara
+           INTO lv_zz_freivn
+           WHERE matnr = lv_material.
+
+    IF lv_zz_freivn = 'X'.
+      MOVE 'J' TO lv_schalter.
+    ELSE.
+      MOVE 'N' TO lv_schalter.
+    ENDIF.
+
+    IF lv_schalter = 'J'.
+
+*     Übergabe der Konstanten falls leer
+*      IF lv_plant IS INITIAL."20190226/Loewener el#498659
+*        lv_plant = lc_plant."20190226/Loewener el#498659
+*      ENDIF."20190226/Loewener el#498659
+      IF lv_unit IS INITIAL.
+        lv_unit = lc_unit.
+      ENDIF.
+
+* 16.04.2013 - MurgiaAn die aus dem Funktionsbaustein errechnete Verfügbare Menge soll dem
+*                       Dehapartner übergeben werden. lv_verfuegbarkeit --> dblamount
+* 16.12.2013 - MurgiaAn Abgefragt darf nur die Filale "1100" werden, keine andere sonst.
+*20190226/Loewener el#498659 Umbauen der Materialbestandsprüfung für den Werkswechsel
+
+      CLEAR:   lv_verfuegbarkeit, lv_werksbestand.
+      REFRESH: lt_wmdvsx, lt_wmdvex.
+
+* Für den Fuba ZEL_GET_WERTE
+      DATA: lt_liste TYPE TABLE OF zel_wert,
+            lv_werk  TYPE werks_d.
+
+      FIELD-SYMBOLS: <werk> TYPE zel_wert.
+
+      CALL FUNCTION 'ZEL_GET_WERTE'
+        EXPORTING
+          iv_zkey         = 'Z_GETEXAVAILABILITY_WERK'
+         iv_repid        = sy-repid
+     IMPORTING
+*   EV_WERT         = EV_WERT
+        et_liste        = lt_liste
+* EXCEPTIONS
+*   NOT_FOUND       = 1
+*   NO_VALUE        = 2
+*   OTHERS          = 3
+    .
+
+      LOOP AT lt_liste ASSIGNING <werk>.
+
+        MOVE <werk> TO lv_werk.
+
+* ATP-Auskunft
+        CALL FUNCTION 'BAPI_MATERIAL_AVAILABILITY'
+          EXPORTING
+            plant      = lv_werk
+*           plant      = lv_plant
+            material   = lv_material
+            UNIT       = lv_unit
+*           check_rule = lc_pruefregel "Als Prüfregel wird im Funktionsbaustein die des Vertriebs (A) herangezogen
+          IMPORTING
+            av_qty_plt = lv_werksbestand
+            dialogflag = lv_dialogflag
+            return     = ls_return
+          TABLES
+            wmdvsx     = lt_wmdvsx
+            wmdvex     = lt_wmdvex."Ausgabetabelle (Termin(e) und ATP-Menge(n))
+
+        LOOP AT lt_wmdvex INTO wa_wmdvex.
+*       Die verfügbare Menge (ATP = Available-to-promise) ist die Menge,
+*       die noch für die Bestätigung neu eintreffender Aufträge verfügbar ist.
+*       Die ATP-Menge berechnet sich nach folgender Formel:
+*       ATP-Menge = Lagerbestand + geplante Zugänge - geplante Abgänge
+          IF wa_wmdvex-com_date = sy-datum.
+            ADD wa_wmdvex-com_qty TO lv_verfuegbarkeit .
+          ENDIF.
+        ENDLOOP.
+        REFRESH lt_wmdvex.
+        CLEAR: wa_wmdvex, lv_werk.
+      ENDLOOP.
+
+      FREE <werk>.
+
+
+*20190226/Loewener el#498659
+
+** ATP-Auskunft
+*      CALL FUNCTION 'BAPI_MATERIAL_AVAILABILITY'
+*        EXPORTING
+*          plant      = '1100'
+**         plant      = lv_plant
+*          material   = lv_material
+*          unit       = lv_unit
+**         check_rule = lc_pruefregel "Als Prüfregel wird im Funktionsbaustein die des Vertriebs (A) herangezogen
+*        IMPORTING
+*          av_qty_plt = lv_werksbestand
+*          dialogflag = lv_dialogflag
+*          return     = ls_return
+*        TABLES
+*          wmdvsx     = lt_wmdvsx
+*          wmdvex     = lt_wmdvex."Ausgabetabelle (Termin(e) und ATP-Menge(n))
+*      LOOP AT lt_wmdvex INTO wa_wmdvex.
+**       Die verfügbare Menge (ATP = Available-to-promise) ist die Menge,
+**       die noch für die Bestätigung neu eintreffender Aufträge verfügbar ist.
+**       Die ATP-Menge berechnet sich nach folgender Formel:
+**       ATP-Menge = Lagerbestand + geplante Zugänge - geplante Abgänge
+*        IF wa_wmdvex-com_date = sy-datum.
+*          ADD wa_wmdvex-com_qty TO lv_verfuegbarkeit .
+*        ENDIF.
+*      ENDLOOP.
+
+* 13.11.2014 - MurgiaAn, dblamount wird im falle von teilverfügbarkeit durch 0
+*                        überschrieben statt die original abgefragte Menge zurückzugeben.
+
+      IF sy-subrc = 0.
+        "0 = nicht verfügbar
+        "1 = voll verfügbar
+        "2 = Teilverfügbar
+        IF lv_check_menge = 'X'.
+          IF lv_verfuegbarkeit >= dblamount."Wenn Größergleich => voll verfügbar
+            getexavailabilityresult = 1.
+            str_remark = 'voll verfügbar'.
+            str_itemstate           = getexavailabilityresult.
+            dbl_amount              = dblamount.         "Menge
+          ELSE.
+            IF lv_verfuegbarkeit > 0. "Wenn größer 0 => Teilverfügbar
+              getexavailabilityresult = 2.
+              str_remark = 'Teilverfügbar'.
+              str_itemstate           = getexavailabilityresult.
+              dbl_amount              = lv_verfuegbarkeit.
+            ELSE.
+              getexavailabilityresult = 4."sonst nicht verfügbar
+              str_remark = 'nicht verfügbar'.
+              str_itemstate           = getexavailabilityresult.
+              dbl_amount              = 0.         "Menge
+            ENDIF.
+          ENDIF.
+        ELSE.
+          IF lv_verfuegbarkeit > 0.
+            getexavailabilityresult = 1."Wenn Größer => voll verfügbar
+            str_remark = 'voll verfügbar'.
+            str_itemstate           = getexavailabilityresult.
+            dbl_amount              = dblamount.         "Menge
+          ELSE.
+            getexavailabilityresult = 4."sonst nicht verfügbar
+            str_remark = 'nicht verfügbar'.
+            str_itemstate           = getexavailabilityresult.
+            dbl_amount              = 0.         "Menge
+          ENDIF.
+        ENDIF.
+      ELSE.
+*   Kein Bestand
+        getexavailabilityresult = 4."sonst nicht verfügbar
+        str_remark = 'keine ATP-Menge verfügbar'.
+        str_itemstate           = getexavailabilityresult.
+        dbl_amount              = 0.         "Menge
+      ENDIF.
+
+      IF NOT ls_return-message IS INITIAL.
+        str_remark          = ls_return-message.  "Anmerkungen
+      ENDIF.
+    ELSE.
+      getexavailabilityresult = 4."sonst nicht verfügbar
+      str_remark = 'nicht verfügbar'.
+      str_itemstate           = getexavailabilityresult.
+      dbl_amount              = 0.         "Menge
+    ENDIF.
+
+* 14.02.2013 - MurgiaAn Diverse Prüfungen auf Materialebene.
+
+    DATA: w_auslaufkz     LIKE mara-mstae.
+
+    CLEAR w_auslaufkz.
+
+    SELECT SINGLE mstae FROM mara
+           INTO w_auslaufkz
+           WHERE matnr = lv_material.
+
+    CASE w_auslaufkz.
+      WHEN 'W1'.
+        IF getexavailabilityresult = 4.
+          getexavailabilityresult = 52. "nicht Verfügbar, Auslaufartikel, Nachlieferung nicht möglich
+          str_remark              = 'nicht Verfügbar, Auslaufartikel, Nachlieferung nicht möglich'.
+          str_itemstate           = getexavailabilityresult.
+          dbl_amount              = 0.         "Menge
+        ENDIF.
+        IF getexavailabilityresult = 2.
+          getexavailabilityresult = 50. "Teilweise Verfügbar, Auslaufartikel, Nachlieferung nicht möglich
+          str_remark              = 'Teilweise Verfügbar, Auslaufartikel, Nachlieferung nicht möglich'.
+          str_itemstate           = getexavailabilityresult.
+          dbl_amount              = lv_verfuegbarkeit.
+        ENDIF.
+        IF getexavailabilityresult = 1.
+          getexavailabilityresult = 49. "Voll Verfügbar, Auslaufartikel, Nachlieferung nicht möglich
+          str_remark              = 'Voll Verfügbar, Auslaufartikel, Nachlieferung nicht möglich'.
+          str_itemstate           = getexavailabilityresult.
+          dbl_amount              = dblamount.
+        ENDIF.
+      WHEN 'W2'.
+        IF getexavailabilityresult = 4.
+          getexavailabilityresult = 52. "nicht Verfügbar, Auslaufartikel, Nachlieferung nicht möglich
+          str_remark              = 'nicht Verfügbar, Auslaufartikel, Nachlieferung nicht möglich'.
+          str_itemstate           = getexavailabilityresult.
+          dbl_amount              = 0.         "Menge
+        ENDIF.
+        IF getexavailabilityresult = 2.
+          getexavailabilityresult = 50. "Teilweise Verfügbar, Auslaufartikel, Nachlieferung nicht möglich
+          str_remark              = 'Teilweise Verfügbar, Auslaufartikel, Nachlieferung nicht möglich'.
+          str_itemstate           = getexavailabilityresult.
+          dbl_amount              = lv_verfuegbarkeit.
+        ENDIF.
+        IF getexavailabilityresult = 1.
+          getexavailabilityresult = 49. "Voll Verfügbar, Auslaufartikel, Nachlieferung nicht möglich
+          str_remark              = 'Voll Verfügbar, Auslaufartikel, Nachlieferung nicht möglich'.
+          str_itemstate           = getexavailabilityresult.
+          dbl_amount              = dblamount.
+        ENDIF.
+      WHEN 'X1'.
+        IF getexavailabilityresult = 4.
+          getexavailabilityresult = 52. "nicht Verfügbar, Auslaufartikel, Nachlieferung nicht möglich
+          str_remark              = 'nicht Verfügbar, Auslaufartikel, Nachlieferung nicht möglich'.
+          str_itemstate           = getexavailabilityresult.
+          dbl_amount              = 0.         "Menge
+        ENDIF.
+        IF getexavailabilityresult = 2.
+          getexavailabilityresult = 50. "Teilweise Verfügbar, Auslaufartikel, Nachlieferung nicht möglich
+          str_remark              = 'Teilweise Verfügbar, Auslaufartikel, Nachlieferung nicht möglich'.
+          str_itemstate           = getexavailabilityresult.
+          dbl_amount              = lv_verfuegbarkeit.
+        ENDIF.
+        IF getexavailabilityresult = 1.
+          getexavailabilityresult = 49. "Voll Verfügbar, Auslaufartikel, Nachlieferung nicht möglich
+          str_remark              = 'Voll Verfügbar, Auslaufartikel, Nachlieferung nicht möglich'.
+          str_itemstate           = getexavailabilityresult.
+          dbl_amount              = dblamount.
+        ENDIF.
+      WHEN 'X2'.
+        IF getexavailabilityresult = 4.
+          getexavailabilityresult = 52. "nicht Verfügbar, Auslaufartikel, Nachlieferung nicht möglich
+          str_remark              = 'nicht Verfügbar, Auslaufartikel, Nachlieferung nicht möglich'.
+          str_itemstate           = getexavailabilityresult.
+          dbl_amount              = 0.         "Menge
+        ENDIF.
+        IF getexavailabilityresult = 2.
+          getexavailabilityresult = 50. "Teilweise Verfügbar, Auslaufartikel, Nachlieferung nicht möglich
+          str_remark              = 'Teilweise Verfügbar, Auslaufartikel, Nachlieferung nicht möglich'.
+          str_itemstate           = getexavailabilityresult.
+          dbl_amount              = lv_verfuegbarkeit.
+        ENDIF.
+        IF getexavailabilityresult = 1.
+          getexavailabilityresult = 49. "Voll Verfügbar, Auslaufartikel, Nachlieferung nicht möglich
+          str_remark              =  'Voll Verfügbar, Auslaufartikel, Nachlieferung nicht möglich'.
+          str_itemstate           = getexavailabilityresult.
+          dbl_amount              = dblamount.
+        ENDIF.
+      WHEN OTHERS.
+    ENDCASE.
+
+*   MurgiaAn - Hier auch die Prüfung auf Vertragsware implementiert
+
+    DATA: x_lieferant     TYPE mara-mfrnr,
+          x_vertrag       TYPE zel_sd_vwl-vertrag,
+          x_kunde         TYPE zel_sd_vwk-kunde,
+          x_text          TYPE zel_sd_vwk-zzfach_kz_text,
+          x_mtart         TYPE mara-mtart,
+          x_mtpos_mara    TYPE mara-mtpos_mara,
+          x_meins         TYPE mara-meins.
+
+    DATA: peinh           LIKE mvke-aumng,
+          peinhx(8)       TYPE c,
+          peinhx2(8)      TYPE c,
+          i_kunnr         LIKE kna1-kunnr,
+          i_vkorg         LIKE knvv-vkorg,
+          i_vtweg         LIKE knvv-vtweg,
+          i_spart         LIKE knvv-spart.
+
+    DATA: xknumh          LIKE a018-knumh,
+          ynet(15)        TYPE c.
+
+    FIELD-SYMBOLS: <komv>     TYPE komv.
+
+    CLEAR x_lieferant.
+    CLEAR x_vertrag.
+    CLEAR x_kunde.
+    CLEAR x_text.
+    CLEAR x_mtart.
+    CLEAR x_mtpos_mara.
+    CLEAR xknumh.
+    CLEAR x_meins.
+    CLEAR i_kunnr.
+    CLEAR i_vkorg.
+    CLEAR i_vtweg.
+    CLEAR i_spart.
+
+
+    SELECT SINGLE mfrnr mtart mtpos_mara meins FROM mara
+           INTO (x_lieferant, x_mtart, x_mtpos_mara, x_meins)
+           WHERE matnr = lv_material.
+
+    SELECT SINGLE vertrag FROM zel_sd_vwl
+           INTO x_vertrag
+           WHERE lieferant = x_lieferant.
+
+    IF sy-subrc = 0.
+
+* 10.09.2013 - MurgiaAn Zuordnung der neuen Kundennummern.
+
+      CASE strcustomergln.
+        WHEN '4031271000006'.
+          MOVE '0000426836'       TO x_kunde.
+        WHEN '4015828000008'.
+          MOVE '0000426834'       TO x_kunde.
+        WHEN '4018062000001'.
+          MOVE '0000426833'       TO x_kunde.
+        WHEN '4399901798281'.
+          MOVE '0000426835'       TO x_kunde.
+        WHEN '4046725000006'.
+          MOVE '0000426849'       TO x_kunde.
+        WHEN OTHERS.
+          CLEAR x_kunde.
+      ENDCASE.
+
+      SELECT SINGLE zzfach_kz_text FROM zel_sd_vwk
+             INTO x_text
+             WHERE kunde    = x_kunde AND
+                   vertrag  = x_vertrag.
+
+      IF sy-subrc NE 0.
+
+        CASE getexavailabilityresult.
+          WHEN 4.
+            getexavailabilityresult = 68. "nicht Verfügbar, Bezugsberechtigung fehlt
+            str_remark              = 'nicht Verfügbar, Bezugsberechtigung fehlt'.
+            str_itemstate           = getexavailabilityresult.
+            dbl_amount              = 0.         "Menge
+          WHEN 2.
+            getexavailabilityresult = 66. "Teilweise Verfügbar, Bezugsberechtigung fehlt
+            str_remark              = 'Teilweise Verfügbar, Bezugsberechtigung fehlt'.
+            str_itemstate           = getexavailabilityresult.
+            dbl_amount              = lv_verfuegbarkeit.
+          WHEN 1.
+            getexavailabilityresult = 65. "Voll Verfügbar, Bezugsberechtigung fehlt
+            str_remark              = 'Voll Verfügbar, Bezugsberechtigung fehlt'.
+            str_itemstate           = getexavailabilityresult.
+            dbl_amount              = dblamount.         "Menge
+          WHEN 49.
+            getexavailabilityresult = 113. "Voll Verfügbar, Auslaufartikel, Nachlieferung nicht möglich, Bezugsberechtigung fehlt
+            str_remark              = 'Voll Verfügbar, Auslaufartikel, Nachlieferung nicht möglich, Bezugsberechtigung fehlt'.
+            str_itemstate           = getexavailabilityresult.
+            dbl_amount              = dblamount.         "Menge
+          WHEN 52.
+            getexavailabilityresult = 116. "nicht Verfügbar, Auslaufartikel, Nachlieferung nicht möglich, Bezugsberechtigung fehlt
+            str_remark              = 'nicht Verfügbar, Auslaufartikel, Nachlieferung nicht möglich, Bezugsberechtigung fehlt'.
+            str_itemstate           = getexavailabilityresult.
+            dbl_amount              = 0.         "Menge
+          WHEN 50.
+            getexavailabilityresult = 114. "Teilweise Verfügbar, Auslaufartikel, Nachlieferung nicht möglich, Bezugsberechtigung fehlt
+            str_remark              = 'Teilweise Verfügbar, Auslaufartikel, Nachlieferung nicht möglich, Bezugsberechtigung fehlt'.
+            str_itemstate           = getexavailabilityresult.
+            dbl_amount              = lv_verfuegbarkeit.
+          WHEN OTHERS.
+        ENDCASE.
+
+      ENDIF.
+
+    ENDIF.
+
+*--------------------------------------------------------------------*
+* 20.04.2015 - MurgiaAn - Preisfindung für die Weitergabe
+*              Ticket   - el#405275
+*--------------------------------------------------------------------*
+
+    CLEAR entscheidung.
+    MOVE 'ja' TO entscheidung.
+
+    IF x_mtart = 'ZSET'.
+      MOVE 'no' TO entscheidung.
+    ENDIF.
+
+    IF x_mtart = 'DIEN'.
+      MOVE 'no' TO entscheidung.
+    ENDIF.
+
+    IF x_mtart = 'ZCPD'.
+      MOVE 'no' TO entscheidung.
+    ENDIF.
+
+    IF x_mtart = 'ZPMA'.
+      MOVE 'no' TO entscheidung.
+    ENDIF.
+
+    IF x_mtart = 'ZWER'.
+      MOVE 'no' TO entscheidung.
+    ENDIF.
+
+    IF x_mtart = 'ZVER'.
+      MOVE 'no' TO entscheidung.
+    ENDIF.
+
+    IF x_mtpos_mara = 'ZNEV'.
+      MOVE 'no' TO entscheidung.
+    ENDIF.
+
+    IF x_mtpos_mara = 'ZCOL'.
+      MOVE 'no' TO entscheidung.
+    ENDIF.
+
+    IF x_mtpos_mara = 'LEIS'.
+      MOVE 'no' TO entscheidung.
+    ENDIF.
+
+    IF x_mtpos_mara = 'ZSIS'.
+      MOVE 'no' TO entscheidung.
+    ENDIF.
+
+    IF x_mtpos_mara = 'ZUMF'.
+      MOVE 'no' TO entscheidung.
+    ENDIF.
+
+    IF strdehaitemnumber+0(2) = '90'.
+      MOVE 'no' TO entscheidung.
+    ENDIF.
+
+    IF strdehaitemnumber+0(1) = 'P'.
+      MOVE 'no' TO entscheidung.
+    ENDIF.
+
+* bei entscheidung = 'NO', erfolgt keine Preisübergabe.
+
+    CLEAR price.
+    CLEAR priceunit.
+
+    IF entscheidung = 'no'.
+
+      dbl_price       = price.                              "ES17042015
+      str_priceunit   = priceunit.                          "ES17042015
+
+    ELSE.
+
+      CASE strcustomergln.
+        WHEN '4031271000006'.
+          MOVE '0000426836'       TO x_kunde.
+        WHEN '4015828000008'.
+          MOVE '0000426834'       TO x_kunde.
+        WHEN '4018062000001'.
+          MOVE '0000426833'       TO x_kunde.
+        WHEN '4399901798281'.
+          MOVE '0000426835'       TO x_kunde.
+        WHEN '4046725000006'.
+          MOVE '0000426849'       TO x_kunde.
+        WHEN OTHERS.
+          CLEAR x_kunde.
+      ENDCASE.
+
+      REFRESH lt_shop_prices_out.
+      REFRESH lt_komv.
+
+      SELECT SINGLE knumh FROM a018
+             INTO xknumh
+             WHERE kappl = 'M'         AND
+                   lifnr = x_lieferant AND
+                   matnr = lv_material AND
+                   kschl = 'PB00'      AND
+                   ekorg = 1000        AND
+                   datab <= zeit       AND
+                   datbi >= zeit.
+
+      IF sy-subrc = 4.
+
+        SELECT SINGLE knumh FROM a705
+               INTO xknumh
+               WHERE kappl = 'M'         AND
+                     kschl = 'YUVP'      AND
+                     ekorg = 1000        AND
+                     lifnr = x_lieferant AND
+                     esokz = 0           AND
+                     matnr = lv_material AND
+                     datab <= zeit       AND
+                     datbi >= zeit.
+
+      ENDIF.
+
+      IF sy-subrc NE 4.
+
+        SELECT SINGLE kpein FROM konp
+               INTO peinh
+               WHERE knumh = xknumh.
+
+      ENDIF.
+
+      IF peinh = ''.
+        MOVE 1 TO peinh.
+      ENDIF.
+
+      IF x_meins = ''.
+        MOVE 'ST' TO x_meins.
+      ENDIF.
+
+      CLEAR i_vkorg.
+      CLEAR i_vtweg.
+      CLEAR i_spart.
+
+      CLEAR peinhx.
+      CLEAR peinhx2.
+
+      SELECT SINGLE vkorg vtweg spart FROM knvv
+             INTO (i_vkorg, i_vtweg, i_spart)
+             WHERE kunnr = x_kunde   AND
+                   loevm NE 'X'      AND
+                   aufsd = ''        AND
+                   loevm = ''.
+
+      MOVE '10'         TO lwa_shop_prices_out-posnr.
+      MOVE lv_material  TO lwa_shop_prices_out-matnr.
+      MOVE peinh        TO lwa_shop_prices_out-menge.
+      MOVE x_meins      TO lwa_shop_prices_out-meins.
+
+      APPEND lwa_shop_prices_out TO lt_shop_prices_out.
+
+      CALL FUNCTION 'ZTRADE_SHOP_PRICING_MULTI_MDA'
+        EXPORTING
+          i_calculation_type       = 'C'
+          i_vkorg                  = i_vkorg
+          i_vtweg                  = i_vtweg
+          i_spart                  = i_spart
+          i_kunnr                  = x_kunde
+          i_auart                  = 'ZAN1'
+          i_pstyv                  = space
+          i_werks                  = space
+          i_com_only               = space
+          i_kalsm                  = lwa_kalsm
+        TABLES
+          t_ztrade_shop_prices_out = lt_shop_prices_out
+          t_komv                   = lt_komv.
+
+      IF sy-subrc = 0.
+
+        CLEAR ynet.
+
+        READ TABLE  lt_komv   WITH KEY
+                        kschl =   'YNET'
+                                    ASSIGNING <komv>.
+
+        IF sy-subrc EQ 0.
+
+*          MOVE <komv>-kwert TO ynet.
+          MOVE <komv>-kbetr TO ynet.
+          MOVE <komv>-kpein TO peinhx.
+
+        ENDIF.
+
+*        TRANSLATE ynet USING  '.,'.
+
+        REPLACE ALL OCCURRENCES OF '.000' IN peinhx WITH ''.
+
+        MOVE peinhx  TO peinh.
+        MOVE ynet    TO dbl_price.
+        WRITE peinhx TO peinhx2.
+
+        CONDENSE peinhx2 NO-GAPS.
+
+        MOVE peinhx2 TO str_priceunit.
+
+      ELSE.
+
+        dbl_price       = price.                            "ES17042015
+        str_priceunit   = priceunit.                        "ES17042015
+
+      ENDIF.
+
+    ENDIF.
+
+* 20200324/Loewener el#4142168: Echter Bestand unterdrücken ausser bei der DEHA selbst
+* Diese Änderung ist auf Anweisung der Geschäftsleitung eingebaut worden
+* Bei Rückfragen Allgemein an Holger Carl wenden
+* Auf Rückfrage von Außen ist Anzumerken das es sich hierbei um einen Fehler des Werkswechesel handelt
+* 20201202/Loewener el#4142168: Wieder Bestand zurück geben lassen
+*if strcustomergln <> '4046725000006'.
+*
+*      getexavailabilityresult = 4.
+*      str_remark = 'nicht verfügbar'.
+*      str_itemstate           = 4.         "Produktstatus 4 nicht verfügbar
+*      dbl_amount              = 0.         "Menge
+*
+*endif.
+* 20201202/Loewener el#4142168
+* 20200324/Loewener el#4142168
+
+
+* 26.09.2012 - MurgiaAn Protokollieren der Partner Anfragen in der
+*                       eigenen Tabelle "ZEL_EGATE_ANFPRO".
+
+    MOVE strcustomergln            TO zel_egate_anfpro-customeriln.
+    MOVE strbranchgln              TO zel_egate_anfpro-branchiln.
+    MOVE stritemgtin               TO zel_egate_anfpro-itemean.
+    MOVE strdehaitemnumber         TO zel_egate_anfpro-dehanr.
+    MOVE stritemtype               TO zel_egate_anfpro-itemtype.
+    MOVE dbl_amount                TO zel_egate_anfpro-amount.
+    MOVE stramountunit             TO zel_egate_anfpro-amountunit.
+    MOVE getexavailabilityresult   TO zel_egate_anfpro-abfrageresultat.
+    MOVE str_remark                TO zel_egate_anfpro-anmerkung.
+    MOVE sy-datum                  TO zel_egate_anfpro-datum.
+    MOVE str_itemstate             TO zel_egate_anfpro-status.
+    MOVE sy-uzeit                  TO zel_egate_anfpro-zeit.
+    MOVE dbl_price                 TO zel_egate_anfpro-price.
+    MOVE str_priceunit             TO zel_egate_anfpro-priceunit.
+
+    CASE strcustomergln.
+      WHEN '4031271000006'.
+        MOVE ' Obeta '             TO zel_egate_anfpro-partner.
+      WHEN '4015828000008'.
+        MOVE ' Hardy Schmitz '     TO zel_egate_anfpro-partner.
+      WHEN '4018062000001'.
+        MOVE ' Alexander Bürkle '  TO zel_egate_anfpro-partner.
+      WHEN '4399901798281'.
+        MOVE ' Zajadacz '          TO zel_egate_anfpro-partner.
+      WHEN '4046725000006'.
+        MOVE ' DEHA '              TO zel_egate_anfpro-partner.
+      WHEN OTHERS.
+        MOVE ' Keine Daten '       TO zel_egate_anfpro-partner.
+    ENDCASE.
+
+    INSERT zel_egate_anfpro.
+
+* 27.03.2015 - MurgiaAn - Ticket 420699 Anpassen der gemeldeten Menge
+
+    str_itemgtin              = stritemgtin.
+    str_itemsupplier          = stritemsupplier.
+    str_itemtype              = stritemtype .
+*    dbl_amount                = dblamount.         "Menge
+    str_amountunit            = stramountunit.     "Mengeneinheit
+    str_selectivedistribution = strselectivedistribution.
+    str_dehaitemnumber        = strdehaitemnumber.
+
+* Füllen dieser Felder bereits vorher vorgenommen.
+*    dbl_price                 = space.                      "ES17042015
+*    str_priceunit             = space.                      "ES17042015
+
+
+  ENDFUNCTION.
