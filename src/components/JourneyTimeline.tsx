@@ -1,5 +1,11 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { BookOpen } from "lucide-react";
 import SectionHeading from "./SectionHeading";
+import ArticleReader from "./ArticleReader";
+import { gyannishthaMahasamadhi } from "@/data/leelaArticles";
+
+
 
 
 import imgDeeksha from "@/assets/gallery/photo-3.jpg";
@@ -121,10 +127,12 @@ const TimelineRow = ({
   event,
   index,
   finalYear = false,
+  onReadArticle,
 }: {
   event: TimelineEvent;
   index: number;
   finalYear?: boolean;
+  onReadArticle?: () => void;
 }) => {
   const special = event.mahasamadhi || finalYear;
   return (
@@ -209,8 +217,46 @@ const TimelineRow = ({
           {event.description}
         </p>
 
+        {/* Article entry — inside the Mahasamadhi card */}
+        {onReadArticle && (
+          <button
+            onClick={onReadArticle}
+            className="mt-4 w-full rounded-lg px-4 py-3 text-left transition-all hover:shadow-md focus-visible:outline-none"
+            style={{
+              background: "linear-gradient(135deg,#fffdf6 0%,#fbe6c2 100%)",
+              border: "1px solid rgba(189,139,66,.45)",
+            }}
+          >
+            <span
+              className="flex items-center gap-2 font-body text-[0.68rem] uppercase tracking-[0.18em]"
+              style={{ color: "#bd8b42" }}
+            >
+              <BookOpen size={14} /> स्मरण लेख
+            </span>
+            <span
+              className="mt-1 block font-display text-lg sm:text-xl font-semibold"
+              style={{ color: "#3d2817" }}
+            >
+              {gyannishthaMahasamadhi.title}
+            </span>
+            <span
+              className="mt-1 block font-body text-[0.85rem] leading-relaxed"
+              style={{ color: "rgba(104,66,41,.75)" }}
+            >
+              {gyannishthaMahasamadhi.excerpt}
+            </span>
+            <span
+              className="mt-2 inline-block font-body text-sm font-medium"
+              style={{ color: "#c2410c" }}
+            >
+              पूरा लेख पढ़ें →
+            </span>
+          </button>
+        )}
+
         {/* Photo for select milestones */}
         {event.image && (
+
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -239,6 +285,7 @@ const TimelineRow = ({
 };
 
 const JourneyTimeline = () => {
+  const [articleOpen, setArticleOpen] = useState(false);
   return (
     <section
       id="leela"
@@ -339,6 +386,9 @@ const JourneyTimeline = () => {
                       event={event}
                       index={index}
                       finalYear
+                      onReadArticle={
+                        event.mahasamadhi ? () => setArticleOpen(true) : undefined
+                      }
                     />
                   ))}
                 </div>
@@ -347,6 +397,12 @@ const JourneyTimeline = () => {
           </div>
         </div>
       </div>
+
+      <ArticleReader
+        article={gyannishthaMahasamadhi}
+        open={articleOpen}
+        onClose={() => setArticleOpen(false)}
+      />
     </section>
   );
 };
