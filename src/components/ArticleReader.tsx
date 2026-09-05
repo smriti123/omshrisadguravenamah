@@ -87,6 +87,60 @@ const ArticleReader = ({ article, open, onClose }: Props) => {
               </div>
             </header>
 
+            {article.letterPages && article.letterPages.length > 0 && (
+              <div className="mb-10">
+                <p
+                  className="mb-5 text-center font-body text-sm tracking-wide sm:text-base"
+                  style={{ color: "#a05a10" }}
+                >
+                  ✍️ मूल हस्तलिखित पृष्ठ — बड़ा करके देखने हेतु पृष्ठ पर स्पर्श करें
+                </p>
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                  {article.letterPages.map((src, i) => (
+                    <figure key={i} className="text-center">
+                      <button
+                        type="button"
+                        onClick={() => setZoomedPage(i)}
+                        aria-label={`पृष्ठ ${i + 1} बड़ा करें`}
+                        className="block w-full overflow-hidden rounded-lg transition-transform hover:scale-[1.02]"
+                        style={{
+                          border: "1px solid rgba(189,139,66,.45)",
+                          boxShadow: "0 8px 22px rgba(45,26,10,.18)",
+                          background: "#fffdf6",
+                        }}
+                      >
+                        <img
+                          src={src}
+                          alt={`${article.title} — मूल हस्तलिखित पृष्ठ ${i + 1}`}
+                          className="w-full object-contain"
+                          loading="lazy"
+                        />
+                      </button>
+                      <figcaption
+                        className="mt-2 font-body text-sm"
+                        style={{ color: "rgba(104,66,41,.75)" }}
+                      >
+                        पृष्ठ {i + 1} / {article.letterPages.length}
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+                <div className="mx-auto mt-8 flex max-w-xs items-center gap-3" style={{ color: "#bd8b42" }}>
+                  <span
+                    className="h-px flex-1"
+                    style={{ background: "linear-gradient(90deg,rgba(189,139,66,0),#bd8b42)" }}
+                  />
+                  <span className="font-body text-sm" style={{ color: "#a05a10" }}>
+                    सरल पाठ
+                  </span>
+                  <span
+                    className="h-px flex-1"
+                    style={{ background: "linear-gradient(90deg,#bd8b42,rgba(189,139,66,0))" }}
+                  />
+                </div>
+              </div>
+            )}
+
             {article.sections.map((section, si) => (
               <section key={si} className={si > 0 ? "mt-12" : ""}>
                 {si > 0 && (
