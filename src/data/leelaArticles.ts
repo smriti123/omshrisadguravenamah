@@ -1,3 +1,8 @@
+import letterPage1 from "@/assets/letter/page1.jpg";
+import letterPage2 from "@/assets/letter/page2.jpg";
+import letterPage3 from "@/assets/letter/page3.jpg";
+import letterPage4 from "@/assets/letter/page4.jpg";
+
 export interface ArticleSection {
   heading: string;
   dateLine?: string;
@@ -9,6 +14,8 @@ export interface Article {
   title: string;
   author: string;
   excerpt: string;
+  /** Original handwritten page scans, shown before the typed text. */
+  letterPages?: string[];
   sections: ArticleSection[];
 }
 
@@ -16,6 +23,7 @@ export const gyannishthaMahasamadhi: Article = {
   id: "gyannishtha-mahasamadhi",
   title: "ज्ञाननिष्ठ की महासमाधि",
   author: "प्रस्तुति : अरुण गुप्त",
+  letterPages: [letterPage1, letterPage2, letterPage3, letterPage4],
   excerpt: "26 सितम्बर, 2020 की रात्रि मेरे जीवन की काल रात्रि होगी यह मालूम न था। मैं सदा की तरह पूज्य गुरुजी की रात में सेवा हेतु स्वयं को तैयार रखने के लिये सो…",
   sections: [
     {

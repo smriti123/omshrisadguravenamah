@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
@@ -11,6 +11,8 @@ interface Props {
 }
 
 const ArticleReader = ({ article, open, onClose }: Props) => {
+  const [zoomedPage, setZoomedPage] = useState<number | null>(null);
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
@@ -85,6 +87,60 @@ const ArticleReader = ({ article, open, onClose }: Props) => {
               </div>
             </header>
 
+            {article.letterPages && article.letterPages.length > 0 && (
+              <div className="mb-10">
+                <p
+                  className="mb-5 text-center font-body text-sm tracking-wide sm:text-base"
+                  style={{ color: "#a05a10" }}
+                >
+                  ✍️ मूल हस्तलिखित पृष्ठ — बड़ा करके देखने हेतु पृष्ठ पर स्पर्श करें
+                </p>
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                  {article.letterPages.map((src, i) => (
+                    <figure key={i} className="text-center">
+                      <button
+                        type="button"
+                        onClick={() => setZoomedPage(i)}
+                        aria-label={`पृष्ठ ${i + 1} बड़ा करें`}
+                        className="block w-full overflow-hidden rounded-lg transition-transform hover:scale-[1.02]"
+                        style={{
+                          border: "1px solid rgba(189,139,66,.45)",
+                          boxShadow: "0 8px 22px rgba(45,26,10,.18)",
+                          background: "#fffdf6",
+                        }}
+                      >
+                        <img
+                          src={src}
+                          alt={`${article.title} — मूल हस्तलिखित पृष्ठ ${i + 1}`}
+                          className="w-full object-contain"
+                          loading="lazy"
+                        />
+                      </button>
+                      <figcaption
+                        className="mt-2 font-body text-sm"
+                        style={{ color: "rgba(104,66,41,.75)" }}
+                      >
+                        पृष्ठ {i + 1} / {article.letterPages.length}
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+                <div className="mx-auto mt-8 flex max-w-xs items-center gap-3" style={{ color: "#bd8b42" }}>
+                  <span
+                    className="h-px flex-1"
+                    style={{ background: "linear-gradient(90deg,rgba(189,139,66,0),#bd8b42)" }}
+                  />
+                  <span className="font-body text-sm" style={{ color: "#a05a10" }}>
+                    सरल पाठ
+                  </span>
+                  <span
+                    className="h-px flex-1"
+                    style={{ background: "linear-gradient(90deg,#bd8b42,rgba(189,139,66,0))" }}
+                  />
+                </div>
+              </div>
+            )}
+
             {article.sections.map((section, si) => (
               <section key={si} className={si > 0 ? "mt-12" : ""}>
                 {si > 0 && (
@@ -140,6 +196,69 @@ const ArticleReader = ({ article, open, onClose }: Props) => {
                 बंद करें
               </button>
             </div>
+
+            <AnimatePresence>
+              {zoomedPage !== null && article.letterPages && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="fixed inset-0 z-[90] flex flex-col items-center justify-center p-4"
+                  style={{ background: "rgba(30,17,6,.92)" }}
+                  onClick={() => setZoomedPage(null)}
+                  role="dialog"
+                  aria-label={`पृष्ठ ${zoomedPage + 1} बड़ा दृश्य`}
+                >
+                  <img
+                    src={article.letterPages[zoomedPage]}
+                    alt={`${article.title} — मूल हस्तलिखित पृष्ठ ${zoomedPage + 1}`}
+                    className="max-h-[82vh] max-w-full rounded-lg object-contain"
+                    style={{ boxShadow: "0 20px 60px rgba(0,0,0,.5)" }}
+                  />
+                  <div
+                    className="mt-4 flex items-center gap-4"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <button
+                      type="button"
+                      disabled={zoomedPage === 0}
+                      onClick={() => setZoomedPage((p) => (p !== null && p > 0 ? p - 1 : p))}
+                      className="flex h-12 w-12 items-center justify-center rounded-full text-xl disabled:opacity-30"
+                      style={{ background: "rgba(189,139,66,.25)", color: "#fdf4e2" }}
+                      aria-label="पिछला पृष्ठ"
+                    >
+                      ←
+                    </button>
+                    <span className="font-body text-base" style={{ color: "#fdf4e2" }}>
+                      पृष्ठ {zoomedPage + 1} / {article.letterPages.length}
+                    </span>
+                    <button
+                      type="button"
+                      disabled={zoomedPage === article.letterPages.length - 1}
+                      onClick={() =>
+                        setZoomedPage((p) =>
+                          p !== null && p < (article.letterPages?.length ?? 1) - 1 ? p + 1 : p,
+                        )
+                      }
+                      className="flex h-12 w-12 items-center justify-center rounded-full text-xl disabled:opacity-30"
+                      style={{ background: "rgba(189,139,66,.25)", color: "#fdf4e2" }}
+                      aria-label="अगला पृष्ठ"
+                    >
+                      →
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setZoomedPage(null)}
+                      className="flex h-12 w-12 items-center justify-center rounded-full"
+                      style={{ background: "rgba(189,139,66,.25)", color: "#fdf4e2" }}
+                      aria-label="बंद करें"
+                    >
+                      <X size={22} />
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.article>
         </motion.div>
       )}
