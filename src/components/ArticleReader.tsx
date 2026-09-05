@@ -196,6 +196,69 @@ const ArticleReader = ({ article, open, onClose }: Props) => {
                 बंद करें
               </button>
             </div>
+
+            <AnimatePresence>
+              {zoomedPage !== null && article.letterPages && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="fixed inset-0 z-[90] flex flex-col items-center justify-center p-4"
+                  style={{ background: "rgba(30,17,6,.92)" }}
+                  onClick={() => setZoomedPage(null)}
+                  role="dialog"
+                  aria-label={`पृष्ठ ${zoomedPage + 1} बड़ा दृश्य`}
+                >
+                  <img
+                    src={article.letterPages[zoomedPage]}
+                    alt={`${article.title} — मूल हस्तलिखित पृष्ठ ${zoomedPage + 1}`}
+                    className="max-h-[82vh] max-w-full rounded-lg object-contain"
+                    style={{ boxShadow: "0 20px 60px rgba(0,0,0,.5)" }}
+                  />
+                  <div
+                    className="mt-4 flex items-center gap-4"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <button
+                      type="button"
+                      disabled={zoomedPage === 0}
+                      onClick={() => setZoomedPage((p) => (p !== null && p > 0 ? p - 1 : p))}
+                      className="flex h-12 w-12 items-center justify-center rounded-full text-xl disabled:opacity-30"
+                      style={{ background: "rgba(189,139,66,.25)", color: "#fdf4e2" }}
+                      aria-label="पिछला पृष्ठ"
+                    >
+                      ←
+                    </button>
+                    <span className="font-body text-base" style={{ color: "#fdf4e2" }}>
+                      पृष्ठ {zoomedPage + 1} / {article.letterPages.length}
+                    </span>
+                    <button
+                      type="button"
+                      disabled={zoomedPage === article.letterPages.length - 1}
+                      onClick={() =>
+                        setZoomedPage((p) =>
+                          p !== null && p < (article.letterPages?.length ?? 1) - 1 ? p + 1 : p,
+                        )
+                      }
+                      className="flex h-12 w-12 items-center justify-center rounded-full text-xl disabled:opacity-30"
+                      style={{ background: "rgba(189,139,66,.25)", color: "#fdf4e2" }}
+                      aria-label="अगला पृष्ठ"
+                    >
+                      →
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setZoomedPage(null)}
+                      className="flex h-12 w-12 items-center justify-center rounded-full"
+                      style={{ background: "rgba(189,139,66,.25)", color: "#fdf4e2" }}
+                      aria-label="बंद करें"
+                    >
+                      <X size={22} />
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.article>
         </motion.div>
       )}
