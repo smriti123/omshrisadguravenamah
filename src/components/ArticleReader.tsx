@@ -11,6 +11,8 @@ interface Props {
 }
 
 const ArticleReader = ({ article, open, onClose }: Props) => {
+  const [zoomedPage, setZoomedPage] = useState<number | null>(null);
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
