@@ -1,3 +1,8 @@
+import letterPage1 from "@/assets/letter/page1.jpg";
+import letterPage2 from "@/assets/letter/page2.jpg";
+import letterPage3 from "@/assets/letter/page3.jpg";
+import letterPage4 from "@/assets/letter/page4.jpg";
+
 export interface ArticleSection {
   heading: string;
   dateLine?: string;
@@ -9,6 +14,8 @@ export interface Article {
   title: string;
   author: string;
   excerpt: string;
+  /** Original handwritten page scans, shown before the typed text. */
+  letterPages?: string[];
   sections: ArticleSection[];
 }
 
